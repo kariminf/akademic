@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="9cm" height="4cm" viewBox="9 5 175 69" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" cx="73.9904" cy="31.8365" rx="51.5192" ry="16.8251"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="73.9904" y="35.7365">
+      <tspan x="73.9904" y="35.7365"></tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" cx="121.921" cy="32.6774" rx="52.3601" ry="17.666"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="121.921" y="36.5774">
+      <tspan x="121.921" y="36.5774"></tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" cx="97.115" cy="39.2665" rx="86.8367" ry="33.8532"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="97.115" y="43.1665">
+      <tspan x="97.115" y="43.1665"></tspan>
+    </text>
+  </g>
+  <text font-size="11.2889" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:700" x="138.123" y="37.73">
+    <tspan x="138.123" y="37.73">FP</tspan>
+  </text>
+  <text font-size="11.2889" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:700" x="88.8466" y="37.1086">
+    <tspan x="88.8466" y="37.1086">TP</tspan>
+  </text>
+  <text font-size="11.2889" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:700" x="44.6156" y="36.0574">
+    <tspan x="44.6156" y="36.0574">FN</tspan>
+  </text>
+  <text font-size="11.2889" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:700" x="84.8944" y="65.699">
+    <tspan x="84.8944" y="65.699">TN</tspan>
+  </text>
+  <text font-size="11.2889" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:700" x="20.6829" y="47.7864">
+    <tspan x="20.6829" y="47.7864">M</tspan>
+  </text>
+  <text font-size="11.2889" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:700" x="148.972" y="56.3145">
+    <tspan x="148.972" y="56.3145">S</tspan>
+  </text>
+  <text font-size="11.2889" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:700" x="23.709" y="16.2415">
+    <tspan x="23.709" y="16.2415">E</tspan>
+  </text>
+</svg>

@@ -1,0 +1,143 @@
+%==================================================================================
+%==================================================================================
+% Document		:		Introduction
+%
+% Auteur		: 		Abdelkrime ARIES
+% Encadreur		:		Dr. Omar NOUALI
+% Co-encadreur	:		Mme. Houda OUFAIDA
+% Établissement	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adresse		:		Oued Smar, Alger, Algérie 
+% Année			:		2012/2013
+% Grade			:		Magister
+% discipline 	:		Informatique 
+% Spécialité	:		IRM (Informatique Répartie et Mobile)
+% Titre			:		Résumé automatique de textes
+%
+%==================================================================================
+%==================================================================================
+
+%==========================L'entete de chapitre====================================
+%==================================================================================
+ \ifx\wholebook\relax\else
+  	\documentclass[a4paper,12pt,oneside]{../use/ESIthesis}
+  	
+  	\input{../use/formatAndDefs}
+  	 	
+  	 	\setracine{../}
+  	 	\graphicspath{{.}{../fig/}}
+  	 	
+  	 	\begin{document}
+  	 	
+  	 	%\dominitoc 
+  	 	\selectlanguage {francais}
+  	 	%just to create the .toc file, then you can hide it
+  	 	%\tableofcontents
+  	 	\mainmatter
+  \fi
+%==================================================================================
+
+\chapter*{Introduction}
+%\label{chap:intro}
+\addcontentsline{toc}{part}{Introduction}
+\fancyhead[L]{\bfseries\nouppercase{Introduction}}
+%\minitoc
+
+\section*{Problématique}
+
+La forte augmentation de documents disponibles en format numérique a fait ressortir la nécessité de concevoir des outils spécifiques pour accéder à l'information pertinente. 
+Parmi ces outils on trouve les systèmes de résumé automatique.
+
+Le but du résumé automatique est de produire une version condensée du document source à l'aide de techniques informatiques. 
+Ceci afin d'aider le lecteur à décider si le document en question contient l'information recherchée ou non. 
+
+La plupart des travaux dans le domaine du résumé automatique sont basés sur l'approche par extraction, ceci consiste à extraire des phrases complètes censées être les plus pertinentes du texte et à les concaténer de façon à produire un extrait. 
+Il s'agit d'appliquer les méthodes statistiques pour attribuer des scores à chaque phrase reflétant son importance dans le texte. 
+Le résumé final ne gardera que les phrases avec un score élevé.
+
+Le score attribué à chaque phrase est calculé en combinant les scores des critères utilisés (la fréquence des mots, la position de phrases, etc.). 
+%En effet, cette combinaison ne doit pas être une simple somme, puisqu'il peut arriver que certains critères soient plus importants que d'autres. 
+En effet, cette combinaison est plus qu'une simple somme, puisque certains critères sont plus importants que d'autres. 
+Ainsi, il faut attribuer un poids à chaque critère soit manuellement, soit par apprentissage. 
+%Étant donné notre objectif est de développer une méthode indépendante du genre et de la langue, ces deux solutions ne sont pas assez satisfaisantes.
+%La première solution fixe les poids de critères, qui élimine la flexibilité du système vis-à-vis les variations en genre et en langue. 
+%La deuxième solution se base sur un corpus d'entrainement pour fixer les poids, ceci nous fournit des poids dépendants du genre et de la langue de ce corpus.
+
+\section*{Apport}
+
+Dans ce mémoire, nous proposons une nouvelle méthode pour le résumé automatique de textes, basée sur une approche statistique, ceci dans le but de rendre la méthode la plus générale possible.
+Dans l'approche statistique, le système utilise un groupe de critères pour juger la pertinence des unités à extraire (phrases en général). 
+À ces critères sont attribués des poids, soit manuellement, soit par apprentissage, pour les combiner dans un seul score utilisé pour définir la pertinence.
+
+Notre objectif étant de développer une méthode de résumé générale, avec une faible dépendance au genre et à la langue du texte d'entrée. 
+C'est pourquoi, nous avons décidé d'utiliser une approche statistique au lieu d'une approche linguistique, puisque la première utilise très peu de ressources linguistiques, négligeables par rapport à la deuxième approche.
+La combinaison des différents critères dans l'approche statistique, est souvent réalisée en utilisant l'apprentissage.
+Ce dernier a besoin d'un corpus d'entraînement, ce qui rend le système dépendant au genre et à la langue du corpus.
+Afin de contourner ce problème, nous proposons d'effectuer l'apprentissage sur le texte d'entrée.
+L'algorithme d'apprentissage (ici, N\"ive Bayes) est utilisé comme méthode de notation de phrases en fusionnant les différents scores des critères utilisés.
+L'apprentissage est appliqué aux différents thèmes présents dans le texte d'entrée.
+%Cela est accompli en entrainant le système sur les différents thèmes présents dans le texte d'entrée. 
+Pour chaque thème, on obtient un modèle qui peut être, ensuite, utilisé pour donner un score à chaque phrase. 
+Afin de trouver les différents thèmes du texte d'entrée, nous avons utilisé le regroupement, souvent utilisé pour cette tâche.
+
+Enfin, nous avons effectué des expérimentations de notre approche appliquée au résumé mono et multi-documents, ainsi que l'apport de la compression de phrases. 
+%Nous avons compressé les phrases en éliminant les commentaires, pour ensuite intégrer ces phrases compressées dans le module de calcul des scores. 
+%Ainsi, le système décide quelle phrase à retenir: la phrase originale ou la phrase compressée. 
+
+\section*{Plan du mémoire}
+
+Le mémoire est divisé en deux parties: une partie consacrée à l'état de l'art du résumé automatique, la deuxième contient notre contribution. 
+Dans la première partie, nous définissons trois chapitres: un chapitre sur le domaine du résumé automatique en général, le deuxième aborde en détail l'approche statistique pour le résumé automatique et le troisième chapitre est consacré aux méthodes d'évaluation du résumé automatique.
+La deuxième partie présente notre contribution dans le domaine du résumé automatique.
+Elle contient deux chapitres: un chapitre consacré à notre méthode et le deuxième à l'évaluation de la méthode proposée.
+
+Dans le chapitre \ref{chap:RA}, nous allons discuter le résumé automatique de façon générale.
+Nous allons présenter quelques définitions ainsi que les différents types du résumé automatique. 
+Ensuite, nous allons présenter les étapes du résumé automatique ainsi que les deux approches les plus connues: l'approche statistique et l'approche linguistique. 
+Enfin, nous allons présenter les différentes applications du résumé automatique, ainsi que quelques outils industriels.
+
+Dans le chapitre \ref{chap:RATstat}, nous allons discuter, en détail, l'approche statistique pour le résumé automatique de textes.
+Premièrement, nous allons présenter le travail de Luhn, ainsi que l'étape de pré-traitement. 
+Ensuite, nous allons citer les critères statistiques utilisés pour juger de la pertinence d'une unité (phrase en général) dans le texte. 
+Enfin, nous allons discuter quelques méthodes destinées à améliorer l'approche statistique, ainsi que l'étape de post-traitement.
+
+Dans le chapitre \ref{chap:evalRAT}, nous allons présenter quelques méthodes d'évaluation du résumé automatique. 
+Premièrement, nous allons présenter les deux approches d'évaluation intrinsèque et extrinsèque, ainsi que quelques mesures intrinsèques.
+Ensuite, nous allons aborder trois méthodes d'évaluation: La méthode Pyramides, BE, et ROUGE. 
+Enfin, nous allons présenter quelques événements destinés pour l'évaluation des résumés automatiques, ainsi que les défis de cette dernière.
+
+Dans le chapitre \ref{chap:mine}, nous allons discuter notre contribution.
+Nous allons présenter l'architecture en général, pour ensuite détailler les différents modules: pré-traitement, extraction, compression, et post-traitement. 
+%Dans le module d'extraction, nous allons discuter notre méthode basée sur le regroupement et l'apprentissage.
+%Puisque notre méthode se base sur le regroupement, nous allons présenter cette tâche, qui est utilisée pour détecter les différents thèmes de document. 
+Enfin, nous allons présenter l'application de notre méthode dans le résumé multi-documents. 
+
+Le dernier chapitre est consacré à l'évaluation de notre approche.
+Premièrement, nous allons présenter les différents corpus utilisés pour les évaluations. 
+Ensuite, nous allons détailler les étapes d'évaluation. 
+Pour, enfin, présenter et discuter les résultats de nos expérimentations. 
+%Dans le chapitre \ref{chap:evalMine}, nous allons discuter notre procédure d'évaluation.
+%Premièrement, nous allons voir les différents corpus utilisés pour les évaluations. 
+%Ensuite, nous allons détailler les étapes d'évaluation.  
+%Finalement, nous allons présenter et les résultats de ces évaluations. 
+
+%========================Le pied de chapitre=======================================
+%==================================================================================
+\ifx\wholebook\relax\else
+%\part{État de l'art sur le résumé automatique}
+%\chapter{Résumé automatique}
+%\label{chap:RA}
+%\chapter{Approche statistique pour le résumé automatique de textes}
+%\label{RAstat}
+%\chapter{Évaluation de résumé automatique de texte}
+%\label{chap:evalRAT}
+%\part{Notre contribution}
+%\chapter{Méthode proposée pour le résumé automatique de textes}
+%\label{chap:proposition}
+%\chapter{Évaluation de la méthode proposée}
+%\label{chap:evalProposition}
+% \cleardoublepage
+% \bibliographystyle{../use/ESIbib}
+% \bibliography{../bib/RATstat}
+ \end{document}
+\fi
+%===================================================================================

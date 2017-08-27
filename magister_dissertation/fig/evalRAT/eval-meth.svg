@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="14cm" height="8cm" viewBox="2 1 263 148" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="71.6794" y="1.75201" width="80.2456" height="13.0667"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #ffffff" x="71.6794" y="1.75201" width="80.2456" height="13.0667"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:700" x="111.802" y="10.102">
+      <tspan x="111.802" y="10.102">Mesures d'évaluation</tspan>
+    </text>
+  </g>
+  <text font-size="12.4178" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="121.584" y="12.0055">
+    <tspan x="121.584" y="12.0055"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="48.4016" y="23.8397" width="58.9758" height="14.3479"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #ffffff" x="48.4016" y="23.8397" width="58.9758" height="14.3479"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:700" x="77.8895" y="32.8303">
+      <tspan x="77.8895" y="32.8303">Intrinsique</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="184.452" y="45.4064" width="56.9219" height="21.5333"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #ffffff" x="184.452" y="45.4064" width="56.9219" height="21.5333"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:700" x="212.913" y="53.7564">
+      <tspan x="212.913" y="53.7564">Extrinsique</tspan>
+      <tspan x="212.913" y="62.2231">(Basée tache)</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="96.9323" y1="15.1056" x2="82.5895" y2="21.684"/>
+    <polygon style="fill: #000000" points="78.4992,23.56 82.7022,18.3318 82.5895,21.684 85.2036,23.7855 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="78.4992,23.56 82.7022,18.3318 82.5895,21.684 85.2036,23.7855 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="130.415" y1="15.1187" x2="208.059" y2="43.6244"/>
+    <polygon style="fill: #000000" points="212.283,45.1752 205.617,45.9236 208.059,43.6244 207.685,40.2912 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="212.283,45.1752 205.617,45.9236 208.059,43.6244 207.685,40.2912 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="2.80359" y="49.2709" width="66.35" height="14.3479"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #ffffff" x="2.80359" y="49.2709" width="66.35" height="14.3479"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:700" x="35.9786" y="58.2615">
+      <tspan x="35.9786" y="58.2615">Evaluation de qualité</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="85.2721" y="50.6851" width="69.3" height="13.0667"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #ffffff" x="85.2721" y="50.6851" width="69.3" height="13.0667"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:700" x="119.922" y="59.0351">
+      <tspan x="119.922" y="59.0351">Evaluation de contenu</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="67.3017" y="77.2016" width="44.6719" height="14.3479"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #ffffff" x="67.3017" y="77.2016" width="44.6719" height="14.3479"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:700" x="89.6376" y="86.1922">
+      <tspan x="89.6376" y="86.1922">Co-sélection</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="135.537" y="75.7874" width="46.4396" height="14.3479"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #ffffff" x="135.537" y="75.7874" width="46.4396" height="14.3479"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:700" x="158.757" y="84.778">
+      <tspan x="158.757" y="84.778">Basée contenu</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="65.5904" y1="38.4766" x2="52.6983" y2="46.2995"/>
+    <polygon style="fill: #000000" points="48.8511,48.6339 52.4244,42.9566 52.6983,46.2995 55.5369,48.0861 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="48.8511,48.6339 52.4244,42.9566 52.6983,46.2995 55.5369,48.0861 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="89.8856" y1="38.4925" x2="104.564" y2="47.6438"/>
+    <polygon style="fill: #000000" points="108.383,50.0245 101.704,49.396 104.564,47.6438 104.878,44.3044 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="108.383,50.0245 101.704,49.396 104.564,47.6438 104.878,44.3044 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="112.321" y1="64.0343" x2="101.798" y2="73.4711"/>
+    <polygon style="fill: #000000" points="98.4475,76.4754 100.912,70.2362 101.798,73.4711 104.917,74.7032 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="98.4475,76.4754 100.912,70.2362 101.798,73.4711 104.917,74.7032 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="129.934" y1="63.8553" x2="143.184" y2="72.6379"/>
+    <polygon style="fill: #000000" points="146.934,75.1242 140.276,74.3097 143.184,72.6379 143.591,69.3087 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="146.934,75.1242 140.276,74.3097 143.184,72.6379 143.591,69.3087 "/>
+  </g>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="3.07943" y="69.3002">
+    <tspan x="3.07943" y="69.3002">Grammaire</tspan>
+    <tspan x="3.07943" y="77.7669">Non redandance</tspan>
+    <tspan x="3.07943" y="86.2335">Clarté des références</tspan>
+    <tspan x="3.07943" y="94.7002">Structure et cohérence</tspan>
+    <tspan x="3.07943" y="103.167"></tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="62.052" y="101.336">
+    <tspan x="62.052" y="101.336">Rappel, Précision, F-score</tspan>
+    <tspan x="62.052" y="109.803">Utilité relative</tspan>
+    <tspan x="62.052" y="118.27"></tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="136.298" y="97.0937">
+    <tspan x="136.298" y="97.0937">Simularité Cosine</tspan>
+    <tspan x="136.298" y="105.56">Superposition (overlap) des unités</tspan>
+    <tspan x="136.298" y="114.027">LCS</tspan>
+    <tspan x="136.298" y="122.494">n-grammes (ROUGE)</tspan>
+    <tspan x="136.298" y="130.96">Pyramids</tspan>
+    <tspan x="136.298" y="139.427">LSA</tspan>
+    <tspan x="136.298" y="147.894"></tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="183.957" y="70.0469">
+    <tspan x="183.957" y="70.0469">Catégorisation des documents</tspan>
+    <tspan x="183.957" y="78.5136">Recherche d'information</tspan>
+    <tspan x="183.957" y="86.9802">Question-Réponse</tspan>
+    <tspan x="183.957" y="95.4469"></tspan>
+  </text>
+</svg>

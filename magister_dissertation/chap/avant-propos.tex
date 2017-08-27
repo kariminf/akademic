@@ -1,0 +1,109 @@
+%==================================================================================
+%==================================================================================
+% Document		:		Chapitre: Avant propos
+%
+% Auteur		: 		Abdelkrime ARIES
+% Encadreur		:		Dr. Omar NOUALI
+% Co-encadreur	:		Mme. Houda OUFAIDA
+% Établissement	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adresse		:		Oued Smar, Alger, Algérie 
+% Année			:		2012/2013
+% Grade			:		Magister
+% Discipline 	:		Informatique 
+% Spécialité	:		IRM (Informatique Répartie et Mobile)
+% Titre			:		Résumé automatique de textes
+%
+%==================================================================================
+%==================================================================================
+
+%==========================L'entete de chapitre====================================
+%==================================================================================
+ \ifx\wholebook\relax\else
+  	\documentclass[a4paper,12pt,oneside]{../use/ESIthesis}
+  	
+  	\input{../use/formatAndDefs}
+  	 	
+  	 	\setracine{../}
+  	 	\graphicspath{{.}{../fig/}}
+  	 	
+  	 	\begin{document}
+  	 	
+  	 	%\dominitoc 
+  	 	\selectlanguage {francais}
+  	 	%just to create the .toc file, then you can hide it
+  	 	%\tableofcontents
+  	 	\frontmatter
+  \fi
+%==================================================================================
+
+\chapter*{Remerciements}
+{ \Large \calligra
+Avant tout je remercie Allah qui m'a donné le courage et la force pour continuer. 
+C'est grâce à lui que mon chemin est éclairé pour finir ce modeste travail. 
+
+Je remercie très vivement mon encadreur Dr. Omar Nouali et mon co-encadreur Mme. Houda Oufaida, de m'avoir encadré, orienté, conseillé, et corrigé tout au long de mon travail jusqu'à la dernière second. 
+
+Je remercie également, les membres de jury qui ont accepté d'examiner et de jurer mon travail. 
+
+Mes vifs remerciements vont également à tous ceux qui ont de près ou de loin contribuer à l'accomplissement de ce travail. 
+Ma reconnaissance s'adresse à ma famille qui a su m'apporter, sans relâcher les soutiens durant toutes ces longues années d'études. 
+
+Enfin, je remercie également tous les enseignants, qui ont assuré ma formation. 
+}
+
+
+\clearpage
+
+\chapter*{}
+%\section*{Dédicace}
+
+%\begin{center}
+%A mon père
+%
+%A ma mère
+%
+%A mes frères et mes sœurs
+%
+%A tous mes amis
+%
+%A tous ceux qui m'ont encouragé pour arriver jusqu'ici
+%\end{center}
+\vspace*{\fill}
+
+
+
+\begin{arabtext}
+'ilY
+
+`A'ilaty
+
+wa-kull man ^sa^g^ga`any li-'ikmAli mi^swAry ad-dirAsy
+\end{arabtext}
+
+%\begin{flushleft}
+%\includegraphics{avant-propos/ihdae2.pdf}
+%\end{flushleft}
+%\begin{otherlanguage}{arabic}
+%\begin{center}
+%\textgranada{\LARGE
+%هذا العمل المتواضع مهدى إلى:
+%\\[0.5cm]
+%أمي
+%\\[0.5cm]
+%أبي
+%\\[0.5cm]
+%إخوتي وأخواتي
+%\\[0.5cm]
+%وكل من شجعني لإكمال مشواري الدراسي
+%}%
+%\end{center}
+%\end{otherlanguage}
+%\vspace*{\fill}
+
+
+\ifx\wholebook\relax\else
+\cleardoublepage
+\bibliographystyle{../includes/ThesisStyle} %../includes/ThesisStyle
+\bibliography{../bib/ch1}
+    \end{document}
+\fi

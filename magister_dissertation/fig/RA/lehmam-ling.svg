@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="9cm"
+   height="6cm"
+   viewBox="5 2 175 111"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="lehmam-ling.svg">
+  <metadata
+     id="metadata68">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs66" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="713"
+     id="namedview64"
+     showgrid="false"
+     inkscape:zoom="0.99718517"
+     inkscape:cx="159.44882"
+     inkscape:cy="106.29921"
+     inkscape:window-x="-2"
+     inkscape:window-y="-3"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <g
+     id="g4">
+    <path
+       style="fill:#ffffff"
+       d="M 5.84346,21.3444 C 40.5724,7.6273 57.9368,3.05494 92.6658,3.05494 c 34.7292,0 52.0932,4.57236 86.8222,18.28946 l 0,73.1578 c -34.729,13.7168 -52.093,18.2898 -86.8222,18.2898 -34.729,0 -52.0934,-4.573 -86.82234,-18.2898 l 0,-73.1578 z"
+       id="path6"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.60000002"
+       d="M 5.84346,21.3444 C 40.5724,7.6273 57.9368,3.05494 92.6658,3.05494 c 34.7292,0 52.0932,4.57236 86.8222,18.28946 l 0,73.1578 c -34.729,13.7168 -52.093,18.2898 -86.8222,18.2898 -34.729,0 -52.0934,-4.573 -86.82234,-18.2898 l 0,-73.1578"
+       id="path8"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.60000002"
+       d="M 5.84346,21.3444 C 40.5724,35.0615 57.9368,39.6338 92.6658,39.6338 c 34.7292,0 52.0932,-4.5723 86.8222,-18.2894"
+       id="path10"
+       inkscape:connector-curvature="0" />
+    <text
+       font-size="6.77333"
+       style="font-size:6.77333021px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:Times New Roman"
+       x="92.665802"
+       y="69.1847"
+       id="text12">
+      <tspan
+         x="92.665802"
+         y="69.1847"
+         id="tspan14" />
+    </text>
+  </g>
+  <g
+     id="g16">
+    <rect
+       style="fill: #ffffff"
+       x="24.1406"
+       y="41.4074"
+       width="136.848"
+       height="17.0667"
+       id="rect18" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="24.1406"
+       y="41.4074"
+       width="136.848"
+       height="17.0667"
+       id="rect20" />
+    <text
+       font-size="6.77333"
+       style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal"
+       x="92.5646"
+       y="51.7574"
+       id="text22">
+      <tspan
+         x="92.5646"
+         y="51.7574"
+         id="tspan24">General SEMs</tspan>
+    </text>
+  </g>
+  <text
+     font-size="12.4178"
+     style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal"
+     x="121.584"
+     y="12.0055"
+     id="text26">
+    <tspan
+       x="121.584"
+       y="12.0055"
+       id="tspan28" />
+  </text>
+  <text
+     font-size="6.77333"
+     style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal"
+     x="60.2914"
+     y="23.6374"
+     id="text30">
+    <tspan
+       x="60.2914"
+       y="23.6374"
+       id="tspan32">Morpho-syntactic analyser</tspan>
+  </text>
+  <g
+     id="g34">
+    <rect
+       style="fill: #ffffff"
+       x="33.3884"
+       y="58.2654"
+       width="118.35"
+       height="17.0667"
+       id="rect36" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="33.3884"
+       y="58.2654"
+       width="118.35"
+       height="17.0667"
+       id="rect38" />
+    <text
+       font-size="6.77333"
+       style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal"
+       x="92.5635"
+       y="68.6154"
+       id="text40">
+      <tspan
+         x="92.5635"
+         y="68.6154"
+         id="tspan42">Domain-specific SEMs</tspan>
+    </text>
+  </g>
+  <g
+     id="g44">
+    <rect
+       style="fill: #ffffff"
+       x="46.8428"
+       y="75.0832"
+       width="91.0211"
+       height="17.0667"
+       id="rect46" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="46.8428"
+       y="75.0832"
+       width="91.0211"
+       height="17.0667"
+       id="rect48" />
+    <text
+       font-size="6.77333"
+       style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal"
+       x="92.3533"
+       y="85.4332"
+       id="text50">
+      <tspan
+         x="92.3533"
+         y="85.4332"
+         id="tspan52">Lexica/Thesauri</tspan>
+    </text>
+  </g>
+  <g
+     id="g54">
+    <rect
+       style="fill: #ffffff"
+       x="59.4562"
+       y="91.901"
+       width="65.7943"
+       height="17.0667"
+       id="rect56" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="59.4562"
+       y="91.901"
+       width="65.7943"
+       height="17.0667"
+       id="rect58" />
+    <text
+       font-size="6.77333"
+       style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal"
+       x="92.3533"
+       y="102.251"
+       id="text60">
+      <tspan
+         x="92.3533"
+         y="102.251"
+         id="tspan62">User terms</tspan>
+    </text>
+  </g>
+</svg>

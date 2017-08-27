@@ -1,0 +1,271 @@
+\usepackage{amsmath,amssymb}             % AMS Math
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc} %,LAE 
+\usepackage[T1]{fontenc}
+%\usepackage[french,english]{babel}
+\usepackage[frenchb]{babel}
+\usepackage{microtype}
+
+%\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,includefoot,includehead,headheight=13.6pt]{geometry}
+\usepackage[left=2.8cm,right=2.2cm,top=2.8cm,bottom=2.8cm,includefoot,includehead,headheight=13.6pt]{geometry}
+%\usepackage[left=3.8cm,right=3.2cm,top=2.8cm,bottom=2.8cm,includefoot,includehead,headheight=13.6pt]{geometry}
+%\usepackage[left=1.5in,right=1.3in,top=1.1in,bottom=1.1in,includefoot,includehead,headheight=13.6pt]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+
+% Table of contents for each chapter
+
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+\usepackage[french]{minitoc}
+\setcounter{minitocdepth}{1}
+\mtcindent=15pt
+% Use \minitoc where to put a table of contents
+
+\usepackage{aecompl}
+
+% Glossary / list of abbreviations
+
+\usepackage[intoc]{nomencl}
+%\renewcommand{\nomname}{List of Abbreviations}
+
+\makenomenclature
+
+% My pdf code
+
+\usepackage[pdftex]{graphicx}
+\usepackage[a4paper,pagebackref,hyperindex=true]{hyperref}
+
+%I added
+%\usepackage{tabulary}
+%\usepackage{longtable}
+%\usepackage[table]{xcolor}
+\usepackage{indentfirst}
+
+
+% Links in pdf
+\usepackage{color}
+%\definecolor{linkcol}{rgb}{0,0,0.4} 
+%\definecolor{citecol}{rgb}{0.5,0,0} 
+
+% Change this to change the informations included in the pdf file
+
+% See hyperref documentation for information on those parameters
+
+\hypersetup
+{
+%bookmarksopen=true,
+pdftitle=Résumé Automatique de Textes,
+pdfauthor=Abdelkrime ARIES, 
+pdfsubject= {Résumé automatique de textes en utilisant une approche statistique, le regroupement, et la classification} , %subject of the document
+%%pdftoolbar=false, % toolbar hidden
+%pdfmenubar=true, %menubar shown
+%pdfhighlight=/O, %effect of clicking on a link
+colorlinks=false, %couleurs sur les liens hypertextes
+%pdfpagemode=None, %aucun mode de page
+%pdfpagelayout=SinglePage, %ouverture en simple page
+%pdffitwindow=true, %pages ouvertes entierement dans toute la fenetre
+%linkcolor=linkcol, %couleur des liens hypertextes internes
+%citecolor=citecol, %couleur des liens pour les citations
+%urlcolor=linkcol %couleur des liens pour les url
+}
+
+
+
+% Some useful commands and shortcut for maths:  partial derivative and stuff
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\def\abs{\operatorname{abs}}
+\def\argmax{\operatornamewithlimits{arg\,max}}
+\def\argmin{\operatornamewithlimits{arg\,min}}
+\def\diag{\operatorname{Diag}}
+\newcommand{\eqRef}[1]{(\ref{#1})}
+
+\usepackage{rotating}                    % Sideways of figures & tables
+%\usepackage{bibunits}
+%\usepackage[sectionbib]{chapterbib}          % Cross-reference package (Natural BiB)
+%\usepackage{natbib}                  % Put References at the end of each chapter
+                                         % Do not put 'sectionbib' option here.
+                                         % Sectionbib option in 'natbib' will do.
+\usepackage{fancyhdr}                    % Fancy Header and Footer
+
+\usepackage{txfonts}                     % Public Times New Roman text & math font
+  
+%%% Fancy Header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fancy Header Style Options
+
+\pagestyle{fancy}                       % Sets fancy header and footer
+\fancyfoot{}                            % Delete current footer settings
+
+%\renewcommand{\chaptermark}[1]{         % Lower Case Chapter marker style
+%  \markboth{\chaptername\ \thechapter.\ #1}}{}} %
+
+%\renewcommand{\sectionmark}[1]{         % Lower case Section marker style
+%  \markright{\thesection.\ #1}}         %
+%\fancyhead[LE,RO]{\bfseries\thepage}    % Page number (boldface) in left on even
+%										% pages and right on odd pages
+%\fancyhead[RE]{\bfseries\nouppercase{\leftmark}}      % Chapter in the right on even pages
+%\fancyhead[LO]{\bfseries\nouppercase{\rightmark}}     % Section in the left on odd pages
+
+\fancyhead[R]{\bfseries\thepage}    % Page number (boldface) in right
+\fancyhead[L]{\bfseries\nouppercase{\rightmark}}     % Section in the left on odd pages
+
+\let\headruleORIG\headrule
+\renewcommand{\headrule}{\color{black} \headruleORIG}
+\renewcommand{\headrulewidth}{1.0pt}
+\usepackage{colortbl}
+\arrayrulecolor{black}
+
+\fancypagestyle{plain}{
+  \fancyhead{}
+  \fancyfoot{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+%\usepackage{algorithm}
+%\usepackage[noend]{algorithmic}
+
+%%% Clear Header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Clear Header Style on the Last Empty Odd pages
+\makeatletter
+
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else%
+  \hbox{}%
+  \thispagestyle{empty}%              % Empty header styles
+  \newpage%
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+\makeatother
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Prints your review date and 'Draft Version' (From Josullvn, CS, CMU)
+\newcommand{\reviewtimetoday}[2]{\special{!userdict begin
+    /bop-hook{gsave 20 710 translate 45 rotate 0.8 setgray
+      /Times-Roman findfont 12 scalefont setfont 0 0   moveto (#1) show
+      0 -12 moveto (#2) show grestore}def end}}
+% You can turn on or off this option.
+% \reviewtimetoday{\today}{Draft Version}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newenvironment{maxime}[1]
+{
+\vspace*{0cm}
+\hfill
+\begin{minipage}{0.5\textwidth}%
+%\rule[0.5ex]{\textwidth}{0.1mm}\\%
+\hrulefill $\:$ {\bf #1}\\
+%\vspace*{-0.25cm}
+\it 
+}%
+{%
+
+\hrulefill
+\vspace*{0.5cm}%
+\end{minipage}
+}
+
+\let\minitocORIG\minitoc
+\renewcommand{\minitoc}{\minitocORIG \vspace{1.5em}} %1.5em
+
+\usepackage{multirow}
+%\usepackage{slashbox}
+
+\newenvironment{bulletList}%
+{ \begin{list}%
+	{$\bullet$}%
+	{\setlength{\labelwidth}{25pt}%
+	 \setlength{\leftmargin}{30pt}%
+	 \setlength{\itemsep}{\parsep}}}%
+{ \end{list} }
+
+\newtheorem{definition}{Définition }
+\renewcommand{\epsilon}{\varepsilon}
+
+% centered page environment
+
+\newenvironment{vcenterpage}
+{\newpage\vspace*{\fill}\thispagestyle{empty}\renewcommand{\headrulewidth}{0pt}}
+{\vspace*{\fill}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Par Karim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%for the degree sign
+\usepackage{textcomp} 
+\usepackage{bookmark}
+\usepackage{framed}
+\usepackage{arabtex}
+%\usepackage{nashbf}
+%\usepackage{atrans}
+%calligra font for the remerciement
+\usepackage{calligra}
+
+%List of acronyms
+\usepackage{acronym}
+
+\newcommand{\racine}{./}
+
+\newcommand{\setracine}[1]{\renewcommand{\racine}{#1}}
+
+\newcommand{\tablefile}[1]{\input{\racine tab/#1}}
+\newcommand{\appendixfile}[1]{\input{\racine anx/#1}}
+%\newcommand{\chapterfile}[1]{\input{\racine chap/#1}}
+
+\newcommand{\stitle}[1]{
+\noindent
+\textbf{#1}
+}
+
+\newenvironment{itemizeb}
+{\begin{list}{\textbullet} {\setlength{\rightmargin}{0cm} \setlength{\leftmargin}{1cm}}}
+{\end{list}}
+
+
+\newenvironment{itemizec}
+{\begin{list}{\textopenbullet} {\setlength{\rightmargin}{0cm} \setlength{\leftmargin}{1cm}}}
+{\end{list}}
+
+
+\newcommand{\kexpbox}[1]{
+
+\vspace{5mm}
+\noindent
+ \fbox{%
+   \parbox{0.985\linewidth}{%
+   \vspace{2mm}
+   {\large  \textbf{Exemple:}}\\
+      #1
+   }%
+ }
+}
+
+\newcommand{\kbox}[1]{
+
+\vspace{2mm}
+\noindent
+ \fbox{%
+   \parbox{0.965\linewidth}{%
+   \vspace{2mm}
+      #1
+   }%
+ }
+}
+
+\newenvironment{kexp}
+{
+\begin{framed}
+\noindent
+{\large  \textbf{Exemple:}}\\
+}
+{
+\end{framed}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% definitions.
+% -------------------
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+\newcommand{\tab}[1]{{\hskip #1}}

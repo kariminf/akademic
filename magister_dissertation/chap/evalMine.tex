@@ -1,0 +1,286 @@
+%==================================================================================
+%==================================================================================
+% Document		:		Chapitre: Évaluation de la méthode proposée
+%
+% Auteur		: 		Abdelkrime ARIES
+% Encadreur		:		Dr. Omar NOUALI
+% Co-encadreur	:		Mme. Houda OUFAIDA
+% Établissement	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adresse		:		Oued Smar, Alger, Algérie 
+% Année			:		2012/2013
+% Grade			:		Magister
+% discipline 	:		Informatique 
+% Spécialité	:		IRM (Informatique Répartie et Mobile)
+% Titre			:		Résumé automatique de textes
+%
+%==================================================================================
+%==================================================================================
+
+%==========================L'entete de chapitre====================================
+%==================================================================================
+ \ifx\wholebook\relax\else
+  	\documentclass[a4paper,12pt,oneside]{../use/ESIthesis}
+  	
+  	\input{../use/formatAndDefs}
+  	 	
+  	 	\setracine{../}
+  	 	\graphicspath{{.}{../fig/}}
+  	 	
+  	 	\begin{document}
+  	 	
+  	 	\dominitoc 
+  	 	\selectlanguage {francais}
+  	 	%just to create the .toc file, then you can hide it
+  	 	%\tableofcontents
+  	 	\mainmatter
+  \fi
+%==================================================================================
+
+\chapter{Évaluation de la méthode proposée}
+\label{chap:evalMine}
+\minitoc
+
+\section{Introduction}
+
+Dans le chapitre précédent, nous avons présenté notre méthode basée sur l'extraction de phrases représentatives de la plupart de thèmes, en prenant en considération la pertinence du thème lui-même. 
+Ceci est réalisé en utilisant le regroupement en clusters des phrases avec le même thème, et la classification qui découvre la différence entre ces thèmes. 
+Le regroupement proposé utilise un seuil de similarité minimum pour grouper les phrases similaires, ce seuil a un impact direct sur les thèmes qui va affecter à son tour la classification et l'extraction. 
+%Donc, il faut étudier l'effet de seuil sur la méthode proposé. 
+De même, pour les critères qui peuvent améliorer ou diminuer la performance du système.
+Ainsi, l'évaluation de l'impact du seuil et l'ajout de critères s'avère plus que nécessaire. 
+
+Dans ce chapitre, nous allons présenter les différentes expérimentations conduites. 
+Premièrement, nous allons présenter les différents corpus utilisés pour les évaluations. 
+Ensuite, nous allons présenter la procédure d'évaluation avec les différentes étapes de traitement effectuées pour évaluer la qualité du système. 
+Nous avons évalué notre approche sur le résumé mono et multi-documents. 
+Finalement, nous allons discuter les résultats obtenus. 
+
+\section{Corpus d'évaluation}
+
+\subsection{Corpus Cmp-Lg (Computation and Language) }
+
+Cmp-lg (\textit{Computation and language}) est une collection de 183 documents rendue disponible par TIPSTER SUMMAC\footnote{http://www-nlpir.nist.gov/related\_projects/tipster\_summac/cmp\_lg.html}, c'est une ressource générale pour les comités de la recherche d'information, d'extraction d'information, et de résumé automatique, les documents sont des articles scientifiques publiés dans la conférence ACL (\textit{Association for Computational Linguistics}).
+Le corpus a été préparé par MITRE Corporation et l'université d'Edimbourg, en convertissant les documents automatiquement de \LaTeX\ vers XML. 
+Le marquage de XML inclut des étiquettes comme le titre, l'auteur, la date, etc., en plus de structures basiques comme le résumé, le corps, les sections, les listes, etc.
+
+\subsection{Corpus DUC 2004 tâche 2}
+
+Afin d'évaluer notre approche appliquée au résumé multi-documents, nous avons opté pour le corpus DUC2004\footnote{http://duc.nist.gov/duc2004/tasks.html} utilisé dans la tâche 2 de la conférence DUC ; résumés courts multi-documents. 
+Le corpus contient 50 thèmes en Anglais, et chaque thème comporte 10 documents. 
+Ces documents sont des articles de presse issus de deux agences de presse: AP et New York Times. 
+Pour chaque thème, quatre résumés de référence sont fournis, chacun d'eux ne dépasse pas 665 caractères, espaces et ponctuations incluses.
+
+\section{Procédures d'évaluation}
+
+\subsection{Résumé mono-document}
+
+Afin d'évaluer notre approche appliquée au résumé mono-document, nous avons conduit des expérimentations en utilisant le corpus cmp-lg. 
+L'objectif de ces expérimentations est de comparer notre système avec un autre en terme de qualité, et de montrer que notre système peut s'améliorer en adaptant ses composants. 
+Dans cette évaluation, nous voulons remplir les trois objectifs suivants: 
+\begin{itemize}
+\item Comparer notre système avec un autre, en terme de qualité. 
+\item Tester l'effet d'ajouter de nouveaux critères au système. 
+\item Varier le seuil de regroupement pour voir son effet sur le résumé produit.
+\end{itemize}
+
+Pour ce faire, nous avons exécuté les étapes suivantes:
+\begin{itemize}
+\item Extraction du résumé et du corps pour chacun des 182 documents du corpus cmp-lg. 
+Les résumés extraits vont être utilisés comme résumés de référence, les corps des documents vont constituer les documents d'entrée pour le système de résumé.
+%
+\item Génération des résumés en utilisant le système UNIS \cite{10-yatsko-al}.
+Le résultat est 174 résumés (les huit documents restants sont filtrés parce que soit ils ne donnent pas un résumé en utilisant UNIS, soit parce qu'ils n'ont pas de résumé de référence).
+%
+\item En utilisant le critère uni-grammes (la fréquence de mots dans chaque classe), nous avons généré 4 résumés pour chaque document, en variant le seuil de regroupement: 0.0, 0.1, 0.5, et 0.99.
+Nous avons extrait un nombre de phrases égale à celui des phrases extraites par UNIS.
+%
+\item En utilisant les critères: les uni-grammes et les bi-grammes, nous avons généré 4 résumés en utilisant les valeurs précédentes de seuil de regroupement.
+%
+\item Comparer les neuf résumés comme des résumés candidats avec les résumés de référence en utilisant ROUGE (voir le chapitre 3).
+\end{itemize}
+
+\subsection{Résumé multi-document}
+
+Pour évaluer notre approche appliquée au résumé multi-documents, nous avons conduit des expérimentations en utilisant le corpus DUC 2004 précédemment décrit. 
+Ces expérimentations ont comme objectifs:
+\begin{itemize}
+\item Comparer les deux méthodes de regroupement (un document est un cluster, et les phrases similaires forment un cluster) décrites pour le résumé multi-document.
+\item Positionner notre système par rapport aux autres systèmes participant dans DUC 2004.
+\item Évaluer l'impact de l'ajout de nouveaux critères sur la performance de notre système pour le résumé multi-documents. 
+\item Évaluer l'apport du regroupement pour notre système pour le résumé multi-document.
+\item Évaluer l'impact de normalisation sur le rendement de système.
+\item Évaluer l'impact de la compression de phrases sur le rendement de système.
+\end{itemize}
+
+Pour atteindre ces objectifs, nous avons conduit les expérimentations suivantes:
+\begin{itemize}
+\item Les résumés générés ne doivent pas dépasser 665 octets (caractères), donc le résumé résultant comporte les premières phrases dans l'ordre. 
+Si le résumé dépasse cette taille, on élimine les caractères au-dessus de cette taille. 
+%
+\item Pour la première méthode (chaque document comme un cluster), nous avons utilisé trois critères: la fréquence des uni-grammes(les mots), la fréquence des bi-grammes, et ces deux critères combinées. 
+%
+\item Pour la deuxième méthode (clusters des phrases similaires), nous avons conduit les expérimentations suivantes:
+%
+\begin{itemizeb}
+\item Nous avons utilisé seulement le critère: fréquence des uni-grammes en variant le seuil de regroupement entre 0.1 et 1.0 avec un saut de 0.1. Il est à noter que nous n'avons pas traité le problème de redondance de phrases.
+%
+\item En utilisant la similarité Cosinus pour supprimer les phrases redondantes, nous avons considéré les critères suivants:
+\begin{itemizec}
+\item La fréquence des uni-grammes en utilisant les seuils de regroupement \{0.1, 0.4, 0.9\},
+\item La fréquence des uni-grammes et bi-grammes en variant le seuil de regroupement entre 0.1 et 1.0 avec un saut de 0.1.
+\end{itemizec}
+Afin d'éliminer les phrases redondantes, on vérifie si la dernière phrase acceptée dans le résumé et la phrase candidate ont un score de similaires supérieur ou égal à 0.5. 
+Si c'est le cas, la phrase candidate est ignorée et on passe à la phrase suivante dans l'ordre. Sinon on l'ajoute au résumé et on passe à la phrase suivante jusqu'à satisfaire la taille de résumé. 
+%
+\item En utilisant l'élimination de redondance, nous avons ajouté deux fonctions au système:
+\begin{itemizec}
+\item Premièrement, nous avons utilisé la fonction de score normalisée par la taille de phrase, en générant 4 résumé pour les valeurs \{0.1, 0.3, 0.4, 1.0\} pour le seuil d regroupement, avec les critères: uni-grammes et bi-grammes. 
+\item Deuxièmement, nous avant ajouté un module simple de compression de phrases, qui tente de compresser toutes les phrases d'entrée.
+\end{itemizec}
+%
+\end{itemizeb}
+%
+\end{itemize}
+
+\section{Résultats et discussion}
+
+\subsection{Résumé mono-document}
+
+La table \ref{tab:ES-vs-UNIS} représente les résultats ROUGE-1, ROUGE-2, et ROUGE-SU4, pour les différents seuils de regroupement et les différentes critères: Uni-grammes (U) et Bi-grammes (B).
+%
+\begin{table}[!htbp]
+\centering
+\caption{Résultats: résumé mono-document}
+%\renewcommand{\arraystretch}{1.3}
+ %\input{\racine tab/ch1/outils.tex} %input
+\tablefile{evalMine/ES-vs-UNIS.tex}
+% \renewcommand{\arraystretch}{1}
+\label{tab:ES-vs-UNIS}
+\end{table}
+%
+Pour la métrique ROUGE-1, on constate que notre système surpasse le système UNIS en terme de couverture. 
+En terme de Précision, il surpasse UNIS lorsqu'on utilise les deux critères uni-grammes et bi-grammes à la fois.
+Ainsi, on peut conclure que l'ajout du critère bi-grammes, ajoute de la précision au système en diminuant de la couverture (ordre de 0.001)
+Concernant le seuil de regroupement, on constate que le système donne le meilleur résultat pour un seuil de 0.5. 
+%Même quand le seuil 0.1 donne un score de précision meilleur que celui de seuil 0.5 en utilisant deux critères, le seuil 0.5 donne un bon score pour le recouvrement.
+De même pour la métrique ROUGE-SU4.
+
+Pour la métrique ROUGE-2, notre système reste plus performant que le système UNIS en terme de rappel. 
+En terme de précision, il le dépasse dans la plupart des cas. 
+Pour l'ajout du critère bi-grammes, on peut dire qu'il améliore les performances du système. 
+En observant les seuils de regroupement, le seuil 0.5 donne toujours les meilleurs résultats.
+
+\subsection{Résumé multi-documents}
+
+La table \ref{tab:docascluster} représente les valeurs ROUGE-1, ROUGE-2, et ROUGE-W, pour la première méthode proposée pour le résumé multi-documents. 
+Dans cette méthode, nous avons pris chaque document comme cluster de phrases, en utilisant le critère uni-gramme seule, ensuite le critère bi-grammes seule, puis les deux à la fois.
+%
+\begin{table}[!htbp]
+\centering
+\caption{Résultats: résumé multi-documents - chaque document comme un cluster.}
+%\renewcommand{\arraystretch}{1.3}
+ %\input{\racine tab/ch1/outils.tex} %input
+\tablefile{evalMine/m-doc.tex}
+% \renewcommand{\arraystretch}{1}
+\label{tab:docascluster}
+\end{table}
+%
+Dans la table \ref{tab:docascluster}, on remarque que l'ajout du critère bi-grammes ne change pas grand-chose, et même en la combinant avec le critère uni-grammes, les résultats sont moins bons que lorsqu'on utilise le critère uni-grammes seule.
+
+%--------------------La deuxième méthode ------------------
+Dans la deuxième méthode, nous avons fusionné les documents d'entrée pour ensuite appliquer le regroupement, la classification et l'extraction. 
+La table \ref{tab:sentascluster}, représente les valeurs ROUGE-1, ROUGE-2, et ROUGE-W obtenus, en utilisant cette méthode, avec les uni-grammes comme critère de classification, et le seuil de regroupement variant de 0.1 à 1.0 avec une étape de 0.1.
+%
+\begin{table}[!htbp]
+\centering
+\caption{Résultats: résumé multi-documents - fusion des documents}
+\tablefile{evalMine/m-sent.tex}
+% \renewcommand{\arraystretch}{1}
+\label{tab:sentascluster}
+\end{table}
+%
+On constate que la variation du seuil de regroupement affecte les résultats. 
+Les meilleures valeurs du rappel sont observées pour ROUGE-1 (0.3514) et ROUGE-W (0.1033) avec un seuil de 0.4, et pour ROUGE-2 (0.0716) pour un seuil 1.0. 
+En comparant ces valeurs avec celles du uni-grammes dans la table \ref{tab:docascluster}  (ROUGE-1 = 0.3330, ROUGE-2 = 0.0618, ROUGE-W = 0.0994), on peut conclure que la deuxième méthode de regroupement est meilleure et ceci quelque-soit le seuil.
+
+%--------------------La deuxième méthode avec les phrases non dupliquées------------------
+La table \ref{tab:sentasclusternodup} représente les valeurs ROUGE-1 et ROUGE-2 obtenues par notre système en appliquant le regroupement des phrases similaires avec le critère uni-grammes (seuils 0.2, 0.4, 0.9), et les deux critères combinées (uni-grammes et bi-grammes). 
+La différence avec les résumés précédents (le tableau \ref{tab:sentascluster}) est que les résumés produits contiennent des phrases les plus variées possible, ceci grâce à la sélection contrôlée définie auparavant.
+En comparant les trois valeurs pour les uni-grammes (seuils: 0.2, 0.4, et 0.9) avec celles dans la table \ref{tab:docascluster}, on constate que, contrairement à la première méthode, l'ajout des bi-grammes aux uni-grammes améliore la qualité du système.
+%
+\begin{table}[!htbp]
+\centering
+\caption{Résultats: résumé multi-documents - fusion des documents - redondance minimale.}
+\tablefile{evalMine/m-sent-ndup.tex}
+% \renewcommand{\arraystretch}{1}
+\label{tab:sentasclusternodup}
+\end{table}
+
+%--------------------La deuxième méthode avec les phrases non dupliquées et normalisation------------------
+Nous voulons tester l'effet de la normalisation du score de la phrase sur le résumé produit, en l'appliquant sur la méthode avec fusion des documents et sélection avec redondance minimale. 
+La table \ref{tab:sentasclusternodupnorm} représente les valeurs ROUGE-1, ROUGE-2, et ROUGE-W obtenues par notre système, en utilisant les deux critères Uni-grammes et Bi-grammes. 
+%
+\begin{table}[!htbp]
+\centering
+\caption{Résultats: résumé multi-documents - fusion des documents - redondance minimale - normalisation.}
+\tablefile{evalMine/m-sent-ndup-norm.tex}
+% \renewcommand{\arraystretch}{1}
+\label{tab:sentasclusternodupnorm}
+\end{table}
+%
+On observe que la normalisation du score ne baisse pas le rendement du système. 
+Au contraire dans des cas, on constate que le rappel ainsi que la précision augmentent en les comparant avec les valeurs correspondantes de la table \ref{tab:sentasclusternodup}.
+
+%--------------------La deuxième méthode avec les phrases non dupliquées et normalisation et réduction------------------
+Gras à la normalisation, les phrases compressées ou de petites tailles ne vont pas être pénalisées. 
+Donc, on peut utiliser les phrases compressées à côté des phrases originales, et la phrase dont le score est meilleur sera sélectionnée. 
+La table \ref{tab:sentasclusternodupnormred}, représente les valeurs ROUGE-1, ROUGE-2, et ROUGE-W pour notre système en intégrant la compression de phrases, et en utilisant les deux critères Uni-grammes et Bi-grammes.
+%
+\begin{table}[!htbp]
+\centering
+\caption{Résultats: résumé multi-documents - fusion de documents - normalisation - redondance minimale - compression de phrases}
+\tablefile{evalMine/m-sent-ndup-norm-red.tex}
+% \renewcommand{\arraystretch}{1}
+\label{tab:sentasclusternodupnormred}
+\end{table}
+
+La table \ref{tab:duc2004t2}, représente les valeurs ROUGE-1, ROUGE-2, et ROUGE-W obtenues de la conférence DUC 2004 pour la tâche 2 \cite{04-erkan-radev}. 
+Les résumés de "A" à "H" sont des résumés faits par des humains, le système numéro 2 est un système de résumé de base, et les cinq autres systèmes représentent les meilleurs systèmes participants triés par ordre décroissant.
+La plupart des valeurs ROUGE-1 de notre système sont supérieures à 0.36. 
+Elles dépassent, ainsi, le résumé de base fourni par DUC 2004 (0.3242), et elles sont proches des résultats des cinq meilleurs systèmes.
+%
+\begin{table}[!htbp]
+\centering
+\caption [Quelques résultats DUC 2004 pour la tâche 2.] %
+{Quelques résultats DUC 2004 pour la tâche 2 \cite{04-erkan-radev}.}
+\tablefile{evalMine/duc2004t2.tex}
+% \renewcommand{\arraystretch}{1}
+\label{tab:duc2004t2}
+\end{table}
+
+\section{Conclusion}
+
+Dans ce chapitre, nous avons les résultats d'évaluation de notre système sur deux corpus: cmp-lg et DUC2004 pour le résumé mono-documents et multi-documents respectivement. 
+%Nous avons utilisé deux corpus: un pour évaluer le résumé mono-document, et l'autre pour évaluer le résumé multi-documents. 
+%Ensuite, nous avons lister les différentes points suivies pour évaluer la méthode de résumé mono-document, ainsi que les deux méthodes proposées pour le résumé multi-documents. 
+%Enfin, nous avons présenté et discuté les différents résultats obtenues. 
+Les expérimentations conduites ont montré que notre méthode peut fournir des résultats comparables et même parfois meilleurs que d'autres systèmes (UNIS et les participants de DUC 2004), pour les deux types de résumé: mono-document et multi-documents. 
+En effet, nous avons constaté que l'ajout de critères tels que les bi-grammes améliore la qualité de résumé résultat.
+En plus, nous avons prouvé que le seuil de regroupement affecte la qualité de résumé. 
+Ceci est dû au fait que les thèmes vont être moins nombreux et contenant plus de phrases si le seuil est petit, et vis-versa.
+
+Concernant le résumé multi-documents, nous avons proposé deux méthodes: la première prend chaque document comme un cluster, et la deuxième fusionne les documents d'entrée comme un seul document, pour ensuite appliquer le résumé mono-document. 
+La deuxième méthode donne de meilleurs résultats par rapport à la première méthode.
+Ceci peut être dû au fait que chaque document contient un thème principal et des thèmes secondaires, et en fusionnant les documents on a pu effectuer l'apprentissage sur chaque thème à part. 
+
+Enfin, nous avons proposé une méthode pour intégrer la compression de phrases dans notre système. 
+La méthode de compression était très simple, et pourtant, on a pu constater quelques améliorations, ce qui nous encourage à suivre ce chemin.
+
+
+\ifx\wholebook\relax\else
+ %\chapterfoot
+ \cleardoublepage
+ \bibliographystyle{../use/ESIbib} 
+ \bibliography{../bib/evalMine}
+ \end{document}
+\fi

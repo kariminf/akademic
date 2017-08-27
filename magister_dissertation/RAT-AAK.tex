@@ -1,0 +1,110 @@
+%==================================================================================
+%==================================================================================
+% Document		:		Résumé automatique de textes
+%
+% Auteur		: 		Abdelkrime ARIES
+% Encadreur		:		Dr. Omar NOUALI
+% Co-encadreur	:		Mme. Houda OUFAIDA
+% Établissement	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adresse		:		Oued Smar, Alger, Algérie 
+% Année			:		2012/2013
+% Grade			:		Magister
+% discipline 	:		Informatique 
+% Spécialité	:		IRM (Informatique Répartie et Mobile)
+% Titre			:		Résumé automatique de textes
+%
+%==================================================================================
+%==================================================================================
+
+%==========================L'entete de chapitre====================================
+%==================================================================================
+\documentclass[a4paper,12pt,oneside]{use/ESIthesis}
+
+\include{use/formatAndDefs}
+
+\graphicspath{{.}{fig/}}
+
+\newcommand \logoESI{../use/logos/ESI.png}
+
+\let\wholebook=\relax
+%==================================================================================
+
+\begin{document}
+\selectlanguage{french}
+\dominitoc
+
+\pdfbookmark{R\'esum\'e automatique de textes (Page de garde)}{Garde}
+\input{chap/garde}
+\clearpage
+
+\input{chap/avant-propos}
+\clearpage
+\newpage
+
+\input{chap/resume}
+\clearpage
+
+%\pagenumbering{roman}
+\fancyhead[L]{\bfseries\nouppercase{\leftmark}}
+\frontmatter
+
+%\cleardoublepage
+\pdfbookmark{\contentsname}{Contents}
+\tableofcontents
+\clearpage
+
+\pdfbookmark{Table des figures}{Figures}
+\listoffigures
+\clearpage
+
+\pdfbookmark{Liste des tableaux}{Tables}
+\listoftables
+\clearpage
+
+\mainmatter
+
+%\pdfbookmark{\contentsname}{Intro}
+
+\input{chap/intro}
+\clearpage
+
+%\setcounter{mtc}{1}
+\fancyhead[L]{\bfseries\nouppercase{\rightmark}}
+
+\part{État de l'art sur le résumé automatique}
+
+\input{chap/RA}
+\clearpage
+
+\input{chap/RATstat}
+\clearpage
+
+\input{chap/evalRAT}
+\clearpage
+
+\part{Résumé automatique par regroupement et apprentissage sans corpus d'entraînement} %Notre contribution
+
+\input{chap/mine}
+\clearpage
+
+\input{chap/evalMine}
+\clearpage
+
+\bookmarksetup{startatroot}
+
+\input{chap/concl}
+\clearpage
+
+\fancyhead[L]{\bfseries\nouppercase{\leftmark}}
+
+\appendix
+
+\input{anx/acronyms}
+\input{anx/pub}
+\clearpage
+
+%\backmatter
+\bibliographystyle{use/ESIbib}
+\bibliography{bib/RA,bib/RATstat,bib/evalRAT,bib/mine,bib/evalMine}
+
+\end{document}

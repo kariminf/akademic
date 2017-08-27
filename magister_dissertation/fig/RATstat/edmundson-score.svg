@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="10cm" height="6cm" viewBox="33 2 199 112" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="99.0233" y="8.77029">
+    <tspan x="99.0233" y="8.77029">Cue-Title-Location</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="99.5094" y1="12.4709" x2="151.594" y2="12.6784"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="151.618" y1="10.2638" x2="151.57" y2="15.093"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="99.5333" y1="10.0563" x2="99.4854" y2="14.8856"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="125.454" y1="9.81909" x2="125.552" y2="12.5747"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="93.3428" y1="25.3334" x2="136.188" y2="25.2167"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="136.212" y1="22.8021" x2="136.164" y2="27.6313"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="93.3668" y1="22.9188" x2="93.3189" y2="27.7481"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="114.647" y1="22.6605" x2="114.765" y2="25.2751"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="85.965" y1="37.1051" x2="155.813" y2="36.9358"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="155.837" y1="34.5212" x2="155.789" y2="39.3505"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="85.9889" y1="34.6904" x2="85.941" y2="39.5197"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="120.819" y1="34.3547" x2="120.889" y2="37.0205"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="88.3967" y1="50.8247" x2="134.601" y2="50.7424"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="134.625" y1="48.3277" x2="134.577" y2="53.157"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="88.4206" y1="48.4101" x2="88.3727" y2="53.2394"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="111.487" y1="48.1997" x2="111.499" y2="50.7836"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="88.0058" y1="64.0608" x2="110.901" y2="63.9784"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="110.925" y1="61.5638" x2="110.877" y2="66.3931"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="88.0298" y1="61.6462" x2="87.9818" y2="66.4754"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="99.5094" y1="61.4357" x2="99.4535" y2="64.0196"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="71.3228" y1="77.3551" x2="118.754" y2="77.409"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="118.778" y1="74.9944" x2="118.73" y2="79.8236"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="71.3467" y1="74.9404" x2="71.2988" y2="79.7697"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="95.0644" y1="74.4574" x2="95.0385" y2="77.382"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="61.373" y1="90.3082" x2="93.265" y2="90.2259"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="93.2889" y1="87.8113" x2="93.241" y2="92.6405"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="61.397" y1="87.8936" x2="61.3491" y2="92.7229"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="77.4802" y1="87.6795" x2="77.319" y2="90.2671"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="35.2455" y1="103.419" x2="206.191" y2="102.977"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="35.2695" y1="101.004" x2="35.2215" y2="105.833"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="51.5888" y1="100.996" x2="51.5409" y2="105.825"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="68.9447" y1="100.997" x2="68.8967" y2="105.827"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="86.0588" y1="100.845" x2="86.0109" y2="105.674"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="101.722" y1="100.985" x2="101.674" y2="105.814"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="118.616" y1="100.961" x2="118.568" y2="105.791"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="135.438" y1="100.851" x2="135.39" y2="105.68"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="153.532" y1="100.83" x2="153.484" y2="105.659"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="171.325" y1="100.958" x2="171.278" y2="105.787"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="188.492" y1="100.8" x2="188.445" y2="105.629"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="206.215" y1="100.563" x2="206.168" y2="105.392"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="43.2683" y1="102.304" x2="43.2002" y2="105.13"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="60.3439" y1="102.092" x2="60.2758" y2="104.918"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="76.94" y1="101.792" x2="76.872" y2="104.617"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="93.0816" y1="101.933" x2="93.0135" y2="104.759"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="110.839" y1="101.986" x2="110.771" y2="104.812"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="127.173" y1="101.862" x2="127.105" y2="104.688"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="144.125" y1="101.915" x2="144.057" y2="104.741"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="162.208" y1="101.968" x2="162.14" y2="104.794"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="179.425" y1="101.845" x2="179.357" y2="104.67"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="198.205" y1="101.61" x2="198.137" y2="104.436"/>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="83.3203" y="22.1122">
+    <tspan x="83.3203" y="22.1122">Cue-Key-Title-Location</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="108.303" y="33.5241">
+    <tspan x="108.303" y="33.5241">Location</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="105.142" y="47.2492">
+    <tspan x="105.142" y="47.2492">Cue</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="91.9564" y="60.9743">
+    <tspan x="91.9564" y="60.9743">Title</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="89.9516" y="73.1573">
+    <tspan x="89.9516" y="73.1573">Key</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="65.5856" y="86.8825">
+    <tspan x="65.5856" y="86.8825">Random</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="211.997" y="104.51">
+    <tspan x="211.997" y="104.51">Percent</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="33.501" y="112.919">
+    <tspan x="33.501" y="112.919">0</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="48.2222" y="112.374">
+    <tspan x="48.2222" y="112.374">10</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="65.9423" y="112.374">
+    <tspan x="65.9423" y="112.374">20</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="82.7899" y="112.265">
+    <tspan x="82.7899" y="112.265">30</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="98.5471" y="111.884">
+    <tspan x="98.5471" y="111.884">40</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="115.667" y="112.592">
+    <tspan x="115.667" y="112.592">50</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="132.242" y="112.483">
+    <tspan x="132.242" y="112.483">60</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="149.908" y="112.374">
+    <tspan x="149.908" y="112.374">70</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="168.119" y="112.265">
+    <tspan x="168.119" y="112.265">80</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="185.239" y="112.156">
+    <tspan x="185.239" y="112.156">90</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="201.269" y="112.047">
+    <tspan x="201.269" y="112.047">100</tspan>
+  </text>
+</svg>

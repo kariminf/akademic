@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="14cm" height="5cm" viewBox="0 3 276 97" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <path style="fill: #ffffff" d="M 3.79368 5.00852 L 73.8303,5.00852 L 73.8303,31.1055 C 59.823,26.756 52.8193,26.756 38.812,31.1055 C 24.8047,35.455 17.801,35.455 3.79368,31.1055 L 3.79368,5.00852z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 3.79368 5.00852 L 73.8303,5.00852 L 73.8303,31.1055 C 59.823,26.756 52.8193,26.756 38.812,31.1055 C 24.8047,35.455 17.801,35.455 3.79368,31.1055 L 3.79368,5.00852"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="38.812" y="17.9989">
+      <tspan x="38.812" y="17.9989">document(s) d'entrée</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="100.529" y="3.73062" width="73.4816" height="28.6866"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="100.529" y="3.73062" width="73.4816" height="28.6866"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="137.27" y="15.6573">
+      <tspan x="137.27" y="15.6573">Etape 1: </tspan>
+      <tspan x="137.27" y="24.1239">Identification du sujet</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="11.6343,71.206 74.8029,71.206 64.3765,99.8524 1.20784,99.8524 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="11.6343,71.206 74.8029,71.206 64.3765,99.8524 1.20784,99.8524 "/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="38.0054" y="87.3459">
+      <tspan x="38.0054" y="87.3459">Résumé</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="100.334" y="71.0912" width="73.0279" height="28.7612"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="100.334" y="71.0912" width="73.0279" height="28.7612"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="136.848" y="83.0551">
+      <tspan x="136.848" y="83.0551">Etape 3: </tspan>
+      <tspan x="136.848" y="91.5218">Génération du résumé</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="194.619" y="37.5456" width="81.65" height="29.2375"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="194.619" y="37.5456" width="81.65" height="29.2375"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="235.444" y="49.7477">
+      <tspan x="235.444" y="49.7477">Etape 2: </tspan>
+      <tspan x="235.444" y="58.2144">Interprétation du sujet</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 231.896,33.8024 A 61.9624,61.9624 0 0 0 174.01,18.0739"/>
+    <polygon style="fill: #000000" points="235.003,37.0399 228.799,34.4884 232.046,33.6478 233.322,30.5458 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="235.003,37.0399 228.799,34.4884 232.046,33.6478 233.322,30.5458 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="73.8304" y1="18.057" x2="95.358" y2="18.0706"/>
+    <polygon style="fill: #000000" points="99.858,18.0735 93.8561,21.0697 95.358,18.0706 93.8599,15.0697 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="99.858,18.0735 93.8561,21.0697 95.358,18.0706 93.8599,15.0697 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="100.334" y1="85.4718" x2="74.7606" y2="85.5195"/>
+    <polygon style="fill: #000000" points="70.2606,85.5279 76.255,82.5168 74.7606,85.5195 76.2662,88.5167 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="70.2606,85.5279 76.255,82.5168 74.7606,85.5195 76.2662,88.5167 "/>
+  </g>
+  <text font-size="12.4178" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="38.812" y="20.2318">
+    <tspan x="38.812" y="20.2318"></tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 177.83,88.0175 A 42.3762,42.3762 0 0 0 235.444,66.7831"/>
+    <polygon style="fill: #000000" points="173.924,85.8386 180.588,86.6081 177.691,88.2995 177.306,91.6315 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="173.924,85.8386 180.588,86.6081 177.691,88.2995 177.306,91.6315 "/>
+  </g>
+</svg>

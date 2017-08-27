@@ -1,0 +1,98 @@
+%==================================================================================
+%==================================================================================
+% Document		:		Annexe: Liste des acronymes
+%
+% Auteur		: 		Abdelkrime ARIES
+% Encadreur		:		Dr. Omar NOUALI
+% Co-encadreur	:		Mme. Houda OUFAIDA
+% Établissement	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adresse		:		Oued Smar, Alger, Algérie 
+% Année			:		2012/2013
+% Grade			:		Magister
+% discipline 	:		Informatique 
+% Spécialité	:		IRM (Informatique Répartie et Mobile)
+% Titre			:		Résumé automatique de textes
+%
+%==================================================================================
+%==================================================================================
+
+%==========================L'entete de chapitre====================================
+%==================================================================================
+ \ifx\wholebook\relax\else
+  	\documentclass[a4paper,12pt,oneside]{../use/ESIthesis}
+  	
+  	\input{../use/formatAndDefs}
+  	 	
+  	 	\setracine{../}
+  	 	\graphicspath{{.}{../fig/}}
+
+  	 	\begin{document}
+
+  	 	\selectlanguage {francais}
+
+  	 	\mainmatter
+  	 	\appendix
+  \fi
+%==================================================================================
+\chapter{Liste des acronymes}
+\begin{acronym}
+%\acro{}{}
+\acro{ACL}{Association for Computational Linguistics}
+\acro{ARL}{Answer Recall Lenient}
+\acro{ARS}{Answer Recall Strict}
+\acro{BE}{Basic Element}
+\acro{BLEU}{BiLingual Evaluation Understudy}
+\acro{DUC}{Document Understanding Conference}
+\acro{IDF}{Inverse Document Frequency}
+\acro{LCS}{Longest Common Subsequence}
+\acro{Maxent}{Maximum entropy}
+\acro{MLE}{Marqueurs d'Extraction Sémantique}
+\acro{NII}{National Institute of Informatics}
+\acro{NIST}{National Institute of Standards and Technology}
+\acro{NTCIR}{NII Test Collection for IR systems}
+\acro{PCFG}{Probabilistic Context Free Grammar}
+\acro{RI}{Recherche d'Information}
+\acro{ROUGE}{Recall-Oriented Understudy for Gisting Evaluation}
+\acro{SCU}{Summary Content Unit}
+\acro{SEE}{Summary Evaluation Environment}
+\acro{SEM}{Semantic Extraction Markup}
+\acro{SUMMONS}{SUMMarizing Online NewS articles}
+\acro{TAC}{Text Analyse Conference}
+\acro{TALN}{Traitement Algorithmique de Langages Naturels} 
+\acro{TF}{Term Frequency}
+\acro{TIARA}{Text Insight via Automated, Responsive Analysis}
+\acro{TIDES}{Translingual Information Detection, Extraction, and Summarization}
+\acro{UNIS}{UNIS: UNIversal Summarizer}
+
+%\acro{}{}
+%\acro{}{}
+%\acro{}{}
+%\acro{}{}
+%\acro{}{}
+%\acro{}{}
+%\acro{}{}
+%\acro{}{}
+%\acro{ISO}{ISO} 
+%\acro{ANSI}{ANSI} 
+%Penman \cite{88-penman}
+%FUF/SURGE \cite{92-elhadad}
+%RealPro \cite{97-lavoie-rambow}
+%NITROGEN \cite{98-langkilde-knight}
+%SMS
+%PDA
+%ASCII
+%PDF
+%RTF
+%HTML
+
+\end{acronym} 
+
+%========================Le pied de chapitre=======================================
+%==================================================================================
+\ifx\wholebook\relax\else
+ \cleardoublepage
+ \bibliographystyle{../use/ESIbib}
+ \bibliography{../bib/RA}
+ \end{document}
+\fi
+%==================================================================================

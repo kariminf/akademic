@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="12cm" height="5cm" viewBox="0 0 224 98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="49.4056" y="1.0449" width="121.95" height="17.0667"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="49.4056" y="1.0449" width="121.95" height="17.0667"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="110.381" y="11.3949">
+      <tspan x="110.381" y="11.3949">Evaluation du résumé de texte</tspan>
+    </text>
+  </g>
+  <text font-size="12.4178" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="121.584" y="12.0055">
+    <tspan x="121.584" y="12.0055"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="1.37911" y="31.9714" width="105.005" height="17.0667"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="1.37911" y="31.9714" width="105.005" height="17.0667"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="53.8818" y="42.3214">
+      <tspan x="53.8818" y="42.3214">Méthodes intrinsiques</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="115.93" y="32.1322" width="106.773" height="17.0667"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="115.93" y="32.1322" width="106.773" height="17.0667"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="169.317" y="42.4822">
+      <tspan x="169.317" y="42.4822">Méthodes extrinsiques</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="0.904562" y="63.521" width="51" height="34"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="0.904562" y="63.521" width="51" height="34"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="26.4046" y="73.871">
+      <tspan x="26.4046" y="73.871">Comparaison</tspan>
+      <tspan x="26.4046" y="82.3376">avec une sortie </tspan>
+      <tspan x="26.4046" y="90.8043">de référence</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="55.9374" y="63.6493" width="50.8005" height="34"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="55.9374" y="63.6493" width="50.8005" height="34"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="81.3377" y="73.9993">
+      <tspan x="81.3377" y="73.9993">Comparaison </tspan>
+      <tspan x="81.3377" y="82.466">avec l'entrée </tspan>
+      <tspan x="81.3377" y="90.9326">du résumé</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="116.513" y="63.6629" width="50.8128" height="34"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="116.513" y="63.6629" width="50.8128" height="34"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="141.92" y="74.0129">
+      <tspan x="141.92" y="74.0129">Evaluation </tspan>
+      <tspan x="141.92" y="82.4795">de la</tspan>
+      <tspan x="141.92" y="90.9462">pertinence</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="172.204" y="63.579" width="51.2067" height="34"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="172.204" y="63.579" width="51.2067" height="34"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="197.807" y="73.929">
+      <tspan x="197.807" y="73.929">Lecture</tspan>
+      <tspan x="197.807" y="82.3957">et </tspan>
+      <tspan x="197.807" y="90.8623">comréhension</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="110.381,18.1116 110.381,21.277 53.8818,21.277 53.8818,26.8006 "/>
+    <polygon style="fill: #000000" points="53.8818,31.3006 50.8818,25.3006 53.8818,26.8006 56.8818,25.3006 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="53.8818,31.3006 50.8818,25.3006 53.8818,26.8006 56.8818,25.3006 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="110.381,18.1116 110.381,21.277 169.317,21.277 169.317,26.9614 "/>
+    <polygon style="fill: #000000" points="169.317,31.4614 166.317,25.4614 169.317,26.9614 172.317,25.4614 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="169.317,31.4614 166.317,25.4614 169.317,26.9614 172.317,25.4614 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="53.8818,49.038 53.8818,53.4502 26.4046,53.4502 26.4046,58.3502 "/>
+    <polygon style="fill: #000000" points="26.4046,62.8502 23.4046,56.8502 26.4046,58.3502 29.4046,56.8502 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="26.4046,62.8502 23.4046,56.8502 26.4046,58.3502 29.4046,56.8502 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="53.8818,49.038 53.8818,53.4502 81.3377,53.4502 81.3377,58.4785 "/>
+    <polygon style="fill: #000000" points="81.3377,62.9785 78.3377,56.9785 81.3377,58.4785 84.3377,56.9785 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="81.3377,62.9785 78.3377,56.9785 81.3377,58.4785 84.3377,56.9785 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="169.317,49.1989 169.317,53.8038 141.92,53.8038 141.92,58.492 "/>
+    <polygon style="fill: #000000" points="141.92,62.992 138.92,56.992 141.92,58.492 144.92,56.992 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="141.92,62.992 138.92,56.992 141.92,58.492 144.92,56.992 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="169.317,49.1989 169.317,53.8038 197.807,53.8038 197.807,58.4082 "/>
+    <polygon style="fill: #000000" points="197.807,62.9082 194.807,56.9082 197.807,58.4082 200.807,56.9082 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="197.807,62.9082 194.807,56.9082 197.807,58.4082 200.807,56.9082 "/>
+  </g>
+</svg>

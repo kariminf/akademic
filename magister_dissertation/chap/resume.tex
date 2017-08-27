@@ -1,0 +1,134 @@
+%==================================================================================
+%==================================================================================
+% Document		:		Chapitre: Résumé
+%
+% Auteur		: 		Abdelkrime ARIES
+% Encadreur		:		Dr. Omar NOUALI
+% Co-encadreur	:		Mme. Houda OUFAIDA
+% Établissement	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adresse		:		Oued Smar, Alger, Algérie 
+% Année			:		2012/2013
+% Grade			:		Magister
+% Discipline 	:		Informatique 
+% Spécialité	:		IRM (Informatique Répartie et Mobile)
+% Titre			:		Résumé automatique de textes
+%
+%==================================================================================
+%==================================================================================
+
+%==========================L'entete de chapitre====================================
+%==================================================================================
+ \ifx\wholebook\relax\else
+  	\documentclass[a4paper,12pt,oneside]{../use/ESIthesis}
+  	
+  	\input{../use/formatAndDefs}
+  	 	
+  	 	\setracine{../}
+  	 	\graphicspath{{.}{../fig/}}
+  	 	
+  	 	\begin{document}
+  	 	
+  	 	%\dominitoc 
+  	 	\selectlanguage {francais}
+  	 	%just to create the .toc file, then you can hide it
+  	 	%\tableofcontents
+  	 	\frontmatter
+  \fi
+%==================================================================================
+
+\chapter*{Résumé}
+
+Dans le cadre de notre mémoire, nous avons travaillé sur le résumé automatique de texte. 
+Notre objectif était de développer un système général; qui est indépendant de la langue et du genre du texte d'entrée. 
+Notre choix s'est dirigé vers l'utilisation d'une approche statistique (numérique) à cause de sa dépendance faible au langue par rapport à l'approche linguistique. 
+Dans l'approche statistique, le système utilise un groupe de caractéristiques pour juger la pertinence des unités à extraire (phrases en général). 
+
+Pour combiner les scores des différentes caractéristiques dans un seul score, nous avons utilisé un algorithme d'apprentissage. 
+Contrairement aux systèmes basant sur l'apprentissage, notre système n'utilise pas un corpus d'entrainement, puisque ce dernier est dépendant à certaine langue et certain genre. 
+Notre idée est de choisir les phrases qui peuvent représenter le texte d'entrée au totalité. 
+Puisque le texte d'entrée se compose de plusieurs thèmes, une phrase du résumé est supposée représenter tous ou la majorité de ses thèmes, prenant en considération l'importance de chaque thème. 
+
+Nous avons utilisé un algorithme de regroupement pour regrouper les phrases similaires dans des clusters. 
+Ensuite, nous avons entrainé notre système sur ces différents clusters pour avoir des modèles. 
+Pour chaque phrase, nous avons calculé la probabilité qu'elle peut représenter chacun de ces clusters, étant donné un vecteur de caractéristiques. 
+Enfin, ces probabilités sont combinées dans un score, ce dernier est utilisé pour réordonner les phrases pour extraire celles plus pertinentes.
+
+\vspace*{\fill}
+
+\textbf{Mots-clés: }
+Résumé automatique, 
+extraction, 
+Regroupement, 
+Classification, 
+Théorie de Bayes
+.
+
+\clearpage
+
+\chapter*{Summary}
+
+As a part of our Magister thesis, we work on automatic text summarization. 
+Our objective was to develop a general system, which is input text's language and genre independent. 
+As a choice, we use statistical (numerical) approach which is less language dependent then the linguistic approach. 
+In the statistical approach, the system use a set of features to calculate the relevancy of extracted units (sentences in general). 
+
+To combine the scores of different features in one score, we used a learning algorithm. 
+Unlike the learning-based systems, ours don't use a training corpus, which is language and genre dependent. 
+Our idea is to select the sentences which can represent the whole input text. 
+Because the input text is composed of many topics, a sentence of the summary is supposed to represent all or the majority of these topics, considering each topic's importance. 
+
+We used a clustering algorithm to create similar sentences' clusters. 
+Then, We trained our system on these clusters to find classification models. 
+For each sentence, we calculated the probability that it can represent each of these clusters, knowing a features vector.
+Finally, these probabilities are combined in one score, which can used to reorganize the sentences and extract the more relevant ones.
+
+\vspace*{\fill}
+
+
+\textbf{Keywords: }
+Automatic summarization, 
+extraction, 
+Clustering, 
+Classification, 
+Bayes theory
+.
+
+\clearpage
+
+\chapter*{\RL{mulaxxa.s}}
+
+\begin{arabtext}
+fI 'i.tAri mu_dakkiratinA ha_diHi, qumnA bi-al`amali `alY at-talxI.s al-tilqA'iy li-l-nno.sO.s.
+hadafunA huwa ta.twIr ni.zAm `Am, mustaqill `ani al-lu.gaT wa-al-'uslUb. 
+li_dA ixtarnA isti`mAl al-manha^g al-'i.h.sA'iy (ar-raqmy) li-'annahu nAdiraN mA ya`tamidu `lY al-ma`rifaT al-lu.gawiyyaT muqAranaTaN ma`a al-manha^g al-lu.gawy. 
+fy al-manha^g al-'i.h.sA'iy, yasta`milu an-ni.zAm ma^gmU`aTaN mina al-myzAt min 'a^gli taqdyri al-mu.htawY ad-dalAly li-l-wa.hadAt al-mustaxla.saT (^gumal fy 'a.glabi al-'a.hyAn).
+
+li-ta^gmy`i an-natA'iji al-muxtalifaT li-l-myzAt fy natyjaTiN wA.hidaTiN, ista`malnA tiqniyyaT at-ta`allum al-'Aly. 
+bi-`aksi al-'ab.hA_ti as-sAbiqaTi al-murtakizaTi `alY at-ta`allum al-'Aly, ni.zAmunA lA yasta`mil 'ayyaTa _daxA'ir nu.sU.s li-l-ttadryb, li-'anna ha_dihi al-'axyraT murtabi.taTuN bi-lu.gaTiN wa-'uslUbiN mu`ayyanayni.
+fikratunA hiya 'an naqUma bi-axtiyAri al^gumali allaty tasta.ty`u at-ta`byra `ani an-na.s.si 'i^gmAlaN. 
+ma`a `ilminA 'anna an-na.sa yatakawwanu min `iddaTi mawA.dy`, fa-'inna al-mulaxxa.sa ya.htawy `lY al-jumali allaty tasta.ty`u at-ta`byra `an kulli 'aw mu`.zam ha_dihi al-mawA.dy`, 'Axi_dyna bi`ayni al-i`tibAr 'ahammiyyaTa kulli maw.dU`.
+
+'ista`malnA xawArizm xA.s bi-at-ta^gmy` min 'a^gli 'in^sA' ma^gmU`At ta.htawy `alY al-^gumal al-muta^sAbihaTi. 
+ba`dahA, qumnA bi-tadryb ni.zAminA `alY muxtalafi al-ma^gmU`At li-l-.hu.sUli `lY namA_di^g lit-ta.snIf. 
+_tumma qumnA bi-.hisAb i.htimAl 'an tu`abbira ^gumlaTuN mA `alY kulli ma^gmU`aTiN, 'Ax_dyna bi-`ayni al-i`tibAr ba`.d al-myzAt al-mu.haddadaT. 
+'axyraN, ha_dihi al-i.htimAlAt ^gummi`at fy naty^gaTiN wA.hidaTiN tusta`malu li-tartyb al-^gumal wa-istixlA.s al-'ak_tar 'ahammiyyaTaN minhA.
+\end{arabtext}
+
+\vspace*{\fill}
+
+\begin{arabtext}
+
+{\bf alkalimAt almiftA.hyyaT -} at-talxI.s at-tilqA'iy, al-istixlA.s, at-ta^gmI`, at-ta.snIf, na.zaryyaTu bAyz.
+
+%extraction, 
+%Clustering, 
+%Classification, 
+%Na\"ive Bayes
+\end{arabtext}
+
+\clearpage
+
+\ifx\wholebook\relax\else
+\cleardoublepage
+    \end{document}
+\fi

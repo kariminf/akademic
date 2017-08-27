@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="7cm" height="8cm" viewBox="4 1 130 143" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <path style="fill: #ffffff" d="M 38.2866 2.23242 L 99.6366,2.23242 L 99.6366,20.5153 C 87.3666,17.4681 81.2316,17.4681 68.9616,20.5153 C 56.6916,23.5624 50.5566,23.5624 38.2866,20.5153 L 38.2866,2.23242z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 38.2866 2.23242 L 99.6366,2.23242 L 99.6366,20.5153 C 87.3666,17.4681 81.2316,17.4681 68.9616,20.5153 C 56.6916,23.5624 50.5566,23.5624 38.2866,20.5153 L 38.2866,2.23242"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="68.9616" y="11.9669">
+      <tspan x="68.9616" y="11.9669">document(s) d'entrée</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="4.39716" y="33.0496" width="129.35" height="17.0667"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="4.39716" y="33.0496" width="129.35" height="17.0667"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="69.0722" y="43.3996">
+      <tspan x="69.0722" y="43.3996">Faire des statistiques en utilisant des critères</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="51.5412,126.66 85.0228,126.66 78.811,143.726 45.3294,143.726 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="51.5412,126.66 85.0228,126.66 78.811,143.726 45.3294,143.726 "/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="65.1761" y="137.01">
+      <tspan x="65.1761" y="137.01">Résumé</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="20.2868" y="64.1886" width="96.7" height="17.6034"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="20.2868" y="64.1886" width="96.7" height="17.6034"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="68.6368" y="74.807">
+      <tspan x="68.6368" y="74.807">Sélectionner les unités saillantes</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="68.9616" y1="20.5152" x2="69.0266" y2="27.879"/>
+    <polygon style="fill: #000000" points="69.0663,32.3788 66.0135,26.4055 69.0266,27.879 72.0132,26.3526 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="69.0663,32.3788 66.0135,26.4055 69.0266,27.879 72.0132,26.3526 "/>
+  </g>
+  <text font-size="12.4178" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="68.9616" y="12.8974">
+    <tspan x="68.9616" y="12.8974"></tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="69.0722" y1="50.1162" x2="68.7967" y2="59.0203"/>
+    <polygon style="fill: #000000" points="68.6575,63.5181 65.8445,57.4282 68.7967,59.0203 71.8417,57.6137 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="68.6575,63.5181 65.8445,57.4282 68.7967,59.0203 71.8417,57.6137 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="25.0636" y="94.1966" width="86.45" height="17.6034"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="25.0636" y="94.1966" width="86.45" height="17.6034"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="68.2886" y="104.815">
+      <tspan x="68.2886" y="104.815">Extraction des unités</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="68.6368" y1="81.792" x2="68.4337" y2="89.0278"/>
+    <polygon style="fill: #000000" points="68.3074,93.526 65.477,87.4442 68.4337,89.0278 71.4746,87.6126 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="68.3074,93.526 65.477,87.4442 68.4337,89.0278 71.4746,87.6126 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="68.2886" y1="111.8" x2="68.2843" y2="121.489"/>
+    <polygon style="fill: #000000" points="68.2823,125.989 65.285,119.987 68.2843,121.489 71.285,119.99 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="68.2823,125.989 65.285,119.987 68.2843,121.489 71.285,119.99 "/>
+  </g>
+</svg>

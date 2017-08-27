@@ -1,0 +1,128 @@
+%==================================================================================
+%==================================================================================
+% Document		:		Conclusion
+%
+% Auteur		: 		Abdelkrime ARIES
+% Encadreur		:		Dr. Omar NOUALI
+% Co-encadreur	:		Mme. Houda OUFAIDA
+% Établissement	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adresse		:		Oued Smar, Alger, Algérie 
+% Année			:		2012/2013
+% Grade			:		Magister
+% Discipline 	:		Informatique 
+% Spécialité	:		IRM (Informatique Répartie et Mobile)
+% Titre			:		Résumé automatique de textes
+%
+%==================================================================================
+%==================================================================================
+
+%==========================L'entete de chapitre====================================
+%==================================================================================
+ \ifx\wholebook\relax\else
+  	\documentclass[a4paper,12pt,oneside]{../use/ESIthesis}
+  	
+  	\input{../use/formatAndDefs}
+  	 	
+  	 	\setracine{../}
+  	 	\graphicspath{{.}{../fig/}}
+  	 	
+  	 	\begin{document}
+  	 	
+  	 	%\dominitoc 
+  	 	\selectlanguage {francais}
+  	 	%just to create the .toc file, then you can hide it
+  	 	%\tableofcontents
+  	 	\mainmatter
+  \fi
+%==================================================================================
+
+\chapter*{Conclusion et perspectives}
+\label{chap:concl}
+\addcontentsline{toc}{chapter}{Conclusion et perspectives}
+\fancyhead[L]{\bfseries\nouppercase{Conclusion et perspectives}}
+
+%Pour conclure ce mémoire, nous récapitulerons d'abord l'essentiel du travail réalisé, en insistant sur les points importants qui particularisent notre approche par rapport aux autres travaux. 
+%Ensuite, nous discuterons les différents testes et les résultats obtenues.
+%Enfin, nous terminerons en exposant les principales perspectives qui nous semblent les plus bénéfiques pour continuer à assurer l'intérêt et la solidité de notre méthode.
+
+\section*{Travail réalisé}
+
+Dans ce travail notre objectif était de développer une méthode de résumé automatique la plus générale possible (indépendante du genre et de la langue). 
+%Comme nous avons présenté dans l'état de l'art, il existe deux approches de résumé automatique: l'approche statistique et l'approche linguistique. 
+Sachant qu'il existe deux grandes approches de résumé automatique: l'approche statistique et l'approche linguistique,  l'utilisation de cette dernière rend le système dépendant à une certaine langue, et même à un certain genre.
+Ainsi, notre choix s'est penché vers le développement d'une approche statistique (ou numérique), serte limitée à l'extraction, mais qui a prouvé son utilité dans le domaine. 
+Elle utilise des critères statistiques pour juger de la pertinence d'une phrase (ou une autre unité à extraire). 
+Pour comparer les phrases et surtout les ordonner, nous avons défini un score qui est la combinaison des critères multiplié par leurs poids. 
+Ces poids sont, souvent, obtenus en utilisant l'apprentissage basé sur un corpus d'entraînement. 
+Ceci rend le système dépendant de la langue et du genre du corpus d'entraînement, d'où l'idée d'utiliser l'apprentissage différemment. 
+En effet, à partir du texte d'entrée, on identifie les thèmes abordés.
+Chaque thème contient un ensemble de phrases similaires.
+Pour ce faire, nous avons proposé un algorithme de regroupement basé sur leurs similarités (dans notre cas: similarité Cosinus). 
+Ensuite, pour chaque thème, on extrait un modèle en utilisant un algorithme d'apprentissage, Na\"ive Bayes dans notre cas, et un ensemble de critères statistiques. 
+Ces modèles sont utilisés pour calculer la probabilité qu'une phrase représente les différents thèmes du texte d'entrée. 
+Enfin, les phrases sont triées selon leurs scores, afin d'en extraire les premières phrases. 
+
+%Notre méthode utilise le regroupement pour identifier les différents thèmes dans le texte d'entrée, de la même façon que les travaux précédents. 
+La différence entre notre travail et les travaux précédents se résume dans les points suivants: 
+\begin{itemize}
+\item Les autres méthodes avec regroupement, tentent de sélectionner une phrase représentante de chaque cluster. 
+Au contraire, dans notre méthode, on tente de sélectionner les phrases qui représentent le maximum de clusters. 
+
+\item Les méthodes par apprentissage, utilisent les algorithmes de classification pour trouver les poids des critères, ou bien pour décider si une phrase appartient au résumé ou non. 
+Dans notre méthode, l'algorithme de classification est utilisé comme un moyen de notation. 
+
+\item Notre méthode n'utilise pas un corpus d'entraînement, elle est ainsi indépendante du genre et de la langue du document source.
+\end{itemize}
+
+\section*{Les résultats obtenus}
+
+Afin d'évaluer notre système dans le contexte du résumé mono-document, nous avons conduit des expérimentation en utilisant le corpus cmp-lg. 
+%Ces expérimentations sont destinées pour accomplir les trois buts suivants: 
+%\begin{itemize}
+%\item La comparaison de notre système avec un notre (UNIS dans notre cas), en terme de qualité. 
+%\item Tester l'effet d'ajouter un nouveau critère au système. 
+%\item Adaptation de seuil de regroupement pour voir son effet sur le résumé résultant.
+%\end{itemize}
+%Les résultats ont montré que notre système surpasse UNIS dans la plupart des cas. 
+Les résultats ont montré que notre système donne de bonnes performances. 
+L'ajout de critères améliore la précision du système. 
+%Pour le seuil de regroupement, on peut voir qu'il a un grand effet sur le résumé résultat. 
+
+Motivé par ces résultats, nous avons appliqué notre méthode dans le contexte du résumé multi-documents. 
+Pour ce faire, nous avons proposé deux stratégies de regroupement: la première associe un cluster à chaque document, la deuxième fusionne tous les documents d'entrée et regroupe les phrases similaires dans un même cluster. 
+Afin d'évaluer les deux stratégies, nous avons conduit des expérimentations en utilisant le corpus DUC 2004. 
+%\begin{itemize}
+%\item Comparer les deux méthodes décrites pour le résumé multi-document.
+%\item Positionner notre système par rapport aux autres systèmes participant dans DUC 2004.
+%\item Évaluer l'impact de l'ajout de nouveaux critères sur la performance de notre système pour le résumé multi-documents. 
+%\item Évaluer l'apport du regroupement pour notre système pour le résumé multi-document.
+%\item Évaluer l'impact de normalisation sur le rendement de système.
+%\item Évaluer l'impact de réduction de phrases sur le rendement de système.
+%\end{itemize}
+Nous avons constaté que la deuxième stratégie donne de meilleurs résultats.
+Ceci peut être dû au fait que chaque document contient un thème principal et des thèmes secondaires, et en fusionnant les documents on a pu effectuer l'apprentissage sur chaque thème à part. 
+%En comparant notre système avec les participants de DUC 2004, on peut dire que notre système donne des résultats satisfaisants. 
+L'ajout de critères reste bénéfique et permet aussi d'améliorer le rappel et la précision du système.
+%et du regroupement, on peut voir les mêmes observations que celles du résumé mono-document. 
+%Nous avons utilisé la normalisation afin de ne pas favoriser les phrases longues sur celles courtes (ou réduite). 
+L'ajout d'un module de compression a permis d'améliorer, dans certains cas, les performances.
+%Ensuite, nous avons utilisé un module de compression de phrases très simple, qui nous a donnée des résultats encourageantes pour continue dans ce chemin. 
+
+\section*{Perspectives et travaux à venir}
+
+Nous avons testé notre système en utilisant deux critères: la fréquence des uni-grammes et des bi-grammes, les résultats étaient satisfaisants. 
+Dans le futur, on compte évaluer l'effet engendré par d'autres critères: la longueur de phrase, sa position, etc., sur notre système. 
+Motivés par la recherche de \cite{10-yatsko-al}, on compte aussi explorer la pertinence de ces critères par rapport à un genre de documents particulier. 
+De plus, il est important d'identifier les meilleurs valeurs du seuil de regroupement, ceci dans le but d'effectuer un regroupement optimisé ni trop strict ni trop vague.
+Enfin, du fait que notre méthode soit d'ordre général, des expériences devraient être menées sur d'autres domaines (articles de presse, romans, etc.) et d'autres langues (arabe, français, etc.).
+
+
+%========================Le pied de chapitre=======================================
+%==================================================================================
+\ifx\wholebook\relax\else
+ \cleardoublepage
+ \bibliographystyle{../use/ESIbib} 
+ \bibliography{../bib/evalMine}
+ \end{document}
+\fi
+%===================================================================================

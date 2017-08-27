@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="13cm" height="6cm" viewBox="8 2 241 119" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <path style="fill: #ffffff" d="M 13.0813 2.43952 L 51.5813,2.43952 L 51.5813,28.2795 C 43.8813,23.9729 40.0313,23.9729 32.3313,28.2795 C 24.6313,32.5862 20.7813,32.5862 13.0813,28.2795 L 13.0813,2.43952z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 13.0813 2.43952 L 51.5813,2.43952 L 51.5813,28.2795 C 43.8813,23.9729 40.0313,23.9729 32.3313,28.2795 C 24.6313,32.5862 20.7813,32.5862 13.0813,28.2795 L 13.0813,2.43952"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="32.3313" y="11.0895">
+      <tspan x="32.3313" y="11.0895">document(s)</tspan>
+      <tspan x="32.3313" y="19.5562">d'entrée</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="8.80014" y="42.4074" width="47.35" height="25.5333"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="8.80014" y="42.4074" width="47.35" height="25.5333"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="32.4751" y="52.7574">
+      <tspan x="32.4751" y="52.7574">Module de</tspan>
+      <tspan x="32.4751" y="61.2241">Pré-traitement</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="27.7429,99.5014 61.2246,99.5014 55.0128,116.568 21.5312,116.568 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="27.7429,99.5014 61.2246,99.5014 55.0128,116.568 21.5312,116.568 "/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="41.3779" y="109.851">
+      <tspan x="41.3779" y="109.851">Résumé</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="32.3314" y1="28.2796" x2="32.4226" y2="37.2368"/>
+    <polygon style="fill: #000000" points="32.4684,41.7366 29.4075,35.7675 32.4226,37.2368 35.4071,35.7064 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="32.4684,41.7366 29.4075,35.7675 32.4226,37.2368 35.4071,35.7064 "/>
+  </g>
+  <text font-size="12.4178" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="32.3314" y="17.5129">
+    <tspan x="32.3314" y="17.5129"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="111.148" y="53.8203" width="64" height="25.5333"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="111.148" y="53.8203" width="64" height="25.5333"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="143.148" y="64.1703">
+      <tspan x="143.148" y="64.1703">Module de</tspan>
+      <tspan x="143.148" y="72.637">Réduction de phrase</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="196.104" y="53.4465" width="43.75" height="25.5333"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="196.104" y="53.4465" width="43.75" height="25.5333"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="217.979" y="63.7965">
+      <tspan x="217.979" y="63.7965">Module</tspan>
+      <tspan x="217.979" y="72.2632"> d'extraction </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="79.9941" y="95.1194" width="53.45" height="25.5333"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="79.9941" y="95.1194" width="53.45" height="25.5333"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="106.719" y="105.469">
+      <tspan x="106.719" y="105.469">Module de</tspan>
+      <tspan x="106.719" y="113.936"> Post-traitement </tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #ffffff" d="M 81.6128 12.4876 C 84.1743,10.4009 85.455,9.70532 88.0165,9.70532 C 90.5779,9.70532 91.8586,10.4009 94.4201,12.4876 L 94.4201,23.617 C 91.8586,25.7037 90.5779,26.3993 88.0165,26.3993 C 85.455,26.3993 84.1743,25.7037 81.6128,23.617 L 81.6128,12.4876z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 81.6128 12.4876 C 84.1743,10.4009 85.455,9.70532 88.0165,9.70532 C 90.5779,9.70532 91.8586,10.4009 94.4201,12.4876 L 94.4201,23.617 C 91.8586,25.7037 90.5779,26.3993 88.0165,26.3993 C 85.455,26.3993 84.1743,25.7037 81.6128,23.617 L 81.6128,12.4876"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 81.6128 12.4876 C 84.1743,14.5744 85.455,15.27 88.0165,15.27 C 90.5779,15.27 91.8586,14.5744 94.4201,12.4876"/>
+    <text font-size="6.1976" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="88.0165" y="21.3802">
+      <tspan x="88.0165" y="21.3802"></tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #ffffff" d="M 81.933 58.5552 C 84.4944,56.4685 85.7751,55.7729 88.3366,55.7729 C 90.8981,55.7729 92.1788,56.4685 94.7403,58.5552 L 94.7403,69.6845 C 92.1788,71.7713 90.8981,72.4669 88.3366,72.4669 C 85.7751,72.4669 84.4944,71.7713 81.933,69.6845 L 81.933,58.5552z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 81.933 58.5552 C 84.4944,56.4685 85.7751,55.7729 88.3366,55.7729 C 90.8981,55.7729 92.1788,56.4685 94.7403,58.5552 L 94.7403,69.6845 C 92.1788,71.7713 90.8981,72.4669 88.3366,72.4669 C 85.7751,72.4669 84.4944,71.7713 81.933,69.6845 L 81.933,58.5552"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 81.933 58.5552 C 84.4944,60.642 85.7751,61.3375 88.3366,61.3375 C 90.8981,61.3375 92.1788,60.642 94.7403,58.5552"/>
+    <text font-size="6.1976" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="88.3366" y="67.4478">
+      <tspan x="88.3366" y="67.4478"></tspan>
+    </text>
+  </g>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="75.1678" y="52.1366">
+    <tspan x="75.1678" y="52.1366">Les phrases</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="98.0326" y="8.60168">
+    <tspan x="98.0326" y="8.60168">Les phrases </tspan>
+    <tspan x="98.0326" y="17.0683">sous forme </tspan>
+    <tspan x="98.0326" y="25.535">de mots pré-traités</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 56.1502 48.7908 C 71.8252,48.9468 64.9872,16.2997 76.4432,16.5488"/>
+    <polygon style="fill: #000000" points="80.9421,16.6466 74.8784,19.5155 76.4432,16.5488 75.0088,13.5169 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="80.9421,16.6466 74.8784,19.5155 76.4432,16.5488 75.0088,13.5169 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 56.1502 61.5574 C 68.555,58.4604 68.3138,66.592 76.7642,66.3529"/>
+    <polygon style="fill: #000000" points="81.2624,66.2256 75.3497,69.3941 76.7642,66.3529 75.1799,63.3965 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="81.2624,66.2256 75.3497,69.3941 76.7642,66.3529 75.1799,63.3965 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 138.482,109.015 A 81.3039,81.3039 0 0 0 217.979,78.9798"/>
+    <polygon style="fill: #000000" points="134.094,108.053 140.653,106.646 138.451,109.176 139.155,112.456 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="134.094,108.053 140.653,106.646 138.451,109.176 139.155,112.456 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 88.3366 72.4669 C 89.4637,82.7399 97.2418,79.2043 104.073,90.6766"/>
+    <polygon style="fill: #000000" points="106.376,94.543 100.728,90.9228 104.073,90.6766 105.884,87.8529 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="106.376,94.543 100.728,90.9228 104.073,90.6766 105.884,87.8529 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="79.9941" y1="107.886" x2="63.2894" y2="108"/>
+    <polygon style="fill: #000000" points="58.7895,108.03 64.769,104.989 63.2894,108 64.8097,110.989 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="58.7895,108.03 64.769,104.989 63.2894,108 64.8097,110.989 "/>
+  </g>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="152.43" y="94.8129">
+    <tspan x="152.43" y="94.8129">Les phrases </tspan>
+    <tspan x="152.43" y="103.28">ordonnées</tspan>
+  </text>
+  <text font-size="6.77333" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="189.472" y="44.0207">
+    <tspan x="189.472" y="44.0207">Module de traitement</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 88.3366 72.4669 C 97.9416,78.0021 99.0661,68.7822 106.061,67.5114"/>
+    <polygon style="fill: #000000" points="110.488,66.7069 105.121,70.7312 106.061,67.5114 104.049,64.8278 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="110.488,66.7069 105.121,70.7312 106.061,67.5114 104.049,64.8278 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" d="M 88.0165 26.3993 C 84.8674,47.7382 173.963,36.071 192.579,56.047"/>
+    <polygon style="fill: #000000" points="195.647,59.3391 189.362,56.995 192.579,56.047 193.751,52.9044 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="195.647,59.3391 189.362,56.995 192.579,56.047 193.751,52.9044 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="175.148" y1="66.587" x2="190.934" y2="66.3054"/>
+    <polygon style="fill: #000000" points="195.434,66.2251 189.488,69.3317 190.934,66.3054 189.381,63.3326 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="195.434,66.2251 189.488,69.3317 190.934,66.3054 189.381,63.3326 "/>
+  </g>
+  <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke-dasharray: 4; stroke: #000000" x="108.555" y="47.7382" width="140.007" height="37.8301"/>
+</svg>

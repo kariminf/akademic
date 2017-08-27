@@ -1,0 +1,79 @@
+%==================================================================================
+%==================================================================================
+% Document		:		Annexe: Liste des acronymes
+%
+% Auteur		: 		Abdelkrime ARIES
+% Encadreur		:		Dr. Omar NOUALI
+% Co-encadreur	:		Mme. Houda OUFAIDA
+% Établissement	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adresse		:		Oued Smar, Alger, Algérie 
+% Année			:		2012/2013
+% Grade			:		Magister
+% discipline 	:		Informatique 
+% Spécialité	:		IRM (Informatique Répartie et Mobile)
+% Titre			:		Résumé automatique de textes
+%
+%==================================================================================
+%==================================================================================
+
+%==========================L'entete de chapitre====================================
+%==================================================================================
+ \ifx\wholebook\relax\else
+  	\documentclass[a4paper,12pt,oneside]{../use/ESIthesis}
+  	
+  	\input{../use/formatAndDefs}
+  	 	
+  	 	\setracine{../}
+  	 	\graphicspath{{.}{../fig/}}
+
+  	 	\begin{document}
+
+  	 	\selectlanguage {francais}
+
+  	 	\mainmatter
+  	 	\appendix
+  \fi
+%==================================================================================
+\chapter{Publications personnelles}
+\noindent
+{\huge Using clustering and a modified classification algorithm for automatic text summarization}\\[20px]
+%Abdelkrime Aries ; Houda Oufaida ; Omar Nouali\\
+%Ecole Nationale Supérieue d'Informatique (Algeria)\\
+%Ctr. de recherche sur l'Information Scientifique et Technique (Algeria)\\
+\textbf{Abdelkrime Aries, Houda Oufaida}\\
+Ecole Nationale Supérieue d'Informatique (Algeria)\\[3mm]
+%
+\textbf{Omar Nouali}\\
+Ctr. de recherche sur l'Information Scientifique et Technique (Algeria)\\
+%
+\kbox{\small 
+\textbf{Proc. SPIE Volume 8658}\\[5px]
+\hspace*{10mm}
+Document Recognition and Retrieval XX, 865811\\
+\hspace*{10mm}
+Richard Zanibbi; Bertrand Coüasnon\\
+\hspace*{10mm}
+Burlingame, California, USA | February 03, 2013\\
+\hspace*{10mm}
+\url{http://dx.doi.org/10.1117/12.2004001}\\
+}\\[5mm]
+%
+{\Large abstract}\\
+In this paper we describe a modified classification method destined for extractive summarization purpose. 
+The classification in this method doesn’t need a learning corpus; it uses the input text to do that. 
+First, we cluster the document sentences to exploit the diversity of topics, then we use a learning algorithm (here we used Naive Bayes) on each cluster considering it as a class. 
+After obtaining the classification model, we calculate the score of a sentence in each class, using a scoring model derived from classification algorithm. 
+These scores are used, then, to reorder the sentences and extract the first ones as the output summary. 
+We conducted some experiments using a corpus of scientific papers, and we have compared our results to another summarization system called UNIS. 
+Also, we experiment the impact of clustering threshold tuning, on the resulted summary, as well as the impact of adding more features to the classifier. 
+We found that this method is interesting, and gives good performance, and the addition of new features (which is simple using this method) can improve summary’s accuracy.
+
+%========================Le pied de chapitre=======================================
+%==================================================================================
+\ifx\wholebook\relax\else
+ \cleardoublepage
+ \bibliographystyle{../use/ESIbib}
+ \bibliography{../bib/RA}
+ \end{document}
+\fi
+%==================================================================================
