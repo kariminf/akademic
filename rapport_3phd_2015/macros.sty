@@ -1,0 +1,35 @@
+\usepackage[french,american]{babel} 
+\def\figurename{Fig.}
+\usepackage[applemac]{inputenc}
+% To make flow-charts
+\usepackage{tikz}				 
+\usetikzlibrary{shapes,arrows}
+%
+\usepackage{fancyhdr}
+\topmargin=-1.25cm
+\headsep=0.3cm
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{\textit{Journ\'ee des Doctorants LCSI -- octobre 2015}} 
+\fancyfoot[C]{} 
+
+% Comment the following line if title is in English
+%\selectlanguage{french}
+
+\newcommand{\authorblock}{
+  \author{
+  \phdstudentname \\[0.5pt]
+  {\fontsize{10pt}{0pt}\selectfont Directeurs de th\`ese : \advisorsname}\\[-1.5pt]
+  {\fontsize{10pt}{0pt}\selectfont \'Equipe : \teamname}
+}
+}
+
+\newcommand{\headofpage}{
+\pagestyle{fancy}
+
+% can use linebreaks \\ within to get better formatting as desired
+\title{\phdtitle}
+\authorblock
+
+\maketitle
+\thispagestyle{fancy}
+}

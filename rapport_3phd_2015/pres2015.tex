@@ -1,0 +1,309 @@
+\documentclass{beamer}
+%\usepackage{fullpage}
+%\usepackage[left=2.8cm,right=2.2cm,top=2 cm,bottom=2 cm]{geometry}
+\setbeamersize{text margin left=10pt,text margin right=10pt}
+\usepackage{amsmath,amssymb}             % AMS Math
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage{txfonts} 
+\usepackage[]{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+
+%\renewcommand{\baselinestretch}{1.5}
+
+\def\supit#1{\raisebox{0.8ex}{\small\it #1}\hspace{0.05em}}
+
+\title[Vers une amélioration \\des résumés automatiques de textes \hspace*{2cm}  \textbf{\footnotesize  \insertframenumber/\inserttotalframenumber} ] %
+{Vers une amélioration \\des résumés automatiques de textes} %:\\ Une méthode de score en utilisant le regroupement et l'apprentissage}
+\institute{ %
+École  nationale Supérieure d'Informatique (ESI, ex. INI), Algérie  %\\\supit{b} CERIST - Algérie %
+}
+\author[ARIES Abdelkrime (ESI 2014)] %
+{ARIES Abdelkrime \\ {\footnotesize %
+Encadré par: Pr. ZEGOUR Djamal Eddine\\%
+Co-encadré par: Pr. HIDOUCI Khaled Walid}}
+
+\titlegraphic{\includegraphics[height=1cm]{IMG/esi-logo.png}%\hspace*{4.75cm}~
+}
+
+\date{État d'avancement deuxième année: 2014/2015} %\today
+
+\usetheme{Warsaw} % Antibes Boadilla Warsaw
+
+\beamertemplatenavigationsymbolsempty
+
+
+\begin{document}
+
+\selectlanguage {francais}
+
+\begin{frame}[plain]
+\maketitle
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Plan}
+{\footnotesize \tableofcontents[hideothersubsections]}
+\end{frame}
+
+\section{Problématique}
+\begin{frame}
+\begin{center}
+{\Huge Problématique}
+\end{center}
+\end{frame}
+
+\subsection{Introduction}
+
+\begin{frame}
+\frametitle{Motivation}
+
+\begin{itemize}
+\item Augmentation du contenu dans le web,
+\item Plusieurs sources et langues 
+\end{itemize}
+$ \Rightarrow $
+\begin{itemize}
+\item Utilisation de résumé automatique
+\item Workshop pour le résumé automatique (ex. workshop "MultiLing" )
+\end{itemize}
+
+\end{frame}
+
+\subsection{Description du problématique}
+
+\begin{frame}
+\frametitle{Problématique}
+
+\begin{itemize}
+\item Les méthodes extractives résultent des résumés non cohérents
+\item Les méthodes abstractives consomment beaucoup de ressources
+\item L'utilisation de l'apprentissage entraîne la dépendance du système au langue et genre du corpus.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Objectifs}
+
+\begin{itemize}
+\item Créer une méthode complètement multilingue.
+\item Améliorer la solution proposée dans \cite{13-aries-al}.
+\item Minimiser les problèmes de lisibilité et de cohérence pour le résumé résultant.
+\end{itemize}
+\end{frame}
+
+\section{Notre système (All Summarizer)}
+\begin{frame}
+\begin{center}
+{\Huge Notre système (All Summarizer)}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Notre système (All Summarizer)}
+\framesubtitle{Architecture générale}
+
+\begin{center}
+\includegraphics[width=100mm]{IMG/gnrl_arch.pdf}
+\end{center}
+
+\end{frame}
+
+\subsection{Prétraitement}
+
+\begin{frame}
+\frametitle{Prétraitement}
+
+\begin{center}
+\scriptsize
+\input{TAB/preprocess.tex}
+\end{center}
+
+\end{frame}
+
+\subsection{Traitement}
+
+\begin{frame}
+\frametitle{Traitement}
+\framesubtitle{Regroupement}
+\begin{center}
+\includegraphics[width=9cm]{IMG/cluster.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Traitement}
+\framesubtitle{Apprentissage}
+\[ P_{f}(f = \phi | c_j) = \frac {|\phi \in c_j|}{\sum_{c_l \in C}{|\phi' \in c_l|}} \]
+$ f $: critère de sélection, $ \phi $: observation de $ f $, $ C $: ensemble de clusters.
+\vfill
+$ f \in $
+\begin{itemize}
+\item Fréquence des termes (unigram) (TFU)
+\item Fréquence des termes (bigram) (TFB)
+\item Position de la phrase (Pos)
+\item Longueur de la phrase (Rleng, PLeng)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Traitement}
+\framesubtitle{Score des phrases}
+\[ Score(s_i , c_j , f_k ) = 1 + \sum_{\phi \in s_i} {P(f_k=\phi | s_i \in c_j)} \]
+\[ Score(s_i , \bigcap_{j} c_j , F) =  %\propto 
+\prod_{j} \prod_{k} Score(s_i , c_j , f_k ) \]
+\vfill
+s: phrase, c: cluster, f: critère de sélection, F: ensemble des critères utilisées, $ \phi $: observation de $ f $.
+\end{frame}
+
+\subsection{Extraction}
+
+\begin{frame}
+\frametitle{Extraction}
+\begin{center}
+\includegraphics[width=11cm]{IMG/extract.pdf}
+\end{center}
+\end{frame}
+
+\section{Nos contributions}
+
+\begin{frame}
+\begin{center}
+{\Huge Nos contributions}\\
+{\LARGE \textit{Notre travail pour l'année 2014/2015}}
+\end{center}
+\end{frame}
+
+\subsection{Estimation des paramètres de résumé}
+
+\begin{frame}
+\frametitle{Estimation des paramètres de résumé}
+\framesubtitle{Seuil de regroupemennt: mesures statistiques}
+\begin{itemize}
+\item La médiane
+\item La moyenne arithmétique
+\item Le mode: bas et haut.
+\item La variance
+\item $ sDn = \frac{\sum |s|}{|D| * n}$ 
+\item $ Dsn = \frac{|D|}{n * \sum |s|}$ 
+\item $ Ds = \frac{|D|}{\sum |s|}$ 
+\end{itemize}
+$|s|$: nombre de différentes termes dans une phrase $s$. 
+$|D|$: nombre de différentes termes dans un document $D$.
+$n$: nombre de phrases dans ce document.
+\end{frame}
+
+\begin{frame}
+\frametitle{Estimation des paramètres de résumé}
+\framesubtitle{La sélection des paramètres}
+Tâche MMS - Corpus d'apprentissage - Anglais:
+\begin{center}
+\tiny
+\input{TAB/param_train.tex}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Estimation des paramètres de résumé}
+\framesubtitle{La sélection des paramètres}
+
+\begin{center}
+\scriptsize
+\input{TAB/parameters.tex}
+\end{center}
+\end{frame}
+
+\subsection{Participation à MultiLing'15 (SIGDIAL'15)}
+
+\begin{frame}
+\frametitle{MultiLing'15}
+\framesubtitle{Critères de comparaison}
+
+Soit AS = AllSummarizer\\
+S = Un autre système qui a participé avec n langues\\
+
+\[ AVG_{S} = \frac{\sum\limits_{i=1}^{n} Score_S(L_i)}{n} \]
+\[ AVG_{AS} = \frac{\sum\limits_{i=1}^{n} Score_{AS}(L_i)}{n} \]
+
+Amélioration relative (RI):
+\[ RI = \frac{AVG_{AS} - AVG_{S}}{AVG_{S}} \]
+
+\end{frame}
+
+\begin{frame}
+\frametitle{MultiLing'15}
+\framesubtitle{Mono document (Tâche MSS)}
+\begin{center}
+\footnotesize
+\input{TAB/single-doc-res.tex}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{MultiLing'15}
+\framesubtitle{Multidocument (Tâche MMS)}
+\begin{center}
+\footnotesize
+\input{TAB/multi-doc-res.tex}
+\end{center}
+\end{frame}
+
+
+\section{Conclusion et perspectives}
+\begin{frame}
+\begin{center}
+{\Huge Conclusion et perspectives}
+\end{center}
+\end{frame}
+
+\subsection{Conclusion}
+\begin{frame}
+\frametitle{Conclusion}
+\begin{itemize}
+\item Création d'une méthode multilingue
+\item Estimer les paramètres (seuil et critères)
+\item Tester le système par rapport aux systèmes récents (bonnes résultats) \cite{15-aries-al}.
+\item Estimer les paramètres selon le document et sans prendre considération de la langue?
+\end{itemize}
+\end{frame}
+
+\subsection{Perspectives}
+\begin{frame}
+\frametitle{Perspectives}
+Pour cette année, notre but est:
+\begin{itemize}
+\item Estimer les paramètres pour chaque document et pas pour chaque langue.
+\item Proposer une meilleure méthode pour la détection de similarité entre phrases.
+\item Améliorer l’ordonnancement des phrases après l'extraction.
+\item Améliorer la lisibilité du résumé généré (Anglais comme langue de début):
+\begin{itemize}
+\item Couramment, on travaille sur une méthode pour représenter les phrases, en tenant compte de l'aspect multilingue.
+\item On a proposé une structure (partielle) basée sur JSON pour représenter les phrases.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fin ...}
+
+\begin{center}
+{\Huge Merci pour votre attention}
+\end{center}
+\end{frame}
+
+
+%\subsection{Bibliography}
+\frame[allowframebreaks]%
+{\frametitle{Bibliography}
+\tiny
+\bibliography{biblio}
+\bibliographystyle{IEEEtran} 
+}
+
+
+\end{document}
+
