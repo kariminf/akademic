@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="12cm" height="7cm" viewBox="-301 0 237 124" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #dcd9d9" x="-139.793" y="31.9342" width="75.6653" height="91.6056"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-139.793" y="31.9342" width="75.6653" height="91.6056"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-101.96" y="79.8037">
+      <tspan x="-101.96" y="79.8037"></tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #dcd9d9" x="-219.774" y="32.3044" width="75.3803" height="91.6056"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-219.774" y="32.3044" width="75.3803" height="91.6056"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-182.084" y="80.1739">
+      <tspan x="-182.084" y="80.1739"></tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #dcd9d9" x="-299.794" y="32.0854" width="75.3803" height="91.6056"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-299.794" y="32.0854" width="75.3803" height="91.6056"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-262.104" y="79.9549">
+      <tspan x="-262.104" y="79.9549"></tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="-299.844" y="1.12541" width="235.612" height="15.3"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-299.844" y="1.12541" width="235.612" height="15.3"/>
+    <text font-size="10.16" style="fill: #ffffff;text-anchor:middle;font-family:Droid Sans;font-style:normal;font-weight:700" x="-182.038" y="11.8754">
+      <tspan x="-182.038" y="11.8754">S  u  m  m  a  r  i  z  a  t  i  o  n</tspan>
+    </text>
+  </g>
+  <text font-size="12.4178" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="121.584" y="12.0055">
+    <tspan x="121.584" y="12.0055"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #000000" x="-139.716" y="18.2269" width="75.5818" height="11.6057"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-139.716" y="18.2269" width="75.5818" height="11.6057"/>
+    <text font-size="6.77333" style="fill: #ffffff;text-anchor:middle;font-family:Droid Sans;font-style:normal;font-weight:700" x="-101.926" y="26.0964">
+      <tspan x="-101.926" y="26.0964">Output document</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="-299.822" y="18.2861" width="75.6665" height="11.4501"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-299.822" y="18.2861" width="75.6665" height="11.4501"/>
+    <text font-size="6.77333" style="fill: #ffffff;text-anchor:middle;font-family:Droid Sans;font-style:normal;font-weight:700" x="-261.989" y="26.0778">
+      <tspan x="-261.989" y="26.0778">Input document</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="-219.866" y="18.266" width="75.6188" height="11.6065"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-219.866" y="18.266" width="75.6188" height="11.6065"/>
+    <text font-size="6.77333" style="fill: #ffffff;text-anchor:middle;font-family:Droid Sans;font-style:normal;font-weight:700" x="-182.057" y="26.136">
+      <tspan x="-182.057" y="26.136">Purpose</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-291.614" y="34.3744" width="43.4292" height="11.6683"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-291.614" y="34.3744" width="43.4292" height="11.6683"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-269.899" y="42.0252">
+      <tspan x="-269.899" y="42.0252">Source size</tspan>
+    </text>
+  </g>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-272.086" y="52.176">
+    <tspan x="-272.086" y="52.176">Single-document</tspan>
+    <tspan x="-272.086" y="59.2316">Multi-document</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-291.558" y="64.2076" width="42.5368" height="12.4667"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-291.558" y="64.2076" width="42.5368" height="12.4667"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-270.29" y="72.2576">
+      <tspan x="-270.29" y="72.2576">Specificity</tspan>
+    </text>
+  </g>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-271.798" y="82.1738">
+    <tspan x="-271.798" y="82.1738">Domain-specific</tspan>
+    <tspan x="-271.798" y="89.2294">General</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-291.504" y="94.22" width="43.0475" height="11.8319"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-291.504" y="94.22" width="43.0475" height="11.8319"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-269.98" y="101.953">
+      <tspan x="-269.98" y="101.953">Form</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-211.628" y="34.2698" width="43.3101" height="11.8319"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-211.628" y="34.2698" width="43.3101" height="11.8319"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-189.973" y="42.0024">
+      <tspan x="-189.973" y="42.0024">Audience</tspan>
+    </text>
+  </g>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-192.294" y="51.8844">
+    <tspan x="-192.294" y="51.8844">Generic</tspan>
+    <tspan x="-192.294" y="58.94">Query-oriented</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-211.666" y="64.289" width="43.3474" height="11.8319"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-211.666" y="64.289" width="43.3474" height="11.8319"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-189.992" y="72.0216">
+      <tspan x="-189.992" y="72.0216">Usage</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-211.56" y="94.2282" width="43.2012" height="11.8319"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-211.56" y="94.2282" width="43.2012" height="11.8319"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-189.959" y="101.961">
+      <tspan x="-189.959" y="101.961">Expansiveness</tspan>
+    </text>
+  </g>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-192.085" y="81.9124">
+    <tspan x="-192.085" y="81.9124">Indicative</tspan>
+    <tspan x="-192.085" y="88.968">Informative</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-131.609" y="34.2858" width="43.2012" height="11.8319"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-131.609" y="34.2858" width="43.2012" height="11.8319"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-110.009" y="42.0184">
+      <tspan x="-110.009" y="42.0184">Derivation</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-131.638" y="94.2708" width="43.1696" height="11.8319"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-131.638" y="94.2708" width="43.1696" height="11.8319"/>
+    <text font-size="6.20889" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-110.053" y="101.856">
+      <tspan x="-110.053" y="101.856">Conventionality</tspan>
+    </text>
+  </g>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-192.14" y="111.757">
+    <tspan x="-192.14" y="111.757">Background</tspan>
+    <tspan x="-192.14" y="118.813">Just-the-news</tspan>
+  </text>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-111.986" y="51.843">
+    <tspan x="-111.986" y="51.843">Extract</tspan>
+    <tspan x="-111.986" y="58.8986">Abstract</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-131.61" y="64.264" width="43.2012" height="11.5866"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x="-131.61" y="64.264" width="43.2012" height="11.5866"/>
+    <text font-size="6.77333" style="fill: #000000;text-anchor:middle;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-110.01" y="71.874">
+      <tspan x="-110.01" y="71.874">Partiality</tspan>
+    </text>
+  </g>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-112.082" y="81.7854">
+    <tspan x="-112.082" y="81.7854">Neutral</tspan>
+    <tspan x="-112.082" y="88.841">Evaluative</tspan>
+  </text>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-112.101" y="111.71">
+    <tspan x="-112.101" y="111.71">Fixed</tspan>
+    <tspan x="-112.101" y="118.766">Floating</tspan>
+  </text>
+  <text font-size="5.64444" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="-272.33" y="112.183">
+    <tspan x="-272.33" y="112.183">Scale</tspan>
+    <tspan x="-272.33" y="119.239">Genre</tspan>
+  </text>
+</svg>
