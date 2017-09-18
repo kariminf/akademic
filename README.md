@@ -6,6 +6,19 @@
 
 Some of my academic works. I changed "c" with "k" which stands for Karim.
 
+## Releases
+
+### magister_dissertation
+It is written using French language, entitled: "Résumé automatique de textes" ("Automatic text summarization").
+You can find a copy on [SlideShare (Click here)](https://www.slideshare.net/kariminf/magisterdissertation)
+
+### rapport_2phd_2014
+A report of what has been done during 1st year.
+
+### rapport_3phd_2015
+A report of what has been done during 2nd year.
+You can find a copy of the presentation on [SlideShare (Click here)](https://www.slideshare.net/kariminf/etat-davancement-20142015)
+
 
 ## License
 
