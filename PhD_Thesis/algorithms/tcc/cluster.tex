@@ -1,0 +1,22 @@
+\KwData{Pre-processed sentences}
+\KwResult{clusters of sentences (C)}
+
+\ForEach{sentence Si / i = 1 to n}{
+	Ci += Si \; \tcp{Ci: ith cluster}
+	\ForEach{sentence Sj / j = i + 1 to n}{
+		Sim = cosine similarity(Si, Sj) \;
+		\If{sim $ > $ th}{
+			Ci += Sj \; 
+		}
+	}
+	C += Ci \;
+}
+ 
+\ForEach{cluster Ci / i=n to 1}{
+	\ForEach{cluster Cj / j=i-1 to 1}{
+		\If{Ci is included in Cj}{
+			C -= Ci \;
+			break \;
+		}
+	}
+} 

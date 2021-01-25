@@ -1,0 +1,56 @@
+\begin{tabular}{p{.12\textwidth}p{.18\textwidth}p{0.15\textwidth}p{.45\textwidth}} 
+	\hline \hline
+	
+	Return & Name & Params & description \\
+	
+	\hline\hline
+
+	List<String> & getSentences &  & 
+	Returns the list of sentences after preprocessing. \\
+	\hline 
+	
+	List<String> & getSentence & int sentID & 
+	Returns a specific sentence using its ID. The ID is the ordinal number when the sentence is added. For example, the ID of the first sentence in the second document is the number of sentences in the first one. \\
+	\hline 
+	
+	List<List <String> > & getSentWords &  & 
+	Returns the list of words (without stop-words) of each sentence after preprocessing. \\
+	\hline
+	
+	List<String> & getSentWord & int sentID  & 
+	Returns the words (without stop-words) of a specific sentence using its ID. \\
+	\hline
+	
+	int & getNbrWords & int sentID  & 
+	Returns the real words' number (with stop-words) of a specific sentence using its ID.  \\
+	\hline
+	
+	
+	int & getRealPos & int sentID  & 
+	Returns the real position of a specific sentence in its original document using its ID.  \\
+	\hline
+	
+	Double & getSimilarity & int sent1ID, int sent2ID  & 
+	Returns cosine similarity between two sentences using their ID.  \\
+	\hline
+	
+	int & getDocLength & int docID  & 
+	Returns the size (number of sentences) of a document using its ID. The ID of a document is the order of adding starting from 0.  \\
+	\hline
+	
+	int & getMaxLenSentID & int docID  & 
+	Returns the ID of the sentence with the maximum number of words in the document docID.  \\
+	\hline
+	
+	
+	int & getMinLenSentID & int docID  & 
+	Returns the ID of the sentence with the minimum number of words in the document docID.  \\
+	\hline
+	
+	
+	int & getClassesNumber &   & 
+	Returns the number of classes (topics) after clustering.  \\
+%	\hline
+	
+	\hline \hline
+\end{tabular}

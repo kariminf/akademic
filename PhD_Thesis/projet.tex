@@ -1,0 +1,73 @@
+\documentclass[12pt, a4paper]{article}
+%\usepackage{fullpage}
+\usepackage[left=2cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage{txfonts} 
+\usepackage[]{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\usepackage{turnstile}%Induction symbole
+
+\renewcommand{\baselinestretch}{1.5}
+
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+
+\selectlanguage {french}
+%\pagestyle{empty} 
+
+\noindent\rule{\textwidth}{1pt}\\[0.25cm]
+%\noindent
+%\begin{tabular}{ll}
+%\multirow{2}{*}{\includegraphics[width=2cm]{img/esi-logo.png}} & \'Ecole national Supérieure d'Informatique\\
+%& 3ième année cycle commun\\
+%\end{tabular}\\[.25cm]
+\noindent
+\begin{center}
+{\LARGE \textbf{Description du projet}}\\
+Vers une amélioration de résumé automatique de textes
+\begin{flushright}
+	Abdelkrime Aries
+\end{flushright}
+\end{center}
+\noindent\rule{\textwidth}{1pt}
+
+\section{Introduction}
+
+La plupart des travaux dans le domaine du résumé automatique de textes sont basés sur l'approche par extraction \cite{58-luhn,69-edmundson}. 
+Ils consistent à sélectionner les unités (phrases en général) censées être les plus pertinentes du texte source, et les concaténer pour avoir un résumé. 
+Cette approche se base sur des critères de sélection (tf-idf, position, longueur, etc.) pour pondérer chaque unité déterminer celles qui sont pertinentes. 
+Elle peut être indépendante de la langue et du genre du texte d’entrée et se caractérise par sa simplicité, mais elle soufre d’incohérence et parfois la redondance.
+Par contre, l'approche par abstraction se base sur la reformulation du contenu du texte original, et la génération de nouvelles phrases, en se basant sur des techniques linguistiques. 
+Cette approche fournit des résumés proches de celles des humains, mais dû à l’absence des outils TALN performants, cette approche est trop difficile.
+Les techniques d'apprentissage sont souvent utilisées pour améliorer la tâche de résumé automatique \cite{05-yeh-al, 08-wong-al,10-yatsko-al}. 
+L'objectif principal de tout algorithme d'apprentissage automatique est d'apprendre, d'identifier un ensemble de règles depuis un corpus de documents, ces règles sont ensuite appliquées sur le ou les textes en entrée du système de résumé. 
+Le problème de cette technique est l'absence de corpus d'apprentissage libellés.
+
+\subsection{Objectif}
+
+L'objectif de ce travail est d'étudier les techniques de résumé automatique de textes, ainsi que les techniques de recherche d'information et ceux de traitement automatique de langage naturel applicables au domaine de résumé automatique. 
+Ensuite, on veut utiliser ces techniques pour :
+\begin{itemize}
+	\item Améliorer la solution proposée dans \cite{13-aries-al}.
+	\item Appliquer les techniques d’apprentissage pour améliorer le résumé résultant, en essayant de régler le problème d'absence des corpus étiquetés.
+	\item Appliquer les techniques linguistiques pour avoir des résumés plus précis.
+\end{itemize}
+
+
+%Bibliographie
+\bibliographystyle{ESIbib}
+\bibliography{cite}
+
+
+
+\end{document}

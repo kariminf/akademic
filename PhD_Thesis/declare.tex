@@ -1,0 +1,341 @@
+%======================================================
+\DeclareMathOperator{\ssfgc}{\textit{SSF-GC}}
+\DeclareMathOperator{\ord}{\textit{ord}}
+\DeclareMathOperator{\iord}{\textit{iord}}
+\DeclareMathOperator{\simil}{\textit{sim}}
+\DeclareMathOperator{\nextsent}{\textit{next}}
+\DeclareMathOperator{\lastsent}{\textit{last}}
+\DeclareMathOperator{\tfisf}{\textit{tf-isf}}
+\DeclareMathOperator{\tfidf}{\textit{tf-idf}}
+%======================================================
+
+\hypersetup{
+	pdfauthor={Abdelkrime Aries},
+	pdftitle={Vers une amélioration du résumé auomatique de textes},
+	pdfkeywords={Summarization; Multilingual},
+	pdfsubject={Computer science; Artificial intelligence; Natural language processing}
+}
+
+%======================================================
+
+\DeclareAcronym{ats}{
+	short = ATS ,
+	long  = Automatic text summarization ,
+	class = abbrev
+}
+
+\DeclareAcronym{svd}{
+	short = SVD ,
+	long  = Singular value decomposition ,
+	class = abbrev
+}
+
+\DeclareAcronym{lsa}{
+	short = LSA ,
+	long  = Latent semantic analysis ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{rts}{
+	short = RTS ,
+	long  = Real-Time Summarization ,
+	class = abbrev
+}
+
+\DeclareAcronym{mms}{
+	short = MMS ,
+	long  = Multilingual Multi-document Summarization ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{mss}{
+	short = MSS ,
+	long  = Multilingual Single document Summarization ,
+	class = abbrev
+}
+
+\DeclareAcronym{onforums}{
+	short = OnForumS ,
+	long  = Online Forum Summarization ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{cccs}{
+	short = CCCS ,
+	long  = Call Center Conversation Summarization ,
+	class = abbrev
+}
+
+\DeclareAcronym{tcc}{
+	short = TCC ,
+	long  = Topic Clustering and Classification ,
+	class = abbrev
+}
+
+\DeclareAcronym{be}{
+	short = BE ,
+	long  = Basic Element ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{autosummeng}{
+	short = AutoSummENG ,
+	long  = AUTOmatic SUMMary Evaluation based on N-gram Graphs ,
+	class = abbrev
+}
+
+\DeclareAcronym{memog}{
+	short = MeMoG ,
+	long  = Merged Model Graph ,
+	class = abbrev
+}
+
+\DeclareAcronym{npower}{
+	short = NPowER ,
+	long  = N-gram graph Powered Evaluation via Regression ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{tac}{
+	short = TAC ,
+	long  = Text Analysis Conference ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{ntcir}{
+	short = NTCIR ,
+	long  = NII Testbeds and community for Information access Research ,
+	class = abbrev
+}
+
+\DeclareAcronym{ssf-gc}{
+	short = SSF-GC ,
+	long  = Sentence statistical features - Graph-based cumulative score ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{trec}{
+	short = TREC ,
+	long  = Text REtrieval Conference ,
+	class = abbrev
+}
+
+\DeclareAcronym{hlda}{
+	short = hLDA ,
+	long  = hierarchical Latent Dirichlet Allocation topic ,
+	class = abbrev
+}
+
+\DeclareAcronym{nist}{
+	short = NIST ,
+	long  = National Institute of Standards and Technology ,
+	class = abbrev
+}
+
+\DeclareAcronym{ir}{
+	short = IR ,
+	long  = Information retrieval ,
+	class = abbrev
+}
+
+\DeclareAcronym{api}{
+	short = API ,
+	long  = Application programming interface ,
+	class = abbrev
+}
+
+\DeclareAcronym{rouge}{
+	short = ROUGE ,
+	long  = Recall-Oriented Understudy for Gisting Evaluation ,
+	class = abbrev
+}
+
+\DeclareAcronym{bleu}{
+	short = BLEU ,
+	long  = BiLingual Evaluation Understudy ,
+	class = abbrev
+}
+
+\DeclareAcronym{scu}{
+	short = SCU ,
+	long  = Summary Content Unit ,
+	class = abbrev
+}
+
+\DeclareAcronym{nlp}{
+	short = NLP ,
+	long  = Natural Language Processing ,
+	class = abbrev
+}
+
+\DeclareAcronym{lstm}{
+	short = LSTM ,
+	long  = Long Short-Term Memory ,
+	class = abbrev
+}
+
+\DeclareAcronym{relu}{
+	short = ReLU ,
+	long  = Rectified Linear Unit ,
+	class = abbrev
+}
+
+\DeclareAcronym{mse}{
+	short = MSE ,
+	long  = Mean Square Error ,
+	class = abbrev
+}
+
+\DeclareAcronym{ml}{
+	short = ML ,
+	long  = Machine Learning ,
+	class = abbrev
+}
+
+\DeclareAcronym{mmr}{
+	short = MMR ,
+	long  = Maximal Marginal Relevance ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{ar}{
+	short = AR ,
+	long  = Anaphora Resolution ,
+	class = abbrev
+}
+
+\DeclareAcronym{tf}{
+	short = TF ,
+	long  = Term Frequency ,
+	class = abbrev
+}
+
+\DeclareAcronym{idf}{
+	short = IDF ,
+	long  = Inverse Document Frequency ,
+	class = abbrev
+}
+
+\DeclareAcronym{tfidf}{
+	short = TF-IDF ,
+	long  = Term Frequency-Inverse Document Frequency ,
+	class = abbrev
+}
+
+\DeclareAcronym{tfisf}{
+	short = TF-ISF ,
+	long  = Term Frequency-Inverse Sentence Frequency ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{html}{
+	short = HTML ,
+	long  = Hypertext Markup Language ,
+	class = abbrev
+}
+
+\DeclareAcronym{see}{
+	short = SEE ,
+	long  = Summary Evaluation Environment ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{svm}{
+	short = SVM ,
+	long  = Support Vector Machine ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{rst}{
+	short = RST ,
+	long  = Rhetorical structure theory ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{ctm}{
+	short = CTM ,
+	long  = Contextual Topic Model ,
+	class = abbrev
+}
+
+\DeclareAcronym{ttm}{
+	short = TTM ,
+	long  = Two-tiered Topic Model ,
+	class = abbrev
+}
+
+\DeclareAcronym{rl}{
+	short = RL ,
+	long  = Reinforcement Learning ,
+	class = abbrev
+}
+
+\DeclareAcronym{td}{
+	short = TD ,
+	long  = Temporal Difference ,
+	class = abbrev
+}
+
+\DeclareAcronym{sarsa}{
+	short = SARSA ,
+	long  = State-Action-Reward-State-Action ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{nn}{
+	short = NN ,
+	long  = Neural Networks ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{r2n2}{
+	short = R2N2 ,
+	long  = Recurrent Reconstruction Neural Network ,
+	class = abbrev
+}
+
+
+\DeclareAcronym{ae}{
+	short = AE ,
+	long  = Auto-Encoder ,
+	class = abbrev
+}
+
+\DeclareAcronym{duc}{
+	short = DUC ,
+	long  = Document Understanding Conference ,
+	class = abbrev
+}
+
+\DeclareAcronym{pcfg}{
+	short = PCFG ,
+	long  = Probabilistic Context Free Grammar ,
+	class = abbrev
+}
+
+\DeclareAcronym{hmm}{
+	short = HMM ,
+	long  = Hidden Markov Model ,
+	class = abbrev
+}
+
+\DeclareAcronym{dl}{
+	short = DL ,
+	long  = Deep Learning ,
+	class = abbrev
+}
+

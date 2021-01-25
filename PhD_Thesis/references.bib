@@ -1,0 +1,3032 @@
+%==================================================================================
+%==================================================================================
+% Paper			:		ATS: what has been done, and what has to be done
+%
+% Author		: 		Abdelkrime ARIES
+% Affiliation	:		ESI (Ecole Nationale Supérieure d'Informatique; ex. INI) 
+% Adress		:		BP 68M, 16270, Oued-Smar, Algiers, Algeria
+% Year			:		2015/2016
+% Grade			:		PhD
+% discipline 	:		Computer science 
+% Field			:		Automatic text summarization
+%
+%==================================================================================
+%==================================================================================
+
+@inproceedings{18-wu-hu,
+	title={Learning to extract coherent summary via deep reinforcement learning},
+	author={Wu, Yuxiang and Hu, Baotian},
+	booktitle={Thirty-Second AAAI Conference on Artificial Intelligence},
+	year={2018},
+	keywords = {extractive summarization; deep reinforcement learning; coherence modeling},
+	abstract = {  Coherence plays a critical role in producing a high-quality summary from a document. In recent years, neural extractive summarization is becoming increasingly attractive. However, most of them ignore the coherence of summaries when extracting sentences. As an effort towards extracting coherent summaries, we propose a neural coherence model to capture the cross-sentence semantic and syntactic coherence patterns. The proposed neural coherence model obviates the need for feature engineering and can be trained in an end-to-end fashion using unlabeled data. Empirical results show that the proposed neural coherence model can efficiently capture the cross-sentence coherence patterns. Using the combined output of the neural coherence model and ROUGE package as the reward, we design a reinforcement learning method to train a proposed neural extractive summarizer which is named Reinforced Neural Extractive Summarization (RNES) model. The RNES model learns to optimize coherence and informative importance of the summary simultaneously. The experimental results show that the proposed RNES outperforms existing baselines and achieves state-of-the-art performance in term of ROUGE on CNN/Daily Mail dataset. The qualitative evaluation indicates that summaries produced by RNES are more coherent and readable.},
+	
+	url = {https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16838/16118}
+}
+
+@article{96-kaelbling-al,
+	title={Reinforcement learning: A survey},
+	author={Kaelbling, Leslie Pack and Littman, Michael L and Moore, Andrew W},
+	journal={Journal of artificial intelligence research},
+	volume={4},
+	pages={237--285},
+	year={1996}
+}
+
+@article{19-rouane-al,
+	title = "Combine clustering and frequent itemsets mining to enhance biomedical text summarization",
+	journal = "Expert Systems with Applications",
+	volume = "135",
+	pages = "362 - 373",
+	year = "2019",
+	issn = "0957-4174",
+	doi = "https://doi.org/10.1016/j.eswa.2019.06.002",
+	url = "http://www.sciencedirect.com/science/article/pii/S0957417419303963",
+	author = "Oussama Rouane and Hacene Belhadef and Mustapha Bouakkaz",
+	keywords = "Biomedical text summarization, Biomedical concepts, Clustering, Frequent itemsets mining, ROUGE metrics",
+	abstract = "Text summarization has become an important research area, especially in the biomedical domain, where information overload is a major problem. In this paper, we propose a novel biomedical text summarization system that combines two popular data mining techniques: clustering and frequent itemset mining. Biomedical paper is expressed as a set of biomedical concepts using the UMLS metathesaurus. The K-means algorithm is used to cluster similar sentences. Then, the Apriori algorithm is applied to discover the frequent itemsets among the clustered sentences. Finally, the salient sentences from each cluster are selected to build the summary using the discovered frequent itemsets. For the evaluation step, we selected randomly 100 biomedical papers from the BioMed Central database full-text, and we evaluated the performances of our system by comparing the resulting summaries with the abstracts of these papers using the ROUGE metrics in term of recall, precision, and F-measure. We also compared the obtained summaries with those achieved by five well-known summarizers: TextRank, TextTeaser, SweSum, ItemSet Based Summarizer, Microsoft AutoSummarize, and two baselines: summarization using only the frequent itemsets mining (FRQ-CL), and summarization using only the clustering (CL-FRQ). The results demonstrate that this combination can successfully enhance the summarization performances, and the proposed system outperforms other tested summarizers."
+}
+
+@article{18-azadani-al,
+	title = "Graph-based biomedical text summarization: An itemset mining and sentence clustering approach",
+	journal = "Journal of Biomedical Informatics",
+	volume = "84",
+	pages = "42 - 58",
+	year = "2018",
+	issn = "1532-0464",
+	doi = "https://doi.org/10.1016/j.jbi.2018.06.005",
+	url = "http://www.sciencedirect.com/science/article/pii/S1532046418301114",
+	author = "Mozhgan Nasr Azadani and Nasser Ghadiri and Ensieh Davoodijam",
+	keywords = "Biomedical literature summarization, Frequent itemset mining, Minimum spanning tree based clustering, Graph clustering, Similarity measure",
+	abstract = "Objective
+	Automatic text summarization offers an efficient solution to access the ever-growing amounts of both scientific and clinical literature in the biomedical domain by summarizing the source documents while maintaining their most informative contents. In this paper, we propose a novel graph-based summarization method that takes advantage of the domain-specific knowledge and a well-established data mining technique called frequent itemset mining.
+	Methods
+	Our summarizer exploits the Unified Medical Language System (UMLS) to construct a concept-based model of the source document and mapping the document to the concepts. Then, it discovers frequent itemsets to take the correlations among multiple concepts into account. The method uses these correlations to propose a similarity function based on which a represented graph is constructed. The summarizer then employs a minimum spanning tree based clustering algorithm to discover various subthemes of the document. Eventually, it generates the final summary by selecting the most informative and relative sentences from all subthemes within the text.
+	Results
+	We perform an automatic evaluation over a large number of summaries using the Recall-Oriented Understudy for Gisting Evaluation (ROUGE) metrics. The results demonstrate that the proposed summarization system outperforms various baselines and benchmark approaches.
+	Conclusion
+	The carried out research suggests that the incorporation of domain-specific knowledge and frequent itemset mining equips the summarization system in a better way to address the informativeness measurement of the sentences. Moreover, clustering the graph nodes (sentences) can enable the summarizer to target different main subthemes of a source document efficiently. The evaluation results show that the proposed approach can significantly improve the performance of the summarization systems in the biomedical domain."
+}
+
+@article{19-cagliero-al,
+	author = {Cagliero, Luca and Garza, Paolo and Baralis, Elena},
+	title = {ELSA: A Multilingual Document Summarization Algorithm Based on Frequent Itemsets and Latent Semantic Analysis},
+	journal = {ACM Trans. Inf. Syst.},
+	issue_date = {March 2019},
+	volume = {37},
+	number = {2},
+	month = jan,
+	year = {2019},
+	issn = {1046-8188},
+	pages = {21:1--21:33},
+	articleno = {21},
+	numpages = {33},
+	url = {http://doi.acm.org/10.1145/3298987},
+	doi = {10.1145/3298987},
+	acmid = {3298987},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {Multilingual summarization, frequent weighted itemset mining, text mining},
+} 
+
+@INPROCEEDINGS{18-mani-al,
+	author={K. {Mani} and I. {Verma} and H. {Meisheri} and L. {Dey}},
+	booktitle={2018 IEEE/WIC/ACM International Conference on Web Intelligence (WI)},
+	title={Multi-Document Summarization Using Distributed Bag-of-Words Model},
+	year={2018},
+	volume={},
+	number={},
+	pages={672-675},
+	keywords={text analysis;multidocument summarization;distributed bag-of-words model;unsupervised centroid-based document-level reconstruction framework;sentence selection;beam search;summary sentences;performance gains;Computational modeling;Predictive models;Data models;Task analysis;Lead;Benchmark testing;Mathematical model;Summarization;bag of words;Word2vec;Beam Search},
+	doi={10.1109/WI.2018.00-14},
+	ISSN={},
+	month={Dec},
+}
+
+@article{12-naigli-ponzetto,
+	author = {Roberto Navigli and Simone Paolo Ponzetto},
+	title =   {{B}abel{N}et: {T}he Automatic Construction, Evaluation and Application of a Wide-Coverage Multilingual Semantic Network},
+	journal = {Artificial Intelligence},
+	year =    {2012},
+	volume = {193},
+	pages = {217-250}
+}
+
+@incollection{97-porter,
+	author = {Porter, M. F.},
+	chapter = {An algorithm for suffix stripping},
+	title = {Readings in information retrieval},
+	editor = {Sparck Jones, Karen and Willett, Peter},
+	year = {1997},
+	isbn = {1-55860-454-5},
+	pages = {313--316},
+	numpages = {4},
+	url = {http://dl.acm.org/citation.cfm?id=275537.275705},
+	acmid = {275705},
+	publisher = {Morgan Kaufmann Publishers Inc.},
+	address = {San Francisco, CA, USA},
+} 
+
+
+@inproceedings{17-lin-al,
+	author    = {Jimmy Lin and
+	Salman Mohammed and
+	Royal Sequiera and
+	Luchen Tan and
+	Nimesh Ghelani and
+	Mustafa Abualsaud and
+	Richard McCreadie and
+	Dmitrijs Milajevs and
+	Ellen M. Voorhees},
+	title     = {Overview of the {TREC} 2017 Real-Time Summarization Track},
+	booktitle = {Proceedings of The Twenty-Sixth Text REtrieval Conference, {TREC}
+	2017, Gaithersburg, Maryland, USA, November 15-17, 2017},
+	year      = {2017},
+	crossref  = {DBLP:conf/trec/2017},
+	url       = {https://trec.nist.gov/pubs/trec26/papers/Overview-RT.pdf},
+	timestamp = {Wed, 18 Jul 2018 08:14:10 +0200},
+	biburl    = {https://dblp.org/rec/bib/conf/trec/LinMSTGAMMV17},
+	bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@inproceedings{08-dang-owczarzak,
+	author    = {Hoa Trang Dang and
+	Karolina Owczarzak},
+	title     = {Overview of the {TAC} 2008 Update Summarization Task},
+	booktitle = {Proceedings of the First Text Analysis Conference, {TAC} 2008, Gaithersburg,
+	Maryland, USA, November 17-19, 2008},
+	year      = {2008},
+	crossref  = {DBLP:conf/tac/2008},
+	url       = {https://tac.nist.gov/publications/2008/additional.papers/update\_summ\_overview08.proceedings.pdf},
+	timestamp = {Tue, 20 Aug 2019 13:25:22 +0200},
+	biburl    = {https://dblp.org/rec/bib/conf/tac/DangO08},
+	bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{05-afantenos-al,
+	author = {Afantenos, Stergos and Karkaletsis, Vangelis and Stamatopoulos, Panagiotis},
+	title = {Summarization from Medical Documents: A Survey},
+	journal = {Artif. Intell. Med.},
+	issue_date = {February, 2005},
+	volume = {33},
+	number = {2},
+	month = feb,
+	year = {2005},
+	issn = {0933-3657},
+	pages = {157--177},
+	numpages = {21},
+	url = {http://dx.doi.org/10.1016/j.artmed.2004.07.017},
+	doi = {10.1016/j.artmed.2004.07.017},
+	acmid = {1644824},
+	publisher = {Elsevier Science Publishers Ltd.},
+	address = {Essex, UK},
+	keywords = {Abstractive summarization, Cognitive summarization, Extractive summarization, Multi-document summarization, Multi-media summarization, Single-document summarization, Summarization from medical documents},
+} 
+
+
+@inproceedings{18-gehrmann-al,
+	title = "Bottom-Up Abstractive Summarization",
+	author = "Gehrmann, Sebastian  and
+	Deng, Yuntian  and
+	Rush, Alexander",
+	booktitle = "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
+	month = oct # "-" # nov,
+	year = "2018",
+	address = "Brussels, Belgium",
+	publisher = "Association for Computational Linguistics",
+	url = "https://www.aclweb.org/anthology/D18-1443",
+	doi = "10.18653/v1/D18-1443",
+	pages = "4098--4109",
+	abstract = "Neural summarization produces outputs that are fluent and readable, but which can be poor at content selection, for instance often copying full sentences from the source document. This work explores the use of data-efficient content selectors to over-determine phrases in a source document that should be part of the summary. We use this selector as a bottom-up attention step to constrain the model to likely phrases. We show that this approach improves the ability to compress text, while still generating fluent summaries. This two-step process is both simpler and higher performing than other end-to-end content selection models, leading to significant improvements on ROUGE for both the CNN-DM and NYT corpus. Furthermore, the content selector can be trained with as little as 1,000 sentences making it easy to transfer a trained summarizer to a new domain.",
+}
+
+@inproceedings{16-polsley-al,
+	title = "{C}ase{S}ummarizer: A System for Automated Summarization of Legal Texts",
+	author = "Polsley, Seth  and
+	Jhunjhunwala, Pooja  and
+	Huang, Ruihong",
+	booktitle = "Proceedings of {COLING} 2016, the 26th International Conference on Computational Linguistics: System Demonstrations",
+	month = dec,
+	year = "2016",
+	address = "Osaka, Japan",
+	publisher = "The COLING 2016 Organizing Committee",
+	url = "https://www.aclweb.org/anthology/C16-2054",
+	pages = "258--262",
+	abstract = "Attorneys, judges, and others in the justice system are constantly surrounded by large amounts of legal text, which can be difficult to manage across many cases. We present CaseSummarizer, a tool for automated text summarization of legal documents which uses standard summary methods based on word frequency augmented with additional domain-specific knowledge. Summaries are then provided through an informative interface with abbreviations, significance heat maps, and other flexible controls. It is evaluated using ROUGE and human scoring against several other summarization systems, including summary text and feedback provided by domain experts.",
+}
+
+
+@article{19-lierde-chow,
+	title = "Query-oriented text summarization based on hypergraph transversals",
+	journal = "Information Processing \& Management",
+	volume = "56",
+	number = "4",
+	pages = "1317 - 1338",
+	year = "2019",
+	issn = "0306-4573",
+	doi = "https://doi.org/10.1016/j.ipm.2019.03.003",
+	url = "http://www.sciencedirect.com/science/article/pii/S0306457318300372",
+	author = "H. Van Lierde and Tommy W.S. Chow",
+	keywords = "Query-oriented text summarization, Hypergraph theory, Hypergraph transversal, Sentence clustering, Submodular set functions",
+	abstract = "The rise in the amount of textual resources available on the Internet has created the need for tools of automatic document summarization. The main challenges of query-oriented extractive summarization are (1) to identify the topics of the documents and (2) to recover query-relevant sentences of the documents that together cover these topics. Existing graph- or hypergraph-based summarizers use graph-based ranking algorithms to produce individual scores of relevance for the sentences. Hence, these systems fail to measure the topics jointly covered by the sentences forming the summary, which tends to produce redundant summaries. To address the issue of selecting non-redundant sentences jointly covering the main query-relevant topics of a corpus, we propose a new method using the powerful theory of hypergraph transversals. First, we introduce a new topic model based on the semantic clustering of terms in order to discover the topics present in a corpus. Second, these topics are modeled as the hyperedges of a hypergraph in which the nodes are the sentences. A summary is then produced by generating a transversal of nodes in the hypergraph. Algorithms based on the theory of submodular functions are proposed to generate the transversals and to build the summaries. The proposed summarizer outperforms existing graph- or hypergraph-based summarizers by at least 6% of ROUGE-SU4 F-measure on DUC 2007 dataset. It is moreover cheaper than existing hypergraph-based summarizers in terms of computational time complexity."
+}
+
+@INPROCEEDINGS{19-kimuru-al,
+	author={T. {Kimura} and R. {Tagami} and H. {Miyamori}},
+	booktitle={2019 IEEE International Conference on Big Data and Smart Computing (BigComp)},
+	title={Query-Focused Summarization Enhanced with Sentence Attention Mechanism},
+	year={2019},
+	volume={},
+	number={},
+	pages={1-8},
+	keywords={learning (artificial intelligence);query processing;recurrent neural nets;text analysis;sentence vector;sentence attention mechanism;automatic text summarization;query-oriented text summarization;generic summarization;entire document;automatic summarization methods;deep neural model;LSTM;longterm information storage;specific time steps;encoding;summarization task;long sentence;sentences;summary result;sentence unit vector;word unit vector;original document;importance degree;specific queries;long-short term memory;recurrent neural network;query-focused summarization model;Decoding;Informatics;Recurrent neural networks;Encoding;Task analysis;Machine learning;Data mining;Query-focused summarization;Natural language processing;Machine learning},
+	doi={10.1109/BIGCOMP.2019.8679478},
+	ISSN={2375-9356},
+	month={Feb},}
+
+@inproceedings{19-liang-al,
+	title = "A Novel System for Extractive Clinical Note Summarization using {EHR} Data",
+	author = "Liang, Jennifer  and
+	Tsou, Ching-Huei  and
+	Poddar, Ananya",
+	booktitle = "Proceedings of the 2nd Clinical Natural Language Processing Workshop",
+	month = jun,
+	year = "2019",
+	address = "Minneapolis, Minnesota, USA",
+	publisher = "Association for Computational Linguistics",
+	url = "https://www.aclweb.org/anthology/W19-1906",
+	doi = "10.18653/v1/W19-1906",
+	pages = "46--54",
+	abstract = "While much data within a patient{'}s electronic health record (EHR) is coded, crucial information concerning the patient{'}s care and management remain buried in unstructured clinical notes, making it difficult and time-consuming for physicians to review during their usual clinical workflow. In this paper, we present our clinical note processing pipeline, which extends beyond basic medical natural language processing (NLP) with concept recognition and relation detection to also include components specific to EHR data, such as structured data associated with the encounter, sentence-level clinical aspects, and structures of the clinical notes. We report on the use of this pipeline in a disease-specific extractive text summarization task on clinical notes, focusing primarily on progress notes by physicians and nurse practitioners. We show how the addition of EHR-specific components to the pipeline resulted in an improvement in our overall system performance and discuss the potential impact of EHR-specific components on other higher-level clinical NLP tasks.",
+}
+
+@incollection{10-palmer,
+	author = {David D. Palmer},
+	title = {Text Preprocessing},
+	booktitle = {Handbook of Natural Language Processing},
+	edition = {deuxi\`eme}, 
+	editor = {Nitin Indurkhya and Fred J. Damerau},
+	publisher = {CRC Press,Taylor and Francis Group},
+	address = {Boca Raton, FL},
+	year = {2010},
+	series = {Machine learning \& Pattern Recognition},
+	isbn = {978-1-4200-8593-8},
+}
+
+@article{97-palmer-hearst,
+	author = {Palmer, David D. and Hearst, Marti A.},
+	title = {Adaptive multilingual sentence boundary disambiguation},
+	journal = {Comput. Linguist.},
+	issue_date = {June 1997},
+	volume = {23},
+	number = {2},
+	month = jun,
+	year = {1997},
+	issn = {0891-2017},
+	pages = {241--267},
+	numpages = {27},
+	url = {http://dl.acm.org/citation.cfm?id=972695.972697},
+	acmid = {972697},
+	publisher = {MIT Press},
+	address = {Cambridge, MA, USA},
+}
+
+@inproceedings{89-riley,
+	author = {Riley, Michael D.},
+	title = {Some applications of tree-based modelling to speech and language},
+	booktitle = {Proceedings of the workshop on Speech and Natural Language},
+	series = {HLT '89},
+	year = {1989},
+	isbn = {1-55860-112-0},
+	location = {Cape Cod, Massachusetts},
+	pages = {339--352},
+	numpages = {14},
+	url = {http://dx.doi.org/10.3115/1075434.1075492},
+	doi = {10.3115/1075434.1075492},
+	acmid = {1075492},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+}
+
+@article{80-muller-al,
+	author = {M\"uller, Hans and Amerl, V. and Natalis, G.},
+	title = { Worterkennungsverfahren als Grundlage einer Universalmethode zur automatischen Segmentierung von Texten in S\"atze. Ein Verfahren zur maschinellen Satzgrenzenbestimmung im Englischen}, 
+	booktitle = {Sprache und Datenverarbeitung},
+	year = {1980},
+	pages = {46--64},
+	number = {1},
+	volume= {4}, 
+	language = {ger},
+	issn = {0343-5202},
+} 
+
+@inproceedings{97-reynar-ratnaparkhi,
+	author = {Reynar, Jeffrey C. and Ratnaparkhi, Adwait},
+	title = {A maximum entropy approach to identifying sentence boundaries},
+	booktitle = {Proceedings of the fifth conference on Applied natural language processing},
+	series = {ANLC '97},
+	year = {1997},
+	location = {Washington, DC},
+	pages = {16--19},
+	numpages = {4},
+	url = {http://dx.doi.org/10.3115/974557.974561},
+	doi = {10.3115/974557.974561},
+	acmid = {974561},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+}
+
+@article{02-mikheev,
+	author = {Mikheev, Andrei},
+	title = {Periods, capitalized words, etc.},
+	journal = {Comput. Linguist.},
+	issue_date = {September 2002},
+	volume = {28},
+	number = {3},
+	month = sep,
+	year = {2002},
+	issn = {0891-2017},
+	pages = {289--318},
+	numpages = {30},
+	url = {http://dx.doi.org/10.1162/089120102760275992},
+	doi = {10.1162/089120102760275992},
+	acmid = {643094},
+	publisher = {MIT Press},
+	address = {Cambridge, MA, USA},
+}
+
+@article{02-mani-al,
+	author = {Mani, Inderjeet and Klein, Gary and House, David and Hirschman, Lynette and Firmin, Therese and Sundheim, Beth},
+	title = {SUMMAC: A Text Summarization Evaluation},
+	journal = {Nat. Lang. Eng.},
+	issue_date = {March 2002},
+	volume = {8},
+	number = {1},
+	month = mar,
+	year = {2002},
+	issn = {1351-3249},
+	pages = {43--68},
+	numpages = {26},
+	url = {http://dx.doi.org/10.1017/S1351324901002741},
+	doi = {10.1017/S1351324901002741},
+	acmid = {973864},
+	publisher = {Cambridge University Press},
+	address = {New York, NY, USA},
+} 
+
+
+@inproceedings{18-chongtay-al,
+	author = {Chongtay, Rocio and Last, Mark and Berendt, Bettina},
+	title = {Responsive News Summarization for Ubiquitous Consumption on Multiple Mobile Devices},
+	booktitle = {23rd International Conference on Intelligent User Interfaces},
+	series = {IUI '18},
+	year = {2018},
+	isbn = {978-1-4503-4945-1},
+	location = {Tokyo, Japan},
+	pages = {433--437},
+	numpages = {5},
+	url = {http://doi.acm.org/10.1145/3172944.3172992},
+	doi = {10.1145/3172944.3172992},
+	acmid = {3172992},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {adaptive text, automatic text summarization, responsive news, responsive web design},
+} 
+
+
+@article{17-pashutan-al,
+	author    = {Pashutan Modaresi and
+	Philipp Gross and
+	Siavash Sefidrodi and
+	Mirja Eckholf and
+	Stefan Conrad},
+	title     = {On (Commercial) Benefits of Automatic Text Summarization Systems in
+	the News Domain: {A} Case of Media Monitoring and Media Response Analysis},
+	journal   = {CoRR},
+	volume    = {abs/1701.00728},
+	year      = {2017},
+	url       = {http://arxiv.org/abs/1701.00728},
+	archivePrefix = {arXiv},
+	eprint    = {1701.00728},
+	timestamp = {Mon, 13 Aug 2018 16:48:02 +0200},
+	biburl    = {https://dblp.org/rec/bib/journals/corr/ModaresiGSE017},
+	bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@Article{58-luhn,
+	author = {Luhn, H. P.},
+	title = {The automatic creation of literature abstracts},
+	journal = {IBM J. Res. Dev.},
+	issue_date = {April 1958},
+	volume = {2},
+	number = {2},
+	month = apr,
+	year = {1958},
+	issn = {0018-8646},
+	pages = {159--165},
+	numpages = {7},
+	url = {http://dx.doi.org/10.1147/rd.22.0159},
+	doi = {10.1147/rd.22.0159},
+	acmid = {1662360},
+	publisher = {IBM Corp.},
+	address = {Riverton, NJ, USA},
+}
+
+@inproceedings{03-allan-al,
+	author = {Allan, James and Wade, Courtney and Bolivar, Alvaro},
+	title = {Retrieval and Novelty Detection at the Sentence Level},
+	booktitle = {Proceedings of the 26th Annual International ACM SIGIR Conference on Research and Development in Informaion Retrieval},
+	series = {SIGIR '03},
+	year = {2003},
+	isbn = {1-58113-646-3},
+	location = {Toronto, Canada},
+	pages = {314--321},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/860435.860493},
+	doi = {10.1145/860435.860493},
+	acmid = {860493},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {TREC, novelty, redundancy, relevant sentences},
+} 
+
+
+@book{75-borko-bernier,
+	author = {Borko, Harold and Bernier, Charles L.},
+	keywords = {bibtex-import},
+	posted-at = {2006-12-04 15:07:45},
+	priority = {2},
+	publisher = {Academic Press, London},
+	title = {Abstracting concepts and methods},
+	year = {1975}
+}
+
+@inproceedings {01-mani,
+	author = {Inderjeet Mani},
+	title = {Summarization Evaluation: An Overview},
+	booktitle = {},
+	year = {2001},
+	publisher = {},
+	pages = {},
+}
+
+@inproceedings{99-mani-al,
+	author = {Mani, Inderjeet and House, David and Klein, Gary and Hirschman, Lynette and Firmin, Therese and Sundheim, Beth},
+	title = {The TIPSTER SUMMAC Text Summarization Evaluation},
+	booktitle = {Proceedings of the ninth conference on European chapter of the Association for Computational Linguistics},
+	series = {EACL '99},
+	year = {1999},
+	location = {Bergen, Norway},
+	pages = {77--85},
+	numpages = {9},
+	url = {http://dx.doi.org/10.3115/977035.977047},
+	doi = {10.3115/977035.977047},
+	acmid = {977047},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+@inproceedings{98-hovy-lin,
+	author = {Hovy, Eduard and Lin, Chin-Yew},
+	booktitle = {Proceedings of a workshop on held at Baltimore, Maryland: October 13-15, 1998},
+	keywords = {summarization},
+	organization = {Association for Computational Linguistics},
+	pages = {197--214},
+	title = {Automated text summarization and the {SUMMARIST} system},
+	year = {1998}
+}
+
+@inproceedings {99-sparckjones,
+	author = {Sparck Jones, Karen},
+	title = {Automatic summarising: factors and directions},
+	booktitle = {Advances in automatic text summarisation},
+	publisher = {Cambridge MA: MIT Press},
+	year = {1999},
+}
+
+@inproceedings{04-farzindar-lapalme,
+	author    = {Farzindar, Atefeh  and  Lapalme, Guy},
+	title     = {Legal Text Summarization by Exploration of the Thematic Structure and Argumentative Roles},
+	booktitle = {Text Summarization Branches Out: Proceedings of the ACL-04 Workshop},
+	editor = {Marie-Francine Moens, Stan Szpakowicz},
+	year      = 2004,
+	month     = {July},
+	address   = {Barcelona, Spain},
+	publisher = {Association for Computational Linguistics},
+	pages     = {27--34}
+}
+
+
+@InProceedings{15-lakshmi-al,
+	author="Lakshmi, S. V. S. S.
+	and Deepthi, K. S.
+	and Suresh, Ch.",
+	editor="Satapathy, Suresh Chandra
+	and Govardhan, A.
+	and Raju, K. Srujan
+	and Mandal, J. K.",
+	title="Text Summarization Basing on Font and Cue-Phrase Feature for a Single Document",
+	booktitle="Emerging ICT for Bridging the Future - Proceedings of the 49th Annual Convention of the Computer Society of India CSI Volume 2",
+	year="2015",
+	publisher="Springer International Publishing",
+	address="Cham",
+	pages="537--542",
+	abstract="In recent times owing to the magnitude of data present digitally across networks over a wide range of databases the need for text summarization has never been higher. The following paper deals with summarization of text derived from the syntactic and semantic features of the words in the document. We apply the technique of calculating a threshold value from both the attribute and semantic structure of the individual words. The algorithm helps in calculating the threshold value in order to give weightage to a particular word in a document. Initially the document undergoes the preprocessing techniques; the obtained data will be kept in a data set, then on that data we will apply the proposed algorithm in order to get a summarized data.",
+	isbn="978-3-319-13731-5"
+}
+
+@inproceedings{81-paice,
+	author = {Paice, C. D.},
+	title = {The automatic generation of literature abstracts: an approach based on the identification of self-indicating phrases},
+	booktitle = {Proceedings of the 3rd annual ACM conference on Research and development in information retrieval},
+	series = {SIGIR '80},
+	year = {1981},
+	isbn = {0-408-10775-8},
+	location = {Cambridge, England},
+	pages = {172--191},
+	numpages = {20},
+	url = {http://dl.acm.org/citation.cfm?id=636669.636680},
+	acmid = {636680},
+	publisher = {Butterworth  \& Co.},
+	address = {Kent, UK, UK},
+}
+
+@inproceedings{07-pembe-gungor,
+	author = {Pembe, F. Canan and G\"ung\"or, Tunga},
+	title = {Automated Query-biased and Structure-preserving Text Summarization on Web Documents.},
+	booktitle = {Proceedings of the International Symposium on Innovations in Intelligent Systems and Applications},
+	year = {2007},
+	location = {Istanbul, Turkey}
+}
+
+@InProceedings{10-sharifi-al,
+	author    = {Sharifi, Beaux  and  Hutton, Mark-Anthony  and  Kalita, Jugal},
+	title     = {Summarizing Microblogs Automatically},
+	booktitle = {Human Language Technologies: The 2010 Annual Conference of the North American Chapter of the Association for Computational Linguistics},
+	month     = {June},
+	year      = {2010},
+	address   = {Los Angeles, California},
+	publisher = {Association for Computational Linguistics},
+	pages     = {685--688},
+	url       = {http://www.aclweb.org/anthology/N10-1100}
+}
+
+@inproceedings{11-liu-al,
+	author = {Hongyan Liu and Ping’an Liu and Wei Heng and Lei Li},
+	title = {The CIST Summarization System at {TAC} 2011},
+	booktitle = {Proceedings of the Fourth Text Analysis Conference (TAC 2011)--MultiLing Pilot Track.},
+	address = {Gaithersburg, Maryland, USA},
+	year = {2011},
+}
+
+@inproceedings{14-gunhee-al,
+	Author =	 {Gunhee Kim and Leonid Sigal and Eric P Xing},
+	Title =	 "{Joint Summarization of Large-scale Collections of Web Images and Videos for Storyline Reconstruction}",
+	Booktitle =	 {27th IEEE Conference on Computer Vision and Pattern Recognition (CVPR 2014)},
+	Year =	 2014
+}
+
+@incollection{14-potapov-al,
+	title={Category-specific video summarization},
+	author={Potapov, Danila and Douze, Matthijs and Harchaoui, Zaid and Schmid, Cordelia},
+	booktitle={Computer Vision--ECCV 2014},
+	pages={540--555},
+	year={2014},
+	publisher={Springer}
+}
+
+@article{09-moon,
+	title={Interactive Football Summarization},
+	author={Moon, Brandon B},
+	year={2009},
+	publisher={Brigham Young University}
+}
+
+@article{12-zawbaa-al,
+	title={Event detection based approach for soccer video summarization using machine learning},
+	author={Zawbaa, Hossam M and El-Bendary, Nashwa and Hassanien, Aboul Ella and Kim, TH},
+	journal={Int J Multimed Ubiquitous Eng},
+	volume={7},
+	number={2},
+	pages={63--80},
+	year={2012}
+}
+
+@inproceedings{13-khosla-al,
+	title={Large-scale video summarization using web-image priors},
+	author={Khosla, Aditya and Hamid, Raffay and Lin, Chih-Jen and Sundaresan, Neel},
+	booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+	pages={2698--2705},
+	year={2013}
+}
+
+@inproceedings{15-gygli-al,
+	title={Video summarization by learning submodular mixtures of objectives},
+	author={Gygli, Michael and Grabner, Helmut and Van Gool, Luc},
+	booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+	pages={3090--3098},
+	year={2015}
+}
+
+@inproceedings{07-goldstein-al,
+	author = {Goldstein, Jade and Ciany, Gary M. and Carbonell, Jaime G.},
+	title = {Genre Identification and Goal-focused Summarization},
+	booktitle = {Proceedings of the Sixteenth ACM Conference on Conference on Information and Knowledge Management},
+	series = {CIKM '07},
+	year = {2007},
+	isbn = {978-1-59593-803-9},
+	location = {Lisbon, Portugal},
+	pages = {889--892},
+	numpages = {4},
+	url = {http://doi.acm.org/10.1145/1321440.1321568},
+	doi = {10.1145/1321440.1321568},
+	acmid = {1321568},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {data mining, evaluation, genre identification, machine learning, metadata extraction, summarization, task-based information retrieval, text categorization, text classification},
+} 
+
+@InProceedings{10-yatsko-al,
+	author = {Yatsko, V. A. and Starikov, M. S. and Butakov, A. V.},
+	title = {Automatic genre recognition and adaptive text summarization},
+	journal = {Autom. Doc. Math. Linguist.},
+	issue_date = {June 2010},
+	volume = {44},
+	number = {3},
+	month = jun,
+	year = {2010},
+	issn = {0005-1055},
+	pages = {111--120},
+	numpages = {10},
+	url = {http://dx.doi.org/10.3103/S0005105510030027},
+	doi = {10.3103/S0005105510030027},
+	acmid = {1861403},
+	publisher = {Springer-Verlag New York, Inc.},
+	address = {Secaucus, NJ, USA},
+	keywords = {automatic genre recognition, automatic summarization, summarization algorithms, verification of parameters},
+}
+
+@article{09-zhan-al,
+	author = {Zhan, Jiaming and Loh, Han Tong and Liu, Ying},
+	title = {Gather customer concerns from online product reviews - A text summarization approach},
+	journal = {Expert Syst. Appl.},
+	issue_date = {March, 2009},
+	volume = {36},
+	number = {2},
+	month = mar,
+	year = {2009},
+	issn = {0957-4174},
+	pages = {2107--2115},
+	numpages = {9},
+	url = {http://dx.doi.org/10.1016/j.eswa.2007.12.039},
+	doi = {10.1016/j.eswa.2007.12.039},
+	acmid = {1465042},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+	keywords = {Customer concern, Product review, Text summarization},
+} 
+
+@article{07-reeve-al,
+	title = {The use of domain-specific concepts in biomedical text summarization},
+	author = {Lawrence H. Reeve and Hyoil Han and Ari D. Brooks},
+	journal = {Information Processing \& Management},
+	volume = {43},
+	number = {6},
+	pages = {1765--1776},
+	year = {2007},
+	note = {Text Summarization},
+	issn = {0306-4573},
+	doi = {http://dx.doi.org/10.1016/j.ipm.2007.01.026},
+	url = {http://www.sciencedirect.com/science/article/pii/S030645730700074X}
+}
+
+@article{09-sarkar,
+	title={Using domain knowledge for text summarization in medical domain},
+	author={Sarkar, Kamal},
+	year={2009}
+}
+
+@article{58-baxendale,
+	author = {Baxendale, P. B.},
+	title = {Machine-made index for technical literature: an experiment},
+	journal = {IBM J. Res. Dev.},
+	issue_date = {October 1958},
+	volume = {2},
+	number = {4},
+	month = oct,
+	year = {1958},
+	issn = {0018-8646},
+	pages = {354--361},
+	numpages = {8},
+	url = {http://dx.doi.org/10.1147/rd.24.0354},
+	doi = {10.1147/rd.24.0354},
+	acmid = {1662385},
+	publisher = {IBM Corp.},
+	address = {Riverton, NJ, USA},
+} 
+
+@book{75-borko-bernier,
+	author = {Borko, Harold and Bernier, Charles L.},
+	keywords = {bibtex-import},
+	posted-at = {2006-12-04 15:07:45},
+	priority = {2},
+	publisher = {Academic Press, London},
+	title = {Abstracting concepts and methods},
+	year = {1975}
+}
+
+@inproceedings{95-mckeown-radev,
+	author = {McKeown, Kathleen and Radev, Dragomir R.},
+	title = {Generating summaries of multiple news articles},
+	booktitle = {Proceedings of the 18th annual international ACM SIGIR conference on Research and development in information retrieval},
+	series = {SIGIR '95},
+	year = {1995},
+	isbn = {0-89791-714-6},
+	location = {Seattle, Washington, United States},
+	pages = {74--82},
+	numpages = {9},
+	url = {http://doi.acm.org/10.1145/215206.215334},
+	doi = {10.1145/215206.215334},
+	acmid = {215334},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {natural language generation, natural language summarization, summarization of multiple texts},
+} 
+
+@article{15-cebiric-al,
+	author = {\v{C}ebiri\'{c}, \v{S}ejla and Goasdou{\'e}, Fran\c{c}ois and Manolescu, Ioana},
+	title = {Query-oriented Summarization of RDF Graphs},
+	journal = {Proc. VLDB Endow.},
+	issue_date = {August 2015},
+	volume = {8},
+	number = {12},
+	month = aug,
+	year = {2015},
+	issn = {2150-8097},
+	pages = {2012--2015},
+	numpages = {4},
+	url = {http://dx.doi.org/10.14778/2824032.2824124},
+	doi = {10.14778/2824032.2824124},
+	acmid = {2824124},
+	publisher = {VLDB Endowment},
+} 
+
+@inproceedings{10-bhaskar-bandyopadhyay,
+	title={A Query Focused Multi Document Automatic Summarization.},
+	author={Bhaskar, Pinaki and Bandyopadhyay, Sivaji},
+	booktitle={PACLIC},
+	pages={545--554},
+	year={2010}
+}
+
+@article{69-edmundson,
+	author = {Edmundson, H. P.},
+	title = {New Methods in Automatic Extracting},
+	journal = {J. ACM},
+	issue_date = {April 1969},
+	volume = {16},
+	number = {2},
+	month = apr,
+	year = {1969},
+	issn = {0004-5411},
+	pages = {264--285},
+	numpages = {22},
+	url = {http://doi.acm.org/10.1145/321510.321519},
+	doi = {10.1145/321510.321519},
+	acmid = {321519},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+} 
+
+@InProceedings{13-elhaj-rayson,
+	author    = {El-Haj, Mahmoud  and  Rayson, Paul},
+	title     = {Using a Keyness Metric for Single and Multi Document Summarisation},
+	booktitle = {Proceedings of the MultiLing 2013 Workshop on Multilingual Multi-document Summarization},
+	month     = {August},
+	year      = {2013},
+	address   = {Sofia, Bulgaria},
+	publisher = {Association for Computational Linguistics},
+	pages     = {64--71},
+	url       = {http://www.aclweb.org/anthology/W13-3109}
+}
+
+@inproceedings{11-varma-al,
+	author = {Vasudeva Varma and Sudheer Kovelamudi and Jayant Gupta and Nikhil Priyatam and Arpit Sood and Harshit Jain and Aditya Mogadala and Srikanth Reddy Vaddepally},
+	title = {{IIIT} Hyderabad in Summarization and Knowledge Base Population at {TAC} 2011},
+	booktitle = {Proceedings of the Fourth Text Analysis Conference (TAC 2011)--MultiLing Pilot Track.},
+	address = {Gaithersburg, Maryland, USA},
+	year = {2011},
+}
+
+@InProceedings{13-li-al,
+	author    = {Li, Lei  and  Forascu, Corina  and  El-Haj, Mahmoud  and  Giannakopoulos, George},
+	title     = {Multi-document multilingual summarization corpus preparation, Part 1: Arabic, English, Greek, Chinese, Romanian},
+	booktitle = {Proceedings of the MultiLing 2013 Workshop on Multilingual Multi-document Summarization},
+	month     = {August},
+	year      = {2013},
+	address   = {Sofia, Bulgaria},
+	publisher = {Association for Computational Linguistics},
+	pages     = {1--12},
+	url       = {http://www.aclweb.org/anthology/W13-3101}
+}
+
+@inproceedings{01-kan-al,
+	author = {Kan, Min-Yen and McKeown, Kathleen R. and Klavans, Judith L.},
+	title = {Applying Natural Language Generation to Indicative Summarization},
+	booktitle = {Proceedings of the 8th European Workshop on Natural Language Generation - Volume 8},
+	series = {EWNLG '01},
+	year = {2001},
+	location = {Toulouse, France},
+	pages = {1--9},
+	numpages = {9},
+	url = {http://dx.doi.org/10.3115/1117840.1117853},
+	doi = {10.3115/1117840.1117853},
+	acmid = {1117853},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+
+%====================================
+%===== Multiling 2015 ===============
+
+@Inbook{15-vanetik-litvak,
+	author="Vanetik, Natalia
+	and Litvak, Marina",
+	chapter="Multilingual Summarization with Polytope Model",
+	title="Proceedings of the 16th Annual Meeting of the Special Interest Group on      Discourse and Dialogue    ",
+	year="2015",
+	publisher="Association for Computational Linguistics",
+	pages="227--231",
+	location="Prague, Czech Republic",
+	url="http://aclweb.org/anthology/W15-4632"
+}
+
+@Inbook{15-aries-al,
+	author="Aries, Abdelkrime
+	and Zegour, Eddine Djamel
+	and Hidouci, Walid Khaled",
+	chapter="AllSummarizer system at MultiLing 2015: Multilingual single and      multi-document summarization    ",
+	title="Proceedings of the 16th Annual Meeting of the Special Interest Group on      Discourse and Dialogue    ",
+	year="2015",
+	publisher="Association for Computational Linguistics",
+	pages="237--244",
+	location="Prague, Czech Republic",
+	url="http://aclweb.org/anthology/W15-4634"
+}
+
+@inproceedings{18-aries-al,
+	author    = {Abdelkrime Aries and
+	Djamel Eddine Zegour and
+	Walid Khaled Hidouci},
+	title     = {Exploring Graph Bushy Paths to Improve Statistical Multilingual Automatic
+	Text Summarization},
+	booktitle = {Computational Intelligence and Its Applications - 6th {IFIP} {TC}
+	5 International Conference, {CIIA} 2018, Oran, Algeria, May 8-10,
+	2018, Proceedings},
+	pages     = {78--89},
+	year      = {2018},
+	url       = {https://doi.org/10.1007/978-3-319-89743-1\_8},
+	doi       = {10.1007/978-3-319-89743-1\_8},
+	timestamp = {Sat, 05 May 2018 23:05:32 +0200},
+	biburl    = {https://dblp.org/rec/bib/conf/ciia/AriesZH18},
+	bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{21-aries-al,
+	author    = {Abdelkrime Aries and
+	Djamel Eddine Zegour and
+	Walid Khaled Hidouci},
+	title={Graph-based cumulative score using statistical features for multilingual automatic text summarisation},
+	journal={ Int. J. Data Mining, Modelling and Management},
+	volume={13},
+	year={2021},
+	pages = {37--64},
+}
+
+@Inbook{15-vicente-al,
+	author="Vicente, Marta
+	and Alc{\'o}n, Oscar
+	and Lloret, Elena",
+	chapter="The University of Alicante at MultiLing 2015: approach, results and      further insights    ",
+	title="Proceedings of the 16th Annual Meeting of the Special Interest Group on      Discourse and Dialogue    ",
+	year="2015",
+	publisher="Association for Computational Linguistics",
+	pages="250--259",
+	location="Prague, Czech Republic",
+	url="http://aclweb.org/anthology/W15-4636"
+}
+
+@Inbook{15-thomas-al,
+	author="Thomas, Stefan
+	and Beutenm{\"u}ller, Christian
+	and de la Puente, Xose
+	and Remus, Robert
+	and Bordag, Stefan",
+	chapter="ExB Text Summarizer",
+	title="Proceedings of the 16th Annual Meeting of the Special Interest Group on      Discourse and Dialogue    ",
+	year="2015",
+	publisher="Association for Computational Linguistics",
+	pages="260--269",
+	location="Prague, Czech Republic",
+	url="http://aclweb.org/anthology/W15-4637"
+}
+
+@inproceedings {01-fukusima-okumura,
+	author = {Takahiro Fukusima and Manabu Okumura},
+	title = {Text Summarization Challenge : Text summarization evaluation at NTCIR Workshop2},
+	booktitle = {Proceedings of NTCIR Workshop 2},
+	year = {2001},
+	publisher = {},
+	pages = {45--50},
+}
+
+@article{12-workman-al,
+	author = {T Elizabeth Workman and Marcelo Fiszman and John F Hurdle},
+	title = {Text summarization as a decision support aid},
+	journal = {BMC Medical Informatics and Decision Making},
+	issue_date = {23 May 2012},
+	volume = {},
+	number = {},
+	month = oct,
+	year = {2012},
+	issn = {1472-6947},
+	pages = {},
+	numpages = {},
+	url = {http://www.biomedcentral.com/1472-6947/12/41},
+	doi = {10.1186/1472-6947-12-41},
+	publisher = {BioMed Central Ltd},
+	address = {},
+	keywords = {},
+}
+
+@inproceedings{11-giannakopoulos-al,
+	author = {G. Giannakopoulos and M. El-Haj and B. Favre and M. Litvak and J. Steinberger and V. Varma},
+	title = {TAC 2011 MultiLing Pilot Overview},
+	booktitle = {Proceedings of the Fourth Text Analysis Conference (TAC 2011)--MultiLing Pilot Track.},
+	address = {Gaithersburg, Maryland, USA},
+	year = {2011},
+}
+
+@InProceedings{13-giannakopoulos,
+	author    = {Giannakopoulos, George},
+	title     = {Multi-document multilingual summarization and evaluation tracks in ACL 2013 MultiLing Workshop},
+	booktitle = {Proceedings of the MultiLing 2013 Workshop on Multilingual Multi-document Summarization},
+	month     = {August},
+	year      = {2013},
+	address   = {Sofia, Bulgaria},
+	publisher = {Association for Computational Linguistics},
+	pages     = {20--28},
+	url       = {http://www.aclweb.org/anthology/W13-3103}
+}
+
+@InProceedings{13-kubina-all,
+	author    = {Kubina, Jeff  and  Conroy, John  and  Schlesinger, Judith},
+	title     = {ACL 2013 MultiLing Pilot Overview},
+	booktitle = {Proceedings of the MultiLing 2013 Workshop on Multilingual Multi-document Summarization},
+	month     = {August},
+	year      = {2013},
+	address   = {Sofia, Bulgaria},
+	publisher = {Association for Computational Linguistics},
+	pages     = {29--38},
+	url       = {http://www.aclweb.org/anthology/W13-3104}
+}
+
+@inproceedings{04-nobata-sekine,
+	author = {Chikashi Nobata and Satoshi Sekine},
+	title = {CRL/NYU Summarization System at DUC-2004},
+	booktitle = {DUC},
+	year = {2004},
+} 
+
+@article{09-abdelfattah-ren,
+	author = {Fattah, Mohamed Abdel and Ren, Fuji},
+	title = {GA, MR, FFNN, PNN and GMM based models for automatic text summarization},
+	journal = {Comput. Speech Lang.},
+	issue_date = {January, 2009},
+	volume = {23},
+	number = {1},
+	month = jan,
+	year = {2009},
+	issn = {0885-2308},
+	pages = {126--144},
+	numpages = {19},
+	url = {http://dx.doi.org/10.1016/j.csl.2008.04.002},
+	doi = {10.1016/j.csl.2008.04.002},
+	acmid = {1393839},
+	publisher = {Academic Press Ltd.},
+	address = {London, UK, UK},
+	keywords = {Automatic summarization, Feed forward neural network, Gaussian mixture model, Genetic algorithm, Mathematical regression, Probabilistic neural network},
+}
+
+@article{88-salton-buckley,
+	author = {Salton, Gerard and Buckley, Christopher},
+	title = {Term-weighting approaches in automatic text retrieval},
+	journal = {Inf. Process. Manage.},
+	issue_date = {1988},
+	volume = {24},
+	number = {5},
+	month = aug,
+	year = {1988},
+	issn = {0306-4573},
+	pages = {513--523},
+	numpages = {11},
+	url = {http://dx.doi.org/10.1016/0306-4573(88)90021-0},
+	doi = {10.1016/0306-4573(88)90021-0},
+	acmid = {54260},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+}
+
+@inproceedings{01-ishikawa-al,
+	author = {Kai Ishikawa and Shinichi Ando and Akitoshi Okumura},
+	title = {Hybrid Text Summarization Method based on the TF Method and the LEAD Method},
+	booktitle = {Proceedings of the Second NTCIR Workshop Meeting on Evaluation of Chinese \& Japanese Text Retrieval and Text Summarization},
+	number = {},
+	year = {2001},
+	page = {219--224},
+	location= {Tokyo, Japan},
+	publisher = {},
+	address = {},
+} 
+
+@article{07-orasan-stafford,
+	title={Pronominal anaphora resolution for text summarisation},
+	author={Orasan, Constantin and St, Stafford},
+	journal={of: Proceedings of the Recent Advances in Natural Language Processing},
+	pages={430--436},
+	year={2007}
+}
+
+
+@TechReport{93-galliers-sparckjones,
+	author = {J.R. Galliers and K. Sparck Jones},
+	title = {Evaluating Natural Language Processing Systems},
+	year = {1993},
+	institution = {Computer Laboratory, University of Cambridge},
+	OPTkey = {key},
+	OPTtype = {type},
+	number = {291},
+	OPTaddress = {address},
+	month = {march},
+	OPTnote = {note},
+	OPTannote = {annote},
+}
+
+
+@article{93-mitkov,
+	author = {Ruslan Mitkov},
+	title = {Automatic Abstracting in a Limited Domain},
+	journal = {},
+	pages = {204-210},
+	year = {1993},
+	publisher = {The Computational Linguistics Society of R.O.C.},
+	volume = {},
+	number = {},
+	location = {http://www.scientificcommons.org/23696309},
+	url = {http://hdl.handle.net/2065/11826},
+}
+
+@article{73-salton-yang,
+	author = {Salton, G. and Yang, C. S.},
+	title = {On the specification of term values in automatic indexing.},
+	journal = {Journal of Documentation.},
+	keywords = {Information automatic indexing. retrieval, term weighting,},
+	number = 4,
+	pages = {351-372},
+	qnote = {Seminal paper.},
+	volume = 29,
+	year = 1973
+}
+
+@inproceedings{95-kupiec-al,
+	author = {Kupiec, Julian and Pedersen, Jan and Chen, Francine},
+	title = {A trainable document summarizer},
+	booktitle = {Proceedings of the 18th annual international ACM SIGIR conference on Research and development in information retrieval},
+	series = {SIGIR '95},
+	year = {1995},
+	isbn = {0-89791-714-6},
+	location = {Seattle, Washington, United States},
+	pages = {68--73},
+	numpages = {6},
+	url = {http://doi.acm.org/10.1145/215206.215333},
+	doi = {10.1145/215206.215333},
+	acmid = {215333},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+}
+
+@inproceedings{99-jing-mckeown,
+	author = {Jing, Hongyan and McKeown, Kathleen R.},
+	title = {The decomposition of human-written summary sentences},
+	booktitle = {Proceedings of the 22nd annual international ACM SIGIR conference on Research and development in information retrieval},
+	series = {SIGIR '99},
+	year = {1999},
+	isbn = {1-58113-096-1},
+	location = {Berkeley, California, United States},
+	pages = {129--136},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/312624.312666},
+	doi = {10.1145/312624.312666},
+	acmid = {312666},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+}
+
+@article{02-knight-marcu,
+	author = {Knight, Kevin and Marcu, Daniel},
+	title = {Summarization beyond sentence extraction: a probabilistic approach to sentence compression},
+	journal = {Artif. Intell.},
+	issue_date = {July 2002},
+	volume = {139},
+	number = {1},
+	month = jul,
+	year = {2002},
+	issn = {0004-3702},
+	pages = {91--107},
+	numpages = {17},
+	url = {http://dx.doi.org/10.1016/S0004-3702(02)00222-9},
+	doi = {10.1016/S0004-3702(02)00222-9},
+	acmid = {604207},
+	publisher = {Elsevier Science Publishers Ltd.},
+	address = {Essex, UK},
+	keywords = {compression, noisy-channel model, summarization},
+}
+
+@inproceedings{08-cohn-lapata,
+	author = {Cohn, Trevor and Lapata, Mirella},
+	title = {Sentence compression beyond word deletion},
+	booktitle = {Proceedings of the 22nd International Conference on Computational Linguistics - Volume 1},
+	series = {COLING '08},
+	year = {2008},
+	isbn = {978-1-905593-44-6},
+	location = {Manchester, United Kingdom},
+	pages = {137--144},
+	numpages = {8},
+	url = {http://dl.acm.org/citation.cfm?id=1599081.1599099},
+	acmid = {1599099},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+}
+
+@inproceedings{10-filippova,
+	author = {Filippova, Katja},
+	title = {Multi-sentence compression: finding shortest paths in word graphs},
+	booktitle = {Proceedings of the 23rd International Conference on Computational Linguistics},
+	series = {COLING '10},
+	year = {2010},
+	location = {Beijing, China},
+	pages = {322--330},
+	numpages = {9},
+	url = {http://dl.acm.org/citation.cfm?id=1873781.1873818},
+	acmid = {1873818},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+}
+
+@article{02-barzilay-al,
+	author = {Barzilay, Regina and Elhadad, Noemie and McKeown, Kathleen R.},
+	title = {Inferring strategies for sentence ordering in multidocument news summarization},
+	journal = {J. Artif. Int. Res.},
+	issue_date = {July 2002},
+	volume = {17},
+	number = {1},
+	month = aug,
+	year = {2002},
+	issn = {1076-9757},
+	pages = {35--55},
+	numpages = {21},
+	url = {http://dl.acm.org/citation.cfm?id=1622810.1622812},
+	acmid = {1622812},
+	publisher = {AI Access Foundation},
+	address = {USA},
+} 
+
+@inproceedings{05-bollegala-al,
+	author = {Bollegala, Danushka and Okazaki, Naoaki and Ishizuka, Mitsuru},
+	title = {A machine learning approach to sentence ordering for multidocument summarization and its evaluation},
+	booktitle = {Proceedings of the Second international joint conference on Natural Language Processing},
+	series = {IJCNLP'05},
+	year = {2005},
+	isbn = {3-540-29172-5, 978-3-540-29172-5},
+	location = {Jeju Island, Korea},
+	pages = {624--635},
+	numpages = {12},
+	url = {http://dx.doi.org/10.1007/11562214_55},
+	doi = {10.1007/11562214_55},
+	acmid = {2145970},
+	publisher = {Springer-Verlag},
+	address = {Berlin, Heidelberg},
+} 
+
+@inproceedings{08-ji-nie,
+	author = {Donghong Ji and Yu Nie},
+	title = {Sentence ordering based on cluster adjacency in multi-document summarization},
+	booktitle = {Proceedings of the third International Joint Conference on Natural Language Processing},
+	year = {2008},
+	volume ={2},
+	page = {745--750},
+} 
+
+@inproceedings{99-mckeown-al,
+	author = {McKeown, Kathleen R. and Klavans, Judith L. and Hatzivassiloglou, Vasileios and Barzilay, Regina and Eskin, Eleazar},
+	title = {Towards multidocument summarization by reformulation: progress and prospects},
+	booktitle = {Proceedings of the sixteenth national conference on Artificial intelligence and the eleventh Innovative applications of artificial intelligence conference innovative applications of artificial intelligence},
+	series = {AAAI '99/IAAI '99},
+	year = {1999},
+	isbn = {0-262-51106-1},
+	location = {Orlando, Florida, United States},
+	pages = {453--460},
+	numpages = {8},
+	url = {http://dl.acm.org/citation.cfm?id=315149.315355},
+	acmid = {315355},
+	publisher = {American Association for Artificial Intelligence},
+	address = {Menlo Park, CA, USA},
+} 
+
+@inproceedings{00-radev-al,
+	author = {Radev, Dragomir R. and Jing, Hongyan and Budzikowska, Malgorzata},
+	title = {Centroid-based summarization of multiple documents: sentence extraction, utility-based evaluation, and user studies},
+	booktitle = {Proceedings of the 2000 NAACL-ANLPWorkshop on Automatic summarization - Volume 4},
+	series = {NAACL-ANLP-AutoSum '00},
+	year = {2000},
+	location = {Seattle, Washington},
+	pages = {21--30},
+	numpages = {10},
+	url = {http://dx.doi.org/10.3115/1117575.1117578},
+	doi = {10.3115/1117575.1117578},
+	acmid = {1117578},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+
+@inproceedings{02-lin-hovy,
+	author = {Lin, Chin-Yew and Hovy, Eduard},
+	title = {From single to multi-document summarization: a prototype system and its evaluation},
+	booktitle = {Proceedings of the 40th Annual Meeting on Association for Computational Linguistics},
+	series = {ACL '02},
+	year = {2002},
+	location = {Philadelphia, Pennsylvania},
+	pages = {457--464},
+	numpages = {8},
+	url = {http://dx.doi.org/10.3115/1073083.1073160},
+	doi = {10.3115/1073083.1073160},
+	acmid = {1073160},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+@InProceedings{12-duan-al,
+	author    = {Duan, Yajuan  and  Chen, Zhumin  and  Wei, Furu  and  Zhou, Ming  and  Shum, Heung-Yeung},
+	title     = {{T}witter Topic Summarization by Ranking Tweets using Social Influence and Content Quality},
+	booktitle = {Proceedings of COLING 2012},
+	month     = {December},
+	year      = {2012},
+	address   = {Mumbai, India},
+	publisher = {The COLING 2012 Organizing Committee},
+	pages     = {763--780},
+	url       = {http://www.aclweb.org/anthology/C12-1047}
+}
+
+
+@InProceedings{03-bergler-al,
+	author = {Sabine Bergler and René Witte and Michelle Khalife and Zhuoyan Li and Frank Rudzicz},
+	title = {Using knowledge-poor coreference resolution for text summarization},
+	booktitle = {in DUC, Workshop on Text Summarization, May-June},
+	year = {2003},
+	pages = {85--92}
+}
+
+@InProceedings{05-steinberger-al,
+	author    = {Steinberger, Josef  and  Kabadjov, Mijail  and  Poesio, Massimo  and  Sanchez-Graillet, Olivia},
+	title     = {Improving LSA-based Summarization with Anaphora Resolution},
+	booktitle = {Proceedings of Human Language Technology Conference and Conference on Empirical Methods in Natural Language Processing},
+	month     = {October},
+	year      = {2005},
+	address   = {Vancouver, British Columbia, Canada},
+	publisher = {Association for Computational Linguistics},
+	pages     = {1--8},
+	url       = {http://www.aclweb.org/anthology/H/H05/H05-1001}
+} 
+
+@article{07-steinberger-al,
+	title = "Two uses of anaphora resolution in summarization ",
+	journal = "Information Processing \& Management ",
+	volume = "43",
+	number = "6",
+	pages = "1663 - 1680",
+	year = "2007",
+	note = "Text Summarization ",
+	issn = "0306-4573",
+	doi = "http://dx.doi.org/10.1016/j.ipm.2007.01.010",
+	url = "http://www.sciencedirect.com/science/article/pii/S0306457307000428",
+	author = "Josef Steinberger and Massimo Poesio and Mijail A. Kabadjov and Karel Je\v{z}ek",
+}
+
+
+@inproceedings{13-aslam-al,
+	title={TREC 2013 Temporal Summarization.},
+	author={Aslam, Javed A and Ekstrand-Abueg, Matthew and Pavlu, Virgil and Diaz, Fernando and Sakai, Tetsuya},
+	booktitle={Proceedings of The Twenty-Second Text REtrieval Conference, {TREC}
+	2013, Gaithersburg, Maryland, USA, November 19-22, 2013},
+	year={2013}
+}
+
+@article{07-zajic-al,
+	author = {Zajic, David and Dorr, Bonnie J. and Lin, Jimmy and Schwartz, Richard},
+	title = {Multi-candidate reduction: Sentence compression as a tool for document summarization tasks},
+	journal = {Inf. Process. Manage.},
+	issue_date = {November, 2007},
+	volume = {43},
+	number = {6},
+	month = nov,
+	year = {2007},
+	issn = {0306-4573},
+	pages = {1549--1570},
+	numpages = {22},
+	url = {http://dx.doi.org/10.1016/j.ipm.2007.01.016},
+	doi = {10.1016/j.ipm.2007.01.016},
+	acmid = {1285161},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+	keywords = {07.05.Mh, 43.71.Sy, 89.20.Ff, Headline generation, Hidden Markov model, Parse-and-trim, Summarization},
+}
+
+@inproceedings{02-papineni-al,
+	author = {Papineni, Kishore and Roukos, Salim and Ward, Todd and Zhu, Wei-Jing},
+	title = {BLEU: a method for automatic evaluation of machine translation},
+	booktitle = {Proceedings of the 40th Annual Meeting on Association for Computational Linguistics},
+	series = {ACL '02},
+	year = {2002},
+	location = {Philadelphia, Pennsylvania},
+	pages = {311--318},
+	numpages = {8},
+	url = {http://dx.doi.org/10.3115/1073083.1073135},
+	doi = {10.3115/1073083.1073135},
+	acmid = {1073135},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+@inproceedings{04-lin,
+	author = {Lin, Chin-Yew},
+	title = {ROUGE: A Package for Automatic Evaluation of summaries},
+	biburl = {http://www.bibsonomy.org/bibtex/276f93e2113ded678a5b0e2afce098269/diego_ma},
+	booktitle = {Proc. ACL workshop on Text Summarization Branches Out},
+	interhash = {21c182e3172dd7e2be8d7aa530cb435d},
+	intrahash = {76f93e2113ded678a5b0e2afce098269},
+	keywords = {summarisation evaluation COMP448},
+	pages = 10,
+	timestamp = {2008-03-12T04:43:46.000+0100},
+	url = {http://research.microsoft.com/~cyl/download/papers/WAS2004.pdf},
+	year = 2004
+} 
+
+@inproceedings {06-hovy-al,
+	author = {Eduard Hovy and Chin-Yew Lin and Liang Zhou and Junichi Fukumoto},
+	title = {Automated Summarization Evaluation with Basic Elements},
+	booktitle = {Proceedings of the Fifth Conference on Language Resources and Evaluation (LREC)},
+	year = {2006},
+	publisher = {},
+	pages = {899--902},
+}
+
+@inproceedings{03-Lin-hovy,
+	author = {Lin, Chin-Yew and Hovy, Eduard},
+	title = {Automatic evaluation of summaries using N-gram co-occurrence statistics},
+	booktitle = {Proceedings of the 2003 Conference of the North American Chapter of the Association for Computational Linguistics on Human Language Technology - Volume 1},
+	series = {NAACL '03},
+	year = {2003},
+	location = {Edmonton, Canada},
+	pages = {71--78},
+	numpages = {8},
+	url = {http://dx.doi.org/10.3115/1073445.1073465},
+	doi = {10.3115/1073445.1073465},
+	acmid = {1073465},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+}
+
+@article{95-miller,
+	author = {Miller, George A.},
+	title = {WordNet: A Lexical Database for English},
+	journal = {Commun. ACM},
+	issue_date = {Nov. 1995},
+	volume = {38},
+	number = {11},
+	month = nov,
+	year = {1995},
+	issn = {0001-0782},
+	pages = {39--41},
+	numpages = {3},
+	url = {http://doi.acm.org/10.1145/219717.219748},
+	doi = {10.1145/219717.219748},
+	acmid = {219748},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+} 
+
+
+@inproceedings{10-giannakopoulos-karkaletsis,
+	title={Summarization system evaluation variations based on n-gram graphs},
+	author={Giannakopoulos, George and Karkaletsis, Vangelis},
+	booktitle={Proceedings of the Text Analysis Conference (TAC)},
+	year={2010}
+}
+
+@article{05-nenkova-vanderwende,
+	title={The impact of frequency on summarization},
+	author={Nenkova, Ani and Vanderwende, Lucy},
+	journal={Microsoft Research, Redmond, Washington, Tech. Rep. MSR-TR-2005},
+	volume={101},
+	year={2005}
+}
+
+@inproceedings {11-giannakopoulos-karkaletsis,
+	title            = "AutoSummENG and MeMoG in Evaluating Guided Summaries",
+	year             = "2011",
+	author           = "George Giannakopoulos and Vangelis Karkaletsis",
+	booktitle        = "TAC 2011 Workshop",
+	organization     = "NIST",
+	address          = "Gaithersburg, MD, USA",
+	url              = "http://users.iit.demokritos.gr/~ggianna/Publications/TAC2011-AESOPSystemPresentation.pdf",
+	keywords         = "n-gram graphs, automatic summary evaluation, AutoSummENG, MeMoG"
+}
+
+@article{06-giannakopoulos-al,
+	author = {Giannakopoulos, George and Karkaletsis, Vangelis and Vouros, George and Stamatopoulos, Panagiotis},
+	title = {Summarization System Evaluation Revisited: N-gram Graphs},
+	journal = {ACM Trans. Speech Lang. Process.},
+	issue_date = {October 2008},
+	volume = {5},
+	number = {3},
+	month = oct,
+	year = {2008},
+	issn = {1550-4875},
+	pages = {5:1--5:39},
+	articleno = {5},
+	numpages = {39},
+	url = {http://doi.acm.org/10.1145/1410358.1410359},
+	doi = {10.1145/1410358.1410359},
+	acmid = {1410359},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {Automatic summarization, n-gram graph, summarization evaluation},
+} 
+
+@inproceedings{16-qian-al,
+	author = {Qian, Xin and Lin, Jimmy and Roegiest, Adam},
+	title = {Interleaved Evaluation for Retrospective Summarization and Prospective Notification on Document Streams},
+	booktitle = {Proceedings of the 39th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+	series = {SIGIR '16},
+	year = {2016},
+	isbn = {978-1-4503-4069-4},
+	location = {Pisa, Italy},
+	pages = {175--184},
+	numpages = {10},
+	url = {http://doi.acm.org/10.1145/2911451.2911494},
+	doi = {10.1145/2911451.2911494},
+	acmid = {2911494},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {TREC, microblogs, push notifications, summarization, tweets},
+} 
+
+@Inbook{13-giannakopoulos-karkaletsis,
+	author="Giannakopoulos, George and Karkaletsis, Vangelis",
+	editor="Gelbukh, Alexander",
+	title="Summary Evaluation: Together We Stand NPowER-ed",
+	bookTitle="Computational Linguistics and Intelligent Text Processing: 14th International Conference, CICLing 2013, Samos, Greece, March 24-30, 2013, Proceedings, Part II",
+	year="2013",
+	publisher="Springer Berlin Heidelberg",
+	address="Berlin, Heidelberg",
+	pages="436--450",
+	isbn="978-3-642-37256-8",
+	doi="10.1007/978-3-642-37256-8_36",
+	url="http://dx.doi.org/10.1007/978-3-642-37256-8_36"
+}
+
+@inproceedings {13-aries-al,
+	author = {Aries, Abdelkrime and Oufaida, Houda and Nouali, Omar},
+	title = {Using clustering and a modified classification algorithm for automatic text summarization},
+	booktitle = {Proc. SPIE},
+	volume = {8658},
+	number = {},
+	pages = {865811-865811-9},
+	year = {2013},
+	doi = {10.1117/12.2004001},
+	URL = { http://dx.doi.org/10.1117/12.2004001}
+}
+
+@article{12-steinberger-jezek,
+	author = "Josef Steinberger and Karel Je\v{z}ek",
+	title = "Evaluation Measures for Text Summarization",
+	journal = "Computing and Informatics",
+	volume = "28",
+	number = "2",
+	pages = "1001--1026",
+	year = "2012",
+	url = "http://www.cai.sk/ojs/index.php/cai/article/view/37/24",
+}
+
+@Inbook{15-favre-al,
+	author="Favre, Benoit
+	and Stepanov, Evgeny
+	and Trione, J\'er\'emy
+	and B\'echet, Fr\'ed\'eric
+	and Riccardi, Giuseppe",
+	chapter="Call Centre Conversation Summarization: A Pilot Task at Multiling 2015",
+	title="Proceedings of the 16th Annual Meeting of the Special Interest Group on Discourse and Dialogue",
+	year="2015",
+	publisher="Association for Computational Linguistics",
+	pages="232--236",
+	location="Prague, Czech Republic"
+}
+
+@article{07-nenkova-al,
+	author = {Nenkova, Ani and Passonneau, Rebecca and McKeown, Kathleen},
+	title = {The Pyramid Method: Incorporating human content selection variation in summarization evaluation},
+	journal = {ACM Trans. Speech Lang. Process.},
+	issue_date = {May 2007},
+	volume = {4},
+	number = {2},
+	month = may,
+	year = {2007},
+	issn = {1550-4875},
+	articleno = {4},
+	url = {http://doi.acm.org/10.1145/1233912.1233913},
+	doi = {10.1145/1233912.1233913},
+	acmid = {1233913},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {Evaluation, semantic analysis, summarization},
+} 
+
+@article{11-nenkova-mckeown,
+	title={Automatic summarization},
+	author={Nenkova, Ani and McKeown, Kathleen},
+	journal={Foundations and Trends{\textregistered} in Information Retrieval},
+	volume={5},
+	number={2--3},
+	pages={103--233},
+	year={2011},
+	publisher={Now Publishers, Inc.}
+} 
+
+@Inbook{12-nenkova-mckeown,
+	author="Nenkova, Ani
+	and McKeown, Kathleen",
+	editor="Aggarwal, Charu C.
+	and Zhai, ChengXiang",
+	title="A Survey of Text Summarization Techniques",
+	bookTitle="Mining Text Data",
+	year="2012",
+	publisher="Springer US",
+	address="Boston, MA",
+	pages="43--76",
+	abstract="Numerous approaches for identifying important content for automatic text summarization have been developed to date. Topic representation approaches first derive an intermediate representation of the text that captures the topics discussed in the input. Based on these representations of topics, sentences in the input document are scored for importance. In contrast, in indicator representation approaches, the text is represented by a diverse set of possible indicators of importance which do not aim at discovering topicality. These indicators are combined, very often using machine learning techniques, to score the importance of each sentence. Finally, a summary is produced by selecting sentences in a greedy approach, choosing the sentences that will go in the summary one by one, or globally optimizing the selection, choosing the best set of sentences to form a summary. In this chapter we give a broad overview of existing approaches based on these distinctions, with particular attention on how representation, sentence scoring or summary selection strategies alter the overall performance of the summarizer. We also point out some of the peculiarities of the task of summarization which have posed challenges to machine learning approaches for the problem, and some of the suggested solutions.",
+	isbn="978-1-4614-3223-4",
+	doi="10.1007/978-1-4614-3223-4_3",
+	url="https://doi.org/10.1007/978-1-4614-3223-4_3"
+}
+
+@article{12-lloret-palomar,
+	author = {Lloret, Elena and Palomar, Manuel},
+	title = {Text Summarisation in Progress: A Literature Review},
+	journal = {Artif. Intell. Rev.},
+	issue_date = {January   2012},
+	volume = {37},
+	number = {1},
+	month = jan,
+	year = {2012},
+	issn = {0269-2821},
+	pages = {1--41},
+	numpages = {41},
+	url = {http://dx.doi.org/10.1007/s10462-011-9216-z},
+	doi = {10.1007/s10462-011-9216-z},
+	acmid = {2123810},
+	publisher = {Kluwer Academic Publishers},
+	address = {Norwell, MA, USA},
+	keywords = {Human language technologies, Intelligent systems, Text summarisation},
+} 
+
+@inproceedings{04-steinberger-jezek,
+	title={Using latent semantic analysis in text summarization and summary evaluation},
+	author={Steinberger, Josef and Jezek, Karel},
+	booktitle={Proc. ISIM’04},
+	pages={93--100},
+	year={2004}
+}
+
+@inproceedings{15-kabadjov-al,
+	title={OnForumS: The Shared Task on Online Forum Summarisation at MultiLing'15},
+	author={Kabadjov, Mijail and Steinberger, Josef and Barker, Emma and Kruschwitz, Udo and Poesio, Massimo},
+	booktitle={Proceedings of the 7th Forum for Information Retrieval Evaluation},
+	pages={21--26},
+	year={2015},
+	organization={ACM}
+}
+
+@article{11-conroy-al,
+	title={Nouveau-ROUGE: A novelty metric for update summarization},
+	author={Conroy, John M and Schlesinger, Judith D and O'Leary, Dianne P},
+	journal={Computational Linguistics},
+	volume={37},
+	number={1},
+	pages={1--8},
+	year={2011},
+	publisher={MIT Press}
+}
+
+@inproceedings{10-ouyang-al,
+	title={A study on position information in document summarization},
+	author={Ouyang, You and Li, Wenjie and Lu, Qin and Zhang, Renxian},
+	booktitle={Proceedings of the 23rd international conference on computational linguistics: Posters},
+	series={COLING'10},
+	number={1},
+	pages={919--927},
+	year={2010},
+	location={Beijin, China},
+	publisher={Association for Computational Linguistics},
+	adress={Stroudsburg, PA, USA},
+}
+
+@inproceedings{02-neto-al,
+	author = {Neto, Joel Larocca and Freitas, Alex Alves and Kaestner, Celso A. A.},
+	title = {Automatic Text Summarization Using a Machine Learning Approach},
+	booktitle = {Proceedings of the 16th Brazilian Symposium on Artificial Intelligence: Advances in Artificial Intelligence},
+	series = {SBIA '02},
+	year = {2002},
+	isbn = {3-540-00124-7},
+	pages = {205--215},
+	numpages = {11},
+	url = {http://dl.acm.org/citation.cfm?id=645853.669480},
+	acmid = {669480},
+	publisher = {Springer-Verlag},
+	address = {London, UK, UK},
+}
+
+@inproceedings{05-dorr-al,
+	author = {Bonnie Dorr and Christof Monz and Stacy President and Richard Schwartz and David Zajic},
+	title = {A Methodology for Extrinsic Evaluation of Text Summarization: Does ROUGE Correlate?},
+	booktitle = {in Proceedings of the ACL 2005, Ann Arbor, 2005},
+	year = {2005},
+	pages = {1--8}
+}
+
+@InProceedings{15-sidhaye-cheung,
+	author    = {Sidhaye, Priya  and  Cheung, Jackie Chi Kit},
+	title     = {Indicative Tweet Generation: An Extractive Summarization Problem?},
+	booktitle = {Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing},
+	month     = {September},
+	year      = {2015},
+	address   = {Lisbon, Portugal},
+	publisher = {Association for Computational Linguistics},
+	pages     = {138--147},
+	url       = {http://aclweb.org/anthology/D15-1014}
+}
+
+@article{15-zhong-al,
+	title = "Query-oriented unsupervised multi-document summarization via deep learning model ",
+	journal = "Expert Systems with Applications ",
+	volume = "42",
+	number = "21",
+	pages = "8146 - 8155",
+	year = "2015",
+	note = "",
+	issn = "0957-4174",
+	doi = "http://dx.doi.org/10.1016/j.eswa.2015.05.034",
+	url = "http://www.sciencedirect.com/science/article/pii/S0957417415003620",
+	author = "Sheng-hua Zhong and Yan Liu and Bin Li and Jing Long",
+	keywords = "Deep learning",
+	keywords = "Query-oriented summarization",
+	keywords = "Multi-document",
+	keywords = "Neocortex simulation "
+}
+
+@inproceedings{16-othman-al,
+	author = {Othman, Rania and Belkaroui, Rami and Faiz, Rim},
+	title = {Customer Opinion Summarization Based on Twitter Conversations},
+	booktitle = {Proceedings of the 6th International Conference on Web Intelligence, Mining and Semantics},
+	series = {WIMS '16},
+	year = {2016},
+	isbn = {978-1-4503-4056-4},
+	location = {N\&\#238;mes, France},
+	pages = {4:1--4:10},
+	articleno = {4},
+	numpages = {10},
+	url = {http://doi.acm.org/10.1145/2912845.2912862},
+	doi = {10.1145/2912845.2912862},
+	acmid = {2912862},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {Conversations, Opinion summarization, Twitter, User interactions},
+}
+
+
+@Inbook{05-bontcheva,
+	author="Bontcheva, Kalina",
+	editor="G{\'o}mez-P{\'e}rez, Asunci{\'o}n
+	and Euzenat, J{\'e}r{\^o}me",
+	title="Generating Tailored Textual Summaries from Ontologies",
+	bookTitle="The Semantic Web: Research and Applications: Second European Semantic Web Conference, ESWC 2005, Heraklion, Crete, Greece, May 29--June 1, 2005. Proceedings",
+	year="2005",
+	publisher="Springer Berlin Heidelberg",
+	address="Berlin, Heidelberg",
+	pages="531--545",
+	isbn="978-3-540-31547-6",
+	doi="10.1007/11431053_36",
+	url="http://dx.doi.org/10.1007/11431053_36"
+}
+
+@inproceedings{08-hennig-al,
+	author = {Hennig, Leonhard and Umbrath, Winfried and Wetzker, Robert},
+	title = {An Ontology-Based Approach to Text Summarization},
+	booktitle = {Proceedings of the 2008 IEEE/WIC/ACM International Conference on Web Intelligence and Intelligent Agent Technology - Volume 03},
+	series = {WI-IAT '08},
+	year = {2008},
+	isbn = {978-0-7695-3496-1},
+	pages = {291--294},
+	numpages = {4},
+	url = {http://dx.doi.org/10.1109/WIIAT.2008.175},
+	doi = {10.1109/WIIAT.2008.175},
+	acmid = {1487345},
+	publisher = {IEEE Computer Society},
+	address = {Washington, DC, USA},
+	keywords = {summarization, ontology, hierarchical classification, sentence extraction},
+} 
+
+@inproceedings{98-marcu,
+	author = {Daniel Marcu},
+	title = {Improving Summarization Through Rhetorical Parsing Tuning},
+	booktitle = {In: The Sixth Workshop on Very Large Corpora},
+	year = {1998},
+	pages = {206--215}
+}
+
+@inproceedings{94-ono-al,
+	author = {Ono, Kenji and Sumita, Kazuo and Miike, Seiji},
+	title = {Abstract generation based on rhetorical structure extraction},
+	booktitle = {Proceedings of the 15th conference on Computational linguistics - Volume 1},
+	series = {COLING '94},
+	year = {1994},
+	location = {Kyoto, Japan},
+	pages = {344--348},
+	numpages = {5},
+	url = {http://dx.doi.org/10.3115/991886.991946},
+	doi = {10.3115/991886.991946},
+	acmid = {991946},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+@inproceedings{00-radev-al,
+	author = {Radev, Dragomir R. and Jing, Hongyan and Budzikowska, Malgorzata},
+	title = {Centroid-based summarization of multiple documents: sentence extraction, utility-based evaluation, and user studies},
+	booktitle = {Proceedings of the 2000 NAACL-ANLPWorkshop on Automatic summarization - Volume 4},
+	series = {NAACL-ANLP-AutoSum '00},
+	year = {2000},
+	location = {Seattle, Washington},
+	pages = {21--30},
+	numpages = {10},
+	url = {http://dx.doi.org/10.3115/1117575.1117578},
+	doi = {10.3115/1117575.1117578},
+	acmid = {1117578},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+@article{04-radev-al,
+	title = "Centroid-based summarization of multiple documents ",
+	journal = "Information Processing \& Management ",
+	volume = "40",
+	number = "6",
+	pages = "919 -- 938",
+	year = "2004",
+	note = "",
+	issn = "0306-4573",
+	doi = "http://dx.doi.org/10.1016/j.ipm.2003.10.006",
+	url = "http://www.sciencedirect.com/science/article/pii/S0306457303000955",
+	author = "Radev, Dragomir R. and Jing, Hongyan and Sty\'{s}, Ma\l{}gorzata and Tam, Daniel",
+	keywords = "Multi-document summarization",
+	keywords = "Centroid-based summarization",
+	keywords = "Cluster-based relative utility",
+	keywords = "Cross-sentence informational subsumption "
+} 
+
+@article{04-erkan-radev,
+	author = {Erkan, G\"{u}nes and Radev, Dragomir R.},
+	title = {LexRank: Graph-based Lexical Centrality As Salience in Text Summarization},
+	journal = {Journal of Artificial Intelligence Research},
+	issue_date = {July 2004},
+	volume = {22},
+	number = {1},
+	month = dec,
+	year = {2004},
+	issn = {1076-9757},
+	pages = {457--479},
+	numpages = {23},
+	url = {http://dl.acm.org/citation.cfm?id=1622487.1622501},
+	acmid = {1622501},
+	publisher = {AI Access Foundation},
+	address = {USA},
+} 
+
+@inproceedings{02-osborne,
+	author = {Osborne, Miles},
+	title = {Using maximum entropy for sentence extraction},
+	booktitle = {Proceedings of the ACL-02 Workshop on Automatic Summarization - Volume 4},
+	series = {AS '02},
+	year = {2002},
+	location = {Phildadelphia, Pennsylvania},
+	pages = {1--8},
+	numpages = {8},
+	url = {http://dx.doi.org/10.3115/1118162.1118163},
+	doi = {10.3115/1118162.1118163},
+	acmid = {1118163},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+}
+
+@article{05-yeh-al,
+	author = {Yeh, Jen-Yuan and Ke, Hao-Ren and Yang, Wei-Pang and Meng, I-Heng},
+	title = {Text summarization using a trainable summarizer and latent semantic analysis},
+	journal = {Inf. Process. Manage.},
+	issue_date = {January 2005},
+	volume = {41},
+	number = {1},
+	month = jan,
+	year = {2005},
+	issn = {0306-4573},
+	pages = {75--95},
+	numpages = {21},
+	url = {http://dx.doi.org/10.1016/j.ipm.2004.04.003},
+	doi = {10.1016/j.ipm.2004.04.003},
+	acmid = {1041184},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+	keywords = {corpus-based approach, latent semantic analysis, text relationship map, text summarization},
+}
+
+@InProceedings{01-amini-gallinari,
+	author = {Massih Amini and Patrick Gallinari},
+	title = {Self-supervised learning for automatic text summarization by text-span extraction},
+	booktitle = {Proceedings of the 23rd BCS European Annual Colloquium on Information Retrieval (ECIR'01)},
+	pages = {55--63},
+	year =  {2001}
+}
+
+@inproceedings{02-amini-gallinari,
+	author = {Amini, Massih-Reza and Gallinari, Patrick},
+	title = {The Use of Unlabeled Data to Improve Supervised Learning for Text Summarization},
+	booktitle = {Proceedings of the 25th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval},
+	series = {SIGIR '02},
+	year = {2002},
+	isbn = {1-58113-561-0},
+	location = {Tampere, Finland},
+	pages = {105--112},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/564376.564397},
+	doi = {10.1145/564376.564397},
+	acmid = {564397},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {machine learning, semi-supervised learning, text summarization, text-span extraction},
+} 
+
+@inproceedings{08-wong-al,
+	author = {Wong, Kam-Fai and Wu, Mingli and Li, Wenjie},
+	title = {Extractive summarization using supervised and semi-supervised learning},
+	booktitle = {Proceedings of the 22nd International Conference on Computational Linguistics - Volume 1},
+	series = {COLING '08},
+	year = {2008},
+	isbn = {978-1-905593-44-6},
+	location = {Manchester, United Kingdom},
+	pages = {985--992},
+	numpages = {8},
+	url = {http://dl.acm.org/citation.cfm?id=1599081.1599205},
+	acmid = {1599205},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+}
+
+
+@Inbook{16-bayomi-al,
+	author="Bayomi, Mostafa
+	and Levacher, Killian
+	and Ghorab, M. Rami
+	and Lavin, Peter
+	and O'Connor, Alexander
+	and Lawless, S{\'e}amus",
+	editor="M{\'e}tais, Elisabeth
+	and Meziane, Farid
+	and Saraee, Mohamad
+	and Sugumaran, Vijayan
+	and Vadera, Sunil",
+	title="Towards Evaluating the Impact of Anaphora Resolution on Text Summarisation from a Human Perspective",
+	bookTitle="Natural Language Processing and Information Systems: 21st International Conference on Applications of Natural Language to Information Systems, NLDB 2016, Salford, UK, June 22-24, 2016, Proceedings",
+	year="2016",
+	publisher="Springer International Publishing",
+	address="Cham",
+	pages="187--199",
+	isbn="978-3-319-41754-7",
+	doi="10.1007/978-3-319-41754-7_16",
+	url="http://dx.doi.org/10.1007/978-3-319-41754-7_16"
+}
+
+
+@inproceedings{07-orasan,
+	author = {Constantin Or\v{a}san},
+	title = {Pronominal anaphora resolution for text summarisation},
+	booktitle = {Proceedings of the Recent Advances in Natural Language Processing},
+	year = {2007},
+	isbn = {978-954-91743-7-3},
+	pages = {430--436},
+}
+
+
+@inproceedings{01-gong-liu,
+	author = {Gong, Yihong and Liu, Xin},
+	title = {Generic Text Summarization Using Relevance Measure and Latent Semantic Analysis},
+	booktitle = {Proceedings of the 24th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval},
+	series = {SIGIR '01},
+	year = {2001},
+	isbn = {1-58113-331-6},
+	location = {New Orleans, Louisiana, USA},
+	pages = {19--25},
+	numpages = {7},
+	url = {http://doi.acm.org/10.1145/383952.383955},
+	doi = {10.1145/383952.383955},
+	acmid = {383955},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {generic text summarization, relevance measure, semantic analysis},
+} 
+
+@inproceedings{98-carbonell-goldstein,
+	title={The use of MMR, diversity-based reranking for reordering documents and producing summaries},
+	author={Carbonell, Jaime and Goldstein, Jade},
+	booktitle={Proceedings of the 21st annual international ACM SIGIR conference on Research and development in information retrieval},
+	pages={335--336},
+	year={1998},
+	organization={ACM}
+}
+
+@Inbook{16-bhaumik-al,
+	author="Bhaumik, Hrishikesh
+	and Bhattacharyya, Siddhartha
+	and Chakraborty, Susanta",
+	editor="Awad, Ali Ismail
+	and Hassaballah, Mahmoud",
+	title="Redundancy Elimination in Video Summarization",
+	bookTitle="Image Feature Detectors and Descriptors : Foundations and Applications ",
+	year="2016",
+	publisher="Springer International Publishing",
+	address="Cham",
+	pages="173--202",
+	isbn="978-3-319-28854-3",
+	doi="10.1007/978-3-319-28854-3_7",
+	url="http://dx.doi.org/10.1007/978-3-319-28854-3_7"
+}
+
+
+@InProceedings{12-nishikawa-al,
+	author    = {Nishikawa, Hitoshi  and  Hirao, Tsutomu  and  Makino, Toshiro  and  Matsuo, Yoshihiro},
+	title     = {Text Summarization Model based on Redundancy-Constrained Knapsack Problem},
+	booktitle = {Proceedings of COLING 2012: Posters},
+	month     = {December},
+	year      = {2012},
+	address   = {Mumbai, India},
+	publisher = {The COLING 2012 Organizing Committee},
+	pages     = {893--902},
+	url       = {http://www.aclweb.org/anthology/C12-2087}
+}
+
+@inproceedings{11-elhaj-al,
+	author = {Mahmoud El-Haj and Udo Kruschwitz and Chris Fox},
+	title = {University of {Essex} at the {TAC} 2011 Multilingual Summarisation Pilot},
+	booktitle = {Proceedings of the Fourth Text Analysis Conference (TAC 2011)--MultiLing Pilot Track.},
+	address = {Gaithersburg, Maryland, USA},
+	year = {2011},
+}
+
+
+@inproceedings{15-liu-al,
+	added-at = {2015-07-11T00:00:00.000+0200},
+	author = {Liu, Fei and Flanigan, Jeffrey and Thomson, Sam and Sadeh, Norman M. and Smith, Noah A.},
+	biburl = {http://www.bibsonomy.org/bibtex/239560de901ce7376f452969edae30fc8/dblp},
+	booktitle = {HLT-NAACL},
+	crossref = {conf/naacl/2015},
+	editor = {Mihalcea, Rada and Chai, Joyce Yue and Sarkar, Anoop},
+	ee = {http://aclweb.org/anthology/N/N15/N15-1114.pdf},
+	interhash = {64139575aa4a90e63d8a3f4a43acbc12},
+	intrahash = {39560de901ce7376f452969edae30fc8},
+	isbn = {978-1-941643-49-5},
+	keywords = {dblp},
+	pages = {1077-1086},
+	publisher = {The Association for Computational Linguistics},
+	timestamp = {2015-07-14T11:40:46.000+0200},
+	title = {Toward Abstractive Summarization Using Semantic Representations.},
+	urlDEACT = {http://dblp.uni-trier.de/db/conf/naacl/naacl2015.html#0004FTSS15},
+	year = 2015
+}
+
+
+@ARTICLE{19-li-zhuge,
+	author={W. {Li} and H. {Zhuge}},
+	journal={IEEE Transactions on Knowledge and Data Engineering},
+	title={Abstractive Multi-Document Summarization based on Semantic Link Network},
+	year={2019},
+	volume={},
+	number={},
+	pages={1-1},
+	keywords={Semantics;Data mining;Coherence;Security;Feature extraction;Syntactics;Benchmark testing;Abstractive Summarization;Information Extraction;Multi-Document Summarization;Semantic Link Network},
+	doi={10.1109/TKDE.2019.2922957},
+	ISSN={1041-4347},
+	month={},}
+
+
+@article{19-barros-al,
+	title = "NATSUM: Narrative abstractive summarization through cross-document timeline generation",
+	journal = "Information Processing \& Management",
+	volume = "56",
+	number = "5",
+	pages = "1775 - 1793",
+	year = "2019",
+	issn = "0306-4573",
+	doi = "https://doi.org/10.1016/j.ipm.2019.02.010",
+	url = "http://www.sciencedirect.com/science/article/pii/S0306457318305922",
+	author = "Cristina Barros and Elena Lloret and Estela Saquete and Borja Navarro-Colorado",
+	keywords = "Narrative summarization, Abstractive summarization, Timeline generation, Temporal information processing, Natural language generation",
+	abstract = "A new approach to narrative abstractive summarization (NATSUM) is presented in this paper. NATSUM is centered on generating a narrative chronologically ordered summary about a target entity from several news documents related to the same topic. To achieve this, first, our system creates a cross-document timeline where a time point contains all the event mentions that refer to the same event. This timeline is enriched with all the arguments of the events that are extracted from different documents. Secondly, using natural language generation techniques, one sentence for each event is produced using the arguments involved in the event. Specifically, a hybrid surface realization approach is used, based on over-generation and ranking techniques. The evaluation demonstrates that NATSUM performed better than extractive summarization approaches and competitive abstractive baselines, improving the F1-measure at least by 50%, when a real scenario is simulated."
+}
+
+
+@article{19-shen-al, 
+	title={Abstractive Text Summarization by Incorporating Reader Comments}, 
+	number={01}, 
+	journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+	author={Gao, Shen and Chen, Xiuying and Li, Piji and Ren, Zhaochun and Bing, Lidong and Zhao, Dongyan and Yan, Rui}, 
+	year={2019}, month={Jul.}, 
+	pages={6399-6406},
+	volume={33}, 
+	url={https://www.aaai.org/ojs/index.php/AAAI/article/view/4603}, 
+	DOI={10.1609/aaai.v33i01.33016399}, 
+	abstractNote={&lt;p&gt;In neural abstractive summarization field, conventional sequence-to-sequence based models often suffer from summarizing the wrong aspect of the document with respect to the main aspect. To tackle this problem, we propose the task of reader-aware abstractive summary generation, which utilizes the reader comments to help the model produce better summary about the main aspect. Unlike traditional abstractive summarization task, reader-aware summarization confronts two main challenges: (1) Comments are informal and noisy; (2) jointly modeling the news document and the reader comments is challenging. To tackle the above challenges, we design an adversarial learning model named reader-aware summary generator (RASG), which consists of four components: (1) a sequence-to-sequence based summary generator; (2) a reader attention module capturing the reader focused aspects; (3) a supervisor modeling the semantic gap between the generated summary and reader focused aspects; (4) a goal tracker producing the goal for each generation step. The supervisor and the goal tacker are used to guide the training of our framework in an adversarial manner. Extensive experiments are conducted on our large-scale real-world text summarization dataset, and the results show that RASG achieves the stateof-the-art performance in terms of both automatic metrics and human evaluations. The experimental results also demonstrate the effectiveness of each module in our framework. We release our large-scale dataset for further research&lt;sup&gt;1&lt;/sup&gt;.&lt;/p&#38;gt;
+	}
+}
+
+
+@inproceedings{19-you-al,
+	title = "Improving Abstractive Document Summarization with Salient Information Modeling",
+	author = "You, Yongjian  and
+	Jia, Weijia  and
+	Liu, Tianyi  and
+	Yang, Wenmian",
+	booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+	month = jul,
+	year = "2019",
+	address = "Florence, Italy",
+	publisher = "Association for Computational Linguistics",
+	url = "https://www.aclweb.org/anthology/P19-1205",
+	pages = "2132--2141",
+	abstract = "Comprehensive document encoding and salient information selection are two major difficulties for generating summaries with adequate salient information. To tackle the above difficulties, we propose a Transformer-based encoder-decoder framework with two novel extensions for abstractive document summarization. Specifically, (1) to encode the documents comprehensively, we design a focus-attention mechanism and incorporate it into the encoder. This mechanism models a Gaussian focal bias on attention scores to enhance the perception of local context, which contributes to producing salient and informative summaries. (2) To distinguish salient information precisely, we design an independent saliency-selection network which manages the information flow from encoder to decoder. This network effectively reduces the influences of secondary information on the generated summaries. Experimental results on the popular CNN/Daily Mail benchmark demonstrate that our model outperforms other state-of-the-art baselines on the ROUGE metrics.",
+}
+
+
+@inproceedings{19-girthana-swamynathan,
+	author = {Girthana, K. and Swamynathan, S.},
+	title = {Query Oriented Extractive-Abstractive Summarization System (QEASS)},
+	booktitle = {Proceedings of the ACM India Joint International Conference on Data Science and Management of Data},
+	series = {CoDS-COMAD '19},
+	year = {2019},
+	isbn = {978-1-4503-6207-8},
+	location = {Kolkata, India},
+	pages = {301--305},
+	numpages = {5},
+	url = {http://doi.acm.org/10.1145/3297001.3297046},
+	doi = {10.1145/3297001.3297046},
+	acmid = {3297046},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {Document ranking, Domain ontology, Query Expansion, Summarization},
+} 
+
+@inproceedings{18-zho-al,
+	author    = {Kaiyang Zhou and
+	Yu Qiao and
+	Tao Xiang},
+	title     = {Deep Reinforcement Learning for Unsupervised Video Summarization With
+	Diversity-Representativeness Reward},
+	booktitle = {Proceedings of the Thirty-Second {AAAI} Conference on Artificial Intelligence,
+	(AAAI-18), the 30th innovative Applications of Artificial Intelligence
+	(IAAI-18), and the 8th {AAAI} Symposium on Educational Advances in
+	Artificial Intelligence (EAAI-18), New Orleans, Louisiana, USA, February
+	2-7, 2018},
+	pages     = {7582--7589},
+	year      = {2018},
+	crossref  = {DBLP:conf/aaai/2018},
+	url       = {https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16395},
+	timestamp = {Tue, 23 Oct 2018 06:42:15 +0200},
+	biburl    = {https://dblp.org/rec/bib/conf/aaai/ZhouQX18},
+	bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@InProceedings{15-rush-al,
+	author    = {Rush, Alexander M.  and  Chopra, Sumit  and  Weston, Jason},
+	title     = {A Neural Attention Model for Abstractive Sentence Summarization},
+	booktitle = {Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing},
+	month     = {September},
+	year      = {2015},
+	address   = {Lisbon, Portugal},
+	publisher = {Association for Computational Linguistics},
+	pages     = {379--389},
+	url       = {http://aclweb.org/anthology/D15-1044}
+}
+
+@InProceedings{09-sripada-jagarlamudi,
+	author    = {Sandeep Sripada and Jagadeesh Jagarlamudi},
+	title     = {Summarization Approaches Based on Document Probability Distributions},
+	booktitle = {Proceedings of the 23rd Pacific Asia Conference on Language, Information and Computation},
+	year      = {2009},
+	month     = {December},
+	address   = {Hong Kong},
+	publisher = {City University of Hong Kong},
+	pages     = {521--529},
+	url       = {http://www.aclweb.org/anthology/Y09-2010}
+}
+
+@InProceedings{16-durrett-al,
+	author    = {Durrett, Greg  and  Berg-Kirkpatrick, Taylor  and  Klein, Dan},
+	title     = {Learning-Based Single-Document Summarization with Compression and Anaphoricity Constraints},
+	booktitle = {Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+	month     = {August},
+	year      = {2016},
+	address   = {Berlin, Germany},
+	publisher = {Association for Computational Linguistics},
+}
+
+@Inbook{15-palmonari-al,
+	author="Palmonari, Matteo
+	and Rula, Anisa
+	and Porrini, Riccardo
+	and Maurino, Andrea
+	and Spahiu, Blerina
+	and Ferme, Vincenzo",
+	editor="Gandon, Fabien
+	and Gu{\'e}ret, Christophe
+	and Villata, Serena
+	and Breslin, John
+	and Faron-Zucker, Catherine
+	and Zimmermann, Antoine",
+	title="ABSTAT: Linked Data Summaries with ABstraction and STATistics",
+	bookTitle="The Semantic Web: ESWC 2015 Satellite Events: ESWC 2015 Satellite Events, Portoro{\v{z}}, Slovenia, May 31 -- June 4, 2015, Revised Selected Papers",
+	year="2015",
+	publisher="Springer International Publishing",
+	address="Cham",
+	pages="128--132",
+	isbn="978-3-319-25639-9",
+	doi="10.1007/978-3-319-25639-9_25",
+	url="http://dx.doi.org/10.1007/978-3-319-25639-9_25"
+}
+
+@inproceedings{12-ryang-abekawa,
+	author = {Ryang, Seonggi and Abekawa, Takeshi},
+	title = {Framework of Automatic Text Summarization Using Reinforcement Learning},
+	booktitle = {Proceedings of the 2012 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning},
+	series = {EMNLP-CoNLL '12},
+	year = {2012},
+	location = {Jeju Island, Korea},
+	pages = {256--265},
+	numpages = {10},
+	url = {http://dl.acm.org/citation.cfm?id=2390948.2390980},
+	acmid = {2390980},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+@article{12-zhang-al,
+	author = {Zhang, Zhengchen and Ge, Shuzhi Sam and He, Hongsheng},
+	title = {Mutual-reinforcement document summarization using embedded graph based sentence clustering for storytelling},
+	journal = {Inf. Process. Manage.},
+	issue_date = {July, 2012},
+	volume = {48},
+	number = {4},
+	month = jul,
+	year = {2012},
+	issn = {0306-4573},
+	pages = {767--778},
+	numpages = {12},
+	url = {http://dx.doi.org/10.1016/j.ipm.2011.12.006},
+	doi = {10.1016/j.ipm.2011.12.006},
+	acmid = {2222110},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+	keywords = {Document summarization, Sentence clustering, Sentence ranking, Space embedding, Storytelling},
+}
+
+@article{11-song-al,
+	author = {Song, Wei and Cheon Choi, Lim and Cheol Park, Soon and Feng Ding, Xiao},
+	title = {Fuzzy evolutionary optimization modeling and its applications to unsupervised categorization and extractive summarization},
+	journal = {Expert Syst. Appl.},
+	issue_date = {August, 2011},
+	volume = {38},
+	number = {8},
+	month = aug,
+	year = {2011},
+	issn = {0957-4174},
+	pages = {9112--9121},
+	numpages = {10},
+	url = {http://dx.doi.org/10.1016/j.eswa.2010.12.102},
+	doi = {10.1016/j.eswa.2010.12.102},
+	acmid = {1968078},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+	keywords = {Extractive summarization, Fuzzy evolutionary optimization, Normalized Google distance, Topics estimation, Unsupervised categorization},
+}
+
+@article{97-salton-al,
+	author = {Salton, Gerard and Singhal, Amit and Mitra, Mandar and Buckley, Chris},
+	title = {Automatic Text Structuring and Summarization},
+	journal = {Inf. Process. Manage.},
+	issue_date = {March 1997},
+	volume = {33},
+	number = {2},
+	month = mar,
+	year = {1997},
+	issn = {0306-4573},
+	pages = {193--207},
+	numpages = {15},
+	url = {http://dx.doi.org/10.1016/S0306-4573(96)00062-3},
+	doi = {10.1016/S0306-4573(96)00062-3},
+	acmid = {256282},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+} 
+
+@inproceedings{04-mihalcea-tarau,
+	author = {Mihalcea, Rada and Tarau, Paul},
+	url = {http://www.aclweb.org/anthology/W04-3252},
+	title = {TextRank: Bringing Order into Texts},
+	booktitle = {Proceedings of EMNLP 2004},
+	editor = {Dekang Lin and Dekai Wu},
+	year = {2004},
+	month = {July},
+	address = {Barcelona, Spain},
+	publisher = {Association for Computational Linguistics},
+	pages = {404--411}
+}
+
+@inproceedings{98-brin-page,
+	booktitle = {Seventh International World-Wide Web Conference (WWW 1998)},
+	title = {The Anatomy of a Large-Scale Hypertextual Web Search Engine},
+	author = {S. Brin and L. Page},
+	year = {1998},
+	url = {http://ilpubs.stanford.edu:8090/361/},
+	abstract = {In this paper, we present Google, a prototype of a large-scale search engine which makes heavy use of the structure present in hypertext. Google is designed to crawl and index the Web efficiently and produce much more satisfying search results than existing systems. The  prototype with a full text and hyperlink database of at least 24 million pages is available at http://google.stanford.edu/. To engineer a search  engine is a challenging task. Search engines index tens to hundreds of millions of web pages involving a comparable number of distinct terms. They answer tens of millions of queries every day. Despite the importance of large-scale search engines on the web, very little academic research has been done on them. Furthermore, due to rapid advance in technology and web proliferation, creating a web search  engine today is very different from three years ago. This paper provides an in-depth description of our large-scale web search engine -- the first such detailed public description we know of to date. Apart from the problems of scaling traditional search techniques to data of this magnitude, there are new technical challenges involved with using the additional information present in hypertext to produce better search results. This paper addresses this question of how to build a practical large-scale system which can exploit the additional information present in hypertext. Also we look at the problem of how to effectively deal with uncontrolled hypertext collections where anyone can publish anything they want.}
+}
+
+
+@inproceedings{15-henss-al,
+	title={A Reinforcement Learning Approach for Adaptive Single-and Multi-Document Summarization.},
+	author={Hen{\ss}, Stefan and Mieskes, Margot and Gurevych, Iryna},
+	booktitle={GSCL},
+	pages={3--12},
+	year={2015}
+}
+
+@InProceedings{15-rioux-al,
+	author    = {Rioux, Cody  and  Hasan, Sadid A.  and  Chali, Yllias},
+	title     = {Fear the REAPER: A System for Automatic Multi-Document Summarization with Reinforcement Learning},
+	booktitle = {Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+	month     = {October},
+	year      = {2014},
+	address   = {Doha, Qatar},
+	publisher = {Association for Computational Linguistics},
+	pages     = {681--690},
+	url       = {http://www.aclweb.org/anthology/D14-1075}
+}
+
+@InProceedings{16-nallapati-al,
+	author    = {Nallapati, Ramesh  and  Zhou, Bowen  and  dos Santos, Cicero  and  Gulcehre, Caglar  and  Xiang, Bing},
+	title     = {Abstractive Text Summarization using Sequence-to-sequence RNNs and Beyond},
+	booktitle = {Proceedings of The 20th SIGNLL Conference on Computational Natural Language Learning},
+	month     = {August},
+	year      = {2016},
+	address   = {Berlin, Germany},
+	publisher = {Association for Computational Linguistics},
+	pages     = {280--290},
+	url       = {http://www.aclweb.org/anthology/K16-1028}
+}
+
+@InProceedings{17-ling-rush,
+	author    = {Ling, Jeffrey  and  Rush, Alexander},
+	title     = {Coarse-to-Fine Attention Models for Document Summarization},
+	booktitle = {Proceedings of the Workshop on New Frontiers in Summarization},
+	month     = {September},
+	year      = {2017},
+	address   = {Copenhagen, Denmark},
+	publisher = {Association for Computational Linguistics},
+	pages     = {33--42},
+	abstract  = {Sequence-to-sequence models with attention have been successful for a variety
+	of NLP problems, but their speed does not scale well for tasks with long source
+	sequences such as document summarization.
+	We propose a novel coarse-to-fine attention model that hierarchically reads a
+	document, using coarse attention to select top-level chunks of text and fine
+	attention to read the words of the chosen chunks. While the computation for
+	training standard attention models scales linearly with source sequence length,
+	our method scales with the number of top-level chunks and can handle much
+	longer sequences.
+	Empirically, we find that while coarse-to-fine attention models lag behind
+	state-of-the-art baselines, our method achieves the desired behavior of
+	sparsely attending to subsets of the document for generation.},
+	url       = {http://www.aclweb.org/anthology/W17-4505}
+}
+
+@article{17-yousefiAzar-hamey,
+	author = {Yousefi-Azar, Mahmood and Hamey, Len},
+	title = {Text Summarization Using Unsupervised Deep Learning},
+	journal = {Expert Syst. Appl.},
+	issue_date = {February 2017},
+	volume = {68},
+	number = {C},
+	month = feb,
+	year = {2017},
+	issn = {0957-4174},
+	pages = {93--105},
+	numpages = {13},
+	url = {https://doi.org/10.1016/j.eswa.2016.10.017},
+	doi = {10.1016/j.eswa.2016.10.017},
+	acmid = {3030416},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+	keywords = {Deep Learning, Ensemble Noisy Auto-Encoder, Extractive Summarization, Query-oriented Summarization},
+} 
+
+@InProceedings{15-jean-al,
+	author    = {Jean, S\'{e}bastien  and  Cho, Kyunghyun  and  Memisevic, Roland  and  Bengio, Yoshua},
+	title     = {On Using Very Large Target Vocabulary for Neural Machine Translation},
+	booktitle = {Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)},
+	month     = {July},
+	year      = {2015},
+	address   = {Beijing, China},
+	publisher = {Association for Computational Linguistics},
+	pages     = {1--10},
+	url       = {http://www.aclweb.org/anthology/P15-1001}
+}
+
+@InProceedings{15-luong-al,
+	author    = {Luong, Thang  and  Sutskever, Ilya  and  Le, Quoc  and  Vinyals, Oriol  and  Zaremba, Wojciech},
+	title     = {Addressing the Rare Word Problem in Neural Machine Translation},
+	booktitle = {Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)},
+	month     = {July},
+	year      = {2015},
+	address   = {Beijing, China},
+	publisher = {Association for Computational Linguistics},
+	pages     = {11--19},
+	url       = {http://www.aclweb.org/anthology/P15-1002}
+}
+
+@inproceedings{15-vinyals-al,
+	title={Pointer networks},
+	author={Vinyals, Oriol and Fortunato, Meire and Jaitly, Navdeep},
+	booktitle={Advances in Neural Information Processing Systems},
+	pages={2692--2700},
+	year={2015}
+}
+
+@inproceedings{12-liu-al,
+	author    = {Yan Liu and
+	Sheng{-}hua Zhong and
+	Wenjie Li},
+	title     = {Query-Oriented Multi-Document Summarization via Unsupervised Deep Learning},
+	booktitle = {Proceedings of the Twenty-Sixth {AAAI} Conference on Artificial Intelligence,
+	July 22-26, 2012, Toronto, Ontario, Canada.},
+	year      = {2012},
+	publisher = {{AAAI} Press},
+	url       = {http://www.aaai.org/ocs/index.php/AAAI/AAAI12/paper/view/5058},
+	timestamp = {Tue, 09 Sep 2014 17:39:07 +0200},
+	biburl    = {http://dblp.uni-trier.de/rec/bib/conf/aaai/LiuZL12},
+	bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@inproceedings{19-liu-al,
+	title = "Single Document Summarization as Tree Induction",
+	author = "Liu, Yang  and
+	Titov, Ivan  and
+	Lapata, Mirella",
+	booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+	month = jun,
+	year = "2019",
+	address = "Minneapolis, Minnesota",
+	publisher = "Association for Computational Linguistics",
+	url = "https://www.aclweb.org/anthology/N19-1173",
+	doi = "10.18653/v1/N19-1173",
+	pages = "1745--1755",
+	abstract = "In this paper, we conceptualize single-document extractive summarization as a tree induction problem. In contrast to previous approaches which have relied on linguistically motivated document representations to generate summaries, our model induces a multi-root dependency tree while predicting the output summary. Each root node in the tree is a summary sentence, and the subtrees attached to it are sentences whose content relates to or explains the summary sentence. We design a new iterative refinement algorithm: it induces the trees through repeatedly refining the structures predicted by previous iterations. We demonstrate experimentally on two benchmark datasets that our summarizer performs competitively against state-of-the-art methods.",
+}
+
+
+@article{19-saini-al,
+	title = "Extractive single document summarization using multi-objective optimization: Exploring self-organized differential evolution, grey wolf optimizer and water cycle algorithm",
+	journal = "Knowledge-Based Systems",
+	volume = "164",
+	pages = "45 - 67",
+	year = "2019",
+	issn = "0950-7051",
+	doi = "https://doi.org/10.1016/j.knosys.2018.10.021",
+	url = "http://www.sciencedirect.com/science/article/pii/S0950705118305070",
+	author = "Naveen Saini and Sriparna Saha and Anubhav Jangra and Pushpak Bhattacharyya",
+	keywords = "Extractive summarization, Differential evolution (DE), Multi-objective optimization (MOO), Cluster validity indices, Grey wolf optimizer (GWO), Water cycle algorithm (WCA), Word mover distance, Single document",
+	abstract = "Text summarization techniques become paramount in extracting relevant information from large databa-ses. Current paper attempts to build some extractive single document text summarization (ESDS) systems using multi-objective optimization (MOO) frameworks. Three techniques are proposed: (1) first is an integration of self-organizing map (SOM) and multi-objective differential evolution (MODE) (named as ESDS_SMODE) (2) second is based on multi-objective grey wolf optimizer (ESDS_MGWO) and (3) third is based on multi-objective water cycle algorithm (ESDS_MWCA). The sentences present in the document are first clustered utilizing the concept of multi-objective clustering. Two objective functions measuring compactness and separation of the sentence clusters in two different ways are optimized simultaneously using MOO framework. The proposed approach is able to automatically detect the number of sentence clusters present in a document and then representative sentences are selected from different clusters using some sentence scoring features to generate the summary. The experiments were conducted on two benchmark datasets, DUC2001, and DUC2002, and the obtained results are compared with various state-of-the-art techniques using ROUGE measures. Results illustrate the superiority of our approach in comparison to state-of-the-art techniques in terms of ROUGE−2 score for both datasets. Code of the developed approach ESDS_SMODE is available online at https://drive.google.com/open?id=1WagTeIDLgphttPrKHpnF_eO7QHWJxXxK."
+}
+
+
+@inproceedings{15-vander-al,
+	title = "What{'}s in a Domain? Analyzing Genre and Topic Differences in Statistical Machine Translation",
+	author = "van der Wees, Marlies  and
+	Bisazza, Arianna  and
+	Weerkamp, Wouter  and
+	Monz, Christof",
+	booktitle = "Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 2: Short Papers)",
+	month = jul,
+	year = "2015",
+	address = "Beijing, China",
+	publisher = "Association for Computational Linguistics",
+	url = "https://www.aclweb.org/anthology/P15-2092",
+	doi = "10.3115/v1/P15-2092",
+	pages = "560--566",
+}
+
+
+@article{19-tavir-al,
+	title = "Neural sentence fusion for diversity driven abstractive multi-document summarization",
+	journal = "Computer Speech \& Language",
+	volume = "58",
+	pages = "216 - 230",
+	year = "2019",
+	issn = "0885-2308",
+	doi = "https://doi.org/10.1016/j.csl.2019.04.006",
+	url = "http://www.sciencedirect.com/science/article/pii/S0885230818303449",
+	author = "Tanvir Ahmed Fuad and Mir Tafseer Nayeem and Asif Mahmud and Yllias Chali",
+	keywords = "Abstractive multi-document Summarization, Sentence fusion, Neural fusion model, Document clustering",
+	abstract = "The lack of multi-document based models and the inaccuracy in representing multiple long documents into a fixed size vector inspired us to solve abstractive multi-document summarization. Also, there is lack of good multi-document based human-authored datasets to train any encoder-decoder models. To overcome this, we have designed complementary models for two different tasks such as sentence clustering and neural sentence fusion. In this work, we minimize the risk of producing incorrect fact by encoding a related set of sentences as an input to the encoder. We have applied our complementary models to implement a full abstractive multi-document summarization system which simultaneously considers importance, coverage, and diversity under a desired length limit. We conduct extensive experiments for all the proposed models which bring significant improvements over the state-of-the-art methods across different evaluation metrics."
+}
+
+
+@article{14-denil-al,
+	author    = {Misha Denil and
+	Alban Demiraj and
+	Nando de Freitas},
+	title     = {Extraction of Salient Sentences from Labelled Documents},
+	journal   = {CoRR},
+	volume    = {abs/1412.6815},
+	year      = {2014},
+	url       = {http://arxiv.org/abs/1412.6815},
+	timestamp = {Wed, 07 Jun 2017 14:41:39 +0200},
+	biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/DenilDF14},
+	bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{15-cao-al,
+	author = {Cao, Ziqiang and Wei, Furu and Dong, Li and Li, Sujian and Zhou, Ming},
+	title = {Ranking with Recursive Neural Networks and Its Application to Multi-document Summarization},
+	booktitle = {Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence},
+	series = {AAAI'15},
+	year = {2015},
+	isbn = {0-262-51129-0},
+	location = {Austin, Texas},
+	pages = {2153--2159},
+	numpages = {7},
+	url = {http://dl.acm.org/citation.cfm?id=2886521.2886620},
+	acmid = {2886620},
+	publisher = {AAAI Press},
+} 
+
+@inproceedings{11-celikyilmaz-hakkani,
+	author = {Celikyilmaz, Asli and Hakkani-T\"{u}r, Dilek},
+	title = {Discovery of Topically Coherent Sentences for Extractive Summarization},
+	booktitle = {Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies - Volume 1},
+	series = {HLT '11},
+	year = {2011},
+	isbn = {978-1-932432-87-9},
+	location = {Portland, Oregon},
+	pages = {491--499},
+	numpages = {9},
+	url = {http://dl.acm.org/citation.cfm?id=2002472.2002535},
+	acmid = {2002535},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+}  
+
+@InProceedings{06-daumeiii-marcu,
+	author    = {Daum\'{e} III, Hal  and  Marcu, Daniel},
+	title     = {Bayesian Query-Focused Summarization},
+	booktitle = {Proceedings of the 21st International Conference on Computational Linguistics and 44th Annual Meeting of the Association for Computational Linguistics},
+	month     = {July},
+	year      = {2006},
+	address   = {Sydney, Australia},
+	publisher = {Association for Computational Linguistics},
+	pages     = {305--312},
+	url       = {http://www.aclweb.org/anthology/P06-1039},
+	doi       = {10.3115/1220175.1220214}
+} 
+
+@inproceedings{08-eisenstein-barzilay,
+	author = {Eisenstein, Jacob and Barzilay, Regina},
+	title = {Bayesian Unsupervised Topic Segmentation},
+	booktitle = {Proceedings of the Conference on Empirical Methods in Natural Language Processing},
+	series = {EMNLP '08},
+	year = {2008},
+	location = {Honolulu, Hawaii},
+	pages = {334--343},
+	numpages = {10},
+	url = {http://dl.acm.org/citation.cfm?id=1613715.1613760},
+	acmid = {1613760},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+@article{15-yang-al,
+	author = {Yang, Guangbing and Wen, Dunwei and Kinshuk and Chen, Nian-Shing and Sutinen, Erkki},
+	title = {A Novel Contextual Topic Model for Multi-document Summarization},
+	journal = {Expert Syst. Appl.},
+	issue_date = {February 2015},
+	volume = {42},
+	number = {3},
+	month = feb,
+	year = {2015},
+	issn = {0957-4174},
+	pages = {1340--1352},
+	numpages = {13},
+	url = {http://dx.doi.org/10.1016/j.eswa.2014.09.015},
+	doi = {10.1016/j.eswa.2014.09.015},
+	acmid = {2776350},
+	publisher = {Pergamon Press, Inc.},
+	address = {Tarrytown, NY, USA},
+	keywords = {Contextual topic, Hierarchical topic model, Multi-document summarization},
+}  
+
+@inproceedings{05-harabagiu-lacatusu,
+	author = {Harabagiu, Sanda and Lacatusu, Finley},
+	title = {Topic Themes for Multi-document Summarization},
+	booktitle = {Proceedings of the 28th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval},
+	series = {SIGIR '05},
+	year = {2005},
+	isbn = {1-59593-034-5},
+	location = {Salvador, Brazil},
+	pages = {202--209},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/1076034.1076071},
+	doi = {10.1145/1076034.1076071},
+	acmid = {1076071},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {summarization, topic themes},
+}
+
+@phdthesis{01-minka,
+	author = {Thomas Minka},
+	title = {A family of algorithms for approximate Bayesian inference},
+	school = {Massachusetts Institute of Technology},
+	year = {2001},
+	address = {Cambridge, MA.}
+}
+
+
+@article{10-blei-al,
+	author = {Blei, David M. and Griffiths, Thomas L. and Jordan, Michael I.},
+	title = {The Nested Chinese Restaurant Process and Bayesian Nonparametric Inference of Topic Hierarchies},
+	journal = {J. ACM},
+	issue_date = {January 2010},
+	volume = {57},
+	number = {2},
+	month = feb,
+	year = {2010},
+	issn = {0004-5411},
+	pages = {7:1--7:30},
+	articleno = {7},
+	numpages = {30},
+	url = {http://doi.acm.org/10.1145/1667053.1667056},
+	doi = {10.1145/1667053.1667056},
+	acmid = {1667056},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {Bayesian nonparametric statistics, unsupervised learning},
+} 
+
+
+@inproceedings{07-wang-al,
+	author = {Wang, Xuerui and McCallum, Andrew and Wei, Xing},
+	title = {Topical N-Grams: Phrase and Topic Discovery, with an Application to Information Retrieval},
+	booktitle = {Proceedings of the 2007 Seventh IEEE International Conference on Data Mining},
+	series = {ICDM '07},
+	year = {2007},
+	isbn = {0-7695-3018-4},
+	pages = {697--702},
+	numpages = {6},
+	url = {https://doi.org/10.1109/ICDM.2007.86},
+	doi = {10.1109/ICDM.2007.86},
+	acmid = {1442141},
+	publisher = {IEEE Computer Society},
+	address = {Washington, DC, USA},
+} 
+
+@inproceedings{07-wan,
+	author = {Wan, Xiaojun},
+	title = {TimedTextRank: Adding the Temporal Dimension to Multi-document Summarization},
+	booktitle = {Proceedings of the 30th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval},
+	series = {SIGIR '07},
+	year = {2007},
+	isbn = {978-1-59593-597-7},
+	location = {Amsterdam, The Netherlands},
+	pages = {867--868},
+	numpages = {2},
+	url = {http://doi.acm.org/10.1145/1277741.1277949},
+	doi = {10.1145/1277741.1277949},
+	acmid = {1277949},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {TimedTextRank, dynamic summarization, multi-document summarization, temporal dimension},
+} 
+
+@inproceedings{08-wan,
+	author = {Wan, Xiaojun},
+	title = {An Exploration of Document Impact on Graph-based Multi-document Summarization},
+	booktitle = {Proceedings of the Conference on Empirical Methods in Natural Language Processing},
+	series = {EMNLP '08},
+	year = {2008},
+	location = {Honolulu, Hawaii},
+	pages = {755--762},
+	numpages = {8},
+	url = {http://dl.acm.org/citation.cfm?id=1613715.1613811},
+	acmid = {1613811},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+
+@INPROCEEDINGS{14-ferreira-al, 
+	author = {R. Ferreira and F. Freitas and L. d. S. Cabral and R. D. Lins and R. Lima and G. França and S. J. Simske and L. Favaro}, 
+	booktitle = {2014 11th IAPR International Workshop on Document Analysis Systems}, 
+	title = {A Context Based Text Summarization System}, 
+	year = {2014}, 
+	pages = {66-70}, 
+	keywords = {information retrieval;text analysis;Internet;automatic text summarization;context based text summarization system;extractive text summarization techniques;large text libraries;sentence scoring;text documents;Abstracts;Algorithm design and analysis;Blogs;Context;Educational institutions;Gold;Standards;Document Engineering;Text Summarization;Text Summarization Evaluation}, 
+	doi = {10.1109/DAS.2014.19}, 
+	month = {April},
+} 
+
+@inproceedings{06-li-al,
+	author = {Li, Wenjie and Wu, Mingli and Lu, Qin and Xu, Wei and Yuan, Chunfa},
+	title = {Extractive Summarization Using Inter- and Intra- Event Relevance},
+	booktitle = {Proceedings of the 21st International Conference on Computational Linguistics and the 44th Annual Meeting of the Association for Computational Linguistics},
+	series = {ACL-44},
+	year = {2006},
+	location = {Sydney, Australia},
+	pages = {369--376},
+	numpages = {8},
+	url = {https://doi.org/10.3115/1220175.1220222},
+	doi = {10.3115/1220175.1220222},
+	acmid = {1220222},
+	publisher = {Association for Computational Linguistics},
+	address = {Stroudsburg, PA, USA},
+} 
+
+@InProceedings{14-ng-al,
+	author    = {Ng, Jun-Ping  and  Chen, Yan  and  Kan, Min-Yen  and  Li, Zhoujun},
+	title     = {Exploiting Timelines to Enhance Multi-document Summarization},
+	booktitle = {Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+	month     = {June},
+	year      = {2014},
+	address   = {Baltimore, Maryland},
+	publisher = {Association for Computational Linguistics},
+	pages     = {923--933},
+	url       = {http://www.aclweb.org/anthology/P14-1087}
+}
+
+@INPROCEEDINGS{08-liu-al, 
+	author={Y. Liu and X. Wang and J. Zhang and H. Xu}, 
+	booktitle={IEEE International Workshop on Semantic Computing and Systems}, 
+	title={Personalized PageRank Based Multi-document Summarization}, 
+	year={2008}, 
+	volume={}, 
+	number={}, 
+	pages={169-173}, 
+	keywords={Bayes methods;probability;query processing;search engines;text analysis;multidocument summarization;naive Bayes model;personalized pagerank;personalized prior probability;query processing;redundancy penalty;relevance model;salience model;text analysis;Automation;Clustering algorithms;Computers;Conferences;Data mining;Frequency;Mechanical engineering;Partitioning algorithms;Performance evaluation;Naïve Bayes model;Personalized PageRank;personalized prior probability}, 
+	doi={10.1109/WSCS.2008.32}, 
+	ISSN={}, 
+	month={July},
+}
+
+@article{08-yeh-al,
+	title = "iSpreadRank: Ranking sentences for extraction-based summarization using feature weight propagation in the sentence similarity network",
+	journal = "Expert Systems with Applications",
+	volume = "35",
+	number = "3",
+	pages = "1451 - 1462",
+	year = "2008",
+	issn = "0957-4174",
+	doi = "https://doi.org/10.1016/j.eswa.2007.08.037",
+	url = "http://www.sciencedirect.com/science/article/pii/S0957417407003612",
+	author = "Jen-Yuan Yeh and Hao-Ren Ke and Wei-Pang Yang",
+	keywords = "Sentence extraction, Multidocument summarization, Spreading activation, Sentence similarity network, Feature weigh propagation, Social network analysis"
+}
+
+@article{99-kleinberg,
+	author = {Kleinberg, Jon M.},
+	title = {Authoritative Sources in a Hyperlinked Environment},
+	journal = {J. ACM},
+	issue_date = {Sept. 1999},
+	volume = {46},
+	number = {5},
+	month = sep,
+	year = {1999},
+	issn = {0004-5411},
+	pages = {604--632},
+	numpages = {29},
+	url = {http://doi.acm.org/10.1145/324133.324140},
+	doi = {10.1145/324133.324140},
+	acmid = {324140},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {World Wide Web, graph algorithms, hypertext structure, link analysis},
+} 
+
+@inbook{68-quillian,
+	author = {Quillian, M. Ross},
+	title = {Semantic Memory},
+	booktitle = {Semantic Information Processing},
+	year = {1968},
+	bookauthor = {Minsky, Marvin L.},
+	pages = {227--270},
+	publisher = {The MIT Press},
+	OPTeditor = {editor},
+	OPTisbn = {isbn},
+}
+
+@inproceedings{17-ren-al,
+	author = {Ren, Pengjie and Chen, Zhumin and Ren, Zhaochun and Wei, Furu and Ma, Jun and de Rijke, Maarten},
+	title = {Leveraging Contextual Sentence Relations for Extractive Summarization Using a Neural Attention Model},
+	booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+	series = {SIGIR '17},
+	year = {2017},
+	isbn = {978-1-4503-5022-8},
+	location = {Shinjuku, Tokyo, Japan},
+	pages = {95--104},
+	numpages = {10},
+	url = {http://doi.acm.org/10.1145/3077136.3080792},
+	doi = {10.1145/3077136.3080792},
+	acmid = {3080792},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {contextual sentence relation, extractive summarization, neural network},
+} 
+
+
+@inproceedings{94-agrawal-srikant,
+	author = {Agrawal, Rakesh and Srikant, Ramakrishnan},
+	title = {Fast Algorithms for Mining Association Rules in Large Databases},
+	booktitle = {Proceedings of the 20th International Conference on Very Large Data Bases},
+	series = {VLDB '94},
+	year = {1994},
+	isbn = {1-55860-153-8},
+	pages = {487--499},
+	numpages = {13},
+	url = {http://dl.acm.org/citation.cfm?id=645920.672836},
+	acmid = {672836},
+	publisher = {Morgan Kaufmann Publishers Inc.},
+	address = {San Francisco, CA, USA},
+} 
+
+
+@InProceedings{17-hasegawa-al,
+	author    = {Hasegawa, Shun  and  Kikuchi, Yuta  and  Takamura, Hiroya  and  Okumura, Manabu},
+	title     = {Japanese Sentence Compression with a Large Training Dataset},
+	booktitle = {Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)},
+	month     = {July},
+	year      = {2017},
+	address   = {Vancouver, Canada},
+	publisher = {Association for Computational Linguistics},
+	pages     = {281--286},
+	abstract  = {In English, high-quality sentence compression models by deleting words have
+	been trained on automatically created large training datasets. We work on
+	Japanese sentence compression by a similar approach. To create a large Japanese
+	training dataset, a method of creating English training dataset is modified
+	based on the characteristics of the Japanese language. The created dataset is
+	used to train Japanese sentence compression models based on the recurrent
+	neural network.},
+	url       = {http://aclweb.org/anthology/P17-2044}
+}
+
+
+@InProceedings{15-filippova-al,
+	author    = {Filippova, Katja  and  Alfonseca, Enrique  and  Colmenares, Carlos A.  and  Kaiser, Lukasz  and  Vinyals, Oriol},
+	title     = {Sentence Compression by Deletion with LSTMs},
+	booktitle = {Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing},
+	month     = {September},
+	year      = {2015},
+	address   = {Lisbon, Portugal},
+	publisher = {Association for Computational Linguistics},
+	pages     = {360--368},
+	url       = {http://aclweb.org/anthology/D15-1042}
+}
+
+
+@inproceedings{17-feigenblat-al,
+	author = {Feigenblat, Guy and Roitman, Haggai and Boni, Odellia and Konopnicki, David},
+	title = {Unsupervised Query-Focused Multi-Document Summarization Using the Cross Entropy Method},
+	booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+	series = {SIGIR '17},
+	year = {2017},
+	isbn = {978-1-4503-5022-8},
+	location = {Shinjuku, Tokyo, Japan},
+	pages = {961--964},
+	numpages = {4},
+	url = {http://doi.acm.org/10.1145/3077136.3080690},
+	doi = {10.1145/3077136.3080690},
+	acmid = {3080690},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {cross entropy method, multidocument summarization},
+}  
+
+@inproceedings{12-baralis-al,
+	author = {Baralis, Elena and Cagliero, Luca and Jabeen, Saima and Fiori, Alessandro},
+	title = {Multi-document Summarization Exploiting Frequent Itemsets},
+	booktitle = {Proceedings of the 27th Annual ACM Symposium on Applied Computing},
+	series = {SAC '12},
+	year = {2012},
+	isbn = {978-1-4503-0857-1},
+	location = {Trento, Italy},
+	pages = {782--786},
+	numpages = {5},
+	url = {http://doi.acm.org/10.1145/2245276.2245427},
+	doi = {10.1145/2245276.2245427},
+	acmid = {2245427},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {frequent itemset mining, multi-document summarization, text mining},
+} 
+
+
+@article{15-baralis-al,
+	author = {Baralis, Elena and Cagliero, Luca and Fiori, Alessandro and Garza, Paolo},
+	title = {MWI-Sum: A Multilingual Summarizer Based on Frequent Weighted Itemsets},
+	journal = {ACM Trans. Inf. Syst.},
+	issue_date = {October 2015},
+	volume = {34},
+	number = {1},
+	month = sep,
+	year = {2015},
+	issn = {1046-8188},
+	pages = {5:1--5:35},
+	articleno = {5},
+	numpages = {35},
+	url = {http://doi.acm.org/10.1145/2809786},
+	doi = {10.1145/2809786},
+	acmid = {2809786},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {Multilingual summarization, frequent weighted itemset mining, text mining},
+}  
+
+@book{04-rubinstein-kroese,
+	author = {Rubinstein, Reuven Y. and Kroese, Dirk P.},
+	title = {The Cross Entropy Method: A Unified Approach To Combinatorial Optimization, Monte-carlo Simulation (Information Science and Statistics)},
+	year = {2004},
+	isbn = {038721240X},
+	publisher = {Springer-Verlag New York, Inc.},
+	address = {Secaucus, NJ, USA},
+} 
+
+
+@InProceedings{17-litvak-vanetik,
+	author    = {Litvak, Marina  and  Vanetik, Natalia},
+	title     = {Query-based summarization using MDL principle},
+	booktitle = {Proceedings of the MultiLing 2017 Workshop on Summarization and Summary Evaluation Across Source Types and Genres},
+	month     = {April},
+	year      = {2017},
+	address   = {Valencia, Spain},
+	publisher = {Association for Computational Linguistics},
+	pages     = {22--31},
+	abstract  = {Query-based text summarization is aimed at extracting essential information
+	that answers the query from original text. The answer is presented  
+	in a minimal, often predefined, number of words. In this paper we introduce a
+	new unsupervised approach for query-based extractive summarization, based on
+	the minimum description length (MDL) principle that employs Krimp compression
+	algorithm (Vreeken et al., 2011). The key idea of our approach is to select
+	frequent word sets related to a given query that compress document sentences
+	better and therefore describe the document better.
+	A summary is extracted by selecting sentences that best cover query-related
+	frequent word sets.
+	The approach is evaluated based on the DUC 2005 and DUC 2006 datasets which are
+	specifically designed for query-based summarization (DUC, 2005 2006). It
+	competes with the best results.},
+	url       = {http://www.aclweb.org/anthology/W17-1004}
+}
+
+
+@Article{11-vreeken-al,
+	author="Vreeken, Jilles
+	and van Leeuwen, Matthijs
+	and Siebes, Arno",
+	title="Krimp: mining itemsets that compress",
+	journal="Data Mining and Knowledge Discovery",
+	year="2011",
+	month="Jul",
+	day="01",
+	volume="23",
+	number="1",
+	pages="169--214",
+	abstract="One of the major problems in pattern mining is the explosion of the number of results. Tight constraints reveal only common knowledge, while loose constraints lead to an explosion in the number of returned patterns. This is caused by large groups of patterns essentially describing the same set of transactions. In this paper we approach this problem using the MDL principle: the best set of patterns is that set that compresses the database best. For this task we introduce the Krimp algorithm. Experimental evaluation shows that typically only hundreds of itemsets are returned; a dramatic reduction, up to seven orders of magnitude, in the number of frequent item sets. These selections, called code tables, are of high quality. This is shown with compression ratios, swap-randomisation, and the accuracies of the code table-based Krimp classifier, all obtained on a wide range of datasets. Further, we extensively evaluate the heuristic choices made in the design of the algorithm.",
+	issn="1573-756X",
+	doi="10.1007/s10618-010-0202-x",
+	url="https://doi.org/10.1007/s10618-010-0202-x"
+}
+
+@InProceedings{14-kikuchi-al,
+	author    = {Kikuchi, Yuta  and  Hirao, Tsutomu  and  Takamura, Hiroya  and  Okumura, Manabu  and  Nagata, Masaaki},
+	title     = {Single Document Summarization based on Nested Tree Structure},
+	booktitle = {Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)},
+	month     = {June},
+	year      = {2014},
+	address   = {Baltimore, Maryland},
+	publisher = {Association for Computational Linguistics},
+	pages     = {315--320},
+	url       = {http://www.aclweb.org/anthology/P14-2052}
+}
+
+@InProceedings{16-goyal-eisenstein,
+	author    = {Goyal, Naman  and  Eisenstein, Jacob},
+	title     = {A Joint Model of Rhetorical Discourse Structure and Summarization},
+	booktitle = {Proceedings of the Workshop on Structured Prediction for NLP},
+	month     = {November},
+	year      = {2016},
+	address   = {Austin, TX},
+	publisher = {Association for Computational Linguistics},
+	pages     = {25--34},
+	url       = {http://aclweb.org/anthology/W16-5903}
+}
+
+
+@inproceedings{11-wick-al,
+	author    = {Michael L. Wick and
+	Khashayar Rohanimanesh and
+	Kedar Bellare and
+	Aron Culotta and
+	Andrew McCallum},
+	title     = {SampleRank: Training Factor Graphs with Atomic Gradients},
+	booktitle = {Proceedings of the 28th International Conference on Machine Learning,
+	{ICML} 2011, Bellevue, Washington, USA, June 28 - July 2, 2011},
+	pages     = {777--784},
+	year      = {2011},
+	timestamp = {Wed, 29 Mar 2017 16:45:25 +0200},
+	biburl    = {http://dblp.org/rec/bib/conf/icml/WickRBCM11},
+	bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{16-ding-al,
+	title={Cortical tracking of hierarchical linguistic structures in connected speech},
+	author={Ding, Nai and Melloni, Lucia and Zhang, Hang and Tian, Xing and Poeppel, David},
+	journal={Nature neuroscience},
+	volume={19},
+	number={1},
+	pages={158},
+	year={2016},
+	publisher={Nature Publishing Group}
+}
+
+@article{80-chomsky,
+	title={Rules and representations},
+	author={Chomsky, Noam},
+	journal={Behavioral and brain sciences},
+	volume={3},
+	number={1},
+	pages={1--15},
+	year={1980},
+	publisher={Cambridge University Press}
+}
+
+@article{75-kincaid-al,
+	title={Derivation of new readability formulas (automated readability index, fog count and flesch reading ease formula) for navy enlisted personnel},
+	author={Kincaid, J Peter and Fishburne Jr, Robert P and Rogers, Richard L and Chissom, Brad S},
+	year={1975},
+	publisher={Institute for Simulation and Training, University of Central Florida}
+}
+
+@article{69-laughlin-harry,
+	title={SMOG grading-a new readability formula},
+	author={Mc Laughlin, G Harry},
+	journal={Journal of reading},
+	volume={12},
+	number={8},
+	pages={639--646},
+	year={1969},
+	publisher={JSTOR}
+}

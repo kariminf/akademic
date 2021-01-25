@@ -1,0 +1,188 @@
+\begin{savequote}[75mm] 
+Reasoning draws a conclusion, but does not make the conclusion certain, unless the mind discovers it by the path of experience.
+\qauthor{Roger Bacon} 
+\end{savequote}
+
+\chapter{General conclusions and discussion}
+
+% problematic 
+With the growth of information on the web, it becomes crucial to find ways to process them. 
+One way to ease this task is using automatic text summarization. 
+\ac{ats} is not a new field, but it is a highly active one due to its importance. 
+Finding the perfect formula for \ac{ats} is a challenging task. 
+This is because there is no precise definition how should a summary be.
+A summary can be good or bad following the opinion of the evaluator; thus the judgment varies from person to person.
+But, there are some common criteria to decide if a summary is good enough: informativeness, non redundancy and readability. 
+It is necessary that a summary presents most information from the original text. 
+Also, a good summary is the one which does not contain redundant information. 
+Automatic summaries can be used to enhance other tasks such as indexing. 
+But, if the summary is intended as a final result for users, it has to be readable. 
+One challenge to achieve a good summarization system is the lack of resources such as toolkits and corpora.
+
+% multilingual ATS
+For a long time, English language has been the center of attention by \ac{ats} community. 
+But due to the multilingual content increase nowadays, it becomes necessary to develop new tools for other languages. 
+There exists some works devoted for languages other than English. 
+But due to lack of resources, these works still insufficient for many languages. 
+A solution is to design multilingual methods (and systems) which require less language-dependent resources.
+
+
+% related works chapters summary
+A literature review has been presented to introduce \ac{ats} especially in multilingual context. 
+First, a concise introduction to the different methods used for \ac{ats} following the taxonomy proposed by \citet{98-hovy-lin,99-sparckjones}. 
+We discussed these different methods in term of multilingualism.
+Next, different approaches has been presented classifying \ac{ats} methods based on their resources usage. 
+We based our taxonomy on the one of \citet{12-lloret-palomar} and \citet{11-nenkova-mckeown}, but with a huge influence of their resources consumption.
+Before finishing the literature review, we have discussed \ac{ats} evaluation which is an important topic in this domain.
+
+% contribution chapters summary
+After introducing \ac{ats}, a brief description on our participation in MultiLing'15 workshop has been presented. 
+We tried to ameliorate our previous work \citep{15-aries-al} by adding multiple languages, using other features than term frequencies, and proposing a new method to extracting the sentences after being scored. 
+The extraction method is based on sentences similarities and scores. 
+The first sentence to the summary is the highest scored. 
+Then, each time we want to add a new sentence, it must have less similarity than a given threshold with the last one added to the summary. 
+%chapter contribution
+Then, a chapter is reserved for our new method which combines surface features with graphs approach in order to score sentences. 
+To score sentences, we construct a graph based on their similarities and we minimize it into a less number of candidate ones. 
+Each sentence is scored using surface features, then this score is improved based on the graph. 
+To extract the relevant sentences, we proposed some extracting mechanisms based on the graph. 
+%chapter machine llearning
+After that, we presented a chapter about another method we proposed using machine learning and statistical features to extract sentences. 
+The method is based on neural networks by expressing the problem of text summarization as a problem of regression.
+It seeks to learn how to estimate ROUGE-1 score based on some statistical features.
+Also, it seek it tries to maintain the multilingual aspect by learning how to score the document's language based on the these features.
+
+% Recommendations (implications)
+In conclusion, multilingual automatic text summarization is an important domain nowadays.
+It can help professionals processing the huge information overload due to the increase rate of multilingual web content.
+In this case, the more a system uses language-independent resources, such as toolkits and corpora, the more it can adapt to new languages. 
+The method's type used to implement such system is crucial to decide how multilingual this system can be. 
+Lets take abstractive summarization as an example; it is very difficult to implement an abstractive multilingual \ac{ats}. 
+So, it is more simple to use an extractive method.
+That being said, a fully multilingual system is no use if it does not afford informative summaries.
+The whole idea of summarization is to preserve the most relevant information from the original text in a compact form.
+This leads us to think about redundancy; a summary with less redundancy is better. 
+In fact, if we look at summarization from this view point, summaries are mostly used to decrease redundant information in huge content.
+Another criterion to judge the quality of a summary is readability which encompasses reference clarity and coherence. 
+Most works do not give more important to this one because summaries are usually used to enhance some other automatic tasks; they are not intended for humans. 
+But, it stills a good thing to find a multilingual way to enhance summaries readability.
+
+
+\section{Contributions}
+
+% Informativeness 
+Informativeness is the most important indicator of a good summary.
+In this thesis, we tried to maximize the quantity of information a summary can contain whatever the language of the original text. 
+First of all, we enhanced our previous method (TCC) \citep{13-aries-al} and tested it in a multilingual context by participating in MultiLing'15 workshop \citep{15-aries-al}.
+The method, being tested and proved its quality, has been used as a baseline to test our new method (SSF-GC). 
+The new method called ``Sentence statistical features, Graph-based cumulative scores" (SSF-GC) combines surface features and similarity graph to score sentences, as indicated by its name. 
+The graph is used to exclude some sentences which have week links with others, thus they are off-topic and less informative. 
+We can consider this step as a noise removal task to enhance the scoring function. 
+The informativeness of each sentence is expressed as its probability to belonging to the summary based on some statistical features. 
+In our case, this probability is affected by the sentence's neighbors' in the graph using accumulation.
+We proposed some scoring functions which gave good results.
+Our machine learning based method (ML2ExtraSum) could not beat TCC method in term of informativeness. 
+Nevertheless, it affords close results and it can be a good start to be enhanced in the future.
+
+
+% Redundancy 
+Redundancy is another issue in \ac{ats}. 
+Unlike MMR \citep{98-carbonell-goldstein} which tries to handle informativeness and redundancy using one score, we treat redundancy while extracting sentences. 
+This separation gives us more freedom on how we extract relevant sentences based on their informativeness scores, but using some conditions to decide if the summary has already the information in a sentence about to be extracted. 
+A first attempt was to use similarity between the last sentence added to the summary and the next one being considered for the summary. 
+If there is a huge similarity between them, we consider another sentence. 
+This extraction method has proven to be a good one. 
+It does not just improve non redundancy, but also informativeness by letting the space for more new information. 
+We tested using other variants, mostly based on the graph. 
+One variant, in particular, gives good results. 
+It is similar to the one we described earlier, but it is based on the graph. 
+First, we choose the highest scored sentence among the candidates. 
+Then, out of its neighbors, we choose the one which maximizes the score and minimizes the similarity.  
+
+% Coherence
+Also, we tried to propose some extraction methods with coherence in mind. 
+Mostly, a paragraph's sentences have some shared terms, especially the consecutive one. 
+So, when we order sentences, it is natural that a sentence following another has some similarity. 
+But, this similarity must not exceed some limit, otherwise it will be a repetition. 
+Unfortunately, we did not test how far this assumption is true, and how to define such limit.
+
+% delivrables 
+Aside from the theoretical contributions, this thesis contributes to the state of art by making tools available to the community. 
+We designed some open source tools to support this thesis; the most important are these two which we talked about earlier in this thesis:
+\begin{itemize}
+	\item \textbf{AllSummarizer}: A Java platform for extractive text summarization. 
+	It implements the two methods discussed here, in this thesis \citep{13-aries-al,15-aries-al,18-aries-al,21-aries-al}.
+	It has three parts: preprocessing, processing and postprocessing. 
+	More information about the system is presented in Appendix A.
+	
+	\item \textbf{LangPi}: a Java tool for preprocessing: Normalization, Segmentation, Stemming and Stop words removal.
+	The tool affords ROUGE metrics for summarization which support multilingual evaluation. 
+	
+	\item \textbf{ML2ExtraSum}: a Python tool for extractive text summarization based on machine learning using Tensoflow. 
+	Along with it, a preprocessed corpus based on MultiLing'15 MSS corpus.
+	
+\end{itemize}
+
+
+\section{Limits}
+
+% simplicity
+In our work, we tried to propose a method for multilingual \ac{ats} which is simple yet effective.
+In the end, simple things are not always bad;  like Leonardo da Vinci said: ``Simplicity is the ultimate sophistication.".
+However, usually complex tasks such as \ac{ats} demand complex mechanisms. 
+In \ac{ssf-gc} method, we assumed the different features scores are probabilities and combined them accordingly.
+This assumption gave good results, yet it does not mean there are no better combinations. 
+Although we had to avoid machine learning due to language dependency, we decided to test using this approach in our method/system ML2ExtraSum. 
+So, we formulated summarization task as a regression problem: estimating ROUGE-1 score from a set of features. 
+The scoring function is estimated using many neural networks blocks: Language Clustering Scorer, TF-ISF Scorer, Similarity Scorer, Size Scorer and Position Scorer. 
+Each of these blocks affords a score, then all these scores are fed to another block called ``Sentence Scorer" to estimate ROUGE-1 score of the sentence.
+The system was trained using Multling'15 MSS training corpus and tested using the testing one. 
+Unfortunately, this method did not outperform our \ac{tcc} method, because the system could not estimate ROUGE-1 properly. 
+%A more detailed description of this experience can be found in Appendix B.
+
+% pertinence and redundancy
+Like we said, a task such as \ac{ats} is way too complex to be expressed by a simple method. 
+Surface features are good indicators on a sentence's pertinence. 
+Nevertheless, they cannot express the deep meaning of sentences. 
+As a consequence, a sentence can be pertinent to the general topic but the system cannot capture that; for example, if it contains synonyms of important terms.
+Also, the final summary can have redundant sentences, which does not share the same terms but have the same meaning.
+
+
+%% readability
+Readability remains an issue of \ac{ats}. 
+In our case, we tried to focus on coherence using sentences ordering. 
+Unfortunately, this was not tested since it needs a lot of experts to access the order of sentences. 
+Also, anaphora resolution and replacing conjunctions were not treated in our work since these operations can be seen as a post-processing task.
+
+
+\section{Future works}
+
+% talk about 
+Our SSF-GC method affords acceptable results in the context of multilingual \ac{ats}, given the tests we performed.
+However, looking at the limits we enlisted earlier, it is still far away from being a perfect one. 
+Statistical surface features are good indicators of sentence pertinence.
+Therefore, they afford good summaries in term of informativeness, without sacrificing the method's multilingualism.
+Still, they cannot capture the whole meaning, which results in less informativeness and more redundancy. 
+In this case, a more sophisticated approach is to summarize ideas in a language-independent format. 
+To do this, we have to design a way to represent sentences in a general way without loosing their meanings.
+This leads us to Chomsky's universal grammar which states that there is an innate language faculty, which is genetically determined, that allows children to learn a specific language \citep{80-chomsky}.
+We will not discuss language acquisition theories and nativism theory criticism (although, there are neuroscience researches suggesting Chomsky may be right \citep{16-ding-al}). 
+The objective is to find a representation which can satisfy a maximum number of languages, even if there are some exceptions.
+
+
+If we can find a way to represent sentences meanings regardless their original language, it is not just multilingual \ac{ats} that will be improved. 
+We can talk about cross-lingual summarization, which seeks to generate a summary in a language different from the original one. 
+We can go further by summarizing multiple documents in many different languages into a summary with a target language.
+That being said, this is not possible unless we have some language-dependent tools. 
+A universal representation of the meaning can help us create multilingual methods for \ac{ats}. 
+However, we have to possess the tools allowing us to pass from each natural language to this representation and vice versa. 
+In the end, the problem of multilingual \ac{ats} comes back to resources' availability.
+
+
+Another alternative is to exploit machine learning while trying to maintain the system's independence from the training corpus. 
+To this end, we implemented a multilingual system (ML2ExtraSum) based on machine learning; but it could not surpass the baseline.
+As future directions, how adding more features can affect the system's performance must be investigated.
+Nowadays, there are tools that afford some deep language features for multiple languages, such as BabelNet\footnote{BabelNet website: \url{https://babelnet.org/} [27 August 2019]} \citep{12-naigli-ponzetto}.
+Also, generating more new features may help the system as shown by \textit{pure} model in our experiments. 
+On the bright side, the system shows promising results when it comes to clustering languages based on summarization.
+Same as scoring, the task of clustering  still has to be improved so it can separate languages and represent them in a larger range.

@@ -1,0 +1,436 @@
+\chapter{Examples: Automatic summaries}
+
+In this appendix, we will present some examples of automatic summaries.
+A file from MultiLing'15 MSS english test corpus is used to showcase different summaries. 
+We start by presenting the original document along with its information.
+Then, we will present summaries using the different baselines used for English.
+After that, we will present some summaries of our system with different configurations.
+
+\section{Original document : 0fb33cd018ad2920a6c4fcfaba506f06}
+
+This document contains 275 sentences which have lengths between 3 and 55 non stop-words. 
+The following is an extract of the first sentences of this document (the document is too large to be presented all).
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+
+\noindent
+Realisation of the potential
+
+\noindent
+The natural resource base for renewables is extraordinary by European, and even global standards. In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity. The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW. Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%. 
+
+\noindent
+In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production. By January 2007 wind power capacity, which has been growing rapidly, reached 1 GW capacity, and the total for renewables had grown to over 2.3 GW. By August 2009 wind power capacity was a fraction short of 1.5 GW and total renewables capacity had reached over 3.1 GW. By mid-2011 these figures were 2.76 GW and 4.6 GW respectively. 
+
+\noindent
+In 2011, around 35 per cent of Scotland’s electricity came from renewable energy, exceeding the Scottish Government’s target of 31 per cent, and Scotland contributed almost 40 per cent of the UK’s renewables output. At the end of 2011, there was 4,796 megawatts (MW) of installed renewables electricity capacity in Scotland, an increase of 9.5 per cent (416 MW) on the end of 2010. Renewable electricity generation in 2011 was a record high at 13,750 GWh - an increase of 44.5 per cent on 2010. The bulk of electricity production is derived from gas and oil. 2002 figures used in RSPB Scotland et al. (2006) are gas (34\%), oil (28\%), coal (18\%) and nuclear (17\%), with renewables 3\% (principally hydro-electric), prior to the substantial growth in wind power output. It should be borne in mind that electricity production is only part of the overall energy use budget. In 2002, Scotland consumed a total of 175 Terawatt-hours (TWh) of energy in all forms, some 2\% less than in 1990. Of this, only 20\% was consumed in the form of electricity by end users, the great majority of energy utilised being from the burning of oil (41\%) and gas (36\%). 
+
+\noindent
+The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables. With 20 GW of renewable energy projects in the pipeline, the sector has the potential to grow quickly in the years ahead creating more jobs in the region. Glasgow, Fife and Edinburgh are key centres of offshore wind power development, and the emerging wave power and tidal power industries are centred around the Highlands and Islands. Rural job creation is being supported by bioenergy systems in areas such as Lochaber, Moray and Dumfries and Galloway. 
+
+\noindent
+{\huge ...}
+\end{tcolorbox}
+
+The summary extracted from Wikipedia is of 1894 characters. 
+This means, all generated summaries must follow the length of this one. 
+The following text is the reference summary of this document. 
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	
+	\noindent
+	The production of renewable energy in Scotland is an issue that has come to the fore in technical, economic, and political terms during the opening years of the 21st century. The natural resource base for renewable energy is extraordinary by European, and even global standards, with the most important potential sources being wind, wave, and tide.
+	
+	\noindent
+	At the end of 2011, there was 4,796 megawatts (MW) of installed renewables electricity capacity in Scotland, an increase of 9.5 per cent (416 MW) on the end of 2010. Renewable electricity generation in 2011 was a record high at 13,750 GWh - an increase of 44.5 per cent on 2010. Around 35 per cent of Scotland’s electricity came from renewables in 2011, exceeding the Scottish Government’s target of 31 per cent. Scotland contributed almost 40 per cent of the UK’s renewables output in 2011. 
+	
+	\noindent
+	Continuing improvements in engineering and economics are enabling more of the renewable resources to be utilised. Fears regarding "peak oil" and climate change have driven the subject high up the political agenda and are also encouraging the use of various biofuels. Although the finances of many projects remain either speculative or dependent on market incentives, it is probable that there has been a significant, and in all likelihood long-term change, in the underpinning economics. 
+	
+	\noindent
+	In addition to planned increases in both large-scale generating capacity and microsystems using renewable sources, various related schemes to reduce carbon emissions are being researched. Although there is significant support from the public, private and community-led sectors, concerns about the effect of the technologies on the natural environment have been expressed. There is also an emerging political debate about the relationship between the siting, and the ownership and control of these widely distributed resources. 
+\end{tcolorbox}
+
+\section{Baselines}
+
+In this section, we will present summaries of the first scored baseline systems.
+The extraction method is $e0$.
+
+
+\subsection{LexRank (sumy)}
+
+LexRank method \citep{04-erkan-radev} is quite similar to TextRank since both use PageRank \citep{98-brin-page} to score the sentences. 
+Using a cosine similarity, a weighted graph is constructed where the edges with a weight (similarity) less that a given threshold are omitted. 
+The continuous version follows almost the same equation as of TextRank, but instead it uses a $ tf-idf $ based cosine similarity.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	At the end of 2011, there was 4,796 megawatts (MW) of installed renewables electricity capacity in Scotland, an increase of 9.5 per cent (416 MW) on the end of 2010.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+	In 2005 the aim was for 18\% of Scotland's electricity production to be generated by renewable sources by 2010, rising to 40\% by 2020.
+	Hydro-electric power Scotland has 85\% of the UK's hydro-electric energy resource, much of it developed by the North of Scotland Hydro-Electric Board in the 1950s.
+	Current capacity is 1.33 GW and includes major developments such as the 120 MW Breadalbane scheme and the 245 MW Tummel system.
+	There are now numerous large on-shore power stations including Black Law Wind Farm rated at over 96 MW, Hadyard Hill Wind Farm, which is the first wind farm in the UK able to generate over 100 MW, and Whitelee Wind Farm, a 322 MW project that was the largest onshore wind farm in Europe, but has been superseded by the Clyde Wind Farm.
+	Plans to harness up to 4.8 GW of the potential in the inner Moray Firth and Firth of Forth were announced in January 2010.	
+\end{tcolorbox}
+
+\subsection{TCC (allsummarizer)}
+
+AllSummarizer\_TCC (threshold clustering and classification) method \citep{15-aries-al} starts by detecting the different topics in the input text using a simple clustering algorithm based on cosine similarity and a threshold.
+Then, using Bayes classification and a set of features, we learn the characteristics of each cluster. 
+Each sentence is scored based on its ability to represent all these clusters. 
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	A variety of other options exist, most of which may affect development of renewable technologies even if they are not means of producing energy from renewable sources themselves.
+	It is not a form of renewable energy production, although like carbon sequestration it offers a significant commercial challenge to renewable developments.
+	The total offshore potential is estimated at 25 GW, which although more expensive to install, could be enough to provide almost half the total energy used in Scotland.
+	With 20 GW of renewable energy projects in the pipeline, the sector has the potential to grow quickly in the years ahead creating more jobs in the region.
+	Community Energy Scotland provides advice, grant funding and finance for renewable energy projects developed by community groups.
+	The "Hydrogen Office" in Methil aims to demonstrate the benefits of improved energy efficiency and renewable and hydrogen energy systems.
+	A related issue is the planned high-voltage Beauly–Denny power line which will bring electricity from renewable projects in the north and west to the cities of the south.
+	A 2007 report concluded that wood fuel exceeded hydroelectric and wind as the largest potential source of renewable energy.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+	In 2010 the Scotcampus student Freshers' Festivals held in Edinburgh and Glasgow will both be powered entirely by renewable energy in a bid to raise awareness with young people in Scotland.
+	In February 2007 the commissioning of the Braes of Doune wind farm took the UK renewables installed capacity up to 2 GW.
+\end{tcolorbox}
+
+\subsection{TextRank (summa)}
+
+TextRank method \citep{04-mihalcea-tarau} uses a graph-based method. 
+From an input text, an indirected graph is constructed where each sentence represents a vertex, and the edge between two vertices is weighted by their similarity. 
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	By January 2007 wind power capacity, which has been growing rapidly, reached 1 GW capacity, and the total for renewables had grown to over 2.3 GW.
+	By August 2009 wind power capacity was a fraction short of 1.5 GW and total renewables capacity had reached over 3.1 GW.
+	In 2011, around 35 per cent of Scotland’s electricity came from renewable energy, exceeding the Scottish Government’s target of 31 per cent, and Scotland contributed almost 40 per cent of the UK’s renewables output.
+	At the end of 2011, there was 4,796 megawatts (MW) of installed renewables electricity capacity in Scotland, an increase of 9.5 per cent (416 MW) on the end of 2010.
+	(2006) are gas (34\%), oil (28\%), coal (18\%) and nuclear (17\%), with renewables 3\% (principally hydro-electric), prior to the substantial growth in wind power output.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+\end{tcolorbox}
+
+\subsection{LSA (sumy)}
+
+LSA method \citep{04-steinberger-jezek} uses latent semantic analysis in text summarization. 
+The algorithm starts by creating a matrix $ A $ of $ m $ rows representing the document terms, and 
+$ n $ columns representing the sentences where $ a_{i, j} \in A $ represents the frequency of the term $ i $ in the sentence $ j $. 
+Then, the singular value decomposition (SVD) of the matrix $ A $ is calculated and used to calculate the salience of each sentence.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Emma Wood, the author of a study of these pioneers wrote: I heard about drowned farms and hamlets, the ruination of the salmon-fishing and how Inverness might be washed away if the dams failed inland.
+	The Robin Rigg Wind Farm is a 180 MW development completed in April 2010 sited on a sandbank midway between the Galloway and Cumbrian coasts in the Solway Firth.
+	The funding is part of a new £13 million funding package for marine power projects in Scotland that will also support developments to Aquamarine's Oyster and Ocean Power Technologies' PowerBuoy wave systems, AWS Ocean Energy's sub-sea wave devices, ScotRenewables' 1.2 MW floating rotor device, Cleantechcom's tidal surge plans for the Churchill barriers between various Orkney islands, the Open Hydro tidal ring turbines, and further developments to the Wavegen system proposed for Lewis as well as a further £2.5 million for the European Marine Energy Centre (EMEC) based in Orkney.
+	At the official opening of the Eday project the site was described as "the first of its kind in the world set up to provide developers of wave and tidal energy devices with a purpose-built performance testing facility."
+	These included Campbeltown and Hunterston, four sites previously used for offshore oil fabrication at Ardersier, Nigg Bay, Arnish and Kishorn and five east coast locations from Peterhead to Leith.
+	Today it is known that a tall tubular tower with three blades attached to it is the typical profile of a wind turbine, but twenty-five years ago there were a wide variety of different systems being tested.
+	To date the only installed tidal power plant of any size is the 240 MW rated barrage scheme at the Rance Estuary in Brittany, which has been operating successfully for more than 25 years, although there are a number of other much smaller projects around the world.
+\end{tcolorbox}
+
+\section{SSF-GC variants comparison}
+
+In this section, we want to compare different summaries of our chosen document using SSF-GC variants.
+We used the extraction method $e0$, which means we take the first scored sentence till reaching the maximum size. 
+The mean between sentences' similarities is used as similarity threshold.
+
+\subsection{SSF}
+
+A graph is used to select candidate sentences.
+The candidate sentences are scored using some statistical features: $ F = \{ sim,\ tf-isf,\ size,\ pos \} $.
+The overall score which we call SSF (sentence statistical features) is expressed as the multiplication of these scores which are considered as probabilities.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Realisation of the potential The natural resource base for renewables is extraordinary by European, and even global standards.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	The 'potential energy' column is thus an estimate based on a variety of assumptions including the installed capacity.
+	Realisation of the potential The natural resource base for renewables is extraordinary by European, and even global standards.
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	Although 'potential energy' is in some ways a more useful method of comparing the current output and future potential of different technologies, using it would require cumbersome explanations of all the assumptions involved in each example, so installed capacity figures are generally used.
+	Summary of Scotland's resource potential Table notes a. \^ Note on 'installed capacity' and 'potential energy'.
+	By August 2009 wind power capacity was a fraction short of 1.5 GW and total renewables capacity had reached over 3.1 GW.
+\end{tcolorbox}
+
+\subsection{GC1}
+
+In this variant, the SSF score is enhanced using the graph structure. 
+A sentence can share some information with its neighbors in the graph. 
+Just a quantity of this information is shared according to sentences link strength. 
+In this work, the information is SSF score and the link strength is the cosine similarity.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Realisation of the potential The natural resource base for renewables is extraordinary by European, and even global standards.
+	Wind turbines are the fastest growing of the renewable energy technologies in Scotland.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+	The aim is to help move the farm towards being powered by 100\% renewable energy.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	Hydro-electric power Scotland has 85\% of the UK's hydro-electric energy resource, much of it developed by the North of Scotland Hydro-Electric Board in the 1950s.
+	Other renewable options Various other ideas for renewable energy in the early stages of development, such as ocean thermal energy conversion, deep lake water cooling, and blue energy, have received little attention in Scotland, presumably because the potential is so significant for less speculative technologies.
+	Community Energy Scotland provides advice, grant funding and finance for renewable energy projects developed by community groups.
+	Although the pumps may not be powered from renewable sources, up to four times the energy used can be recovered.
+\end{tcolorbox}
+
+\subsection{GC2}
+
+In this variant, the SSF score is enhanced using the graph structure. 
+A sentence can share some information with its neighbors in the graph. 
+It will be compensated by its neighbors' SSF scores and penalized by its non neighbors' SSF scores. 
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Realisation of the potential The natural resource base for renewables is extraordinary by European, and even global standards.
+	Community Energy Scotland provides advice, grant funding and finance for renewable energy projects developed by community groups.
+	The total offshore potential is estimated at 25 GW, which although more expensive to install, could be enough to provide almost half the total energy used in Scotland.
+	In 2011, around 35 per cent of Scotland’s electricity came from renewable energy, exceeding the Scottish Government’s target of 31 per cent, and Scotland contributed almost 40 per cent of the UK’s renewables output.
+	In 2010 the Scotcampus student Freshers' Festivals held in Edinburgh and Glasgow will both be powered entirely by renewable energy in a bid to raise awareness with young people in Scotland.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+	Other renewable options Various other ideas for renewable energy in the early stages of development, such as ocean thermal energy conversion, deep lake water cooling, and blue energy, have received little attention in Scotland, presumably because the potential is so significant for less speculative technologies.
+	The biomass energy supply in Scotland was forecast to reach 450 MW or higher, (predominantly from wood), with power stations requiring 4,500–5,000 oven dry tonnes per annum per megawatt of generating capacity.
+	The Forum for Renewable Energy Development in Scotland, (FREDS) is a partnership between industry, academia and Government aimed at enabling Scotland to capitalise on its renewable energy resource.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+\end{tcolorbox}
+
+\subsection{GC3}
+
+In this variant, the SSF score is enhanced using the graph structure. 
+A sentence with many neighbors must gain more score. 
+This means the SSF score is amplified by the number of neighbors.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Realisation of the potential The natural resource base for renewables is extraordinary by European, and even global standards.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	Table notes and sources: See also Scotland Europe Global
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	Although 'potential energy' is in some ways a more useful method of comparing the current output and future potential of different technologies, using it would require cumbersome explanations of all the assumptions involved in each example, so installed capacity figures are generally used.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	The 'potential energy' column is thus an estimate based on a variety of assumptions including the installed capacity.
+	Summary of Scotland's resource potential Table notes a. \^ Note on 'installed capacity' and 'potential energy'.
+	By August 2009 wind power capacity was a fraction short of 1.5 GW and total renewables capacity had reached over 3.1 GW.
+	By January 2007 wind power capacity, which has been growing rapidly, reached 1 GW capacity, and the total for renewables had grown to over 2.3 GW.
+\end{tcolorbox}
+
+\subsection{GC4}
+
+In this variant, the SSF score is enhanced using the graph structure. 
+A sentence with many neighbors must gain more score using their links strengths.
+This means the SSF score is amplified by the sum of neighbors similarities.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Realisation of the potential The natural resource base for renewables is extraordinary by European, and even global standards.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	Table notes and sources: See also Scotland Europe Global
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	Although 'potential energy' is in some ways a more useful method of comparing the current output and future potential of different technologies, using it would require cumbersome explanations of all the assumptions involved in each example, so installed capacity figures are generally used.
+	The 'potential energy' column is thus an estimate based on a variety of assumptions including the installed capacity.
+	Summary of Scotland's resource potential Table notes a. \^ Note on 'installed capacity' and 'potential energy'.
+	By August 2009 wind power capacity was a fraction short of 1.5 GW and total renewables capacity had reached over 3.1 GW.
+	By January 2007 wind power capacity, which has been growing rapidly, reached 1 GW capacity, and the total for renewables had grown to over 2.3 GW.
+	The aim is to help move the farm towards being powered by 100\% renewable energy.
+\end{tcolorbox}
+
+\subsection{GC5}
+
+In this variant, the SSF score is enhanced using the graph structure. 
+It is the same as $GGC4$ plus the score of the sentence.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Realisation of the potential The natural resource base for renewables is extraordinary by European, and even global standards.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	Table notes and sources: See also Scotland Europe Global
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	The 'potential energy' column is thus an estimate based on a variety of assumptions including the installed capacity.
+	Although 'potential energy' is in some ways a more useful method of comparing the current output and future potential of different technologies, using it would require cumbersome explanations of all the assumptions involved in each example, so installed capacity figures are generally used.
+	Summary of Scotland's resource potential Table notes a. \^ Note on 'installed capacity' and 'potential energy'.
+	By August 2009 wind power capacity was a fraction short of 1.5 GW and total renewables capacity had reached over 3.1 GW.
+	By January 2007 wind power capacity, which has been growing rapidly, reached 1 GW capacity, and the total for renewables had grown to over 2.3 GW.
+	The aim is to help move the farm towards being powered by 100\% renewable energy.
+	Realisation of the potential The natural resource base for renewables is extraordinary by European, and even global standards.
+\end{tcolorbox}
+
+\section{Extraction variants comparison}
+
+In this section, we want to compare different summaries of our chosen document using the extraction variants.
+We used the scoring method GC1 with all these extraction variants.
+The mean between sentences' similarities is used as similarity threshold.
+
+\subsection{e1}
+
+In this extraction, the GC scores order is respected.
+When a sentence is going to be added, it is compared to the last one added to prevent redundancy.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	Other renewable options Various other ideas for renewable energy in the early stages of development, such as ocean thermal energy conversion, deep lake water cooling, and blue energy, have received little attention in Scotland, presumably because the potential is so significant for less speculative technologies.
+	Although the pumps may not be powered from renewable sources, up to four times the energy used can be recovered.
+	Summary of Scotland's resource potential Table notes a. \^ Note on 'installed capacity' and 'potential energy'.
+	By August 2009 wind power capacity was a fraction short of 1.5 GW and total renewables capacity had reached over 3.1 GW.
+	In 2011, around 35 per cent of Scotland’s electricity came from renewable energy, exceeding the Scottish Government’s target of 31 per cent, and Scotland contributed almost 40 per cent of the UK’s renewables output.
+	A variety of other options exist, most of which may affect development of renewable technologies even if they are not means of producing energy from renewable sources themselves.
+\end{tcolorbox}
+
+\subsection{e2}
+
+In this extraction, the GC scores order is respected as well as the coherent relations.
+To add a sentence, it must have a high score and be among the neighbors of the last added one.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	Wind turbines are the fastest growing of the renewable energy technologies in Scotland.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+	The aim is to help move the farm towards being powered by 100\% renewable energy.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	Hydro-electric power Scotland has 85\% of the UK's hydro-electric energy resource, much of it developed by the North of Scotland Hydro-Electric Board in the 1950s.
+	Other renewable options Various other ideas for renewable energy in the early stages of development, such as ocean thermal energy conversion, deep lake water cooling, and blue energy, have received little attention in Scotland, presumably because the potential is so significant for less speculative technologies.
+	Community Energy Scotland provides advice, grant funding and finance for renewable energy projects developed by community groups.
+	Although the pumps may not be powered from renewable sources, up to four times the energy used can be recovered.
+\end{tcolorbox}
+
+\subsection{e3}
+
+In this extraction, the GC scores order is respected as well as the coherent relations.
+To add a sentence, it must have a high score and a high similarity to the last added one.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	By August 2009 wind power capacity was a fraction short of 1.5 GW and total renewables capacity had reached over 3.1 GW.
+	By January 2007 wind power capacity, which has been growing rapidly, reached 1 GW capacity, and the total for renewables had grown to over 2.3 GW.
+	The aim is to help move the farm towards being powered by 100\% renewable energy.
+	Although the pumps may not be powered from renewable sources, up to four times the energy used can be recovered.
+	Other renewable options Various other ideas for renewable energy in the early stages of development, such as ocean thermal energy conversion, deep lake water cooling, and blue energy, have received little attention in Scotland, presumably because the potential is so significant for less speculative technologies.
+	Wind turbines are the fastest growing of the renewable energy technologies in Scotland.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+\end{tcolorbox}
+
+\subsection{e4}
+
+In this extraction, the GC scores order is respected as well as the coherent relations and redundancy control.
+To add a sentence, it must have a high score and a low similarity to the last added one with the condition of being a neighbor.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	Thus, for example, individual wind turbines may have a 'capacity factor' of between 15\% and 45\% depending on their location, with a higher capacity factor giving a greater potential energy output for a given installed capacity.
+	The Forum for Renewable Energy Development in Scotland, (FREDS) is a partnership between industry, academia and Government aimed at enabling Scotland to capitalise on its renewable energy resource.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+	There is clearly a significant difference between a renewable energy production facility of modest size providing an island community with all its energy needs, and an industrial scale power station in the same location that is designed to export power to far distant urban locations.
+	At the end of 2011, there was 4,796 megawatts (MW) of installed renewables electricity capacity in Scotland, an increase of 9.5 per cent (416 MW) on the end of 2010.
+	The funding is part of a new £13 million funding package for marine power projects in Scotland that will also support developments to Aquamarine's Oyster and Ocean Power Technologies' PowerBuoy wave systems, AWS Ocean Energy's sub-sea wave devices, ScotRenewables' 1.2 MW floating rotor device, Cleantechcom's tidal surge plans for the Churchill barriers between various Orkney islands, the Open Hydro tidal ring turbines, and further developments to the Wavegen system proposed for Lewis as well as a further £2.5 million for the European Marine Energy Centre (EMEC) based in Orkney.
+\end{tcolorbox}
+
+\subsection{e5}
+
+In this extraction, the GC scores order is respected as well as the coherent relations.
+To add a sentence, it must have a lot of neighbors which are not in the summary and it must be a neighbor to the last added one.
+Also, it must have a high score.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	Wind turbines are the fastest growing of the renewable energy technologies in Scotland.
+	The renewable energy industry supports more than 11,000 jobs in Scotland, according to a major 2011 study by Scottish Renewables.
+	The aim is to help move the farm towards being powered by 100\% renewable energy.
+	In January 2006 the total installed electrical generating capacity from all forms of renewable energy was less than 2 GW, about a fifth of the total electrical production.
+	The renewable electricity generating capacity may be 60 GW or more, considerably greater than the existing capacity from all Scottish fuel sources of 10.3 GW.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	Hydro-electric power Scotland has 85\% of the UK's hydro-electric energy resource, much of it developed by the North of Scotland Hydro-Electric Board in the 1950s.
+	Other renewable options Various other ideas for renewable energy in the early stages of development, such as ocean thermal energy conversion, deep lake water cooling, and blue energy, have received little attention in Scotland, presumably because the potential is so significant for less speculative technologies.
+	Community Energy Scotland provides advice, grant funding and finance for renewable energy projects developed by community groups.
+\end{tcolorbox}
+
+\section{ML2ExtraSum summaries}
+
+In this section, we want to showcase different summaries of our chosen document using ML2ExtraSum.
+The later uses a neural network with some features on the document and the sentence and tries to infer ROUGE-1 score of this sentence.
+We used the extraction method $e0$, which means we take the first scored sentence till reaching the maximum size. 
+
+\subsection{Basic model}
+
+In this version, the features are fed as vectors without any preprocessing.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	This is by no means coincidental.
+	By mid-2011 these figures were 2.76 GW and 4.6 GW respectively.
+	a. \^ Note on 'installed capacity' and 'potential energy'.
+	Production was expected to commence in 2009.
+	There is considerable support for community-scale energy projects.
+	The current Scottish output is negligible.
+	Alternatively, the stored energy can be used for cooling buildings.
+	The precise amounts involved are a matter of controversy.
+	The tide comes in and raises the water level in a basin.
+	Perhaps up to 7.6 TWh of energy is available on an annual basis from this source.
+	The Scottish Government must be commended for its intention to lead the way".
+	This happenstance of geography and climate has created various tensions.
+	This is the current situation with regard to tidal power.
+	These crops could provide 0.8 GW of generating capacity.
+	Geothermal energy is obtained by tapping the heat of the earth itself.
+	The Siadar Wave Energy Project was announced in 2009.
+	A related issue is the position of Scotland within the United Kingdom.
+	The manufacturers are now developing a larger system in the Faroe Islands.
+	Although the idea has become fashionable, the theory has received serious criticism of late.
+	This is the equivalent of 10,000 tonnes (11,000 short tons) of carbon dioxide.
+	Whisky distilleries may have a locally important part to play.
+	The bulk of electricity production is derived from gas and oil.
+	Various public bodies and public-private partnerships have been created to develop the potential.
+	The Forestry Commission is active in promoting the biomass potential.
+	However the technology is in its infancy and numerous devices are in the prototype stages.
+	The technology has been successfully pioneered in Norway but is still a relatively untried concept.
+	As the tide lowers the water in the basin is discharged through a turbine.
+\end{tcolorbox}	
+
+\subsection{With filtering}
+
+In this version, the features are filtered to delete low values.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	The Council have also agreed to purchase hydrogen-fuelled buses and hope the new plant, which will be constructed in partnership with the local Hydrogen Research Laboratory, will supply island filling stations and houses and the industrial park at Arnish.
+	The funding is part of a new £13 million funding package for marine power projects in Scotland that will also support developments to Aquamarine's Oyster and Ocean Power Technologies' PowerBuoy wave systems, AWS Ocean Energy's sub-sea wave devices, ScotRenewables' 1.2 MW floating rotor device, Cleantechcom's tidal surge plans for the Churchill barriers between various Orkney islands, the Open Hydro tidal ring turbines, and further developments to the Wavegen system proposed for Lewis as well as a further £2.5 million for the European Marine Energy Centre (EMEC) based in Orkney.
+	Although such plants generate carbon emissions through the combustion of the biological material and plastic wastes (which derive from fossil fuels), they also reduce the damage done to the atmosphere from the creation of methane in landfill sites.
+	This is a much more damaging greenhouse gas than the carbon dioxide the burning process produces, although other systems which do not involve district heating may have a similar carbon footprint to straightforward landfill degradation.
+	Total Scottish capacity at October 2007 was 1.13 GW from 760 turbines and increased to 1.3 GW by September 2008 and 1.48 GW by August 2009.
+\end{tcolorbox}	
+
+\subsection{With normalization and filtering}
+
+In this version, the features are normalized and filtered to delete low values.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	The funding is part of a new £13 million funding package for marine power projects in Scotland that will also support developments to Aquamarine's Oyster and Ocean Power Technologies' PowerBuoy wave systems, AWS Ocean Energy's sub-sea wave devices, ScotRenewables' 1.2 MW floating rotor device, Cleantechcom's tidal surge plans for the Churchill barriers between various Orkney islands, the Open Hydro tidal ring turbines, and further developments to the Wavegen system proposed for Lewis as well as a further £2.5 million for the European Marine Energy Centre (EMEC) based in Orkney.
+	There are now numerous large on-shore power stations including Black Law Wind Farm rated at over 96 MW, Hadyard Hill Wind Farm, which is the first wind farm in the UK able to generate over 100 MW, and Whitelee Wind Farm, a 322 MW project that was the largest onshore wind farm in Europe, but has been superseded by the Clyde Wind Farm.
+	In January 2009 the government announced the launch of a "Marine Spatial Plan" to map the potential of the Pentland Firth and Orkney coasts and agreed to take part in a working group examining options for an offshore grid to connect renewable energy projects in the North Sea to on-shore national grids.
+	Numerous universities are playing a role in supporting energy research under the Supergen programme, including fuel cell research at St Andrews, marine technologies at Edinburgh, distributed power systems at Strathclyde and biomass crops at the UHI Millennium Institute's Orkney College.
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+\end{tcolorbox}	
+
+\subsection{With scalar features}
+
+In this version, the vector features are transformed into scalars.
+Also, some scalars are created before being fed into the neural networks.
+
+\begin{tcolorbox}[breakable, enhanced]\footnotesize
+	In addition to an existing installed capacity[a] of 1.3 Gigawatts (GW) of hydro-electric schemes, Scotland has an estimated potential of 36.5 GW of wind and 7.5 GW of tidal power, 25\% of the estimated total capacity for the European Union and up to 14 GW of wave power potential, 10\% of EU capacity.
+	The funding is part of a new £13 million funding package for marine power projects in Scotland that will also support developments to Aquamarine's Oyster and Ocean Power Technologies' PowerBuoy wave systems, AWS Ocean Energy's sub-sea wave devices, ScotRenewables' 1.2 MW floating rotor device, Cleantechcom's tidal surge plans for the Churchill barriers between various Orkney islands, the Open Hydro tidal ring turbines, and further developments to the Wavegen system proposed for Lewis as well as a further £2.5 million for the European Marine Energy Centre (EMEC) based in Orkney.
+	There are now numerous large on-shore power stations including Black Law Wind Farm rated at over 96 MW, Hadyard Hill Wind Farm, which is the first wind farm in the UK able to generate over 100 MW, and Whitelee Wind Farm, a 322 MW project that was the largest onshore wind farm in Europe, but has been superseded by the Clyde Wind Farm.
+	Scotland exceeded its renewable energy target, set in 2007, for 31\% of total power generation coming from renewables by 2011, and the 2020 target for the renewable share of total electricity generation has been raised from 50\% to 100\%.
+	However a 2011 Forestry Commission and Scottish government follow-up report concluded that: "...there is no capacity to support further large scale electricity generation biomass plants from the domestic wood fibre resource."
+	In March 2010 a total of ten sites in the area, capable of providing an installed capacity of 1.2 GW of tidal and wave generation were leased out by the Crown Estates.
+\end{tcolorbox}	
+
+
+
+

@@ -1,0 +1,613 @@
+\chapter{Tools: A technical report}
+
+In this report, we will present the technical aspect of our thesis. 
+We will present the tools developed during this thesis, namely LangPi and AllSummarizer. 
+AllSummarizer is intended to be an extractive text summarization system, which affords two methods: \ac{tcc} \citep{13-aries-al,15-aries-al} and \ac{ssf-gc} \citep{18-aries-al,21-aries-al}.
+\ac{tcc} method uses clustering to group similar sentences (finding topics), then it uses some statistical surface features with Bayes classification to estimate the sentences which can represent the most topics. 
+\ac{ssf-gc} method uses the same statistical features to score sentences, then a graph of similarity is used to enhance this score.
+LangPi was created to separate preprocessing tasks from AllSummarizer and enable adding new languages as plugins. 
+
+ 
+\section{LangPi overview}
+
+LangPi (Language Processing Interface) is a toolkit which we developed in order to afford some tools for processing different natural languages. 
+Mainly, it focuses on preprocessing task which is used mostly in \ac{ir} systems. 
+Table~\ref{tab:langpi-tech} represents technical information about LangPi. 
+
+\begin{table}[!ht]
+	\centering
+	\caption{Technical information about LangPi}
+	\readtable{technical/langpi-tech.tex}
+	\label{tab:langpi-tech}
+\end{table}
+
+
+\subsection{Package: basic} 
+
+This package affords basic languages processing tasks represented in Table~\ref{tab:basic-tasks}.
+Each language must implement this interface to afford these functionalities.
+
+\begin{table}[!ht]
+	\centering
+	\caption{Basic tasks in LangPi toolkit}
+	\readtable{technical/basic-tasks.tex}
+	\label{tab:basic-tasks}
+\end{table}
+
+
+\subsubsection{Normalization}
+
+%Church, K.: One Term or Two? In: Proceedings of SIGIR 1995, pp. 310–318 (1995)
+Normalization is the process of transforming a document to a standard more easy to manipulate format. 
+In case of multi-document summarization, different documents may have the same word with different writing forms. 
+For instance, a document can contain all these words which are the same: ``Mr.", ``mister" and ``Mister".
+Here are some operations that can be used in this task:
+\begin{itemize}
+	\item Special characters removal. For example, if the system does not need separated paragraphs, we can delete new lines character. 
+	\item Numbers transformation from numerical to letters (pronunciation) or the inverse. If the numbers information is not important to the task, it can be deleted.
+	\item Equivalent words replacement such as abbreviations or words used in chat.
+	\item Diacritical marks removing, such as replacing ``résumé" with ``resume" in French.
+	\item Styling text suppression, such as HTML markers.
+\end{itemize}
+
+LangPi affords un \ac{api} which can be implemented for each language. 
+The \ac{api} description is presented in Table~\ref{tab:normalizer-api}.
+It is implemented by 29 languages (plus a default one) where the main function is just to delete new lines and multiple spaces. 
+In Arabic, it deletes diacritics as well.
+\begin{table}[!ht]
+	\centering
+	\caption{LangPi Normalizer \ac{api}}
+	\readtable{technical/normalizer-api.tex}
+	\label{tab:normalizer-api}
+\end{table}
+
+
+\subsubsection{Segmentation}
+
+% sentence segmentation challenges
+Segmenting a text refers to two tasks: sentence boundary detection and tokenization. 
+In many languages, a sentence is ended by either a dot, a question mark or an exclamation mark. 
+This is not the case for all languages, such as Thai which does not have a delimitation mark for sentences. 
+Even using a full stop as a delimiter, abbreviations such as ``Mr.", ``Dr." and ``etc." when they occur in the middle of a sentence can be problematic. 
+Also, other punctuation marks can be used to separate sentences \citep{10-palmer}, such as commas used to express actions sequence.
+
+To perform sentence segmentation, regular expression with a list of abbreviations \citep{89-riley,97-reynar-ratnaparkhi} and proper nouns \citep{02-mikheev} can be used. 
+Many regular expressions can be defined to detect cases where a dot can occur such as the dot in numbers.
+More features can be used to enhance this task; they can be used together with machine learning to estimate the probability of a dot being a sentence boundary. 
+Here a list of features used especially for English texts:
+\begin{itemize}
+	\item Letter's case: sentences start with uppercase letters.
+	\item Part of speech (PoS): \citet{97-palmer-hearst} use parts of speech with machine learning to enhance sentence boundary detection.
+	\item Word's size: this feature is used in \citep{89-riley} on the two words before and after the dot.
+	\item Prefixes and suffixes: They are used to enhance boundary detection since abbreviations does not have suffixes \citep{80-muller-al,97-reynar-ratnaparkhi}.
+\end{itemize}
+
+
+Another type of segmentation is word tokenization which can be performed by breaking the text into words using the space (blank mark).
+But, it is not as easy as that, since there are many challenges:
+\begin{itemize}
+
+	\item Punctuation marks are taken as separate tokens. But in case of abbreviations, the dot must not be separated from the word before.
+	
+	\item Some marks, such as the apostrophe, have many functions. 
+	In English, the apostrophe can be used as citation mark, it can be used in possessive form (\textit{Karim's thesis}), or it can be used as a contraction (\textit{I'm}). 
+	In French, the apostrophe is used for contraction as well (\textit{l'homme}, \textit{j'ai}, \textit{qu'ils}, etc.).
+	
+	\item Some languages use composed words either by joining them directly or using the hyphen. 
+	In German, it is so common to use words composition such as noun-noun (\textit{Lebensversicherung}: life insurance).
+	In Arabic, some prepositions and determiners are attached to the word (\textarab{ويساعدهم} /wa-yus\={a}`ida-hum/: and he helps them).
+	Sometimes words with attached prepositions can be confused with words, for example the expression (\textarab{وعود} /wa-`\={u}d/: and Oud) can be confused with the word (\textarab{وعود} /wu`\={u}d/: promises).
+	Other languages use hyphens, such as English (\textit{end-of-file}, \textit{classification-based}, etc.) and French (\textit{va-t-il}, \textit{c'est-à-dire}, \textit{celui-ci}, etc.). 
+	
+	\item There exists some languages without words boundaries, such as Chinese, Japanese and Thai. 
+	For example, reading this sentence (このきれいな写真はどこに取りましたか。 \textit{/kono kirei-na shashin wa doko ni torimashika ka./}: Where did you take this beautiful picture.), someone who knows Japanese can separate the different words, yet it is difficult to separate them automatically.
+	
+	%
+\end{itemize}
+
+The Segmenter's \ac{api} description is presented in Table~\ref{tab:segmenter-api}.
+It contains two public methods: one for segmenting a text into sentences and te other to segment a text (a sentence) into words.
+\begin{table}[!ht]
+	\centering
+	\caption{LangPi Segmenter \ac{api}}
+	\readtable{technical/segmenter-api.tex}
+	\label{tab:segmenter-api}
+\end{table}
+
+As for the implementation, we use open source tools when they are available;
+Otherwise, we use regular expressions (Regex).
+Table~\ref{tab:segmenter-tools} shows the tools used to implement segmentation for each supported language.
+For Thai, the resources work just on OpenNLP 1.4; they are not compatible with ulterior versions. 
+So, we modified OpenNLP 1.4 code by renaming its namespaces, so it will not clash with ulterior versions.
+\begin{table}[!ht]
+	\centering
+	\caption{LangPi Segmenter tools}
+	\readtable{technical/segmenter-tools.tex}
+	\label{tab:segmenter-tools}
+\end{table}
+
+\subsubsection{Stemming}
+
+When we count the frequency of terms in a document, many words can occur in different forms due to conjugation and inflection. 
+These morphological variations represents the same meaning and must be treated as such. 
+This is why we need to remove  prefixes, suffixes and infixes from words before processing them. 
+This operation is called ``Stemming", which reduces words to a certain form called ``stem" and can be considered as a normalization function.
+A stem can be a word without meaning, for example the stem ``condit" from the word ``conditional".
+The benefit of Stemming is not just having a unified form for the different words in the text.
+But, also, it serves as a mean to reduce the vocabulary resulting in less memory usage and fast processing.  
+The most known approach for stemming is Porter \citep{97-porter} which affords some rules to slice the prefixes and suffixes in a certain order. 
+Like Stemming, Lemmatization is the process of finding a standard form called ``lemma" which is a dictionary word. 
+For example, the word ``would" stays as it is after stemming, while after lemmatizing we get ``will".
+
+The Stemming \ac{api} of LangPi contains one method (See Table~\ref{tab:stemmer-api}.
+It is important to point out that we do not make a difference between stemming and lemmatizing. 
+\begin{table}[!ht]
+	\centering
+	\caption{LangPi Stemmer \ac{api}}
+	\readtable{technical/stemmer-api.tex}
+	\label{tab:stemmer-api}
+\end{table}
+
+To implement stemming task, we used the tool illustrated in Table~\ref{tab:stemmer-tools}.
+\begin{table}[!ht]
+	\centering
+	\caption{LangPi Stemmer tools}
+	\readtable{technical/stemmer-tools.tex}
+	\label{tab:stemmer-tools}
+\end{table}
+
+
+\subsubsection{Stop-words elimination}
+
+Some words such as articles, pronouns, conjunctions, etc. are common in a text, yet they do not contribute so much in the subject of this text. 
+This is why some \ac{ir} systems ignore them allowing more space in the database. 
+Some systems avoid ignoring stop-words to support phrasal search. 
+In conclusion, this task can be beneficial or not according to what we are looking to do. 
+For instance, if we are working on a system  based on language understanding, it is better not to remove stop-words. 
+Otherwise, the system will not be able to process the text correctly, such as distinguishing between affirmative and negative forms using ``not". 
+Some other systems, such as statistical text summarizers, are more comfortable with removing them. 
+
+
+The Stop-words eliminator \ac{api} of LangPi contains one method which takes a list of words and remove stop-words from it (See Table~\ref{tab:swe-api}. 
+The languages having stop-words are: Arabic, Chinese, Czech, Dutch, English, Finnish, French, German, Greek, Hindi, Hungarian, Italian, Norwegian, Portuguese, Romanian, Russian, Spanish, Swedish, Turkish
+\begin{table}[!ht]
+	\centering
+	\caption{LangPi Stop-Words Eliminator \ac{api}}
+	\readtable{technical/swe-api.tex}
+	\label{tab:swe-api}
+\end{table}
+
+
+\subsection{Package: eval}
+
+This package is primarily created to evaluate automatic text summarization. 
+It seeks to re-implement \ac{rouge} toolkit, which is written in Perl, and exploit the preprocessing \ac{api} to afford multilingual evaluation. 
+In this version (1.1.5), just ROUGE-1 and ROUGE-2, which are too used in evaluation camps, are implemented.
+Figure~\ref{fig:langpi-eval} represents class diagram of package ``kariminf.langpi.eval.ats".
+%
+\begin{figure}[!ht]
+	\begin{center}
+		\includegraphics[width=.8\textwidth]{figures/technical/langpi-eval.pdf}
+	\end{center}
+	\caption{\label{fig:langpi-eval} Class diagram of the package ``kariminf.langpi.eval.ats"}
+\end{figure}
+
+This tool can be used by instantiating the class ``KRouge". 
+To understand how to use it, there is no better way than a little tutorial. 
+First of all, the class must be imported as follows 
+
+\begin{lstlisting}[language={Java}, style=codeStyle] 
+
+import kariminf.langpi.eval.ats.KRouge;
+
+\end{lstlisting}
+
+For the sake of the tutorial, lets say we have one peer (system's summary) and two models (reference summaries). 
+First, we create some fake sentences to test our program.
+In real application, the sentences are created by using the preprocessing package presented earlier. 
+
+\begin{lstlisting}[language={Java}, style=codeStyle]
+
+List<List<String>> peer1 = new ArrayList<>();
+peer1.add(Arrays.asList(new String[]{"a", "f", "b", "e", "b", "e"}));
+peer1.add(Arrays.asList(new String[]{"a", "f", "d", "e"}));
+
+List<List<List<String>>> models = new ArrayList<>();
+
+List<List<String>> modelTmp = new ArrayList<>();
+modelTmp.add(Arrays.asList(new String[]{"a", "a", "b", "c", "b", "d"}));
+modelTmp.add(Arrays.asList(new String[]{"b", "c", "d"}));
+models.add(modelTmp);
+
+modelTmp = new ArrayList<>();
+modelTmp.add(Arrays.asList(new String[]{"a", "a", "b", "c", "b", "d", "a", "b"}));
+models.add(modelTmp);
+
+\end{lstlisting}
+
+We instantiate the class ``KRouge" by affording the type of \ac{rouge}.
+Then, for each new model, we afford the sentences tokenized into words. 
+The same thing is applied to the peer which we want to evaluate.
+
+\begin{lstlisting}[language={Java}, style=codeStyle]
+
+for(List<List<String>> model: models){
+	//call this each time you want to create a new model
+	evaluator.newModel();
+	//charge the current model's sentences
+	for (List<String> sent: model) evaluator.addModelSentence(sent);
+}
+
+for (List<String> sent: peer1) evaluator.addPeerSentence(sent);
+\end{lstlisting}
+
+Finally, we calculate the metrics and print the result. 
+If we want to evaluate another peer with the same models, there is no need to load models again. 
+There is a method which clears just the peer's sentences.
+
+\begin{lstlisting}[language={Java}, style=codeStyle]
+
+evaluator.calculate();
+
+System.out.println("The recall is: " + evaluator.getRecall());
+
+//If you want to use the same models with a new peer, use this method
+evaluator.resetPeer();
+\end{lstlisting}
+
+
+\subsection{Package: wordnet}
+
+This package is intended as an easy to use interface for browsing Wordnet \citep{95-miller} which is a a lexical database for the English language.
+It affords a class to access an SqlLite database containing multilingual Wordnets, which we assembled from ``Open Multilingual Wordnet" project\footnote{Open Multilingual Wordnet: \url{http://compling.hss.ntu.edu.sg/omw/} [15 August 2019]}.
+This package is intended to be used in future research. 
+Figure~\ref{fig:langpi-wordnet} represents class diagram of this package.
+
+\begin{figure}[!ht]
+	\begin{center}
+		\includegraphics[width=.8\textwidth]{figures/technical/langpi-wordnet.pdf}
+	\end{center}
+	\caption{\label{fig:langpi-wordnet} Class diagram of the package ``kariminf.langpi.wordnet"}
+\end{figure}
+
+\subsection{How to use}
+
+The packages are deployed on JitPack (see Table~{tab:langpi-tech}), which helps deploying a package directly from Github. 
+It supports many build automation systems: gradle, maven, sbt and leiningen. 
+We will focus on Gradle in the following tutorial. 
+So, first of all, you have to add JitPack repository to your root \textbf{build.gradle}:
+
+\begin{lstlisting}[style=codeStyle] %language={[KB]Javascript}, 
+
+   repositories {
+      ...
+      maven { url 'https://jitpack.io' }
+   }
+\end{lstlisting}
+
+Then, you add the dependency if you want to use the whole project.
+
+\begin{lstlisting}[style=codeStyle] %language={[KB]Javascript}
+
+   dependencies {
+      compile 'com.github.kariminf:langpi:1.1.5'
+   }
+\end{lstlisting}
+
+In case you want to use just some packages of the project, we afford that as well. 
+As you can see, there are two packages for ``basic": one with the usual license (Apache-2) and the other is licensed under AGPL-3. 
+The latter contains Hebrew and Thai which use some GPLed software preventing us from distributing it under Apache-2 license. 
+
+\begin{lstlisting}[style=codeStyle] %language={[KB]Javascript}
+
+   dependencies {
+      compile 'com.github.kariminf.LangPi:langpi-basic-agpl3:1.1.5'
+      compile 'com.github.kariminf.LangPi:langpi-basic-main:1.1.5'
+      compile 'com.github.kariminf.LangPi:langpi-eval:1.1.5'
+      compile 'com.github.kariminf.LangPi:langpi-wordnet:1.1.5'
+   }
+\end{lstlisting}
+
+
+\section{AllSummarizer overview}
+
+AllSummmarizer is an open source statistical \ac{ats} system written in Java and released under Appache 2.0 license. 
+It was developed in the context of Magister diploma \citep{13-aries-al}, and first deployed on Github in May 25th, 2013.
+This version was ameliorated by adding more languages, fixing bugs, adding more features and supporting a more modular architecture \citep{15-aries-al}.
+Then, the system was enriched by some other packages: ssfgc, eval \citep{18-aries-al} and wordnet.
+
+
+Figure~\ref{fig:as-packages} shows the general architecture of AllSummarizer system as a package diagram.
+In this diagram, just the important parts of the system as presented: tools, preprocess, process and postprocess. 
+To summarize a text, it passes by preprocessing where it is segmented into sentences and words, filtered from unwanted words and normalized. 
+This is the language-dependent part of the system, which uses the previously described project: LanPi. 
+The preprocessed text is stored in a ``Data" to be treated by the next step. 
+Then, the processing part is where the importance of each sentence is decided based on some statistical features. 
+Currently, there are two methods: \acl{tcc} and \acl{ssf-gc}. 
+Finally, the text is postprocessed using the scores to extract relevant sentences.   
+
+\begin{figure}[!ht]
+	\begin{center}
+		\includegraphics[width=\textwidth]{figures/technical/as-packages.pdf}
+	\end{center}
+	\caption{\label{fig:as-packages} Package diagram of AllSummarizer}
+\end{figure}
+
+
+\subsection{Package: tools}
+
+This package contains two helping classes: ``Data" and ``Tools". 
+``Data" class is intended to be a container which transports information between tasks; mostly preprocessing task.
+It affords some methods to store and retrieve information, mostly for preprocessing task.
+``Data" \ac{api} description is presented in Table~\ref{tab:data-api}.
+\begin{table}[!ht]
+	\centering
+	\caption{AllSummarizer preprocess.tools.Data \ac{api}}
+	\readtable{technical/data-api.tex}
+	\label{tab:data-api}
+\end{table}
+
+
+``Tools" class affords some static methods used to calculate cosine similarity, words frequencies in both sentences and documents, statistics about terms, etc.
+It is used mostly by ``Data" class.
+
+
+\subsection{Package: preprocess}
+
+This package affords just one interface specifying functions to setting a ``Data" object in which the result of preprocessing will be stored, adding one or multiple texts and starting the preprocesssing.
+To preprocess te texts, it uses LangPi ``basic" package's \ac{api}: Normalizer, Segmenter, Stemmer and SWEliminator.
+Two implementations are afforded: the static one links Allsummarizer to LangPi directly and the dynamic one is used in case someone wants to add new languages. 
+The dynamic class searches for packages in a specific folder (by default ``preProcess"), which must implement the LangPi ``basic" \ac{api}.
+Figure~\ref{fig:as-preprocess} represents class diagram for ``preprocess" package.
+
+\begin{figure}[!ht]
+	\begin{center}
+		\includegraphics[width=.7\textwidth]{figures/technical/as-preprocess.pdf}
+	\end{center}
+	\caption{\label{fig:as-preprocess} Class diagram of the package ``kariminf.as.preprocess"}
+\end{figure}
+
+
+The following code is an example on how to preprocess an English text. 
+The ``Data" object is used to store the result of the preprocessing, so it must be set before calling the ``preProcess" method.
+The method ``addText" is used to add a document at once. 
+So, if we have multiple documents, we call it multiple times. 
+
+\begin{lstlisting}[language={Java}, style=codeStyle]
+import java.util.List;
+import kariminf.as.preProcess.PreProcessor;
+import kariminf.as.preProcess.StaticPreProcessor;
+import kariminf.as.tools.Data;
+
+public class TestPreProcess {
+
+    public static void main(String[] args) {
+
+        String text = ""; //put a text here
+        Data data = new Data();
+        PreProcessor prep = new StaticPreProcessor("en");
+        prep.setData(data);
+        prep.addText(text);
+        prep.preProcess();
+
+        //retrieve some information from data
+        List<String> sentences = data.getSentences();
+        List<List<String>> sentWords = data.getSentWords();
+        List<List<Double>> sim = data.getSentSimilarities();
+
+    }
+}
+
+\end{lstlisting}
+
+\subsection{Package: process}
+
+This package is the core of the program; its job is to score sentences based on some criteria. 
+Figure~\ref{fig:as-process} represents the class diagram of this package. 
+It affords a class (``Scorer") which retrieves sentences' features from a ``Data" object, scores them and affords their scores and orders of pertinence. 
+In order for this class to score a given sentence (by its number), the method ``scoreUnit" afforded by the interface ``ScoreHandler" is used.
+This interface can be implemented to afford different ways of scoring. 
+In this version (1.1.5), two scoring methods are implemented represented by two packages:
+\begin{itemize}
+	\item \textbf{tcc}: it stands for \acl{tcc}.
+	This packages includes ``Clusterer", NaiveCluster", ``BayesScoreHandler", "Features" and its implementations. 
+	The method clusters similar sentences together, trains a naive Bayes classifier on these clusters based on some features, then scores each sentence by calculating the probability of it representing all of these clusters. 
+	\item \textbf{ssfgc}: it stands for \acl{ssf-gc}. 
+	This package includes ``SSFScoreHandler" and its subclasses. 
+	The method constructs a graph based on sentences' similarities, reduces the graph to obtain some candidate sentences, scores each sentence based on statistical features and then improves these scores using the graph structure.
+\end{itemize}
+
+\begin{figure}[!ht]
+	\begin{center}
+		\includegraphics[width=\textwidth]{figures/technical/as-process.pdf}
+	\end{center}
+	\caption{\label{fig:as-process} Class diagram of the package ``kariminf.as.process"}
+\end{figure}
+
+\subsubsection{Package: process.tcc}
+
+In this package, ``ScoreHandler" is implemented by the class ``BayesScoreHandler" which uses two elements: ``Clusterer" and "Feature". 
+The idea of this method can be summarized into these points:
+\begin{enumerate}
+	\item First, it looks for different topics using clustering, taking in consideration that a sentence can belong to many topics. 
+	The abstract class ``Clusterer" affords a mean to implement different methods for clustering by extending the abstract method ``createClasses". 
+	Currently, the only implementation is ``NaiveCluster" which uses cosine similarity and a threshold to judge if two sentences are similar or not. 
+	If they are, then they share the same topic and hence must belong to the same cluster. 
+	
+	\item Then, ``BayesScoreHandler" scores each sentence by estimating the probability that it belongs to a topic using Bayes classifier. 
+	A classifier feature is represented by the interface ``Feature", which is implemented by some classes: TFU, TFB, Pos, PLeng and RLeng.
+	
+\end{enumerate}
+For more information about the theory behind this method, you can check Chapter~\ref{chap:tcc} or these papers: \citep{13-aries-al,15-aries-al}.
+
+
+Here is a piece of code on how to use this package. 
+The preprocessing code is omitted and can be found in preprocess package's section.  
+\begin{lstlisting}[language={Java}, style=codeStyle]
+import java.util.List;
+import kariminf.as.process.Scorer;
+import kariminf.as.process.tcc.BayesScoreHandler;
+import kariminf.as.process.tcc.NaiveCluster;
+import kariminf.as.process.tcc.Pos;
+import kariminf.as.process.tcc.TFB;
+import kariminf.as.tools.Data;
+
+public class TestTCC {
+
+    public static void main(String[] args) {
+    
+        Data data = new Data();
+        //... preprocessing phase
+
+        NaiveCluster nc = new NaiveCluster(0.25);
+        BayesScoreHandler bsh = new BayesScoreHandler(nc);
+        Scorer s = Scorer.create(bsh);
+        s.setData(data);//calls bsh.setData(data)
+
+        bsh.addFeature(new TFB());//calls TFB.setData(data);
+        bsh.addFeature(new Pos());//calls Pos.setData(data)
+
+
+        bsh.train();//must train before scoring
+        s.scoreUnits();//calls bsh.scoreUnit(i);
+
+        List<Integer> order = s.getOrdered();
+        double sent1score = s.getScore(1);//sentence 1 score
+    }
+}
+
+\end{lstlisting}
+
+\subsubsection{Package: process.ssfgc}
+
+In this package, ``ScoreHandler" is implemented by the class ``SSFScoreHandler" which constructs a graph of similarities, reduces the graph to have candidate sentences, then scores these sentences using some statistical features. 
+This class is extended by 5 subclasses to improve the statistical scores based on the graph structure:
+\begin{itemize}
+	\item \textbf{GC0ScoreHandler}: this class does not improve the scores based on graph; it just return the same scores as ``SSFScoreHandler". 
+	It is used as a baseline to show how the graph improves the scoring function.
+	
+	\item \textbf{GC1ScoreHandler}: this class adds to each node's score (sentence) the scores of its neighbors in the graph weighted by their similarities.
+	
+	\item \textbf{GC2ScoreHandler}: this class adds to each node's score (sentence) the scores of its neighbors in the graph and subtracts the scores of non neighbors.
+	
+	\item \textbf{GC3ScoreHandler}: this class amplifies each node's score (sentence) by the number of its neighbors plus one.
+	
+	\item \textbf{GC4ScoreHandler}: this class multiplies each node's score (sentence) by the sum of its similarities with its neighbors. 
+	
+\end{itemize}
+For more information about the theory behind this method, you can check Chapter~\ref{chap:gc} or these papers: \citep{18-aries-al,21-aries-al}.
+
+Here is a piece of code on how to use this package. 
+The preprocessing code is omitted and can be found in preprocess package's section.  
+\begin{lstlisting}[language={Java}, style=codeStyle]
+import java.util.List;
+import kariminf.as.process.Scorer;
+import kariminf.as.process.ssfgc.GC1ScoreHandler;
+import kariminf.as.process.ssfgc.SSFScoreHandler;
+import kariminf.as.tools.Data;
+
+public class TestSSFGC {
+
+    public static void main(String[] args) {
+
+        Data data = new Data();
+        //... preprocessing phase
+
+        SSFScoreHandler ssh = new GC1ScoreHandler(0.1);//similarity threshold = 0.1
+        Scorer s = Scorer.create(ssh);
+
+        s.setData(data);//calls ssh.setData();
+        ssh.calculateSSFScores();//must calculate ssf scores before scoring
+        s.scoreUnits();//calls bsh. scoreUnit (i);
+
+        List<Integer> order = s.getOrdered();
+        double sent1score = s.getScore(1);//sentence 1 score
+    }
+}
+
+\end{lstlisting}
+
+\subsection{Package: postprocess}
+
+Scoring relevant sentences is not enough to construct a summary. 
+When the scoring function does not take into consideration redundancy, this latter must be treated while extracting sentences. 
+Also, sentences order is important for readability since te sentences are extracted from different parts of the text. 
+Sometimes, some sentences contain broken references such as personal pronouns which have to be replaced. 
+Figure~\ref{fig:as-postprocess} represents class diagram of the postprocessing task in AllSummarizer. 
+The ``PostProcessor" class defines the abstract method ``postProcess" which triggers the task. 
+Allsummarizer in its current version (3.0.1) focuses on extraction based on the scores.
+the class ``Extractor" re-orders te sentences according to their scores and some other criteria (see Chapter~\ref{gc}). 
+This class is extended by six classes, two of them are ``SimpleReOrder" and ``ThresholdReOrderer".
+``SimpleReOrder" (e0) returns the order based on the scores afforded by the scorer, hence the name \textbf{simple}. 
+``ThresholdReOrderer" (e1) uses the scores to reorder the sentences besides a similarity threshold used to exclude similar sentences; so it takes redundancy in consideration.
+The 4 remaining extraction methods are based on the graph and they need the scoreHandler to be of type ``SSFScoreHandler".  
+In all of these algorithms, the highest scored sentence is added to the summary.
+\begin{itemize}
+	\item \textbf{GraphReOrderer} (e2) tries exploiting graph structure to ensure coherence between extracted sentences.
+	The next sentence to extract must be the highest scored one among the neighbors of the last added one.
+	
+	\item \textbf{SimNeighborReOrderer} (e3) tries to select the next sentence as the one with a high score and high similarity among the neighbors of the last added one. 
+	
+	\item \textbf{DiffNeighborReOrderer} (e4) tries to select the next sentence as the one with a high score and lower similarity among the neighbors of the last added one. 
+	
+	\item \textbf{Neighbors2ReOrderer} (e5) tries to keep the highest scored sentences among the neighbors which have a high amount of non-summary neighbors. 
+\end{itemize}
+
+\begin{figure}[!ht]
+	\begin{center}
+		\includegraphics[width=.7\textwidth]{figures/technical/as-postprocess.pdf}
+	\end{center}
+	\caption{\label{fig:as-postprocess} Class diagram of the package ``kariminf.as.postprocess"}
+\end{figure}
+
+Here is a piece of code on how to use this package. 
+The preprocessing and processing code are omitted and can be found in process package's section.  
+\begin{lstlisting}[language={Java}, style=codeStyle]
+import kariminf.as.tools.Data;
+import java.util.List;
+import kariminf.as.postProcess.extraction.Extractor;
+import kariminf.as.postProcess.extraction.ThresholdReOrderer;
+import kariminf.as.process.Scorer;
+
+public class TestSSFGC {
+
+    final static int summarySize = 2;
+
+    public static void main(String[] args) {
+
+        //... preprocessing phase
+        //Scorer s = ...
+        //... processing phase
+        
+        Extractor e = new ThresholdReOrderer(s, 0.1);
+        e.postProcess();
+        List<Integer> order = e.getOrder();//the new order 
+        
+        //To extract the first two sentences
+        String summary = data.getSentence(order.get(0));
+        int i = 1;
+        
+        while (i < order.size() && i < summarySize) {
+            summary += data.getSentence(order.get(i));
+            i++;
+        }
+        
+        System.out.println(summary);
+    }
+}
+\end{lstlisting}
+
+
+\section{Discussion}
+
+Resources availability is one of the challenges that was facing automatic text summarization and research in general. 
+Nowadays, many universities, research labs and industry companies are contributing data and code in order to push research and software development forward. 
+Following their lead, we open sourced the tools developed during this thesis in hope they can help future researchers in the field of \ac{ats} and \ac{nlp} in general. 
+This technical report is a summary of these tools structures and how to use them. 
+It is far from being complete since the tool is in continuous development.
+
+
+
+
+
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="7cm" height="4cm" viewBox="1 0 136 71" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke-dasharray: 6; stroke: #000000" x1="5.81822" y1="6.09402" x2="134.763" y2="6.10252"/>
+  <text font-size="9.03111" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="1.6035" y="8.36348">
+    <tspan x="1.6035" y="8.36348">(</tspan>
+  </text>
+  <text font-size="9.03111" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="133.654" y="8.66488">
+    <tspan x="133.654" y="8.66488">)</tspan>
+  </text>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="54.2068" y="15.1719">
+    <tspan x="54.2068" y="15.1719">Sentence</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke-dasharray: 6; stroke: #000000" x1="6.48324" y1="47.7884" x2="134.277" y2="47.7632"/>
+  <text font-size="9.03111" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="2.26854" y="50.058">
+    <tspan x="2.26854" y="50.058">(</tspan>
+  </text>
+  <text font-size="9.03111" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="134.277" y="50.1948">
+    <tspan x="134.277" y="50.1948">)</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="29.9076" y="55.7314">
+    <tspan x="29.9076" y="55.7314">*</tspan>
+  </text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="39.2932,26.195 27.2974,26.195 27.2974,70.9358 40.2658,70.9358 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="99.669,26.041 112.726,26.041 112.726,70.782 100.642,70.782 "/>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="43.2811" y="30.8458">
+    <tspan x="43.2811" y="30.8458">Signifiant Words</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="70.0414" y1="31.715" x2="39.5024" y2="42.7763"/>
+    <polygon style="fill: #000000" points="36.6817,43.798 39.7615,40.5553 39.5024,42.7763 41.1237,44.3162 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="36.6817,43.798 39.7615,40.5553 39.5024,42.7763 41.1237,44.3162 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="70.0414" y1="31.715" x2="61.2348" y2="40.8991"/>
+    <polygon style="fill: #000000" points="59.1585,43.0644 60.4834,38.793 61.2348,40.8991 63.3705,41.5615 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="59.1585,43.0644 60.4834,38.793 61.2348,40.8991 63.3705,41.5615 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="70.0414" y1="32.2012" x2="70.1559" y2="41.0127"/>
+    <polygon style="fill: #000000" points="70.1949,44.0124 68.1431,40.0388 70.1559,41.0127 72.1427,39.9868 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="70.1949,44.0124 68.1431,40.0388 70.1559,41.0127 72.1427,39.9868 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" x1="69.7688" y1="31.7066" x2="99.0388" y2="43.0341"/>
+    <polygon style="fill: #000000" points="101.837,44.1169 97.3844,44.5384 99.0388,43.0341 98.828,40.808 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000" points="101.837,44.1169 97.3844,44.5384 99.0388,43.0341 98.828,40.808 "/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="31.5786" y="59.7458">
+    <tspan x="31.5786" y="59.7458">1</tspan>
+  </text>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="54.6283" y="68.454">
+    <tspan x="54.6283" y="68.454">All Words</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="81.8503" y="66.2862">
+    <tspan x="81.8503" y="66.2862"></tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="60.2905" y="12.954">
+    <tspan x="60.2905" y="12.954"></tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="67.7841" y="47.8116">
+    <tspan x="67.7841" y="47.8116"></tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="53.4091" y="55.4866">
+    <tspan x="53.4091" y="55.4866">*</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="65.7841" y="55.3116">
+    <tspan x="65.7841" y="55.3116">*</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="101.659" y="55.3866">
+    <tspan x="101.659" y="55.3866">*</tspan>
+  </text>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="43.4341" y="59.8978">
+    <tspan x="43.4341" y="59.8978">2</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="44.6872" y="58.5733">
+    <tspan x="44.6872" y="58.5733"></tspan>
+  </text>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="54.7115" y="59.7629">
+    <tspan x="54.7115" y="59.7629">3</tspan>
+  </text>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="67.531" y="59.628">
+    <tspan x="67.531" y="59.628">4</tspan>
+  </text>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="79.1939" y="59.8786">
+    <tspan x="79.1939" y="59.8786">5</tspan>
+  </text>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="91.2424" y="59.5508">
+    <tspan x="91.2424" y="59.5508">6</tspan>
+  </text>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:start;font-family:Times New Roman;font-style:normal;font-weight:normal" x="103.676" y="59.6087">
+    <tspan x="103.676" y="59.6087">7</tspan>
+  </text>
+</svg>

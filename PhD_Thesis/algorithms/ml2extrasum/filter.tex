@@ -1,0 +1,17 @@
+\KwData{a vector: $ \overrightarrow{v} $ }
+\KwResult{a filtered vector: $ \overrightarrow{w} $}
+
+Reorder $ \overrightarrow{v} $ in descending way\;
+
+Let m be the arithmetic mean $ \mu(\overrightarrow{v}) $\;
+
+$ \overrightarrow{w} = \{\} $\;
+
+\For{i = 0 to $ ||\overrightarrow{v}|| $}{
+	\If{$ v_i < m $}{
+		Exit the loop\;
+	}
+   
+	$ \overrightarrow{w} = \overrightarrow{w} \cup \{ v_i \} $\;
+	i = i + 1;
+}

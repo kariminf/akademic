@@ -1,0 +1,89 @@
+% !TEX TS-program = xelatex
+% !TeX program = xelatex
+% !TEX encoding = UTF-8
+% !TEX spellcheck = en-US
+
+\documentclass{aak-thesis}
+
+
+\input{declare}
+%\usepackage[helvetica]{quotchap}
+
+%======================================================
+%\bibliographystyle{plainnat}
+\bibliographystyle{abbrvnat}
+%\bibliographystyle{humannat}
+%\bibliographystyle{unsrtnat}
+%\bibliographystyle{kindersc2}
+%\bibliographystyle{dinat}
+
+\begin{document}
+
+% the front matter
+
+\pdfbookmark{Cover page}{coverpage}
+\input{frontmatter/coverpage}
+%\maketitle
+%\copyrightpage
+\frontmatter
+\pdfbookmark{Acknowledgment}{acknowledgment}
+\include{frontmatter/thanks}
+
+\pdfbookmark{Dedication}{dedication}
+\include{frontmatter/dedication}
+
+\pdfbookmark{Abstract}{abstract}
+\include{frontmatter/abstract}
+
+\cleardoublepage
+\pdfbookmark{\contentsname}{toc}
+\renewcommand{\baselinestretch}{1} 
+\setcounter{tocdepth}{1}
+\tableofcontents
+%\authorlist
+\listoffigures
+\listoftables
+\listabbreviations
+%\dedicationpage
+%\acknowledgments
+%
+%\onehalfspacing
+%\settocdepth{section}
+\newpage
+\mainmatter
+\renewcommand{\baselinestretch}{1.5} 
+
+% include each chapter...
+
+\include{chapters/intro}
+\include{chapters/methods}
+\include{chapters/approaches}
+\include{chapters/evaluation}
+\include{chapters/tcc}
+\include{chapters/gc}
+\include{chapters/ml2extrasum}
+\include{chapters/conclusion}
+
+%\singlespacing
+
+% the back matter
+\clearpage
+
+\begin{spacing}{1}
+	{\footnotesize \bibliography{references}}
+	\addcontentsline{toc}{chapter}{References}
+\end{spacing}
+
+\appendix
+\captionsetup{list=no}
+\setcounter{tocdepth}{0}
+%\settocdepth{chapter}
+
+%\begin{appendix}
+
+\include{chapters/technical}
+\include{chapters/example}
+
+%\end{appendix}
+
+\end{document}

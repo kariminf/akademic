@@ -1,0 +1,173 @@
+
+\chapter*{Abstract}
+
+%Context: data growth and need for summarization
+%Nowadays, a great mass of information is generated constantly, which resulted in enhancing information availability. 
+%Even so, accessing this information tend to be difficult due to redundancy and search time. 
+%One way to improve information access is to use automatic text summarization (ATS).  
+%A generated summary must be informative, readable and not redundant; Hence, automatizing this task can be challenging. 
+%
+% 
+%In this thesis, we investigate different methods and approaches for ATS. 
+%Due to the growth of multilingual content on the web, we are more interested in discussing these methods and approaches in a multilingual context. 
+%To this end, we present summarization approaches using a taxonomy based on the nature of used resources.
+%We discuss different evaluation methods and campaigns, as well, in hope to affording more insights about ATS. 
+%
+%% Proposed methods (TCC)
+%We are interested in improving ATS especially in a multilingual context.
+%Our intention is to insure the following conditions: simple adaptation, informative summaries and coherence. 
+%We improved our previous method, called ``Topic clustering and classification" (TCC), to handle many languages.
+%The method clusters different sentences; it learns how to classify these clusters; then, it scores each sentence based on its capacity to represent all these clusters. 
+%We participated in MultiLing'15 workshop using TCC, which will be considered as a baseline in our new method. 
+%
+%% Proposed methods (SSF-GC)
+%TCC uses statistical features to score sentences; but, how about the relations between these sentences?
+%Our new method, called ``Sentence statistical features - Graph-based cumulative score" (SSF-GC), scores sentences using statistical features, then it uses a graph structure to enhance these scores. 
+%The graph is not just used for scoring, but also to select candidate sentences (deleting noisy sentences).
+%In addition, we propose some methods to extract sentences after scoring.
+%SSF-GC affords good results and it was be able to surpass TCC in many languages. 
+%
+%% Proposed methods (ML2ExtraSum)
+%As additional experiment, we propose a model based on neural networks for multilingual summarization. 
+%To this end, we prepared a corpus by extracting different features from MultiLing'15 MSS corpus. 
+%The proposed method learns how to score each sentence based on different features, how to cluster a document's language, and how to combine all features scores into one in order to estimate ROUGE-1 score.
+%Unfortunately, this method was not able to defeat TCC in many languages. 
+%Nevertheless, it gives some insights into future improvements.
+
+Nowadays, a great mass of information is generated constantly.
+With time, it is become more difficult to manage such information due to redundancy, multilingualism and search time.
+In this thesis, we are interested on multilingual\footnote{multilingual system/method: which supports more than one language.} automatic text summarization (ATS). 
+To this end, we start by regrouping ATS methods using a taxonomy based on the nature\footnote{Nature of used resources : if the used resources (programs and data) are specific to a given language, in addition to processing power.} of used resources.
+Then, using this taxonomy, we choose which methods can better serve our objectives: a system simple to adapt which generates informative and coherent summaries.
+We improved our previous method, called ``Topic clustering and classification" (TCC), to handle many languages.
+This method has participated in MultiLing'15 workshop, and is considered as a baseline in this thesis. 
+In our new method, called ``Sentence statistical features - Graph-based cumulative score" (SSF-GC), sentences are not just scored using statistical features, but also graph structure to enhance these scores. 
+The graph is also used to filter unimportant sentences ; those having week links to others.
+In addition, we propose some methods to extract sentences after scoring. 
+This method affords good results and it was be able to surpass TCC in many languages. 
+Finally, we tried to use surface features with neural networks to learn sentences scoring as a ROUGE-1 score regression. 
+Unfortunately, this method was not able to defeat TCC in many languages. 
+Nevertheless, it gives some insights into future improvements.
+
+\chapter*{Résumé}
+
+% Contexte: croissance des données et besoin de synthèse
+%De nos jours, une grande masse d'informations est générée sans cesse; ce qui a permis d'améliorer la disponibilité des informations au grand publique.
+%Toutefois, accéder à cette information a tendance d'être difficile en raison de la redondance et du temps de recherche.
+%Un moyen d'améliorer l'accès à l'information consiste à utiliser le résumé automatique de textes (RAT).
+%Un résumé doit être informatif, lisible et non redondant. 
+%Par conséquent, automatiser cette tâche peut être difficile.
+%
+%%
+%Dans cette thèse, nous étudions des différentes méthodes et approches pour le RAT.
+%En raison de la croissance du contenu multilingue sur le Web, nous sommes davantage intéressés à discuter ces méthodes et approches dans un contexte multilingue.
+%À cette fin, nous présentons des approches de résumé en utilisant une taxonomie basée sur la nature des ressources utilisées.
+%Nous discutons également de différentes méthodes et campagnes d'évaluation dans l'espoir de fournir des informations supplémentaires sur le RAT.
+%
+%% Méthodes proposées (TCC)
+%Nous sommes intéressés par l'amélioration de RAT, en particulier dans un contexte multilingue.
+%Notre intention est d'assurer les conditions suivantes: adaptation simple, résumés informatifs et cohérence.
+%Nous avons amélioré notre méthode précédente, appelée ``Topic clustering and classification" (TCC), afin qu'elle supporte plusieurs langues.
+%La méthode regroupe les différentes phrases; elle apprend à classer ces groupes; ensuite, elle note chaque phrase en fonction de sa capacité à représenter toutes ces groupes.
+%Nous avons participé à l'atelier MultiLing'15 en utilisant le TCC, qui sera considéré comme une base de référence dans notre nouvelle méthode.
+%
+%% Méthodes proposées (SSF-GC)
+%TCC utilise des caractéristiques statistiques pour noter les phrases; mais, qu'en est-il des relations entre ces phrases?
+%Notre nouvelle méthode, appelée ``Sentence statistical features - Graph-based cumulative score" (SSF-GC), permet de noter les phrases à l'aide de caractéristiques statistiques, puis elle utilise un graph pour améliorer ces scores.
+%Le graph ne sert pas uniquement à la notation, mais également à la sélection de phrases candidates (suppression de phrases bruyantes).
+%De plus, nous proposons quelques méthodes pour extraire les phrases après la notation.
+%SSF-GC donne de bons résultats et a pu dépasser TCC dans de nombreuses langues.
+%
+%% Méthodes proposées (ML2ExtraSum)
+%Comme expérience supplémentaire, nous proposons un modèle basé sur les réseaux de neurones pour le résumé multilingue.
+%À cette fin, nous avons préparé un corpus en extrayant différentes caractéristiques du corpus MultiLing'15 MSS.
+%La méthode proposée apprend à noter chaque phrase en fonction de différentes caractéristiques, à regrouper la langue d'un document et à combiner toutes les notes des caractéristiques en une seule afin d'estimer le score ROUGE-1.
+%Malheureusement, cette méthode n'a pas pu vaincre TCC dans de nombreuses langues.
+%Néanmoins, elle donne un aperçu sur les améliorations futures.
+
+De nos jours, une grande masse d'informations est générée sans cesse.
+Avec le temps, il est devenu difficile de gérer une telle masse à cause de la redondance, multilinguisme et le temps de recherche.
+Dans cette thèse, nous nous somme d'avantage intéressé par le résumé automatique de textes (RAT) dans un contexte multilingue\footnote{Système/méthode multilingue : qui peut supporter plus d'une langue.}.
+À cette fin, nous commençons par regrouper les méthode de RAT en utilisant une taxonomie basée sur la nature des ressources\footnote{Nature des ressources : si les ressources (programmes et données) utilisées sont liées à une langue donnée. En plus, le coût en terme de puissance de calcul.} utilisées.
+Ensuite, en utilisant cette taxonomie, nous avons choisi les méthodes qui peuvent mieux servir nos objectifs : un système simple à adapter qui génère des résumés informatifs et cohérents.
+Nous avons amélioré notre méthode précédente, appelée ``Topic clustering and classification" (TCC), afin qu'elle supporte plusieurs langues.
+Cette méthode a participé à l'atelier MultiLing'15, et elle est considérée comme une base de référence dans cette thèse.
+Dans notre nouvelle méthode, appelée ``Sentence statistical features - Graph-based cumulative score" (SSF-GC), les phrases ne sont pas notées seulement à l'aide des caractéristiques statistiques, mais aussi à l'aide d'un graphe qui améliore ces scores.
+Le graphe est aussi utilisé pour filtrer les phrases non importantes ; celles qui ont des relations faibles avec les autres. 
+De plus, nous proposons quelques méthodes pour extraire les phrases après la notation.
+Cette méthode donne de bons résultats et a pu dépasser TCC dans de nombreuses langues.
+Enfin, nous avons essayé d'utiliser les caractéristiques de surface avec les réseaux de neurones afin d'apprendre la notation des phrase sous forme d'une régression sur le score ROUGE-1.
+Malheureusement, cette méthode n'a pas pu vaincre TCC dans de nombreuses langues.
+Néanmoins, elle donne un aperçu sur les améliorations futures.
+
+
+\chapter*{\textarab{ملخّص}}
+
+%
+%\begin{arab}
+%%السياق: نمو البيانات والحاجة إلى تلخيص
+%في الوقت الحاضر، كمّيّة كبيرة من المعلومات يتمّ إنشاؤها باستمرار، مما أدى إلى تعزيز توافر المعلومات.
+%رغم ذلك، الوصول إلى هذه المعلومات يمثّل صعوبة كبيرة بسبب التكرار ووقت البحث.
+%واحدة من الطرق لتحسين الوصول إلى المعلومات هي استخدام التلخيص التلقائي للنصوص.
+%الملخص الذي يتمّ إنشاؤه يجب أن يكون شاملا ومقروءً ولا يحتوي على التكرار؛ وبالتالي، فإنّ التلخيص التلقائي للنصوص يمكن أن تكون مهمّة صعبة.
+%
+%
+%في هذه الأطروحة، نقوم بدراسة بعض الطرق والمناهج المختلفة للتلخيص التلقائي للنصوص .
+%نظرًا لتنامي المحتوى متعدد اللغات على الويب، نحن أكثر اهتماما بمناقشة هذه الطرق والأساليب في سياق متعدد اللغات.
+%لهذا السبب، سنعرض طرق التلخيص التلقائي مستخدمين في ذلك تصنيفا يعتمد على طبيعة الموارد المستخدمة.
+%بالإضافة إلى ذلك، سنناقش  بعض أساليب وحملات تقييم الملخّصات على أمل تقديم مزيد من المعلومات حول هذا الموضوع.
+%
+%% الطرق المقترحة (TCC)
+%نحن مهتمون بتحسين التلخيص التلقائي للنصوص خاصة في سياق متعدد اللغات.
+%هدفنا هو تأمين الشروط التالية: سهولة تعديل النظام ليتكيّف مع لغة جديدة وغنى الملخّص بالمعلومات والترابط المنطقي للجمل.
+%لذا فقد قمنا بتحسين طريقتنا السابقة، والتي تسمى \textLR{``Topic clustering and classification" (TCC) }، لتتعامل مع العديد من اللغات.
+%طريقة \textLR{TCC} تقوم  بتقسيم الجمل إلى مجموعات .  بعدها،  تتعلّم كيفية تصنيف هذه المجموعات. ثم  تقوم  بتنقيط كلّ جملة بناءً على قدرتها على تمثيل كل هذه المجموعات.
+%شاركنا في ورشة العمل \textLR{MultiLing'15} باستخدام \textLR{TCC} ، والتي ستعتبر خط أساس في طريقتنا الجديدة.
+%
+%%الطرق المقترحة (SSF-GC)
+%تستخدم  \textLR{TCC} ميزات إحصائية لتنقيط الجمل؛ لكن، ماذا عن العلاقات بين هذه الجمل؟
+%طريقتنا الجديدة، المسماة \textLR{ ``Sentence statistical features - Graph-based cumulative score" (SSF-GC)} ، تقوم بتنقيط الجمل باستخدام بعض الميزات الإحصائية، ثم تستخدم بنية المبيان لتعزيز هذه الدرجات.
+%لا يتم استخدام المبيان للتنقيط فقط، ولكن أيضًا لاختيار الجمل المرشحة لتكون في الملخّص (حذف الجمل عديمة الجدوي).
+%بالإضافة إلى ذلك ، نقترح بعض الطرق لاستخراج الجمل بعد تنقيطها.
+%توفر  \textLR{SSF-GC} نتائج جيدة، حيث كانت قادرة على تجاوز  \textLR{TCC} في عدّة لغات.
+%
+%%الطرق المقترحة (ML2ExtraSum)
+%كتجربة إضافية، نقترح نموذجًا يعتمد على الشبكات العصبية للتّلخيص متعدّد اللّغات.
+%تحقيقًا لهذه الغاية، قمنا بإعداد مكنز من خلال استخراج ميزات مختلفة من مكنز \textLR{MultiLing'15 MSS}.
+%تتعلم الطريقة المقترحة كيفية تنقيط  كل ّ جملة استنادًا على ميزات مختلفة .
+%تتعلم أيضا على  كيفية إسناد كل نص إلى لغته.
+%في الأخير، تقوم بدمج كل علامات الميزات في واحدة لتقدير درجة \textLR{ROUGE-1}.
+%لسوء الحظ، لم تتمكن هذه الطريقة من هزيمة  \textLR{TCC}  في عدّة لغات.
+%ومع ذلك، فإن هذه الطريقة تعطي بعض الأفكار حول التحسينات المستقبلية.
+%\end{arab}
+
+\begin{arab}
+	في الوقت الحاضر، كمّيّة كبيرة من المعلومات يتمّ إنشاؤها باستمرار.
+	مع الوقت، أصبحت معالجة هذه المعلومات صعبة جدا بسبب التكرار وتعدد اللغات ووقت البحث.
+	في هذه الأطروحة، نحن مهتمون بالتلخيص التلقائي للنصوص في السياق متعدد اللغات\footnote{\textarab{طريقة أو نظام متعدد اللغات: يدعم أكثر من لغة واحدة.}}.
+لهذا السبب، قمنا بتصنيف طرق التلخيص التلقائي معتمدين على طبيعة الموارد المستخدمة\footnote{\textarab{طبيعة الموارد المستخدمة: إذا كانت الموارد المستخدمة (البرامج والبيانات) خاصة بلغة معينة ، بالإضافة إلى قوة المعالجة.}}.
+باستعمال هذا التصنيف، اخترنا الطرق التي بوسعها تأمين الشروط التالية: نظام سهل التعديل قادر على استخراج ملخصات غنية بالمعلومات ومتماسكة لغوبا.
+قمنا بتحسين طريقتنا السابقة، والتي تسمى \textLR{``Topic clustering and classification" (TCC) }، لتتعامل مع العديد من اللغات.
+هذه الطريقة شاركت في ورشة العمل \textLR{MultiLing'15} ، وستعتبر خط أساس في هذه الأطروحة.
+أما في طريقتنا الجديدة، المسماة \textLR{ ``Sentence statistical features - Graph-based cumulative score" (SSF-GC)} ، فالجمل لا تنقط باستخدام بعض الميزات الإحصائية فحسب، وإنماياستخدام بنية المبيان لتعزيز درجاتها.
+المبيان يستخدم أيضا لحذف الجمل عديمة الجدوي؛ تلك التي لديها روابط ضعيفة مع الأخريات.
+بالإضافة إلى ذلك ، نقترح بعض الطرق لاستخراج الجمل بعد تنقيطها.
+توفر  هذه الطريقةنتائج جيدة، حيث كانت قادرة على تجاوز  \textLR{TCC} في عدّة لغات.
+في الأخير، جاولنا استخدام بعض الميزات السطحية مع الشبكات العصبية لتقدير درجة \textLR{ROUGE-1}.
+لسوء الحظ، لم تتمكن هذه الطريقة من هزيمة  \textLR{TCC}  في عدّة لغات.
+ومع ذلك، فإن هذه الطريقة تعطي بعض الأفكار حول التحسينات المستقبلية.
+\end{arab}
+
+
+
+\chapter*{Automatic summary}
+
+We will express these extraction methods based on: the next sentence to be added to the summary ($ \nextsent $), a function affording the sentence which maximize/minimize a score ($ \arg\max $/$ \arg\min $), the score using a variant of our scoring method ($\ssfgc(s_i) $), similarity between two sentences ($ \simil $ ), the last sentence added to the summary ($ \lastsent $), and the descending/ascending order ($ \ord $/ $ \iord $) based on a given score.
+Using some features of a sentence and its document, the system must learn to estimate ROUGE-1 of this sentence based on a reference summary.
+During summary generation, a system must exclude similar sentences even if they score more than others.
+So, the next sentence to be added to the summary using this method ($\nextsent_{e1}$) is the one ($s_i$) having the highest score ($ \ssfgc $) among candidate sentences minus those already in the summary ($ C\backslash S $).
+So, the next sentence to be added to the summary using this method ($\nextsent_{e0}$) is the one having the highest score ($ \ssfgc $) among candidate sentences minus those already in the summary ($ C\backslash S $).
+So in summary, the method wants to learn how to estimate ROUGE-1 score of a sentence using some surface features.
+To extract a summary based on sentences scores, we used two extraction methods: the plain one based on the scores order and the one proposed in based on sentences similarities.
+First sentences summarizer takes the first sentences of each document as a summary.
+An extraction method is introduced based on sentences similarities and their scores in order to minimizing redundancy in the summary.\footnote{The English Abstract is 1976 characters long and this automatic one is almost the same size. To extract this summary, we used GC1 scoring method with e4 extraction method. Most of sentences came from GC chapter, but we can see some from ML2ExtraSum chapter. This is because we fuse the chapters all together in their original order. Also, we get rid of the titles and all \LaTeX commands such as figures, tables, equations, etc.}

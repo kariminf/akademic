@@ -1,0 +1,16 @@
+\KwData{Training statistics}
+\KwResult{a ROUGE-1 estimation model}
+Set the number of iterations to 50\;
+
+\ForEach{iteration}{
+	
+	\ForEach{language}{
+		
+		\ForEach{document in the language}{
+			Read the document's statistics from disk\;
+			Score all sentences using the training statistics\;
+			Calculate the cost function $ J $ based on actual ROUGE-1 scores \;
+			Apply Gradient descent optimizer with a training rate of 0.0.5\;
+		}
+	}
+}

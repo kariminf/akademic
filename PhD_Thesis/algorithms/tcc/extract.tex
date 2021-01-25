@@ -1,0 +1,14 @@
+\KwData{input text}
+\KwResult{a summary}
+add the first sentence to the summary\;
+
+\ForEach{sentence in the text}{
+	calculate cosine similarity between this sentence and the last accepted one\;
+	\If{the simularity is under the threshold}{
+		add this sentence to the summary\;
+	}
+   
+	\If{the sum of the summary size and the current sentence's is above the maximum size}{
+		delete this sentence from the summary\;
+	}
+}

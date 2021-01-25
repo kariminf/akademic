@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="15cm"
+   height="5cm"
+   viewBox="-1 0 281 90"
+   version="1.1"
+   id="svg152"
+   sodipodi:docname="eval-classif.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata158">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs156" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="708"
+     id="namedview154"
+     showgrid="false"
+     inkscape:zoom="1.3299722"
+     inkscape:cx="297.24836"
+     inkscape:cy="82.748856"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg152" />
+  <g
+     id="g10">
+    <rect
+       style="fill: #ffffff"
+       x="0.240526"
+       y="1.0449"
+       width="279.72"
+       height="17.0667"
+       id="rect2" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="0.240526"
+       y="1.0449"
+       width="279.72"
+       height="17.0667"
+       id="rect4" />
+    <text
+       font-size="6.77333"
+       style="fill: #000000;text-anchor:middle;font-family:Nimbus Roman No9 L;font-style:normal;font-weight:normal"
+       x="140.1"
+       y="11.6449"
+       id="text8">
+      <tspan
+         x="140.1"
+         y="11.6449"
+         id="tspan6"
+         style="-inkscape-font-specification:'Crimson Text, Normal';font-family:'Crimson Text';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:9.25218512px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal">Summarization evaluation</tspan>
+    </text>
+  </g>
+  <g
+     id="g20">
+    <rect
+       style="fill: #ffffff"
+       x="0.141678"
+       y="31.9714"
+       width="130.968"
+       height="17.0667"
+       id="rect12" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="0.141678"
+       y="31.9714"
+       width="130.968"
+       height="17.0667"
+       id="rect14" />
+    <text
+       font-size="6.77333"
+       style="fill: #000000;text-anchor:middle;font-family:Nimbus Roman No9 L;font-style:normal;font-weight:normal"
+       x="65.6256"
+       y="42.5714"
+       id="text18">
+      <tspan
+         x="65.6256"
+         y="42.5714"
+         id="tspan16"
+         style="-inkscape-font-specification:'Crimson Text, Normal';font-family:'Crimson Text';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:9.25218512px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal">Intrinsic methods</tspan>
+    </text>
+  </g>
+  <g
+     id="g30">
+    <rect
+       style="fill: #ffffff"
+       x="134.315"
+       y="31.9554"
+       width="145.416"
+       height="17.0667"
+       id="rect22" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="134.315"
+       y="31.9554"
+       width="145.416"
+       height="17.0667"
+       id="rect24" />
+    <text
+       font-size="6.77333"
+       style="fill: #000000;text-anchor:middle;font-family:Nimbus Roman No9 L;font-style:normal;font-weight:normal"
+       x="207.023"
+       y="42.5554"
+       id="text28">
+      <tspan
+         x="207.023"
+         y="42.5554"
+         id="tspan26"
+         style="-inkscape-font-specification:'Crimson Text, Normal';font-family:'Crimson Text';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:9.25218512px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal">Extrinsic methods</tspan>
+    </text>
+  </g>
+  <g
+     id="g42">
+    <rect
+       style="fill: #ffffff"
+       x="0.116811"
+       y="64.2374"
+       width="64.4"
+       height="25.5333"
+       id="rect32" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="0.116811"
+       y="64.2374"
+       width="64.4"
+       height="25.5333"
+       id="rect34" />
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="32.316799"
+       y="74.837402"
+       id="text40">
+      <tspan
+         x="32.316799"
+         y="74.837402"
+         id="tspan36"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">Comparison against</tspan>
+    </text>
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="32.316799"
+       y="83.759125"
+       id="text3863">
+      <tspan
+         x="32.316799"
+         y="83.759125"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="tspan3865">reference output</tspan>
+    </text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3867"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:0%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion3869"><rect
+           id="rect3871"
+           width="44.361828"
+           height="54.136471"
+           x="67.670586"
+           y="155.89297" /></flowRegion><flowPara
+         id="flowPara3873"></flowPara></flowRoot>  </g>
+  <g
+     id="g54">
+    <rect
+       style="fill: #ffffff"
+       x="66.5112"
+       y="64.189"
+       width="64.6"
+       height="25.5333"
+       id="rect44" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="66.5112"
+       y="64.189"
+       width="64.6"
+       height="25.5333"
+       id="rect46" />
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="98.811203"
+       y="74.789001"
+       id="text52">
+      <tspan
+         x="98.811203"
+         y="74.789001"
+         id="tspan48"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">Comparison against</tspan>
+    </text>
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="98.811203"
+       y="82.719421"
+       id="text3875">
+      <tspan
+         x="98.811203"
+         y="82.719421"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="tspan3877">summarization input</tspan>
+    </text>
+  </g>
+  <g
+     id="g66">
+    <rect
+       style="fill: #ffffff"
+       x="134.927"
+       y="64.1932"
+       width="38.75"
+       height="25.5333"
+       id="rect56" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="134.927"
+       y="64.1932"
+       width="38.75"
+       height="25.5333"
+       id="rect58" />
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="154.302"
+       y="74.793198"
+       id="text64">
+      <tspan
+         x="154.302"
+         y="74.793198"
+         id="tspan60"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">Relevance</tspan>
+    </text>
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="154.302"
+       y="83.71492"
+       id="text3879">
+      <tspan
+         x="154.302"
+         y="83.71492"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="tspan3881">assessment</tspan>
+    </text>
+  </g>
+  <g
+     id="g78">
+    <rect
+       style="fill: #ffffff"
+       x="178.525"
+       y="64.022"
+       width="41"
+       height="25.5333"
+       id="rect68" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="178.525"
+       y="64.022"
+       width="41"
+       height="25.5333"
+       id="rect70" />
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="199.02499"
+       y="75.613304"
+       id="text76">
+      <tspan
+         x="199.02499"
+         y="75.613304"
+         id="tspan72"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">Information</tspan>
+    </text>
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="199.02499"
+       y="83.543724"
+       id="text3883">
+      <tspan
+         x="199.02499"
+         y="83.543724"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="tspan3885">retrieval</tspan>
+    </text>
+  </g>
+  <g
+     id="g86">
+    <polyline
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="140.1,18.1116 140.1,21.277 65.6256,21.277 65.6256,26.8006 "
+       id="polyline80" />
+    <polygon
+       style="fill: #000000"
+       points="65.6256,31.3006 62.6256,25.3006 65.6256,26.8006 68.6256,25.3006 "
+       id="polygon82" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="65.6256,31.3006 62.6256,25.3006 65.6256,26.8006 68.6256,25.3006 "
+       id="polygon84" />
+  </g>
+  <g
+     id="g94">
+    <polyline
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="140.1,18.1116 140.1,21.277 207.023,21.277 207.023,26.7846 "
+       id="polyline88" />
+    <polygon
+       style="fill: #000000"
+       points="207.023,31.2846 204.023,25.2846 207.023,26.7846 210.023,25.2846 "
+       id="polygon90" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="207.023,31.2846 204.023,25.2846 207.023,26.7846 210.023,25.2846 "
+       id="polygon92" />
+  </g>
+  <g
+     id="g102">
+    <polyline
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="65.6256,49.038 65.6256,53.4502 32.3168,53.4502 32.3168,59.0666 "
+       id="polyline96" />
+    <polygon
+       style="fill: #000000"
+       points="32.3168,63.5666 29.3168,57.5666 32.3168,59.0666 35.3168,57.5666 "
+       id="polygon98" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="32.3168,63.5666 29.3168,57.5666 32.3168,59.0666 35.3168,57.5666 "
+       id="polygon100" />
+  </g>
+  <g
+     id="g110">
+    <polyline
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="65.6256,49.038 65.6256,53.4502 98.8112,53.4502 98.8112,59.0182 "
+       id="polyline104" />
+    <polygon
+       style="fill: #000000"
+       points="98.8112,63.5182 95.8112,57.5182 98.8112,59.0182 101.811,57.5182 "
+       id="polygon106" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="98.8112,63.5182 95.8112,57.5182 98.8112,59.0182 101.811,57.5182 "
+       id="polygon108" />
+  </g>
+  <g
+     id="g118">
+    <polyline
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="207.023,49.0221 207.023,53.8038 154.302,53.8038 154.302,59.0224 "
+       id="polyline112" />
+    <polygon
+       style="fill: #000000"
+       points="154.302,63.5224 151.302,57.5224 154.302,59.0224 157.302,57.5224 "
+       id="polygon114" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="154.302,63.5224 151.302,57.5224 154.302,59.0224 157.302,57.5224 "
+       id="polygon116" />
+  </g>
+  <g
+     id="g126">
+    <polyline
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="207.023,49.0221 207.023,53.8038 199.025,53.8038 199.025,58.8512 "
+       id="polyline120" />
+    <polygon
+       style="fill: #000000"
+       points="199.025,63.3512 196.025,57.3512 199.025,58.8512 202.025,57.3512 "
+       id="polygon122" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="199.025,63.3512 196.025,57.3512 199.025,58.8512 202.025,57.3512 "
+       id="polygon124" />
+  </g>
+  <g
+     id="g138">
+    <rect
+       style="fill: #ffffff"
+       x="238.651"
+       y="63.9531"
+       width="41"
+       height="25.5333"
+       id="rect128" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       x="238.651"
+       y="63.9531"
+       width="41"
+       height="25.5333"
+       id="rect130" />
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="259.151"
+       y="74.553101"
+       id="text136">
+      <tspan
+         x="259.151"
+         y="74.553101"
+         id="tspan132"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">Question</tspan>
+    </text>
+    <text
+       font-size="6.77333"
+       style="font-style:normal;font-weight:normal;font-size:6.77333021px;font-family:'Nimbus Roman No9 L';text-anchor:middle;fill:#000000"
+       x="259.151"
+       y="83.474823"
+       id="text3887">
+      <tspan
+         x="259.151"
+         y="83.474823"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.93044424px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="tspan3889">answering</tspan>
+    </text>
+  </g>
+  <g
+     id="g146">
+    <polyline
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="207.023,49.0221 207.023,53.7724 259.151,53.7724 259.151,58.7823 "
+       id="polyline140" />
+    <polygon
+       style="fill: #000000"
+       points="259.151,63.2823 256.151,57.2823 259.151,58.7823 262.151,57.2823 "
+       id="polygon142" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 0.6; stroke: #000000"
+       points="259.151,63.2823 256.151,57.2823 259.151,58.7823 262.151,57.2823 "
+       id="polygon144" />
+  </g>
+  <text
+     font-size="12.7998"
+     style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal"
+     x="224.711"
+     y="76.2389"
+     id="text150">
+    <tspan
+       x="224.711"
+       y="76.2389"
+       id="tspan148"
+       style="-inkscape-font-specification:'Crimson Text, Normal';font-family:'Crimson Text';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:11.89566658px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal">...</tspan>
+  </text>
+</svg>

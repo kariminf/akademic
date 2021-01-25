@@ -1,0 +1,25 @@
+\KwData{Testing statistics, ROUGE-1 estimation model, reference summaries}
+\KwResult{Summaries and their ROUGE scores}
+
+Extraction methods = \{plain, sim\}\;
+Intermediate scores = \{pos, sim, size, tf\}\;
+
+\ForEach{language}{
+	
+	\ForEach{document in the language}{
+		Score the document based on the model\;
+
+		\ForEach{extraction method}{
+			Generate a summary using sentence score (sent)\;
+			Generate a summary using TCC\;
+			Generate a summary using real ROUGE-1 score\;
+			\ForEach{intermediate score}{
+				Generate a summary using the intermediate score\;
+			}
+		}
+	}
+
+	Evaluate all generated summaries using ROUGE-1\;
+	Write the mean ROUGE-1 of each language\;
+	Plot the outputs of language clusterer\;
+}

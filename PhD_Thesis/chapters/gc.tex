@@ -1,0 +1,718 @@
+\begin{savequote}[75mm] 
+Do not go where the path may lead, go instead where there is no path and leave a trail.
+\qauthor{Ralph Waldo Emerson} 
+\end{savequote}
+
+\chapter{Graph-based cumulative scores for multilingual ATS}
+\label{chap:gc}
+
+Using linguistic approach or machine learning can be a limit to fully multilingual ATS, since their adaptation for new languages needs more resources such as toolkits and corpora.
+There is a problem finding good toolkits for some languages; For instance, searching for a good parser for a given language other than English can be challenging.
+As for corpora, for each new language, we have to prepare a set of texts with their summaries as a test corpus; If we use machine learning, we have to prepare another for testing.
+The remaining approaches that can be, easily, adapted for new languages are statistical and graph-based approaches. 
+Statistical approach is based on scoring a sentence using some features, such as term frequency, and the scores are combined linearly to an overall one. 
+Not every feature has the same impact on a sentence's relevance and so they have to be weighted differently. 
+The weights can be fixed manually or estimated using machine learning making the method more language dependent. 
+In our work, we consider each feature score as a probability of this sentence belonging to the summary, then the overall probability is their multiplication. 
+
+In this chapter, we will present our method based on statistical features and graphs; it is called \acf{ssf-gc}.
+Statistical features allow us to score a sentence in term of its relevance to the main topic. 
+Sentence-to-sentence relation (cohesion) is a very important property which has proven its capacity as graph-based approach. 
+In our work, we want to exploit the two approaches which leads to these contributions: 
+\begin{itemize}
+	\item A novel method which aims to combine statistical features scores and graph-based automatic text summarization.
+	\item Comparing between four variants of our method.
+	\item Some extraction methods to handle redundancy and fluency of the generated summary.
+	\item Testing the method in a multilingual context, against some state of art methods.
+\end{itemize}
+
+\section{SSF-GC method overview}
+
+Our intention is to create a language and domain independent extractive ATS method.
+Statistical and graph-based approaches are the only ones that allow us that. 
+So, we try to fuse them into the method illustrated in Figure \ref{fig:archi}.
+%
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.75\textwidth]{figures/gc/archi.pdf} % % %[width=140mm]
+	\caption{General architecture.}
+	\label{fig:archi}
+\end{figure}
+%
+First the input text is preprocessed, segmenting it into sentences, which are tokenized into words, removing stop words and stemming the remaining ones. 
+This is the only language-dependent part which does not pose a problem since much of its resources are available for many languages. 
+Then, a graph of sentences is constructed using their similarities, which is simplified to exclude weak sentences or links. 
+To score each sentence, we use statistical features then we exploit the links between sentences to enhance their scores. 
+Finally, we extract the first scored sentences trying to increase summary pertinence, to decrease redundancy and to keep coherence between a sentence and the next one.
+
+
+The preprocessing task is the same as the previous chapter (see Appendix A), since we implemented this method in the same platform: AllSummarizer. 
+We will use the text presented in Table \ref{tab:sent-exp} as an example for each step to better illustrate how our method operates. 
+It is a text of 10 sentences taken from a document of MultiLing'15 MSS task which will be presented later in experimental section.  
+
+\begin{table}[ht]
+	\centering
+	\caption{Example of some sentences of document ``a28066294c1497366a\_body.txt" from MultiLing'15 training corpus, english dataset}
+	\label{tab:sent-exp}
+	{\scriptsize
+		\readtable{gc/sent-exp.tex}
+	}
+\end{table}
+
+Table \ref{tab:preprocess-exp} represents the preprocessed version of Table \ref{tab:sent-exp} text, where each sentence is represented as a bag of terms. 
+These sentences are tokenized, filtered from stop words, then stemmed. 
+The preprocessing task can strongly affect the remaining tasks; 
+In the table, we can see two terms: ``Combat" and "combat", despite being the same term, it will be treated differently due to the character's case.
+
+\begin{table}[ht]
+	\centering
+	\caption{Text of Table~\ref{tab:sent-exp} after  preprocessing.}
+	\label{tab:preprocess-exp}
+	{\scriptsize
+		\readtable{gc/preprocess-exp.tex}
+	}
+\end{table}
+
+
+\section{Candidate sentences generation}
+
+Like most graph-based works, we use cosine similarity between sentences to construct a graph $ G(V, E) $, where the nodes $ V $ represent sentences and an arcs $ E $ between two sentences is the similarity between them. 
+The graph can be used to exclude some sentences from the scoring function, this will relieve the processing phase in case of a big input text. 
+In our work, we try to exclude those sentence with weak relations (in number and weight) and delete weak links as well. 
+Like \citet{04-erkan-radev}, we use a threshold to decide which arc to delete, but slightly different. 
+The threshold is used to decide which node to remove as well.
+
+\subsection{Insignificant nodes removal}
+
+An insignificant node, in our case, is a node which can not accumulate a total similarity weight more than one divided by the number of its important neighbors. 
+Where the important neighbors $ MImpN(v_i) $ of a node $ v_i $ are defined as the ones with a similarity greater than a given threshold.
+A node related to important neighbors has more chance to be kept. 
+Also, a node with many links can be kept as well, if the cumulative weight of these links is as important as having an important neighbor. 
+By dividing $ 1 $ on the number of important neighbors, we established a threshold on which we decide if a node is worthy to be kept.
+Equation \ref{eq:node-sign} represents weakness test of a given node $ v_i $, which takes boolean values: true if the node is to be deleted and false otherwise.
+\begin{equation}
+	weak\_node(v_i) = ( \sum_{(v_i, v_j) \in E} w_{ij} < \frac{1}{MImpN(v_i)} )
+	\label{eq:node-sign}
+\end{equation}
+
+Following this equation, three factors are used to decide if a node (sentence) is good enough as a candidate for the summary. 
+\begin{itemize}
+	\item The first one is the threshold which is used to identifying important neighbors. 
+	When a node (sentence) has many neighbors, its chance to being a candidate will be higher. 
+	Thus, a high threshold can exclude many nodes and a low one can result in keeping all the nodes.
+	\item The second one is the node's neighbors number; If it has a lot of neighbors, it will have more chance to being kept even if the weights are too low.
+	\item The third one is high weights; If a sentence has high similarities with its neighbors, their sum can be higher enough to make it significant.
+\end{itemize}
+
+Figure \ref{fig:vertexCut} represents a graph of similarities constructed from the previous example, where the node $ S_4 $ is going to be deleted (in this example, we took the mean between similarities as a threshold).
+Once a node is deleted, we do not recompute a new score for the other nodes; so, the order of deletion is not important in this case.
+%
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.5\textwidth]{figures/gc/graph/sim-vertexCut.pdf} % % %[width=140mm]
+	\caption{Similarity (Cosine) graph of the sentences in Table~\ref{tab:sent-exp}: deleting less important vertices.}
+	\label{fig:vertexCut}
+\end{figure}
+
+\subsection{Week arcs removal}
+
+Since we want to use graph arcs in the scoring function, it is important to delete the weaker ones which can affect this task. 
+Using the last threshold, we try to distribute it uniformly on different important neighbors of a given node to have a cutting value.
+If an arc's weight is less than this value, it will be deleted. 
+We should point out that, using this method, the graph will be directed; A node can consider another as a neighbor while the second one does not.
+To formulate the task, Equation \ref{eq:arc-sign} represents weakness test (true or false) of an arc $ (v_i, v_j) \in E$ having a weight $ w_{ij} $.
+\begin{equation}
+	weak\_arc(v_i, v_j) = ( w_{ij} < \frac{Threshold}{MImpN(v_i)} )
+	\label{eq:arc-sign}
+\end{equation}
+The threshold and the arc weight are the two factors controlling arc minimization.
+
+Figure \ref{fig:edgeCut} represents the edges reducing process based on the previous graph. 
+As shown, the vertex $ s_6 $ considers $ s_1 $ as a neighbor, but not the inverse. 
+So, our edges reducing algorithm can create directed edges.
+We took the mean between all the similarities ($ 0.1282 $) as a threshold. 
+The vertex (sentence) $ S1 $ has two important neighbors, which means the arcs from $ S1 $ to other vertices must be deleted if their weights are less than $ 0.1282/2 = 0.0641 $. 
+Thus, the arc $ (S1, S6) $ must be deleted since its weight is $ 0.0429 $.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.5\textwidth]{figures/gc/graph/sim-edgeCut.pdf} % % %[width=140mm]
+	\caption{Similarity (Cosine) graph of the sentences in Table~\ref{tab:sent-exp}: deleting less important edges.}
+	\label{fig:edgeCut}
+\end{figure}
+
+
+\section{Sentence statistical features (SSF) score}
+
+The first step in our method is to score each candidate sentence using some statistical features, which allows the assessment of how much a sentence is pertinent towards the main topic. 
+In a multilingual context, these features must be language independent. 
+This is why we choose to use four features: its similarity to other candidates, the terms it contains, its size and its position in the text. 
+Every feature of these four can be applied to any given language without being forced to adjust the algorithm (given the preprocessing task of this language, of course).
+
+\subsection{Similarity score}
+
+The first feature is sentence's cosine similarity with other candidate sentences. 
+A summary must represent the input document, so measuring how much a sentence can express the entire text is one solution.
+Similarly, in \citep{13-aries-al}, the probability of a sentence reflecting the topics of the input text is used.
+Our version is much simpler, it just needs to calculate the similarity (cosine) between a candidate sentence $ s_i $ and the remaining candidates $ C\backslash s_i $ as shown in Equation \ref{eq:ssf-sim}.
+
+\begin{equation}
+	Score(s_i/ sim) = sim(s_i, C\backslash s_i)
+	\label{eq:ssf-sim}
+\end{equation}
+
+\subsection{Term frequency score}
+
+The second feature is term frequency which is the most famous statistical feature of all. 
+A sentence containing frequent terms of a document can be considered as the most probable to discussing its main topic. 
+But, sometimes frequent terms are not always a good indicator since some terms tend to be repeated many times in a document. 
+In \citep{58-luhn}, the solution was to use a high cutting edge preventing domain related terms from interfering in sentence scoring.
+A more advanced solution is \acf{idf} \citep{73-salton-yang}, which is based on repeated terms in a corpus of a specific domain. 
+It is clear that this solution affects how the scoring method can handle new languages and documents of a different domain.
+Instead, we borrow a similar concept from \citet{03-allan-al}, which is called inverse sentence frequency (ISF). 
+This concept ISF is calculated as in Equation \ref{eq:isf}, where $ |C| $ is the number of candidate sentences, and $ |\{s | t \in s \wedge s \in C \}| $ is the number of candidate sentences containing this term.
+\begin{equation}
+	isf(t) = \log \frac{|C|}{|\{s | t \in s \wedge s \in C \}|}
+	\label{eq:isf}
+\end{equation}
+%
+To score a sentence $ s_i $ based on \ac{tfisf}, we use the Euclidean normalization of its terms' \ac{tfisf}, following the same formula used by \citet{04-nobata-sekine}. 
+Equation \ref{eq:ssf-tfisf} represents the \ac{tfisf} score of a sentence $ s_i $ given its words (terms) $ w_{ik} $.
+\begin{equation}
+	Score(s_i/ \tfisf) = \sqrt{\sum\limits_{w_{ik} \in s_i} (\tfisf(w_{ik}))^2}
+	\label{eq:ssf-tfisf}
+\end{equation}
+
+\subsection{Length score}
+
+The third feature is sentence size (length) which is the number of useful terms in a sentence. 
+Sentence size is used to penalize short sentences since they do not carry much information \citep{95-kupiec-al}.
+In our case, we do the inverse: we favor short sentences over long ones. 
+Using term frequency to score sentences, a short one will not score much anyway; 
+But if it does, it means that the sentence is both informative and compressed.
+We believe that adding just long sentences to a summary will reduce the quantity of ideas it will contain.
+Furthermore, long sentences can contain unimportant information which is usually removed using a language-dependent task called sentence compression. 
+So, instead of penalizing short sentences, we penalize the long ones taking in consideration their previous scores: similarity and \ac{tfisf}. 
+If two sentences has the same similarity and \ac{tfisf} scores but one is short and the other is long, we prefer the shorter one.
+This score is calculated by dividing 1 on the sentence's size, as shown in Equation \ref{eq:ssf-size}.
+\begin{equation}
+	Score(s_i/ size) = \frac{1}{|s_i|}
+	\label{eq:ssf-size}
+\end{equation}
+
+\subsection{Position score}
+
+The last score is sentence position in the input text, used in \citep{58-baxendale,69-edmundson}.
+It is based on the assumption that important sentences tend to appear at first and last. 
+We follow the same method used in \citep{04-nobata-sekine}, as shown in Equation \ref{eq:ssf-pos} where $ |D| $ is the number of sentences in the input document.
+\begin{equation}
+	Score(s_i/ pos) = \max (\frac{1}{i}, \frac{1}{|D| - i + 1})
+	\label{eq:ssf-pos}
+\end{equation}
+
+\subsection{SSF overall score}
+
+We consider the previous scores as probabilities of a sentence belonging to the summary. 
+Technically speaking, the scores can exceed 1 and need to be normalized in order to be used as probabilities. 
+But since the final score is used to reorder sentences, we can omit this operation (the denominator when normalizing will be the same in all sentences thus a constant). 
+So, given a set of statistical features $ F = \{ sim,\ tf-isf,\ size,\ pos \} $, the overall score which we call SSF (sentence statistical features) is expressed in Equation \ref{eq:ssf}.
+Assuming independence between the different features, the overall probability is the multiplication features probabilities.
+% 
+\begin{equation}
+SSF(s_i/ F) = \prod_{f_i \in F} score(s_i/f_i)
+\label{eq:ssf}
+\end{equation}
+
+Figure \ref{fig:ssf-exp} represents the SSF scores of our example sentences (in Table~\ref{tab:sent-exp}).
+For each vertex (sentence) $ s_i $ the scores are presented, in this order, as: $ SSF(s_i/ \{ sim,\ tf-isf,\ size,\ pos \}) $, $ Score(s_i/ tf-isf) $, $ Score(s_i/ sim) $ and sentence size $ | s_i | $ .
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.5\textwidth]{figures/gc/graph/ssf.pdf} % % %[width=140mm]
+	\caption{SSF scores of sentences in Table~\ref{tab:sent-exp}}
+	\label{fig:ssf-exp}
+\end{figure}
+
+
+\section{Graph-based cumulative (GC) score}
+
+
+Sentence score based on statistical features such as term frequency, similarity to the text, sentence length and position can capture its pertinence towards the main subject, but does not use its relation with other sentences.
+We believe exploring similarity relations among sentences can improve their scores.
+On the contrary of previous graph-based methods \citep{04-mihalcea-tarau,04-erkan-radev}, our method does not exploit the concept of eigenvector centrality between connected sentences. 
+Instead, it intends to improve sentence's own score (SSF) based on its neighbors by using either their scores or their amount, thus the name graph-based cumulative score (GC).
+To this end, we propose four variants of GC score: GC1, GC2, GC3 and GC4. 
+
+\subsection{GC score based on shared information (GC1)}
+
+The first variant takes in consideration both node's and its neighbors' SSF scores, and also their similarities.
+The intuition behind this variant is that a sentence can share some of its information with its neighbors. 
+But, it must not share the same amount for all of them; So the similarity with a given neighbor can be used as a sharing weight (percentage).
+If the sentence is connected to important ones, this will boost its score even if it was not important. 
+The advantage of this variant is to give less scored sentences another chance, and not over-scoring them by controlling the amount of accumulation using the similarities as weights.
+So, given a sentence $ s_i $ and a set of neighbors $ s_j $, the $ GC1 $ score is given in Equation \ref{eq:gc1}.
+\begin{equation}
+	GC1(s_i) = SSF(s_i) + \sum\limits_{(s_i, s_j) \in E} sim(s_i, s_j) * SSF(s_j)
+	\label{eq:gc1}
+\end{equation}
+
+\subsection{GC score based on award and penalty (GC2)}
+
+The second variant sums all the neighbors' SSF scores, then subtract all non-neighbors' ones.
+The intuition about this variant is the same as the first one: exporting information to the neighbors. 
+But in this one, the sentence is awarded for its neighbors by accumulating their scores and penalized for not being connected to other candidates.
+Equation \ref{eq:gc2} represents the $ GC2 $ score of a sentence $ s_i $ given its neighbors and non-neighbors.
+\begin{equation}
+	GC2(s_i) = SSF(s_i) + \sum\limits_{(s_i, s_j) \in E} SSF(s_j) - \sum\limits_{(s_i, s_j) \notin E} SSF(s_j)
+	\label{eq:gc2}
+\end{equation}
+
+\subsection{GC score based on neighbors number amplification (GC3)}
+
+A big number of neighbors is a good sign that a sentence is representative, hence it discusses topics covered by many other sentences \citep{97-salton-al}.
+So, a sentence with many neighbors must score higher. 
+In this variant, the score is amplified by the number of the neighbors plus one (the number of connected nodes). 
+Equation \ref{eq:gc3} represents this variant where $ |\{(s_i, s_j) \in E\}| $ is the number of te neighbors of the node $ s_i $.
+\begin{equation}
+	GC3(s_i) = SSF(s_i) * (1 + |\{(s_i, s_j) \in E\}|)
+	\label{eq:gc3}
+\end{equation}
+
+
+\subsection{GC score based on neighbors similarities amplification (GC4)}
+
+The last variant favorites sentences  with much neighbors' similarities. 
+Each sentence is scored by its initial score multiplied by the sum of its neighbors' similarities. 
+In Equation \ref{eq:gc4}, there are two possibilities: when $ a = 0 $ (lets call it $ GC4 $) and when $ a = 1 $ (lets call it $ GC5 $). 
+In case of $ GC4 $, each sentence can be rewarded if the sum of similarities is more than 1, or penalized otherwise. 
+The other case $ GC5 $ does not decrease the initial score, and just rewards for the amount of similarities.
+\begin{equation}
+	GC4(s_i) = SSF(s_i) * ( a + \sum\limits_{(s_i, s_j) \in E} sim(s_i, s_j)) \text{ where } a \in \{0, 1\}
+	\label{eq:gc4}
+\end{equation}
+
+\subsection{Example of calculation}
+
+Following our example in Table~\ref{tab:sent-exp} of 10 sentences, Table~\ref{tab:ssf-gc-exp} represents the different SSF-GC scores, calculated using equations \ref{eq:gc1}, \ref{eq:gc2}, \ref{eq:gc3} and \ref{eq:gc4}.
+Lets take the sentence $ s1 $ as an example of how we calculate SSF-GC1:
+\begin{align*}
+	SSF-GC1(s1) & = SSF(s1) + \sum\limits_{s_j \in \{s2, s6, s8, s9\}} sim(s1, s_j) * SSF(s_j) \\
+	& = 0.0345 + 0.1157 * 0.0493 + 0.04287 * 0.042 \\
+	& + 0.1826 * 0.1 + 0.1186 * 0.1745 = 0.081 \\
+\end{align*}
+The exact score is $ 0.06027 $ since we used rounded numbers in our sample.
+For each method, there are some underlined values: the bold ones represent the highest scores and the italic ones represent the lowest.
+The sentence $ s4 $ has been omitted from candidate sentences list, therefore it will not participate in the scoring task.
+
+\begin{table}[ht]
+	\centering
+	\readtable{gc/ssf-gc-exp.tex}
+	\caption{Example of graph cumulative scores (SSF-GC) for the sentences, and their orders according to every variant of GC.}
+	\label{tab:ssf-gc-exp}
+\end{table}
+
+We can observe that using each scoring method, the order of sentences will change greatly. 
+For instance, the sentence $ s1 $ is the last to be considered for the summary using $ SSF-GC1 $ and $ SSF-GC4 $ while it has more chance using $ SSF-GC2 $. 
+Sometimes, these methods can agree on the importance of certain sentences. 
+In our case, all methods except $ SSF-GC2 $ agree that $ s9 $ is te most probable to represent the entire text and hence be in the summary.
+
+
+\section{Summary extraction methods}
+
+When scoring, mostly, similar sentences will have almost the same score. 
+In this case, extracting the first scored ones is not a good strategy since they may contain the same information. 
+Information redundancy is one of ATS challenges; It can affect even informativeness when the summary's size is limited.
+Some works incorporate redundancy management in the score itself, which is the case of the famous MMR work \citep{98-carbonell-goldstein}. 
+Others try to handle redundancy after scoring, by reordering them using their original positions \citep{99-mckeown-al,00-radev-al,02-lin-hovy}, or by exploring the similarity measure between sentences \citep{15-aries-al}.
+
+%Coherence 
+Coherence is another issue since sentences must be reordered in order to give a more smooth summary. 
+In our case, we want to investigate the impact of redundancy removal and sentences reordering on generated summaries. 
+So, we propose six variants of extraction method, where the first selected sentence is the highest scored according to each variant.
+We will express these extraction methods based on: the next sentence to be added to the summary ($ \nextsent $), a function affording the sentence which maximize/minimize a score ($ \arg\max $/$ \arg\min $), the score using a variant of our scoring method ($\ssfgc(s_i) $), similarity between two sentences ($ \simil $ ), the last sentence added to the summary ($ \lastsent $), and the descending/ascending order ($ \ord $/ $ \iord $) based on a given score.
+
+\subsection{Standard extraction method (e0)}
+
+To test how good an extraction method is, we must compare it to the standard one  ($ e_0 $).
+Here, we extract the first scored sentences till reaching summary size, with no redundancy management and no coherence consideration.
+So, the next sentence to be added to the summary using this method ($\nextsent_{e0}$) is the one having the highest score ($ \ssfgc $) among candidate sentences minus those already in the summary ($ C\backslash S $).
+This is formulated in Equation \ref{eq:e0}. 
+\begin{equation}
+	\begin{aligned}
+		\nextsent_{e0} & = & \arg\max\limits_i \ssfgc(s_i) 
+		\text{ where } s_i \in C\backslash S \\
+	\end{aligned}
+	\label{eq:e0}
+\end{equation}
+
+According to $ \ssfgc_1 $ in Table~\ref{tab:ssf-gc-exp}, this extraction method will order the sentences from the highest scored to the lowest resulting in the following order: 
+[s9, s8, s0, s2, s7, s6, s5, s3, s1].
+
+\subsection{Redundancy extraction method (e1)}
+
+We borrowed the extraction method used in \citep{15-aries-al} which tries to manage redundancy after scoring.
+The sentences are reordered using their scores; Then every time we want to add a sentence to the summary, it must be compared to the last added one.
+If it is similar based on a threshold, we pass to the next sentence.
+So, the next sentence to be added to the summary using this method ($\nextsent_{e1}$) is the one ($s_i$) having the highest score ($ \ssfgc $) among candidate sentences minus those already in the summary ($ C\backslash S $).
+But in order to be added, it has to be less similar to the last one added to the summary ($\lastsent_{e1}$) based on a similarity measure ($\simil$) and a given threshold ($Th$).
+Equation \ref{eq:e1} formulates how a sentence is selected for the summary using extraction method $e1$.
+\begin{equation}
+	\begin{aligned}
+		\nextsent_{e1} & = & \arg\max\limits_i \ssfgc(s_i)
+		\text{ where } s_i \in C\backslash S \text{ and } \simil(s_i, \lastsent_{e1}) < Th\\
+	\end{aligned}
+	\label{eq:e1}
+\end{equation}
+
+Using the score $ \ssfgc_1 $ in Table~\ref{tab:ssf-gc-exp} and the mean of similarities ($ 0.1282 $) as a threshold. 
+We add s9 since it is the highest scored; then before adding s8 we verify if its similarity with s9 is less than the threshold $ sim(s9, s8) = 0.1155 < 0.1282 $ s8 can be added; then s0 $ sim(s8, s0) = 0.0 < 0.1282$ can be added; Then s2 $ sim(s0, s2) = 0.169 > 0.1282 $ cannot be added; then s7 $ sim(s0, s7) = 0.0 < 0.1282$ can be added; the process continues resulting in the following order: [s9, s8, s0, s7, s3, s1].
+
+\subsection{Graph-based extraction method (e2)}
+
+In the third one ($ e_2 $), we try to exploit the graph structure which affords coherence information between sentences.
+Sentences of the same paragraph shares some terms among themselves, since they discuss the same idea.
+We want to extract the highest scored sentences which have some links between them in the graph.
+Maybe, this strategy will ensure informativeness and coherence, but it is highly probable to increase redundancy. 
+This is because highly scored sentences can be very similar since the scoring function uses similarity to the input text as a feature.  
+So, the next sentence to be added to the summary using this method ($\nextsent_{e2}$) is the one ($s_i$) having the highest score ($ \ssfgc $) among the neighbors of the latest one previously added to the summary ($\lastsent_{e2}$) in the graph $ G(V, E) $.
+Where, $ V $ is the nodes (sentences) and $ E $ is the arcs (similarity between sentences). 
+Equation \ref{eq:e2} is a formulation of this variant.
+\begin{equation}
+	\begin{aligned}
+		\nextsent_{e2} & = & \arg\max\limits_i \ssfgc(s_i)  
+		\text{ where } (\lastsent_{e2}, s_i) \in E \\
+	\end{aligned}
+	\label{eq:e2}
+\end{equation}
+
+Always with our example, we add s9 to the summary since it is the highest scored. 
+Then among its neighbors [s0, s1, s2, s3, s5, s8], we search for the highest scored one which is s8 ($ \ssfgc_1(s8) = 0.23947 $). 
+We continue with s8, among its neighbors which are not already in the summary [s1, s2, s3, s5, s6, s7], the highest scored is s2 ($ \ssfgc_1(s2) = 0.11868 $).
+The process continues till reaching summary size or no neighbors are left. 
+In the end, we will have this order: [s9, s8, s2, s0, s5, s7, s6, s3].
+
+\subsection{Graph-based max similarity extraction method (e3)}
+
+The fourth variant ($ e_3 $) is a bit odd, proposed to test the case where we try to extract the most similar neighbors.
+That is, we want to extract the neighbor with a high score (which is fine), and a high similarity which will result in high redundancy.
+Insuring a high similarity between consecutive sentences in a summary does not mean it will be coherent. 
+Equation \ref{eq:e3} is a formulation of this variant.
+First, we extract the list of the neighbors ($s_i$) of the last added sentence to the summary ($\lastsent_{e3}$) in the graph $ G(V, E) $.
+Where, $ V $ is the nodes (sentences) and $ E $ is the arcs (similarity between sentences). 
+Then, we order all these neighbors' scores ($\ssfgc$) in descending order. 
+Also, we order their similarities scores ($\simil$) in descending order. 
+Let $ \iord $ a function that gives the ordinal of a given element in a descending ordered list.
+So, the next sentence to be added to the summary using this method ($\nextsent_{e3}$) is the one ($s_i$) with the minimum descending ordinal using the score ($\iord\ssfgc$) and using similarity with the last added sentence to the summary ($\iord\simil$).
+\begin{equation}
+	\begin{aligned}
+		\nextsent_{e3} & = & \arg\min\limits_i (\iord\ssfgc(s_i) + \iord\simil(\lastsent_{e3}, i)) \\
+		&& \text{ where } (\lastsent_{e3}, s_i) \in E \\
+	\end{aligned}
+	\label{eq:e3}
+\end{equation}
+
+According to $ \ssfgc_1 $ in Table~\ref{tab:ssf-gc-exp}, we add s9 to the summary. 
+Then, we calculate the $ e3 $ score3 of s9 neighbors; 
+First, the global order according to $ \ssfgc_1 $ score from the highest scored to the lowest is: [s9, s8, s0, s2, s7, s6, s5, s3, s1].
+Then, the order of s9 neighbors according to their similarity to s9 from the highest to the lowest is: [s2, s0, s5, s3, s1, s8].
+$ e3_{s9}(s0) = 3 + 2 = 5 $ where $ 3 $ is its order in term of the score and $ 2 $ is its order among s9 neighbors in term of similarity. 
+Likewise, we calculate $ e3_{s9} $ for the rest of s9 neighbors, then we choose the sentence with the minimum $ e3_{s9} $ score which is s0. 
+The process continues with $ e3_{s0} $ and the next selected sentences till having this list: [e9, s0, s2, s8, s6, s7, s5, s3].
+
+\subsection{Graph-based min similarity extraction method (e4)}
+
+The fifth variant ($ e_4 $) tries to keep the high scored neighbors with less similarity. 
+Taking sentences with high score ensures the informativeness of the summary. 
+Whereas selecting low similar ones will guarantee diversity and thus non redundancy. 
+Even with low similarity, the chosen sentences are connected and therefore have the same context, which gives a certain level of coherence to the resulted summary.
+Equation \ref{eq:e4} is a formulation of this variant.
+First, we extract the list of the neighbors ($s_i$) of the last added sentence to the summary ($\lastsent_{e3}$) in the graph $ G(V, E) $.
+Where, $ V $ is the nodes (sentences) and $ E $ is the arcs (similarity between sentences). 
+Then, we order all these neighbors' scores ($\ssfgc$) in a descending order. 
+Also, we order their similarities scores ($\simil$) in an ascending order. 
+Let $ \iord $ be a function that gives the ordinal of a given element in a descending ordered list, and $ \ord $ a function that gives the ordinal of a given element in a ascending ordered list.
+So, the next sentence to be added to the summary using this method ($\nextsent_{e4}$) is the one ($s_i$) with the minimum descending ordinal using the score ($\iord\ssfgc$) and the minimum ascending ordinal using similarity with the last added sentence to the summary ($\ord\simil$).
+\begin{equation}
+	\begin{aligned}
+		\nextsent_{e4} & = & \arg\min\limits_i (\iord\ssfgc(s_i) + \ord\simil(\lastsent_{e4}, i)) \\
+		&& \text{ where } (\lastsent_{e4}, s_i) \in E \\
+	\end{aligned}
+	\label{eq:e4}
+\end{equation}
+
+Same example as the previous method ($ e_3 $), but with similarities ordered from the smallest to the biggest.
+First, the global order according to $ \ssfgc_1 $ score from the highest scored to the lowest is: [s9, s8, s0, s2, s7, s6, s5, s3, s1].
+Then, the order of s9 neighbors according to their similarity to s9 from the lowest to the highest is: [s8, s1, s3, s5, s0, s2].
+$ e4_{s9}(s8) = 2 + 1 = 3 $ where $ 2 $ is its order in term of the score and $ 1 $ is its order among s9 neighbors in term of similarity. 
+Likewise, we calculate $ e4_{s9} $ for the rest of s9 neighbors, then we choose the sentence with the minimum $ e4_{s9} $ score which is s8. 
+Then, we will obtain this order: [s9, s8, s2, s0, s5, s3, s7, s6, s1].
+
+\subsection{Graph-based neighbors connections extraction method (e5)}
+
+The last one ($ e_5 $) seeks to keep the highest scored sentences among the neighbors which have a high amount of non-summary neighbors. 
+To achieve this we extract the list of the neighbors ($s_i$) of the last added sentence to the summary ($\lastsent_{e3}$) in the graph $ G(V, E) $.
+Where, $ V $ is the nodes (sentences) and $ E $ is the arcs (similarity between sentences).
+These neighbors are ordered using their scores ($\ssfgc$) where $\iord\ssfgc$ is their ordinal in descending order.
+So, the next sentence to be added to the summary using this method ($\nextsent_{e5}$) is the one ($s_i$) with the most non summary neighbors number ($|\{ s_j | (s_i, s_j) \in E \text{ and } s_j \notin S \}|$) and the minimum descending ordinal using the score ($\iord\ssfgc$).
+This is illustrated in Equation \ref{eq:e5}.
+\begin{equation}
+	\begin{aligned}
+		\nextsent_{e5} & = & \arg\max\limits_i \frac{|\{ s_j | (s_i, s_j) \in E \text{ and } s_j \notin S \}|}{\iord\ssfgc(s_i)} \\
+		&& \text{ where } (\lastsent_{e5}, s_i) \in E \\
+	\end{aligned}
+	\label{eq:e5}
+\end{equation}
+
+We add s9 as always, then for each of its neighbors we calculate the number of their neighbors which does not belong to the summary. 
+For example, $ e5_{s9}(s8) = 6/2 = 3 $ where 6 is the number of non-summary neighbors, and 2 is its order in term of the score. 
+Likewise, $ e5_{s9}(s0) = 4/3 = 1.33 $, $ e5_{s9}(s2) = 5/4 = 1.25 $, etc. and the highest scored sentence, which is s8 will be selected.
+Then, the scores of s8 neighbors are calculated and the process continues which will result in this order: [s9, s8, s2, s0, s5, s6, s7].
+
+
+\section{Experiments}
+
+In our evaluation, we use two metrics of ROUGE: ROUGE-1 and ROUGE-2, which are used in most automatic text summarization workshops.
+To calculate these scores in a multilingual context using ``eval" module of LangPi project (see Appendix A). 
+In our experiments we use MultiLing 2015 Multi-lingual Single-document Summarization (MSS) corpus which is designed for multilingual summarization. 
+A more detailed description on this corpus is given in the previous chapter.
+
+\subsection{Baselines}
+
+To measure our method's performance, we used two baselines: random order and first sentences. 
+Random order summarizer choose sentences randomly and add them to the summary till reaching the maximum size. 
+First sentences summarizer takes the first sentences of each document as a summary. 
+Besides these two baselines, we compared our system against some known methods for English: Luhn (Sumy: \url{https://github.com/miso-belica/sumy}), LSA (Sumy), TextRank (Sumay), LexRank (Sumy and linanqiu: \url{https://github.com/linanqiu/lexrank}), SumBasic (Sumy) and TCC (AllSummarizer: \url{https://github.com/kariminf/allsummarizer}).
+
+Luhn method \citep{58-luhn} is considered as the oldest work in the context of ATS. 
+It uses term frequency and terms position to score each sentence and extract the most scored ones.
+The terms are considered significant if their frequencies are comprised within two predefined thresholds. 
+For each sentence, a group of words is chosen where the limits are significant words separated with a maximum of 6 insignificant ones.
+The score of a sentence is the square of the number of significant words in that group divided by the number of all words.
+
+LSA method \citep{04-steinberger-jezek} uses latent semantic analysis in text summarization. 
+The algorithm starts by creating a matrix $ A $ of $ m $ rows representing the document terms, and 
+$ n $ columns representing the sentences where $ a_{i, j} \in A $ represents the frequency of the term $ i $ in the sentence $ j $. 
+Then, the singular value decomposition (SVD) of the matrix $ A $ is calculated and used to calculate the salience of each sentence.
+
+TextRank method \citep{04-mihalcea-tarau} uses a graph-based method. 
+From an input text, an indirected graph is constructed where each sentence represents a vertex, and the edge between two vertices is weighted by their similarity. 
+
+LexRank method \citep{04-erkan-radev} is quite similar to TextRank since both use PageRank \citep{98-brin-page} to score the sentences. 
+Using a cosine similarity, a weighted graph is constructed where the edges with a weight (similarity) less that a given threshold are omitted. 
+The continuous version follows almost the same equation as of TextRank, but instead it uses a $ tf-idf $ based cosine similarity.
+
+SumBasic method \citep{05-nenkova-vanderwende} uses term frequency to calculate the probability distribution $ p(w_i) = \frac{n}{N} $ of a word $ w_i $ where $ n $ is the word's frequency and $ N $ is the number off all words in the document. 
+Each sentence $ S_j $ is weighted as the average of all its words probabilities.
+The highest sentence is picked up to be in the summary and the words probabilities are updated to start weighting the sentences for the next candidate.
+
+AllSummarizer\_TCC (threshold clustering and classification) method \citep{15-aries-al} starts by detecting the different topics in the input text using a simple clustering algorithm based on cosine similarity and a threshold.
+Then, using Bayes classification and a set of features, we learn the characteristics of each cluster. 
+Each sentence is scored based on its ability to represent all these clusters. 
+
+
+\subsection{Training}
+
+To decide if a sentence is similar or not to another, we used a similarity measure (cosine) and a threshold. 
+The later has to be fixed before testing our method against others. 
+To this end, we used some statistical features on sentences similarities to estimate it, as in \citep{15-aries-al}. 
+We test our system's performance using these values: 0.0 (if there is a similarity, then similar), hmode (higher mode), mean and median. 
+Using English training set, we generated a summary for each threshold value (4 values), each scoring method (6 methods) and each extraction method (6 methods). 
+Then, for each threshold value, we selected the maximum ROUGE-1 recall among its 36 summaries. 
+This helps us decide which, among these threshold values, is capable of maximizing the performance.
+Figure \ref{fig:th} represents a comparison between these four threshold values based on ROUGE-1 score. 
+%
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.7\textwidth]{figures/gc/train/th.pdf} % % %[width=140mm]
+	\caption{ROUGE-1 for English (Training set):  a comparison between 
+		different thresholds that maximize ROUGE-1 recall score.}
+	\label{fig:th}
+\end{figure}
+
+It is clear that similarities mean gives better results either for recall or precision. 
+As for the null threshold, the performance is the worse for both measures.
+This indicates the utility of graph reducing task which leaves us with just important sentences to be scored. 
+So, further in our experiments, similarities mean will be used as a threshold value. 
+
+We want to test if cumulative scores are really capable of improving the performance. 
+So, we generate summaries for English training set using just SSF scores (we will refer to it as $ GC0 $). 
+Figure \ref{fig:method} represents a comparison between different cumulative scores in term of ROUGE-1 recall score.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.7\textwidth]{figures/gc/train/method.pdf} % % %[width=140mm]
+	\caption{ROUGE-1 for English (Training set):  a comparison between 
+		Graph-based cumulative score variants when we use the mean as a threshold and take 
+		the maximum value over the extraction methods.}
+	\label{fig:method}
+\end{figure}
+
+Using statistical features without incorporating graph properties (GC0) shows less recall and F1 score than other methods using the graph; As for precision measure, GC0 surpasses only GC2. 
+Also, we notice that GC1 variant can afford better performance than the other variants, either in term of recall or precision. 
+We must point out that comparing these variants using the maximum performance they can afford does not imply that a variant is better than the others, but rather it has the possibility to be better if we choose the right parameters.
+
+
+%Using similarities' mean as a similarity threshold, we generated a summary for each language (38), each scoring method (6) and each extraction method (6).
+%Figure \ref{fig:langs-train} represents SSF-GC performance versus TCC's for each language of the training set, using extraction method $ e4 $.
+%%
+%\begin{figure*}[ht]
+%	\caption{ROUGE-1 Recall for 38 languages:  a comparison between 
+%		TCC method (the perfect score for each language) 
+%		and our three methods (with mean as threshold and extraction method 4).}
+%	\label{fig:langs-train}
+%	\centerline{
+%		\includegraphics[width=.9\textwidth]{IMG/train/langs-1.pdf} % % %[width=140mm]
+%%		\includegraphics[width=.9\textwidth]{IMG/train/langs-2.pdf} % % %[width=140mm]
+%	}
+%	\centerline{
+%%		\includegraphics[width=.9\textwidth]{IMG/train/langs-1.pdf} % % %[width=140mm]
+%		\includegraphics[width=.9\textwidth]{IMG/train/langs-2.pdf} % % %[width=140mm]
+%	}
+%\end{figure*}
+%
+%GC1 method seems to be performing better than other variants; 
+%It surpasses the baseline 20 times, GC2 2 times, GC3 10 times, GC4 with $ a = 0 $ 15 times and GC4 with $ a = 1 $ 17 times.
+%Also, GCC beats TCC in 24 languages over 38 using at least one variant, and for the remaining languages the difference was small. 
+
+We proposed five variants to score a sentence using statistical features and graph (GC1, GC2, GC3, GC4 and GC5). 
+Also, we proposed four extraction methods based on graph (e2, e3, e4, e5) besides two other existing ones (e0 and e1).
+We believe $ e4 $ is the most intuitive one, but using extraction method $ e4 $ is not preferable for all scoring methods. 
+So, using similarities' mean as a similarity threshold, we generated a summary for each language (38), each scoring method (5) and each extraction method (6).
+We counted the number of times where each extraction method maximizes ROUGE-1 score of a scoring method; The result is represented in Table \ref{tab:gc-extract}.
+The maximum times where each extraction method maximizes ROUGE-1 are represented in bold. 
+
+\begin{table}[ht]
+	%	\begin{center}
+	\centering
+	\caption{Number of times where each extraction method maximizes ROUGE-1 per GC variants.}
+	\label{tab:gc-extract}
+	\readtable{gc/gc-extraction.tex}
+	%	\end{center}
+\end{table}
+
+Scoring method GC1 favors $ e4 $ as an extraction method. 
+GC2 gives better results with $ e0 $.
+As for GC3 and GC4, they perform better with $ e1 $.
+
+%\begin{figure*}[ht]
+%	\begin{center}
+%		\includegraphics[width=.7\textwidth]{IMG/langs-train-2.pdf} % % %[width=140mm]
+%		\caption{ROUGE-1 Recall for 18 languages:  a comparison between 
+%			TCC method (the perfect score for each language) 
+%			and our three methods (with median as threshold and extraction method 3).}
+%		\label{fig:langs-train-2}
+%	\end{center}
+%\end{figure*}
+
+Before testing our method on unseen data, we want to compare its performance against the baseline systems presented earlier on the training set. 
+Most of these baselines support just English language, unlike AllSummarizer\_TCC. 
+So, we used English training set to generating summaries using our baselines. 
+To be fair, we followed the same principle used in our method when reaching the maximum size of a summary. 
+We add high scored sentences to the summary, if the summary size is reached or the next sentence cannot fill the remaining space, we stop. 
+Table \ref{tab:base-en-train} represents ROUGE scores of the different baselines on English training set.
+\begin{table}[ht]
+%	\begin{center}
+		\caption{ROUGE-1 and ROUGE-2 of baseline systems for English training set.}
+		\label{tab:base-en-train}
+		\readtable{gc/baselines-en-train.tex}
+%	\end{center}
+\end{table}
+TCC method surpasses other baseline systems in this training set either using ROUGE-1 and ROUGE-2.
+This is fortunate, because the system (AllSummarizer) is designed to support all MultiLing'15 languages.
+So, we can use it as a baseline for other languages.
+
+
+\subsection{Testing}
+
+We generated summaries using our method variants with the mean between similarities as threshold and the different extraction methods fixed for each scoring one.
+Table \ref{tab:langs-test} represents ROUGE-1 recall for all the 38 languages of Multiling'15 test corpus. 
+We used random reordering, first sentences and AllSummurizer\_TCC as baselines.
+We counted the number of times a system has surpassed the others (MX) and the number of times a variant of our method beats the three baselines in term of ROUGE-1 recall (BL).
+In each row, the bold number is the highest score among all the systems, and the underlined ones are those which beats all the three baselines. 
+
+%
+%\begin{figure*}[ht]
+%	\caption{ROUGE-1 Recall for 38 languages in testing phase}
+%	\label{fig:langs-test}
+%	\centerline{
+%		\includegraphics[width=.9\textwidth]{IMG/test/langs-1.pdf} % % %[width=140mm]
+%	}
+%	\centerline{
+%		\includegraphics[width=.9\textwidth]{IMG/test/langs-2.pdf} % % %[width=140mm]
+%	}
+%\end{figure*}
+\begin{center}
+	\small
+	\readtable{gc/langs-test.tex}
+\end{center}
+%\begin{table}[!ht]
+%	%	\begin{center}
+%	\scriptsize
+%	\readtable{gc/langs-test.tex}
+%	%	\end{center}
+%\end{table}
+
+Among all graph-based cumulative score (GC) variants, GC1 has the best performance. 
+It outperforms the three baselines for 31 languages out of 38, and it scores the highest 18 times.
+The only languages in which it fails to beat the baseline are: ca, es, fi, it, ja, ms and nl.
+This means the probability that GC1 beats these baselines by chance is low.
+As we mentioned before, it is because each sentence shares its information with its neighbors based on their similarities. 
+Here, many factors decide if a sentence will score better:
+\begin{itemize}
+	\item It has many neighbors with fair similarities with them,
+	\item It has high similarities with its neighbors,
+	\item It has high scored neighbors (even if they are few).
+\end{itemize}
+On the other hand, GC2 outperforms the baselines only 9 times making it the worst performer among all variants. 
+Then, GC3 with 18 times and GC4 with 22 times (GC5 also which is a GC4 with $ a=1 $).
+As for how much GC1 outperforms the baselines, it is mostly of the order of 0.01 which is a very important amount.
+
+Our intention is to compare the different variants of our method with the baselines in term of how much languages they can afford a better recall score. 
+But observing the different scores between the languages, we can notice that some languages such as Arabic (ar), German (de), Hebrew (he), etc. have low recall scores for all systems compared to other languages such as English (en) and French (fr). 
+A possible interpretation is that the summaries of these languages with low scores are abstractive than extractive.
+In fact, It is shown in \citep{99-jing-mckeown} that 78\% of summaries sentences come from the original document while half of them have been compressed.  
+
+Once again, we generated summaries using baseline systems for English testing set. 
+We intend to compare SSF-GC method's performance against other systems, since AllSummarizer has been trained on Multiling'15 training set which gives it the advantage over other baselines. 
+We generated summaries for each baseline using the training set for English, where we add high scored sentences and stop before surpassing the specified maximum size.
+Table \ref{tab:base-en-test} represents ROUGE-1 and ROUGE-2 scores for each system including our best variant: SSF-GC1 with mean as threshold and $ e4 $ as extraction method.
+Underlined values represents where a certain system beats others based on each metric.
+
+\begin{table}[!ht]
+	%	\begin{center}
+	\centering
+	\caption{ROUGE-1 and ROUGE-2 of baseline methods and SSF-GC method for English testing set.}
+	\label{tab:base-en-test}
+	\readtable{gc/baselines-en-test.tex}
+	%	\end{center}
+\end{table}
+
+Except for ROUGE-1 recall, which has a slight difference (almost 0.003), our method outperforms the baselines. 
+It does not just improve recall but also precision score as well, which are mostly conflicting: if we try to increase recall we loose precision and vis-versa. 
+As shown in the table, the first ones (SSF-GC and LexRank), which are graph-based, surpasses the other systems with more than 0.01 in term of ROUGE-1 recall. 
+In term of ROUGE-2, our method outperforms the others, but it is not so far from graph-based methods (LexRank and TexRank).
+
+
+\section{Discussion}
+
+
+We presented a new method which combines statistical scores with similarity graphs to extract salient sentences. 
+First, each sentence is scored independently using some statistical features. 
+Then, based on a simplified graph of similarities, we try to re-score each sentence based on its initial one and its relationships with others. 
+To exploit these relationships, we proposed 4 different variants. 
+These scores have as objective to get the most salient sentences, which means increasing the informativeness of the summary. 
+Informativeness is not the only issue of ATS; There are also redundancy and readability. 
+These three properties are often inconsistent; i.e. we can not enhance one without affect the quality of another. 
+So, we tried to propose some extraction methods which, based on scores, try to select summary sentences, sometimes by preferring one property over the others or by trying to find a trade-off. 
+
+To test our method, we used a corpus from MultiLing'15 workshop which contains documents and their summaries for 38 languages.
+First, we tried to estimate which threshold can we use to decide if a sentence is similar to another. 
+In this corpus, we found that the mean between sentences similarities gives fair results for most languages. 
+Then, we selected for each scoring method an extraction strategy that maximizes its informativeness. 
+After fixing all parameters, we tested our method variants against some baseline systems of well known ATS methods. 
+Our method did a good job especially $ GC1 $ variant with $ e4 $ scoring method, either in term of recall or precision.
+GC1 variant gives better informativeness (recall) because it cumulates scores from sentence's neighbors weighted by their similarities. 
+A sentence that shows high similarities to its neighbors should score better. 
+Also, a high connected one is more probable to discuss the main topic of the input text. 
+In addition to the number of neighbors and similarity, a sentence connected to high scored neighbors is more likely to be important. 
+High precision can be explained by the use of extraction method $ e4 $. 
+It tries to set a trade-off between informativeness and redundancy: maximize the score and minimize the similarity. 
+Also, it extracts connected sentences in the graph to guarantee some coherence. 

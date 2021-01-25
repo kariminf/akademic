@@ -1,0 +1,372 @@
+\begin{savequote}[75mm] 
+The world is one big data problem.
+\qauthor{Andrew McAfee} 
+\end{savequote}
+
+\chapter{Introduction}
+
+%problem of huge data
+%\lettrine[lraise=0.1, nindent=0em, slope=-.5em]{W}{e}
+We
+live in the age of data, where a huge mass of information is produced everyday. 
+It can be found in many sources, such as electronic newspapers, with many variations.
+The redundant information makes their selection and processing very difficult.
+One way to ease this task is using automatic text summarization. 
+
+%Summary benefits
+A summary, as defined in TheFreeDictionary\footnote{TheFreeDictionary: \url{http://www.thefreedictionary.com/outline} [February 07, 2017]}, is ``\textit{a brief statement that presents the main points in a concise form}".
+One of its benefits is identifying the content of a given document, which will help readers picking the right documents of their interests.
+According to \citet{75-borko-bernier}, a summary has many benefits such as saving time, easing selection and search, improving indexing efficiency, etc. 
+Summaries of the same document can be different from person to person. 
+This can occur due to different points of interest or due to each individual's understanding.
+
+%History
+\ac{ats} is not a new field of research. 
+Since the work of \citet{58-luhn}, many works have been conducted to improve this field of research. 
+Since then, despite the huge amount of researches conducted in this field, it still suffers from many challenges. 
+In this introductory chapter, we will present some challenges facing \ac{ats}.
+We will present this thesis motivation and aims, finishing by a discussion and outline of the next chapters.
+
+
+
+\section{Summarization challenges}
+
+There exists a lot of challenges which harden the advance of \ac{ats}. 
+One of these problems is the absence of a precise definition of what should be included in a summary. 
+Over time, several works were conducted to generate the perfect summary which must be informative on one hand, and not redundant on the other. 
+%The first challenge is the definition of a good summary, or more precisely how can a summary be generated. 
+Our needs for a summary are good indicators of what it should be: extractive or abstractive, generic or query-driven, etc. 
+Even if we get the idea how humans usually summarize, implementing it will not be easy. 
+Designing a powerful automatic text summarizer needs a lot of resources either tools or corpora. 
+Another type of challenges is the summary informativeness; How can a system imitate human beings in summarizing task?
+The coherence of the summary is one of the challenges that stood for years. 
+Mostly, \ac{ats} methods aim to generate an informative summary, but when it comes to the summary's readability it is a matter of future work.  
+
+\subsection{Definition}
+
+A good summary can be defined as the shortest and more informative grammatically correct one without redundancy. 
+This definition seems simple, but when we want to implement such idea, we will come across a lot of choices. 
+A text, usually, contains a main topic and some satellite topics. 
+For instance, if we talk about PCs, we may also include some commercial notions to express the market shares.
+The choice of what topic to favor raises the question: what is a good summary?
+If the summarization system is query-based, it is settled that the most similar the topics are to the request the more they are relevant. 
+Nevertheless, Some may argue that adding relevancy to the main topic along with the request can be helpful for some users.
+
+When it comes to generic summarization systems, it is more difficult to decide what is better for the reader.
+Some researches try to capture the most relevant sentences from each topic to form a summary \citep{11-song-al}. 
+The summary can cover all topics of a text, but sometimes it got far from the main point.
+%
+Others select only most relevant sentences to the main topic and ignore secondary ones. 
+This leads to a summary that focuses on the main topic, and ignores the others which can be as important as the main topic.
+%
+Sure we have to give more importance to the main topics, but the satellite ones count too. 
+This is what some researches are trying to achieve; a balance between the main topic and other topics that may contain some useful information \citep{12-zhang-al,13-aries-al}. 
+For instance, in our previous work \citep{13-aries-al}, we try to regroup the sentences in different topics using a cosine similarity based clustering algorithm. 
+A sentence can belong to more than one topic. 
+Then, we use some statistical features with Naive-Bayes learning algorithm to model each topic to, finally, score each sentence according to its capacity of representing all these topics. 
+This can give each topic a chance to participate in scoring sentences.
+
+
+\subsection{Summary informativeness}
+
+The main goal of a summary is to afford a representative text of the original document. 
+It must cover the essential information using few words. 
+That means, the summary must retain more information with less redundancy. %retain vs. maintain
+
+\subsubsection{Summary coverage}
+
+A summary must cover the most important content of the original document. 
+When we read a summary, we must get an idea on what its original document is about, or what the document can tell us about a specific request. 
+Information quantity has been the main target of evaluation methods, and workshops as well. 
+A lot of advance has been made in this direction; so it may be considered as a minor problem compared to others.
+For example, in MultiLing 2015, the systems had recall scores close to the top-line system which is a system that cheats while generating summaries.
+That being said, a summary's coverage is an issue when it comes to generic systems which are not specific to any domain and language.  
+
+
+\subsubsection{Summary conciseness}
+
+A good summary must not contain redundant information; leaving the space for more useful information to be included. 
+Most systems reorder sentences using their scores and extract the highest scored ones to form a summary.
+But, sometimes, two similar sentences can be included into the summary especially in case of multi-document summarization.
+During summary generation, a system must exclude similar sentences even if they score more than others.
+A very known work that takes redundancy in consideration is \ac{mmr} \citep{98-carbonell-goldstein}.
+The authors score each candidate sentence $ s_i $ of a document $ D $ (which is not already included into the summary $ S $) using two scoring similarities: $ \text{\textit{sim}}_1 $ which calculates the similarity of $ s_i $ to a query $ Q $, and $ \text{\textit{sim}}_2 $ which calculates the similarity of $ s_i $ to another sentence $ s_j \in S $.
+The idea is to maximize MMR score given in Equation \ref{eq:mmr}.
+\begin{equation}
+	\label{eq:mmr}
+	MMR = \arg \max \limits_{s_i \in D\backslash S} [ \lambda\, \text{\textit{sim}}_1 (s_i, Q) - (1-\lambda) \max\limits_{s_j \in S} \text{\textit{sim}}_2 (s_i, s_j)]
+\end{equation}
+Where, $ \lambda $ is a parameter that balances between the relevance ($ \lambda = 1 $) and the diversity ($ \lambda = 0 $).
+The authors use cosine similarity to calculate $ \text{\textit{sim}}_1 $ and $ \text{\textit{sim}}_2 $.
+%
+
+More complex methods have been proposed to find a trade-off between coverage and conciseness of the generated summary.
+For instance, \citet{12-nishikawa-al} model text summarization as a knapsack problem to generate a summary with a maximum coverage, selecting sentences with as many information units (unigrams and bigrams) as possible.
+Then, they add a constraint to prevent adding a unit that already exists in the summary.
+
+The two previous methods try to score sentences based on their coverage and conciseness in the same time.
+A more simpler method is to score sentences using just coverage then regulate redundancy while selecting summary ones.
+In \citep{15-aries-al}, cosine similarity and a threshold are used to decide two sentences similarity. 
+The most scored sentence is considered to be in the summary.
+It is selected only if it is not similar to the last added one.
+
+We must point out that redundancy is not just a property of texts; it can be found even in videos. 
+\citet{16-bhaumik-al} divide a video into multiple shots from which key-frames are extracted. 
+Then, they remove intra and inter-shots redundant frames to form the final video summary.
+
+
+\subsection{Summary readability}
+
+%Post-processing
+Extractive summarization methods are based on extracting pertinent units (sentences often) from the source document(s). 
+The extracted units are used to form a summary, which often leads to dangling anaphora references and sentences which are ordered badly.
+Abstractive methods seem to handle the anaphora problem and the order of sentences, since the generation is from a semantic representation. 
+But the problem is, can the generator afford a good grammar with a fluent language? 
+Summary readability has been in ``future works" section for years, a future that has never come. 
+
+\subsubsection{Reference clarity}
+
+When we extract summaries, some references such as personal pronouns remain unsolved. 
+That way, the reader cannot find out who or what is involved in the sentence.
+So, to generate a good summary we have to replace the first reference in the summary. 
+For instance, if we have a text ``Karim is writing a thesis. He is almost finishing it." and the second sentence is select as a summary, we must replace ``He" with ``Karim" and ``it" with ``the thesis" so the summary can be understandable.
+In \citep{16-bayomi-al}, it is found that introducing \ac{ar} can slightly improve the readability of the summary. 
+Also, the authors confirm that the impact of \ac{ar} varies from one domain to another which means it improves some domains summaries more than others.
+
+The resulted summary's readability can be enhanced by resolving anaphora, but it can even improve the process of summarization itself. 
+\citet{07-orasan-stafford} try to test the effect of \ac{ar} on the summarization process using \ac{tfidf} for scoring and three different \ac{ar} methods.
+The informativeness of generated summaries improves when \ac{ar} is used before summarization. 
+On the other hand, it has no correlation with the performance of the anaphora resolver used to improve frequency calculation. 
+\citet{07-steinberger-al} incorporate \ac{ar} into a complex scoring method which improves its performance even with an imperfect anaphora resolver.
+To improve the coherence, they propose an algorithm to replace incorrect anaphoric relations in the summary by their respective original expressions in the text, which leads to a precision of 69\%.
+
+
+\subsubsection{Coherence}
+
+Most summarization methods are based on extracting relevant sentences and present them as they are. 
+It would be a good idea if these sentences are reordered since they are extracted from different parts of a text. 
+When reading a summary, the reader has to feel some flow of ideas without just jumping from idea to another.
+
+%Ordering in single document summarization
+In single document summarization, it seems right to present them as ordered in the original text. 
+That is, reordering them using their original positions \citep{99-mckeown-al,00-radev-al,02-lin-hovy}. 
+But, sometimes it will be better to move a sentence towards another due to their similarities. 
+Methods which use rhetorical relations, such as \citep{98-marcu}, do not suffer this problem since they keep the relations between sentences.
+%ENHANCE more sentence ordering for signle document. summmarization
+
+In multi-document summarization, sentence reordering is important since the sentences come from different sources. 
+The main topic of these documents must be the same, but the secondary topics are not always the same in each document.
+Moreover, sentences in each source document are not ordered in the same flow of ideas. 
+Some works tried to solve this problem differently. 
+One solution is ``Majority Ordering" \citep{02-barzilay-al}, where similar sentences are grouped together into themes. 
+Then, a graph representing the local order is created, where each node represents a theme. 
+Two nodes are connected with an arc if, in a document, one sentence of the first node's theme is followed by another of the second node's theme.
+The weight of this arc is the number of documents where this order is observed.
+To infer the global order of the graph, an approximation algorithm is used.
+Other variations of this method can be found in the works of \citet{05-bollegala-al,08-ji-nie}.
+
+\subsubsection{Grammaticality}
+
+A sentence can be grammatically incorrect when being generated by an \ac{ats} system. 
+In case of extractive summarization, a summary is mostly formed of complete sentences extracted from the original document. 
+This means, as long as the sentences from the original text are correct as long the summary's will be. 
+Extracting phrases to form a summary such in \citep{18-gehrmann-al} can be challenging in term of grammaticality. 
+Abstractive summarization is more concerned by this challenge, since the text is generated from semantic representations or using \ac{ml} models. 
+
+\subsection{Resources}
+
+One of the most problematic challenges in \ac{ats} is the lack of resources. 
+Nowadays, there are many powerful tools for stemming, parsing, etc. compared to the past. 
+Nevertheless, there still exists the challenge of finding adequate ones for a certain problem of summarization. 
+Besides, finding or creating annotated corpus for \ac{ats} can be seen as a challenge as well.
+%In this section, we will try to present some freely available resources which can be helpful to researchers.
+
+\subsubsection{Toolkits}
+
+%Summarization toolkits
+Generally, when we create a new method, we have to compare it to other existing methods.
+We can generate summaries with these different methods including ours and evaluate them using the earlier presented evaluation metrics.
+In the past, it was difficult to find existing methods' implementations, and if found they probably be costly.
+So, we have to implement them ourselves or contact the paper's authors. 
+This have been changed recently with the flourishing of open source mentality among academics as well as industrial companies. 
+
+%preprocessing toolkits
+Summarization methods can be hard to be implemented, especially when they are heavily based on complex \ac{nlp} functionality. 
+\ac{nlp} methods are more advancing by time, such as tokenizers, stemmers, syntactic parsers, etc.
+Unfortunately, many original systems used to test these methods are not available either openly or commercially. 
+There are some languages that lack basic \ac{nlp} tools such as tokenizers and stemmers.
+Recently, there seems to be a more interest on affording open source toolkits to support research among \ac{nlp} community.
+
+\subsubsection{Corpora} 
+
+%talk about training ressources (labled corpus, etc.).
+Many research methods use machine learning to train the system on a labeled corpus and then test it on another one. 
+The problem, in many cases, is the absence of adequate corpora for \ac{ats}. 
+Text summarization task is affected by the genre of training corpus (news, novels, etc.), which imply the creation of diverse corpora based on the purpose of the system.
+Some researches tried to create methods with semi-supervised learning to solve this problem \citep{02-amini-gallinari}.
+%talk about testing corpus
+%availability
+To adjust this problem, some workshops like MultiLing propose tasks for summarization corpora creation. 
+Also, they afford training and evaluation corpora for automatic text summarization.
+
+\subsection{Evaluation}
+
+%Evaluating ATS methods is still a challenging task. 
+Comparing a generated summary automatically to some man-made summaries is good, but not enough. 
+The summarization system still can generate a good summary which is not even close to the reference summaries. 
+Also, using reference summaries is more likely to work with extractive systems better than abstractive ones. 
+This is a brief summary of some challenges:
+\begin{itemize}
+	\item People write summaries differently, therefore we can not say this is the best summary for sure. 
+	Hiring professionals to evaluate automatic summaries can be very expensive in term of coast and time. 
+	Also, a summary can be judged differently from a person to another due to human variation.
+	
+	\item To face the problems with human evaluation, especially the evaluation time, automatic methods can be used. 
+	Most automatic methods evaluate just the content without the quality aspect. 
+	Also, they are more adequate for extractive summarization methods than the abstractive ones. 
+	Using words or n-grams in a reference summary and comparing them to those of the automatic summary can favorize certain systems over other better ones. 
+	%	If the reference summaries are created taking in mind the use the sentences of the original text with some changes, this can disfavor abstractive systems which generates totally new sentences. 
+	%	In the contrary, if the reference summaries are using totally new words, the extractive summaries may be disadvantaged as well. 
+	%	For that, no co-occurrence will be found between their words and those of the reference.
+	
+	\item Automating quality evaluation such as grammar, reference clarity and coherence can be very challenging. 
+%	The challenge is the same as in \ac{ats} one, discussed earlier.
+	It needs more profound linguistic analysis of the summary, with accurate and powerful tools.
+	Also, the methods that can detect such flaws can be used to fix them in the first place.
+	For example, if we can detect automatically that a sentence must come earlier than another, this can be added to the summarization systems to fix the problem.
+	
+\end{itemize}
+
+
+\section{Thesis motivation}
+
+
+Summaries can be very useful in real life applications.
+For instance, they can enhance productivity and decision making in term of time.
+Lets quote from \citep{02-mani-al}: ``Summaries as short as 17\% of full text length sped up decision-making by almost a factor of 2 with no statistically significant degradation in accuracy.".
+It can save time, ease documents selection and improve indexing efficiency \citet{75-borko-bernier}.
+Automatizing the generation of summaries can be beneficial in many cases. 
+\citep{17-pashutan-al} investigated the impact of \ac{ats} on media Monitoring. 
+They found out that even using a simple summarization system, employees workflow was greatly improved.
+Moreover, it can improve other domains such as: medical domain \citep{05-afantenos-al,19-liang-al} and legal domain \citep{04-farzindar-lapalme,16-polsley-al}.
+
+Recently, multilingual content started to grow considerably, which needs more adaptable methods for languages other than English.
+As a result, multilingual text summarization began to receive more attention from research community. 
+In 2011, TAC\footnote{TAC: Text Analysis Conference, \url{https://tac.nist.gov}} workshop included a task called ``MultiLing task", which aims to evaluate language-independent summarization algorithms on a variety of languages \citep{11-giannakopoulos-al}.
+This task evolved in 2013 into a workshop called ``MultiLing workshop" as a community-driven initiative for testing and promoting multilingual summarization methods. 
+%There were three tasks: ``Multi-document multilingual summarization" (MMS) \citep{13-giannakopoulos},  ``Multilingual single document summarization" (MSS) \citep{13-kubina-all} and ``Multilingual summary evaluation".
+%Ten languages were used in MMS and forty in MSS task, and the evaluation was automatic using ROUGE-1, ROUGE-2 and MeMoG.
+Afterwards, the workshop was held in 2015, 2017 and 2019. 
+In the light of that, this thesis will present \ac{ats} with more focus on multilingual context.
+
+
+\section{Thesis aims}
+
+Motivated by the growth of multilingual content on the web, this thesis will be focused on multilingual \ac{ats}.
+Multilingualism is the ability to use many languages in a specified task (in our case: \ac{ats}).
+So, a multilingual method must be isolated from language's structure of the input text. 
+By definition, most existing methods can be considered as language-independent. 
+When it comes to implementing such method into a system, the general challenges presented earlier can be an issue:
+\begin{itemize}
+	\item Methods based on simple linguistic properties found in most/all languages such as proper nouns can be seen as language independent.
+	However, when it comes to multilingual implementation, we face the problem of finding proper nouns for many languages. 
+	\item Machine learning \ac{ats} methods can be language-independent.
+	The language supported by the system depends on the resources used for its training. 
+	The problem with this approach is its use of annotated corpora for each language we want to add. 
+	
+\end{itemize}
+
+In conclusion, even if a method is language-independent, it can be difficult to adapting the system implementing it into new languages.
+In this case, the system can be considered as partially language-independent. 
+Our intention is to propose a new method that insures the following conditions:
+\begin{itemize}
+	\item Simple adaptation: 
+	A good multilingual method is the one which can easily be adapted into as many languages as possible. 
+	
+	\item Informative summaries: 
+	A generic method can afford less performance than a language-specific one. 
+	So, for a generic method (system) to support many languages with a fair performance is a good method (system). 
+	
+	\item Coherence: In general, this task needs some language related information to be done properly. 
+	In our case, we will focus on sentences ordering.
+	
+\end{itemize}
+
+
+\section{Discussion and thesis Outline}
+
+In this introductory chapter, we presented different summarization challenges. 
+They are summarized into informativeness, readability, resources and evaluation. 
+A summary must afford the most important ideas in the input document without repeating them; thus it has to be informative. 
+A reader must be able to understand this summary; therefore, it must not contain dangling references, it must be coherent and most of all grammatically correct. 
+To automatically generate such summaries, a system must use some resources either for preprocessing (eg. tokenizing and stemming), processing (eg. representing sentences as syntactic trees using parsers) or postprocessing (eg. anaphora resolution).
+The availability of these tools for a given language is crucial for implementing such system. 
+Resources are not just tools, they can be data as well which is used for training and testing the system. 
+Speaking of testing, summary evaluation is another issue which we will discuss in this thesis with more detail due to its importance. 
+Knowing all these challenges open opportunities to better design summarization methods.
+Motivated by the exploding amount of multi-lingual data on the web, we focus more in this thesis on multi-lingual summarization.
+A better summarization method in our view is the one providing good summaries with less resources either tools, data or computing power. 
+When implemented, adjusting and applying the system on new languages must be easy.
+The rest of this thesis is organized as follows.
+
+Chapter 2 presents the different summarization methods following the taxonomy proposed by \citet{98-hovy-lin,99-sparckjones}. 
+A summarization system can be categorized following the input text, the purpose or the output text. 
+Based on the input text's properties (source size, specificity and form), a summarization system can be single document or multiple documents; domain-specific or general; or based on the text's form such as structures, scales, mediums and
+genres. 
+The purpose of the summarization categorizes a system into generic or query-oriented based the the audience; into indicative or informative based on the usage; into background or update based on expansiveness.
+The output document (the summary) can be extractive or abstractive based on the derivation; Neutral or evaluative based on the partiality; Fixed or floating based on the conventionality. 
+Some of these properties affect the capacity of multilingualism in a system. 
+For instance, abstractive systems are very difficult to be adapted to new languages. 
+In fact, we never happen to find an \ac{ats} abstractive system which does not use deep linguistic properties. 
+As for the systems based on deep learning, they use words embedding to learn how to generate a text for a certain language. 
+This will consume a very huge amount of information in order to learn, because the system does not just learn how to generate text but also it learns the vocabulary.  
+Besides being an introduction into \ac{ats} domain, it will serve as a comparison between different methods in term of multilingualism.
+
+
+After presenting different \ac{ats} methods, Chapter 3 categorizes them into approaches. 
+Our taxonomy is based on the nature of resources used by the method (or the system) since we are more interested on multilingual summarization. 
+So, the different approaches presented in this chapter are: statistical, graph-based, linguistic and machine learning. 
+%Besides these approaches, we present sentence compression as an approach of \ac{ats} since it serves the same purpose and is mostly used by \ac{ats} systems to reduce sentences size.
+Starting with statistical approach, we present the different surface features which exist since the beginnings of this domain. 
+Despite being old, these features are still being used and gives good results especially in a multilingual context.
+Another approach is graph-based, which represents the sentences as a graph of similarities to score each sentence and extract the most relevant ones.
+In the contrary of these two approaches, the linguistic one is highly dependent on language.
+It allows deep analysis of the input text leading to good results.
+But, the system must target just one language at once.
+Machine learning, on the other hand, can be considered as a statistical approach. 
+The main difference between this approach and surface statistical features is that the former uses more resources in training. 
+
+
+Discussing \ac{ats} methods and approaches cannot be complete without a quick dive into its evaluation.
+This is why a glimpse into summarization evaluation methods and workshops is given in Chapter 4.
+Evaluating summarization systems is one of the most difficult tasks.
+As presented previously, one of summarization challenges is its definition: what is a good summary?
+Evaluating a summary can defer from person to person and it can be subjective sometimes. 
+So, many efforts have been affected in order to automatize evaluation or at least make it semi-automatic.
+In addition, many workshops were organized to evaluating \ac{ats} systems.
+
+
+Chapter 5 presents our participation in MultiLing'15 workshop in two tasks: single document and multi-documents summarization.
+Our previous work \citep{15-aries-al} was enhanced and adapted to the context of multilingual summarization. 
+The method clusters different sentences based on their cosine similarities and a given threshold. 
+Each sentence can belong to many clusters which are considered as topics. 
+Then, a Naive Bayes classifier is trained on these clusters using some features: term frequency (unigrams and bigrams), sentence position and length. 
+The classifier is used as a scoring function to get which sentence can represent most topics. 
+An extraction method is introduced based on sentences similarities and their scores in order to minimizing redundancy in the summary.
+
+
+In chapter 6, we propose a new extractive method based on both surface statistical features and similarity graphs. 
+First, a graph is constructed using similarities between sentences. 
+Then, the graph is minimized by dropping weak sentences and links. 
+The remaining sentences are considered as candidates for the summary. 
+Each candidate sentence is scored using some surface features.
+Then, the score is improved by the graph structure.
+We propose four variants on how to improve the statistical score based on the graph. 
+The final score is used to deciding which sentences are more informative than others.
+The method's variants are tested against three baselines: random, first sentences and our previous method presented in Chapter 5.
+Since informativeness is not the only issue with summarization, we propose some extraction methods that deals with other issues such as redundancy and sentences order.
+These extraction methods are compared to our previous one proposed in \citep{15-aries-al}.
+ 
+
+
+Finally, Chapter 7 concludes our work by summarizing our contributions, discussing the limits of our proposition and affording some insights into future works.
