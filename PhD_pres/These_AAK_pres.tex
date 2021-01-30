@@ -1,0 +1,1418 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TEX spellcheck = fr
+
+\documentclass[xcolor=table]{beamer}
+
+\title[Thèse : Vers une amélioration des RAT] %
+{Vers une amélioration \\des résumés automatiques de textes} 
+
+\institute{ %
+%	\begin{flushleft}
+		École nationale Supérieure d'Informatique (ESI, ex. INI), Alger, Algérie 
+		
+		École doctorale STIC (2010/2011)
+		
+		Spécialité : Informatique répartie et mobile (IRM)
+		
+		Laboratoire LCSI - Groupe D3
+		
+		Année d'inscription en doctorat : (2013/2014)	
+%	\end{flushleft}
+}
+
+\author[ \textbf{\footnotesize\insertframenumber/\inserttotalframenumber} \hspace*{1.5cm} ESI - ARIES (2020)] %
+{\Large\bfseries ARIES Abdelkrime}
+
+\titlegraphic{%
+	\includegraphics[height=1cm]{img/esi-logo.png} 
+	\hfill
+	28 Octobre 2020
+	\hfill
+	\includegraphics[height=1cm]{img/K-LCSI.png}
+}%\hspace*{4.75cm}~
+
+\date{\footnotesize
+Directeur de thèse : \textbf{Pr. ZEGOUR Djamal Eddine} \\
+Co-directeur de thèse : \textbf{Pr. HIDOUCI Walid Khaled}
+} %\today
+
+\usetheme{Warsaw} % Antibes Boadilla Warsaw
+
+\beamertemplatenavigationsymbolsempty
+
+
+\input{options} 
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes}
+\framesubtitle{Motivation}
+
+\vspace{-12pt}
+\hgraphpage{img/motivation.pdf}
+
+%\begin{center}
+%	\hgraphpage[0.5\textwidth]{img/motivation.pdf}
+%\end{center}
+%
+%\begin{itemize}
+%	\item En plus, les employés peuvent lire un résumé des messages du directeur de l'entreprise, les étudiants peuvent lire l'essentiel de ce que les enseignants envoient, etc.
+%\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Résumé automatique de textes : Introduction}
+	\framesubtitle{Classification du résumé automatique}
+%	\vspace{-12pt}
+	\hgraphpage{img/sum-classif.pdf}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Résumé automatique de textes : Introduction}
+	\framesubtitle{Problématique}
+	
+	\vspace{-6pt}
+	\begin{itemize}
+		\item \optword{Définition} : idées plus importantes, texte plus concise. 
+		\begin{itemize}
+			\item Comment savoir ce qu'il est important ?
+			\item Par rapport à qui/quoi ?
+		\end{itemize}
+		\item \optword{Informativité} : un résumé représentatif  
+		\begin{itemize}
+			\item Couverture : le résumé couvre-t-il tout le contenu original ?
+			\item Concision : y a t-il de redondance dans le résumé ?
+		\end{itemize}
+		\item \optword{Lisibilité} : un résumé proche de celui des humains
+		\begin{itemize}
+			\item Clarté des références : les références sont-elles claires ?
+			\item Cohérence : les phrases ont-elles un ordre logique ?
+			\item Grammaticalité : les phrases sont-elles grammaticalement correctes ?
+		\end{itemize}
+		\item \optword{Ressources} : implémentation facile de la méthode
+		\begin{itemize}
+			\item Outils : existent-ils des outils pour la langue destinataire ?
+			\item Corpus : existent-ils des corpus pour la langue destinataire ?
+		\end{itemize}
+		\item \optword{Évaluation} : juger les aspects précédents dans un résumé 
+		\begin{itemize}
+			\item Intrinsèque vs. Extrinsèque
+			\item Manuelle vs. Automatique
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Introduction}
+\framesubtitle{Objectifs}
+	
+	\begin{itemize}
+		\item \optword{Adaptation facile} : utilisation pour différents domaines et langues 
+		\begin{itemize}
+			\item Méthode : méthode indépendante de langue et du domaine
+			\item Implémentation : système facile à mettre à jour
+		\end{itemize}
+		\item \optword{Résumés informatifs} : décrivent le texte original
+		\begin{itemize}
+			\item Couverture : plus d'information utile
+			\item Concision : moins de redondance
+		\end{itemize}
+		\item \optword{Cohérence} : Ordre des phrases
+		\item \optword{Rapidité} : génération rapide des résumés
+%		\begin{itemize}
+%			\item Couverture : plus d'information utile
+%			\item Concision : moins de redondance
+%		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes}
+\framesubtitle{Plan}
+
+\begin{multicols}{2}
+	%	\small
+	\tableofcontents
+\end{multicols}
+\end{frame}
+
+% ================================================
+%
+% ================================================
+\section{Approches de résumé automatique} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes}
+\framesubtitle{Approches de résumé automatique}
+
+\begin{columns}
+\begin{column}{0.32\textwidth}
+	\begin{block}{\scriptsize\bfseries\cite{12-nenkova-mckeown}}
+		\begin{itemize}
+			\item représentation du sujet 
+			:
+			mots du sujet,
+			fréquences, 
+			analyse sémantique latente, 
+			modèles de sujets bayésiens,
+			clustering
+%			\begin{itemize}
+%				\item mots du sujet 
+%				\item fréquences
+%				\item analyse sémantique latente
+%				\item modèles de sujets bayésiens
+%			\end{itemize}
+			\item représentation des indicateurs : 
+			par graphes, 
+			apprentissage automatique
+		\end{itemize}
+	\end{block}
+\end{column}
+\begin{column}{0.3\textwidth}
+	\begin{block}{\scriptsize\bfseries\cite{12-lloret-palomar}}
+		\begin{itemize}
+			\item statistique 
+			\item par graphes
+			\item basée discours
+			\item par apprentissage automatique
+		\end{itemize}
+	\end{block}
+\end{column}
+\begin{column}{0.28\textwidth}
+	\begin{block}{\scriptsize\bfseries\cite{19-aries-al}}
+		\begin{itemize}
+			\item statistique 
+			\item par graphes
+			\item linguistique 
+			\item par apprentissage automatique
+		\end{itemize}
+	\end{block}
+\end{column}
+\end{columns}
+	
+\end{frame}
+
+\subsection{Approche statistique} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Approches}
+\framesubtitle{Approche statistique}
+
+\begin{itemize}
+	\item \optword{Méthodes}
+	\vspace{-.5cm}
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item Fréquence
+			\item Position
+			\item Mots de titre
+			\item Longueur de la phrase
+			\item Centroid
+			\item Frequent itemsets
+			\item Analyse sémantique latente
+		\end{itemize}
+	\end{multicols}
+
+	\item \optword{Avantages}
+	\vspace{-.5cm}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Moins de ressources
+			\item Simple et rapide
+		\end{itemize}
+	\end{multicols}
+
+	\item \optword{Inconvénients}
+	\vspace{-.5cm}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Lisibilité
+			\item Seulement extractive
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Problèmes et solutions probables}
+	\begin{itemize}
+		\item combinaison des caractéristiques : Apprentissage automatique
+		\item pertinence : caractéristiques linguistiques
+		\item redondance dans les phrases : compression
+	\end{itemize}
+
+\end{itemize}
+	
+\end{frame}
+
+\subsection{Approche par graphes} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Approches}
+\framesubtitle{Approche par graphes}
+
+\begin{itemize}
+	\item \optword{Méthodes}
+	\vspace{-.5cm}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Propriétés de graphe
+			\item Itérative
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Avantages}
+	\vspace{-.5cm}
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item Moins de ressources
+			\item Simple
+			\item Cohérence
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Inconvénients}
+	\vspace{-.5cm}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Puissance de calcul
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Problèmes et solutions probables}
+	\begin{itemize}
+		\item similarité entre phrases : TF-IDF, sémantique
+		\item propriétés de la phrase : caractéristiques statistiques et linguistiques, similarité phrase/document, propriété temporelle
+	\end{itemize}
+	
+\end{itemize}
+	
+\end{frame}
+
+\subsection{Approche linguistique} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Approches}
+\framesubtitle{Approche linguistique}
+	
+\begin{itemize}
+	\item \optword{Méthodes}
+	\vspace{-.5cm}
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item mots de sujet
+			\item indicateurs
+			\item co-occurrence
+			\item structure rhétorique
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Avantages}
+	\vspace{-.5cm}
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item plus de précision
+			\item abstractif
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Inconvénients}
+	\vspace{-.5cm}
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item ressources (outils)
+			\item complexe
+			\item puissance de calcul
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Problèmes et solutions probables}
+	\begin{itemize}
+		\item règles de génération : Apprentissage automatique
+	\end{itemize}
+	
+\end{itemize}
+
+\end{frame}
+
+\subsection{Approche par apprentissage automatique} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Approches}
+\framesubtitle{Approche par apprentissage automatique}
+	
+\begin{itemize}
+	\item \optword{Méthodes}
+	\vspace{-.5cm}
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item fonction de réglage
+			\item fonction de décision
+			\item modèles de sujets bayésiens
+			\item apprentissage par renforcement
+			\item apprentissage profond
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Avantages}
+	\vspace{-.5cm}
+	\begin{multicols}{1}
+		\begin{itemize}
+			\item estimation automatique de règles
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Inconvénients}
+	\vspace{-.5cm}
+	\begin{multicols}{1}
+		\begin{itemize}
+			\item ressources (corpus)
+		\end{itemize}
+	\end{multicols}
+	
+	\item \optword{Problèmes et solutions probables}
+	\begin{itemize}
+		\item données étiquetées : Apprentissage par renforcement
+		\item insuffisance de données : création de corpus
+	\end{itemize}
+	
+\end{itemize}
+
+\end{frame}
+
+
+% ================================================
+%
+% ================================================
+\section{Baseline (AllSummarizer-TCC)} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes}
+\framesubtitle{Baseline (AllSummarizer-TCC)}
+	
+	\hgraphpage{img/tcc-arch.pdf}
+	
+\end{frame}
+
+\subsection{Prétraitement}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : AllSummarizer-TCC}
+\framesubtitle{Prétraitement}
+	
+\begin{block}{Outils utilisés : tâche/langues}
+	\scriptsize\bfseries
+	\begin{tabular}{p{.2\textwidth}p{.2\textwidth}p{.5\textwidth}} 
+		\hline \hline
+		Tâche & Outils & Langues \\
+		\hline
+		\multirow{3}{2cm}{Segmentation de phrases} & openNLP & Nl, En, De, It, Pt, Th \\
+		\cline{2-3}
+		& JHazm & Fa \\
+		\cline{2-3}
+		& Regex & Le reste \\
+		\hline
+		\multirow{3}{2cm}{Séparation de mots} & openNlp & Nl, En, De, It, Pt, Th \\
+		\cline{2-3}
+		& Lucene & Zh, Ja \\
+		\cline{2-3}
+		& Regex & Le reste \\
+		\hline
+		\multirow{3}{2cm}{Racinisation} & Shereen Khoja & Ar \\
+		\cline{2-3}
+		& JHazm & Fa \\
+		\cline{2-3}
+		& HebMorph & He \\
+		\cline{2-3}
+		& Lucene & Bg, Cs, El, Hi, Id, Ja, No \\
+		\cline{2-3}
+		& Snowball & Eu, Ca, Nl, En (Porter), Fi, Fr, De, Hu, It, Pt, Ro, Ru, Es, Sv, Tr \\
+		\cline{2-3}
+		& / & Le reste \\
+		\hline \hline
+	\end{tabular}
+\end{block}
+
+\end{frame}
+
+\subsection{Traitement}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : AllSummarizer-TCC}
+\framesubtitle{Traitement}
+	
+	\begin{itemize}
+		\item Un texte peut contenir plusieurs sujets, et une phrase peut discuter plusieurs sujets
+		\begin{itemize}
+			\item Regroupement de phrases avec similarité et seuil de regroupement ($Th$)
+		\end{itemize}
+		\item Une phrase est importante si elle peut représenter le maximum des sujets(cluters)
+		\[ Score(s_i , c_j , f_k ) = 1 + \sum_{\phi \in s_i} {P(f_k=\phi | s_i \in c_j)} \]
+		\[ Score(s_i , \bigcap_{j} c_j , F) =  %\propto 
+		\prod_{j} \prod_{k} Score(s_i , c_j , f_k ) \]
+		$ s $ : phrase, $ c $ : cluster, $ f $ : caractéristique, $ F $ : ensemble de caractéristiques, $ \phi $: observation de $ f $.
+		\item $f$ : TF (Uni, Bi); Pos (intervalle de 10); Len (réel, pré-traité)
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Extraction}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : AllSummarizer-TCC}
+\framesubtitle{Extraction}
+	
+\hgraphpage{img/tcc-extract.pdf}
+	
+\end{frame}
+
+\subsection{Expérimentation} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Baseline}
+\framesubtitle{Expérimentation}
+	
+	\begin{itemize}
+		\item Participation dans le workshop MultiLing'15 \cite{15-aries-al}
+		\item Procédure :
+		\begin{itemize}
+			\item Un dataset d'entraînement a été envoyé aux participants (avec les résumés de référence)
+			\item Les systèmes peuvent être entraînés/réglés en utilisant ce dataset
+			\item Un dataset de test a été envoyé aux participants (sans résumés de référence)
+			\item Les participants doivent générer des résumés et les envoyer
+			\item La comité d'organisation s'occupe de l'évaluation des résultats et la diffusion des résultats
+		\end{itemize}
+		\item Tâches (dans lesquelles nous avons participé) :
+		\begin{itemize}
+			\item MSS : résumé multilingues mono-document
+			\item MMS : résumé multilingues multi-documents
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Baseline}
+\framesubtitle{Expérimentation : Réglage de paramètres}
+	
+\begin{itemize}
+	
+	\item Estimation de seuil de clustering 
+	\vspace{-.5cm}
+	\begin{multicols}{3}
+	\begin{itemize}
+		\item Médiane
+		\item Moyenne
+		\item Mode 
+		\item Variance
+		\item $ sDn = \frac{\sum |s|}{|D| * n}$ 
+		\item $ Dsn = \frac{|D|}{n * \sum |s|}$ 
+		\item $ Ds = \frac{|D|}{\sum |s|}$ 
+	\end{itemize}
+	\end{multicols}
+	\vspace{-.4cm}
+	$|s|$: number of different terms in a sentence $s$. 
+	$|D|$: number of different terms in the document $D$.
+	$n$: number of sentences in this document. 
+	
+	\item Sélection des caractéristiques 
+	\begin{itemize}
+		\item Pour chaque langue, trouver les combinaisons de caractéristiques qui maximisent ROUGE-2 dans chaque tâche (MSS et MMS)
+	\end{itemize}
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Baseline}
+\framesubtitle{Expérimentation : Évaluation}
+	
+TCC = Notre système (AllSummarizer-TCC)\\
+S = un système participant avec n langues\\
+
+\[ 
+AVG_{S} = \frac{\sum\limits_{i=1}^{n} Score_S(L_i)}{n}
+\hskip0.2\textwidth 
+RI = \frac{AVG_{TCC} - AVG_{S}}{AVG_{S}}
+\]
+
+Métriques : 
+\begin{itemize}
+	\item ROUGE \cite{04-lin}
+	\item AutoSummENG et MeMoG \cite{11-giannakopoulos-al}
+	\item NPowER \cite{13-giannakopoulos-karkaletsis}
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Baseline}
+\framesubtitle{Expérimentation : Résultats MSS}
+	
+\begin{block}{Amélioration relative de TCC dans MSS}
+	\scriptsize\bfseries
+	\begin{tabular}{p{.28\textwidth}p{.1\textwidth}p{.1\textwidth}p{.1\textwidth}p{.1\textwidth}p{.1\textwidth}} 
+		\hline \hline
+		\multirow{2}{*}{Methods} & \multicolumn{5}{c}{Amélioration relative \%}\\
+		\cline{2-6}
+		& R-1	& R-2	& R-3	& R-4	& R-SU4\\
+		\hline
+		BGU-SCE-M (ar, en, he)		& -09.19	& -14.02	& -19.39	& -25.12	& -11.07\\
+		EXB (all 38)				& -07.64	& -10.55	& -09.86	& -07.92	& -10.63\\
+		CCS (all 38)				& -07.33	& -13.24	& -10.95	& -03.04	& -07.40\\
+		BGU-SCE-P (ar, en, he)		& -04.33	& -01.63	& -02.69	& -06.16	& -01.89\\
+		UA-DLSI (en, de, es)		& +02.12	& +06.25	& +13.86	& +17.15	& +05.62\\
+		NTNU (en, zh)				& +06.44	& +07.06	& +11.50	& +21.81	& +05.74\\
+		\hline
+		Oracle (all 38) [TopLine]	& -31.64	& -49.00	& -63.80	& -72.91	& -36.77\\
+		Lead (all 38) [BaseLine]	& +02.39	& +08.67	& +08.20	& +04.02	& +05.82\\
+		\hline \hline
+	\end{tabular}
+\end{block}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Baseline}
+\framesubtitle{Expérimentation : Résultats MSS}
+	
+\begin{block}{Amélioration relative de TCC dans MMS}
+	\scriptsize\bfseries
+	\begin{tabular}{p{.4\textwidth}p{.15\textwidth}p{.15\textwidth}p{.15\textwidth}} 
+		\hline \hline
+		\multirow{2}{*}{SysID} & \multicolumn{3}{c}{Our method improvement \%}\\
+		\cline{2-4}
+		& AutoSummENG 	& MeMoG 	& NPowER \\
+		\hline
+		UJF-Grenoble (fr, en, el) 	& -08.87 		& -14.55	& -03.62 \\
+		UWB (all 10) 		& -22.56 		& -22.66 	& -07.54 \\
+		ExB (all 10) 		& -09.44 		& -09.16 	& -02.80 \\
+		IDA-OCCAMS (all 10) 		& -17.11 		& -17.68 	& -05.53 \\
+		GiauUngVan (- zh, ro, es)	& -16.43		& -19.40	& -05.68 \\
+		SCE-Poly (ar, en, he)	& -05.72		& -03.35	& -01.46 \\
+		BUPT-CIST (all 10)		& +10.67		& +11.53	& +02.85 \\
+		BGU-MUSE (ar, en ,he)	& +05.67		& +06.92	& +01.74 \\
+		NCSR/SCIFY-NewSumRerank (- zh)		& +01.53		& -01.25	& +00.13 \\
+		\hline
+		AllSummazer (MSS param) (all 10)		& +01.98		& +02.35	& +00.58 \\
+		\hline \hline
+	\end{tabular}
+\end{block}
+	
+\end{frame}
+
+% ================================================
+%
+% ================================================
+\section{Scores cumulatifs à base de graphes} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes}
+\framesubtitle{Scores cumulatifs à base de graphes}
+	
+	\begin{center}
+		\vgraphpage{img/gc-archi.pdf}
+	\end{center}
+	
+\end{frame}
+
+\subsection{Génération des phrases candidates}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Génération des phrases candidates : Génération du graphe}
+	
+\begin{columns}
+	\begin{column}{0.45\textwidth}
+		\begin{itemize}
+			\item Les phrases sont pré-traitées
+			\item Un graphe $ G(V, E) $ est construit 
+			\begin{itemize}
+				\item $V$ : les phrases comme nœuds
+				\item $E$ : les similarités entre phrases comme arcs
+			\end{itemize}
+			\item Similarité : cosinus 
+			\[cos(X,Y) = \frac {\sum_i {x_i.y_i} }
+			{\sqrt{\sum_i(x_i)^2} . \sqrt{\sum_i(y_i)^2}}\]
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.45\textwidth}
+		\hgraphpage{img/sim-graphe.pdf}
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Génération des phrases candidates : Simplification du graphe (Nœuds insignifiants)}
+
+\begin{columns}
+	\begin{column}{0.45\textwidth}
+		
+		\[noeud\_faible(v_i) = \]
+		\[( \sum_{(v_i, v_j) \in E} w_{ij} < \frac{1}{MImpN(v_i)} )\]
+		
+	\end{column}
+	\begin{column}{0.45\textwidth}
+	  \hgraphpage{img/sim-vertexCut.pdf}
+	\end{column}
+\end{columns}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Génération des phrases candidates : Simplification du graphe (Arcs faibles)}
+	
+\begin{columns}
+	\begin{column}{0.45\textwidth}
+		\[arc\_faible(v_i, v_j) = \]
+		\[( w_{ij} < \frac{Threshold}{MImpN(v_i)})\]
+	\end{column}
+	\begin{column}{0.45\textwidth}
+		\hgraphpage{img/sim-edgeCut.pdf}
+	\end{column}
+\end{columns}
+		
+\end{frame}
+
+\subsection{Notation des phrases} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Notation des phrases : Score statistique des phrases}
+	
+\begin{columns}
+	\begin{column}{0.45\textwidth}
+		{\color{darkred}\[Score(s_i/ sim) = sim(s_i, C\backslash s_i)\]}
+		{\color{darkgreen}\[Score(s_i/ tfisf) = \sqrt{\sum\limits_{w_{ik} \in s_i} (tfisf(w_{ik}))^2}\]}
+		{\color{darkblue}\[Score(s_i/ size) = \frac{1}{|s_i|}\]}
+		{\color{darkyellow}\[Score(s_i/ pos) = \max (\frac{1}{i}, \frac{1}{|D| - i + 1})\]}
+		\[SSF(s_i/ F) = \prod_{f_i \in F} score(s_i/f_i)\]
+		
+	\end{column}
+	\begin{column}{0.45\textwidth}
+		\hgraphpage{img/ssf.pdf}
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Notation des phrases : Score à base de graphe (GC1)}
+
+\begin{block}{Score GC1}
+	\[GC1(s_i) = SSF(s_i) + \sum\limits_{(s_i, s_j) \in E} sim(s_i, s_j) * SSF(s_j)\]
+\end{block}
+\begin{itemize}
+	\item Une phrase peut partager ces informations avec ces voisines
+	\item Elle ne peut pas partager la même quantité avec tout le monde 
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}	
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Notation des phrases : Score à base de graphe (GC2)}
+
+\begin{block}{Score GC2}
+	\[GC2(s_i) = SSF(s_i) + \sum\limits_{(s_i, s_j) \in E} SSF(s_j) - \sum\limits_{(s_i, s_j) \notin E} SSF(s_j)\]
+\end{block}
+\begin{itemize}
+	\item Une phrase peut partager ces informations avec ces voisines
+	\item Elle sera récompensé par ces voisines
+	\item Elle sera pénalisée par les phrases non voisines  
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}
+	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Notation des phrases : Score à base de graphe (GC3)}
+
+\begin{block}{Score GC3}
+	\[GC3(s_i) = SSF(s_i) * (1 + |\{(s_i, s_j) \in E\}|)\]
+\end{block}
+\begin{itemize}
+	\item Une phrase avec plusieurs voisines doit avoir plus de score  
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}	
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Notation des phrases : Score à base de graphe (GC4)}
+	
+\begin{block}{Score GC4}
+	\[GC4(s_i) = SSF(s_i) * ( a + \sum\limits_{(s_i, s_j) \in E} sim(s_i, s_j)) \text{ où } a \in \{0, 1\}\]
+\end{block}
+\begin{itemize}
+	\item Une phrase avec plusieurs voisines doit avoir plus de score 
+	\item Les voisines n'ont pas la même importance vis-à-vis cette phrase
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}	
+
+\end{frame}
+
+\subsection{Extraction} 
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Extraction : e0}
+
+\begin{block}{Extraction selon l'odre du score (e0)}
+	\[
+	suiv_{e0}  =  \arg\max\limits_i ssfgc(s_i) 
+	\text{ où } s_i \in C\backslash S
+	\]
+\end{block}
+\begin{itemize}
+	\item On respecte l'ordre selon le score SSF-GC
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Extraction : e1}
+
+\begin{block}{Extraction sans redondance (e1)}
+	\[suiv_{e1}  =  \arg\max\limits_i ssfgc(s_i)\]
+	\[\text{ où } s_i \in C\backslash S \text{ et } simil(s_i, dernier_{e1}) < Th\]
+\end{block}
+\begin{itemize}
+	\item On respecte l'ordre selon le score SSF-GC
+	\item On n'ajoute pas les phrases redondantes
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Extraction : e2}
+
+\begin{block}{Extraction avec graphe (e2)}
+	\[suiv_{e2}  =  \arg\max\limits_i ssfgc(s_i)\]
+	\[\text{ où } (dernier_{e2}, s_i) \in E\]
+\end{block}
+\begin{itemize}
+	\item On respecte l'ordre selon le score SSF-GC
+	\item On respecte la cohérence (relation entre phrases)
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}	
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Extraction : e3}
+
+\begin{block}{Extraction avec graphe et similarité max (e3)}
+	\[suiv_{e3}  =  \arg\min\limits_i (iord\ ssfgc(s_i) + iord\ simil(dernier_{e3}, i))\]
+	\[\text{ où } (dernier_{e3}, s_i) \in E\]
+\end{block}
+\begin{itemize}
+	\item On respecte l'ordre selon le score SSF-GC
+	\item On respecte la cohérence (relation entre phrases)
+	\item Les phrases consécutives sont les plus similaires
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}		
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Extraction : e4}
+	
+\begin{block}{Extraction avec graphe et non redondance (e4)}
+	\[suiv_{e4}  =  \arg\min\limits_i (iord\ ssfgc(s_i) + ord\ simil(dernier{e4}, i))\]
+	\[\text{ où } (dernier_{e4}, s_i) \in E\]
+\end{block}
+\begin{itemize}
+	\item On respecte l'ordre selon le score SSF-GC
+	\item On respecte la cohérence (relation entre phrases)
+	\item On n'ajoute pas les phrases redondantes
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}	
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Extraction : e5}
+
+\begin{block}{Extraction avec graphe et voisines (e5)}
+	\[suiv_{e5}  =  \arg\max\limits_i \frac{|\{ s_j | (s_i, s_j) \in E \text{ et } s_j \notin S \}|}{iord\ ssfgc(s_i)}\]
+	\[\text{ où } (dernier_{e5}, s_i) \in E\]
+\end{block}
+\begin{itemize}
+	\item On respecte l'ordre selon le score SSF-GC
+	\item On respecte la cohérence (relation entre phrases)
+	\item On sélectionne la phrase qui peut représenter la majorité des phrases qui ne font pas parti du résumé
+\end{itemize}
+%\begin{columns}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%	\begin{column}{0.45\textwidth}
+%		
+%	\end{column}
+%\end{columns}		
+	
+\end{frame}
+
+
+\subsection{Expérimentation}
+
+\begin{frame}
+	\frametitle{Résumé automatique de textes : Scores cumulatifs}
+	\framesubtitle{Expérimentation}
+	
+	\begin{itemize}
+		\item multiLing'15 MSS train 
+		\begin{itemize}
+			\item Comparaison entre le baseline et quelques méthodes connues
+			\item Choix du seuil de similarité
+			\item Capacité du score cumulatif à améliorer les résumés
+			\item Choix des méthodes d'extraction pour chaque variante de score
+		\end{itemize}
+		\item multiLing'15 MSS test 
+		\begin{itemize}
+			\item Performance des variantes dans le test
+			\item Comparaison de GC avec quelques méthodes (anglais)
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Expérimentation : Baseline}
+
+\begin{block}{Comparaison entre le baseline et quelques méthodes connues}
+	\scriptsize
+	\begin{tabular}{llllllll}
+		
+		\hline \hline
+		
+		\multirow{2}{*}{Peer} & \multicolumn{3}{c}{ROUGE-1}  &&  \multicolumn{3}{c}{ROUGE-2}  \\
+		\cline{2-4} \cline{6-8} \noalign{\smallskip}
+		& R & P & F1 && R & P & F1 \\
+		
+		\hline
+		
+		TCC (allsummarizer) & \color{red}0.40863 & \color{red}0.42048 & \color{red}0.41416 && \color{red}0.11529 & \color{red}0.11829 & \color{red}0.11667 \\
+		LexRank (linanqiu) & 0.38829 & 0.40238 & 0.39493 && 0.09604 & 0.09908 & 0.09748 \\
+		TextRank (summa) & 0.38065 & 0.40803 & 0.39352 && 0.09892 & 0.10548 & 0.10201 \\
+		LexRank (sumy) & 0.37926 & 0.39425 & 0.38621 && 0.09350 & 0.09712 & 0.09518 \\
+		TextRank (sumy) & 0.37688 & 0.40179 & 0.38864 && 0.09852 & 0.10471 & 0.10145 \\
+		SumBasic (sumy) & 0.36909 & 0.37383 & 0.37110 && 0.07683 & 0.07798 & 0.07732 \\
+		Random (sumy) & 0.35968 & 0.37472 & 0.36676 && 0.07961 & 0.08262 & 0.08102 \\
+		Luhn (sumy) & 0.35671 & 0.39231 & 0.37300 && 0.08575 & 0.09404 & 0.08954 \\
+		LSA (sumy) & 0.34674 & 0.37187 & 0.35832 && 0.07678 & 0.08220 & 0.07929 \\
+		%KLSummarizer & 0.32745 & 0.34508 & 0.33585 && 0.06317 & 0.06666 & 0.06483 \\
+		\hline \hline
+	\end{tabular} 
+\end{block}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Expérimentation : Choix du seuil de similarité}
+	
+\begin{center}
+	\vgraphpage{img/gc-th-choix.pdf}
+\end{center}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Expérimentation : Capacité du score cumulatif à améliorer les résumés}
+	
+\begin{center}
+	\vgraphpage{img/gc-method-choix.pdf}
+\end{center}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Expérimentation : Choix des méthodes d'extraction pour chaque variante de score}
+	
+\begin{block}{Nombre des fois chaque méthode d'extraction maximise ROUGE-1 de chaque GC}
+	\centering
+	\begin{tabular}{lllllll}
+		\hline\hline
+		& e0 & e1 & e2 & e3 & e4 & e5 \\
+		\hline
+		SSF-GC1 & 10 & 4 & 1 & 0 & \textbf{21} & 2 \\
+		SSF-GC2 & \textbf{17} & 6 & 2 & 9 & 3 & 1 \\
+		SSF-GC3 & 1 & \textbf{15} & 8 & 5 & 4 & 5 \\
+		SSF-GC4 & 5 & \textbf{16} & 5 & 4 & 5 & 3 \\
+		SSF-GC5 & 4 & \textbf{15} & 3 & 6 & 4 & 6 \\
+		\hline\hline
+	\end{tabular}  
+\end{block}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Expérimentation : Performance des variantes dans le test}
+	
+%\begin{center}
+	\hgraphpage{img/gc-test.pdf}
+%\end{center}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Scores cumulatifs}
+\framesubtitle{Expérimentation : Comparaison de GC avec quelques méthodes (anglais)}
+	
+\begin{block}{Comparaison de GC avec quelques méthodes (anglais)}
+	\centering\scriptsize
+	\begin{tabular}{llllllll}
+		\hline\hline
+		
+		\multirow{2}{*}{Peer} & \multicolumn{3}{c}{ROUGE-1}  &&  \multicolumn{3}{c}{ROUGE-2}  \\
+		\cline{2-4} \cline{6-8}\noalign{\smallskip}
+		& R & P & F1 && R & P & F1 \\
+		
+		\hline
+		
+		LexRank (sumy) & \underline{\color{red}0.41896} & 0.41926 & 0.41879 && 0.11159 & 0.11154 & 0.11148 \\
+		SSF-GC1\_mean\_e4 &  0.41635  & \underline{\color{red}0.42816}  & \underline{\color{red}0.42188}  && \underline{\color{red}0.11449}  & \underline{\color{red}0.11764}  & \underline{\color{red}0.11597}\\
+		LexRank (linanqiu) & 0.41206 & 0.40646 & 0.40871 && 0.10213 & 0.10087 & 0.10137 \\
+		TCC (allsummarizer) & 0.40619 & 0.40866 & 0.40709 && 0.10053 & 0.10115 & 0.10077 \\
+		TextRank (summa) & 0.40482 & 0.41731 & 0.41016 && 0.11235 & 0.11515 & 0.11353 \\
+		SumBasic (sumy) & 0.39784 & 0.39315 & 0.39518 && 0.09049 & 0.08945 & 0.08989 \\
+		TextRank (sumy) & 0.39379 & 0.40310 & 0.39806 && 0.09909 & 0.10087 & 0.09990 \\
+		Luhn (sumy) & 0.39014 & 0.40682 & 0.39800 && 0.09478 & 0.09889 & 0.09671 \\
+		Random (sumy) & 0.38510 & 0.38874 & 0.38669 && 0.08435 & 0.08514 & 0.08469 \\
+		LSA (sumy) & 0.36866 & 0.37727 & 0.37270 && 0.07217 & 0.07393 & 0.07300 \\
+		%KLSummarizer & 0.35240 & 0.35701 & 0.35436 && 0.07420 & 0.07524 & 0.07464 \\
+		\hline\hline
+	\end{tabular} 
+\end{block}
+	
+\end{frame}
+
+% ================================================
+%
+% ================================================
+\section{Test avec l'apprentissage automatique} 
+
+\begin{frame}
+	\frametitle{Résumé automatique de textes}
+	\framesubtitle{Test avec l'apprentissage automatique}
+	
+	\begin{center}
+		\vgraphpage{img/ml2es-archi.pdf}
+	\end{center}
+	
+\end{frame}
+
+\subsection{Transformation des caractéristiques}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Transformation des caractéristiques}
+
+\begin{itemize}
+	\item \optword{vecteur vers vecteur}
+	\begin{itemize}
+		\item coupure des valeurs basses
+		\item normalisation min-max 
+		{\color{red}
+		$\mathbf{minmax(\overrightarrow{v}) = \frac{\overrightarrow{v} - min}{max - min}}$
+		}
+	\end{itemize}
+
+	\item \optword{vecteur vers scalaire}
+	\begin{itemize}
+		\item normalisation de sommes phrases/document 
+		{\color{red}
+		$\mathbf{S2Dsum = \frac{||\overrightarrow{D}|| * sum(\overrightarrow{s})}{||\overrightarrow{s}|| * sum(\overrightarrow{D})}}$
+		}
+		\item intervalle phrase/document 
+		{\color{red}
+		$\mathbf{S2Dmxmn = \frac{max(\overrightarrow{s}) - min(\overrightarrow{s})}{max(\overrightarrow{D}) * min(\overrightarrow{D})}}$
+		}
+		\item normalisation moyenne/max 
+		{\color{red}
+		$\mathbf{meanMax(\overrightarrow{v}) = \frac{mean(\overrightarrow{v})}{max(\overrightarrow{v})}}$
+		}
+	\end{itemize}
+
+	\item \optword{scalaire vers scalaire}
+	\begin{itemize}
+		\item proportion directe 
+		{\color{red}
+		$\mathbf{DP(x, x_{max}) = (x_{max} - x)/x_{max}}$
+		}
+		\item proportion inverse {\color{red}$\mathbf{IP(x) = 1/x}$}
+		\item séquence géométrique {\color{red}$\mathbf{GS(x) = (0.5)^{x - 1}}$}
+		\item normalisation min-max {\color{red}$\mathbf{minmax(x) = \frac{x - min}{max - min}}$}
+		\item coupure min et coupure max
+	\end{itemize}
+\end{itemize}
+	
+\end{frame}
+
+\subsection{Variations de la méthode}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Variations de la méthode : Basique}
+
+\vspace{-6pt}
+\begin{center}
+	\begin{tabular}{cc}
+	\includegraphics[height=.23\textwidth]{img/ml2sa-basic-a.pdf}
+	&
+	\includegraphics[height=.23\textwidth]{img/ml2sa-basic-b.pdf}
+	\\
+	Détection Langue & TF ou Similarité\\
+	\includegraphics[height=.23\textwidth]{img/ml2sa-basic-c.pdf}
+	&
+	\includegraphics[height=.23\textwidth]{img/ml2sa-basic-d.pdf}
+	\\
+	Position & Taille \\
+\end{tabular}
+\end{center}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Variations de la méthode : Filtrage et normalisation}
+
+\begin{itemize}
+	\item \optword{Avec filtrage}
+	\begin{itemize}
+		\item utilisation d'une coupure des valeurs inférieure de la moyenne 
+		\item vecteurs concernés : \textcolor{red}{doc\_tf\_seq}, \textcolor{red}{doc\_sim\_seq}, \textcolor{red}{doc\_size\_seq}, \textcolor{red}{sent\_tf\_seq} et \textcolor{red}{sent\_sim\_seq}
+	\end{itemize}
+
+	\item \optword{Avec normalisation et filtrage}
+	\begin{itemize}
+		\item application d'une normalisation min-max ensuite un filtrage sur les vecteurs : \textcolor{red}{doc\_tf\_seq}, \textcolor{red}{doc\_size\_seq} et \textcolor{red}{sent\_tf\_seq}. 
+		\item application de filtrage sur : \textcolor{red}{doc\_sim\_seq} et \textcolor{red}{sent\_sim\_seq}. 
+		\item normalisation du scalaire \textcolor{red}{sent\_size} où \textit{max} (\textit{min}) est la taille maximale (minimale) des phrases du document.
+	\end{itemize}
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Variations de la méthode : Avec caractéristiques scalaires}
+	
+\hgraphpage{img/ml2es-pure.pdf}
+
+\end{frame}
+
+\subsection{Expérimentation}
+
+\begin{frame}
+	\frametitle{Résumé automatique de textes : Test avec ML}
+	\framesubtitle{Expérimentation}
+	
+	\begin{itemize}
+		\item Préparer un nouveau corpus prétraité à partir de MultiLing'15 MSS
+		\item Comparer les différentes variantes de ML2ExtraSum et TCC
+		\item Utiliser les scores intermédiaires pour extraire les phrases
+		\item Tester la détection des langues dans chaque variante
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Expérimentation : Comparaison entre les variantes de ML2ExtraSum et TCC}
+
+\hgraphpage{img/ml2es-test-m.pdf}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Expérimentation : Scores intermédiaires}
+	
+\hgraphpage{img/ml2es-test-s.pdf}
+	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Expérimentation : Détection de langues basée sur le RAT (basic)}
+
+\hgraphpage{img/ml2es-lang-basic.png}
+
+\hgraphpage{img/ml2es-lang-legend.png}	
+
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Expérimentation : Détection de langues basée sur le RAT (filter)}
+	
+\hgraphpage{img/ml2es-lang-filter.png}
+	
+\hgraphpage{img/ml2es-lang-legend.png}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Expérimentation : Détection de langues basée sur le RAT (norm)}
+	
+\hgraphpage{img/ml2es-lang-norm.png}
+	
+\hgraphpage{img/ml2es-lang-legend.png}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Test avec ML}
+\framesubtitle{Expérimentation : Détection de langues basée sur le RAT (pure)}
+	
+\hgraphpage{img/ml2es-lang-pure.png}
+	
+\hgraphpage{img/ml2es-lang-legend.png}
+	
+\end{frame}
+
+
+\appendix
+
+\section*{Conclusion}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Conclusion}
+\framesubtitle{Discussion}
+	
+\begin{itemize}
+	\item Les graphes peuvent...
+	\begin{itemize}
+		\item être utilisés pour filtrer les phrases non importantes
+		\item améliorer le score de pertinence
+		\item améliorer l'extraction : quantité d'information, cohérence et non redondance
+	\end{itemize}
+	\item Les caractéristiques de surface peuvent...
+	\begin{itemize}
+		\item donner de bonnes résultats dans le contexte multilingue
+		\item être utilisées pour détecter la langue d'un document
+	\end{itemize}
+	\item Enfin ...
+	\begin{itemize}
+		\item la thèse est tellement longue, on sera motivé par le résumé automatique en la lisant
+	\end{itemize}
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Résumé automatique de textes : Conclusion}
+	\framesubtitle{Limites}
+	
+	\begin{itemize}
+		\item Considérer les scores des caractéristiques statistiques comme probabilités peut ne pas être c'est la meilleure méthodes pour les combiner
+		\item Les caractéristiques de surface sont limitées lorsqu'on veut représenter le sens
+		\item L'utilisation de ces caractéristiques avec l'apprentissage automatique peut ne pas améliorer la tâche
+		\item La cohérence n'a pas été testée
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Conclusion}
+\framesubtitle{Perspectives}
+	
+\begin{itemize}
+	\item En restant dans le contexte multilingue :
+	\begin{itemize}
+		\item Représenter le sens des phrases (représentation universelle)
+		\item Exploiter l'apprentissage automatique 
+		\item Utiliser d'autres caractéristiques plus profondes
+	\end{itemize}
+	\item  Peut-on générer des résumés abstractifs avec moins de ressources linguistiques ?
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Conclusion}
+\framesubtitle{Contribution : Publications}
+
+\begin{itemize}
+	\item \optword{Graph-based Cumulative Score Using statistical features for multilingual automatic text summarization}
+	\begin{itemize}
+		\item \keyword{Journal :} International Journal of Data Mining, Modelling and Management
+		\item \keyword{Date de publication :} pas encore (acceptée)
+	\end{itemize}
+	\item \optword{AllSummarizer system at MultiLing 2015 : Multilingual single and multi-document summarization}
+	\begin{itemize}
+		\item \keyword{Conférence :} Special Interest Group on Discourse and Dialogue (SIGDIAL), Prague, Répulique tchèque
+		\item \keyword{Date de publication :} 4 septembre 2015
+	\end{itemize}
+	\item \optword{Exploring Graph Bushy Paths to Improve Statistical Multilingual Automatic Text Summarization}
+	\begin{itemize}
+		\item \keyword{Conférence :} Computational Intelligence and Its Applications (CIIA), Oran, Algérie
+		\item \keyword{Date de publication :} 12 Avril 2018
+	\end{itemize}
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Conclusion}
+\framesubtitle{Contribution : Articles non publiés}
+	
+\begin{itemize}
+	\item \optword{Sentence Object Notation: Multilingual sentence notation based on Wordnet.}
+	\begin{itemize}
+		\item \keyword{Arxiv :} CoRR abs/1801.00984
+		\item \keyword{Date de publication :} 2018
+	\end{itemize}
+	\item \optword{Automatic text summarization: What has been done and what has to be done.}
+	\begin{itemize}
+		\item \keyword{Arxiv :} CoRR abs/1904.00688
+		\item \keyword{Date de publication :} 2019
+	\end{itemize}
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Résumé automatique de textes : Conclusion}
+\framesubtitle{Contribution : Ressources}
+	
+
+\begin{itemize}
+	\item \optword{AllSummarizer} : outil de résumé automatique
+	\begin{itemize}
+		\item Langage de programmtion : Java
+		\item \url{https://github.com/kariminf/allsummarizer}
+		\item Contient les méthodes TCC et SSF-GC
+	\end{itemize}
+	\item \optword{LangPi} : outil de prétraitement
+	\begin{itemize}
+		\item Langage de programmtion : Java
+		\item \url{https://github.com/kariminf/langpi}
+		\item Normalisation, segmentation, radicalisation et évaluation ROUGE.
+	\end{itemize}
+	\item \optword{ML2ExtraSum} : outil de résumé automatique
+	\begin{itemize}
+		\item Langage de programmtion : Python
+		\item \url{https://github.com/kariminf/ML2ExtraSum/}
+		\item Résumé extractif en utilisant l'apprentissage automatique + MultiLing’15 MSS corpus
+	\end{itemize}
+		
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[plain]
+
+\begin{center}
+	\Huge\bfseries Merci pour votre attention 
+\end{center}
+
+\begin{flushright}
+	\parbox{.5\textwidth}{%
+		Si on a utilisé le résumé automatique, on aura fini la présentation dans 5 minutes
+	}%
+\end{flushright}
+
+	
+\end{frame}
+
+\section*{Bibliographie}
+\begin{multicols*}{2}[\frametitle{\insertsection} \usebeamertemplate*{frametitle}]%\usebeamertemplate*{frametitle}\frametitle{Références}
+\tiny
+\bibliography{cite}
+\end{multicols*}
+
+\end{document}
+
